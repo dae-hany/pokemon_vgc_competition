@@ -1,8 +1,9 @@
 from multiprocessing.connection import Client
+from typing import Optional
 
 from vgc2.agent import BattlePolicy, SelectionPolicy, SelectionCommand, TeamBuildPolicy, TeamBuildCommand, \
     MetaBalancePolicy, RosterBalanceCommand, RuleBalanceCommand, RuleBalancePolicy
-from vgc2.battle_engine import State, BattleCommand, Team
+from vgc2.battle_engine import State, BattleCommand, Team, TeamView
 from vgc2.competition import Competitor, DesignCompetitor
 from vgc2.meta import Meta, Roster, MoveSet
 from vgc2.meta.constraints import Constraints
@@ -15,8 +16,9 @@ class ProxyBattlePolicy(BattlePolicy):
         self.__conn: Client = conn
 
     def decision(self,
-                 state: State) -> list[BattleCommand]:
-        self.__conn.send(('BattlePolicy', state))
+                 state: State,
+                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
+        self.__conn.send(('BattlePolicy', state, opp_view))
         return self.__conn.recv()
 
 

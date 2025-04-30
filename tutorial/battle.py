@@ -15,12 +15,12 @@ def main():
     state = State(get_battle_teams(team, n_active))
     state_view = StateView(state, 0, team_view), StateView(state, 1, team_view)
     engine = BattleEngine(state)
-    agent = GreedyBattlePolicy(), RandomBattlePolicy()
+    agent = GreedyBattlePolicy(), RandomBattlePolicy()  # TreeSearchBattlePolicy(n_moves)
     print("~ Team 0 ~")
     print(team[0])
     print("~ Team 1 ~")
     print(team[1])
-    winner = run_battle(engine, agent, state_view)
+    winner = run_battle(engine, agent, team_view, state_view)
     print("Side " + str(winner) + " wins!")
 
 

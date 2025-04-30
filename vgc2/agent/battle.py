@@ -1,6 +1,7 @@
 from itertools import product
 from math import prod
 from random import sample
+from typing import Optional
 
 from numpy import argmax
 from numpy.random import choice
@@ -24,7 +25,8 @@ class RandomBattlePolicy(BattlePolicy):
         self.switch_prob = switch_prob
 
     def decision(self,
-                 state: State) -> list[BattleCommand]:
+                 state: State,
+                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         team = state.sides[0].team
         n_switches = len(team.reserve)
         n_targets = len(state.sides[1].team.active)
@@ -83,7 +85,9 @@ class GreedyBattlePolicy(BattlePolicy):
                  params: BattleRuleParam = BattleRuleParam()):
         self.params = params
 
-    def decision(self, state: State) -> list[BattleCommand]:
+    def decision(self,
+                 state: State,
+                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         n_active_0, n_active_1 = len(state.sides[0].team.active), len(state.sides[1].team.active)
         match max(n_active_0, n_active_1):
             case 1:
@@ -148,13 +152,9 @@ class TreeSearchBattlePolicy(BattlePolicy):
     """
 
     def __init__(self,
-                 opp_team: TeamView,
-                 max_team_size: int = 4,
                  max_moves: int = 4,
                  max_depth: int = 1,
                  params: BattleRuleParam = BattleRuleParam()):
-        self.opp_team = opp_team
-        self.max_team_size = max_team_size
         self.max_moves = max_moves
         self.max_depth = max_depth
         self.params = params
@@ -206,21 +206,23 @@ class TreeSearchBattlePolicy(BattlePolicy):
             # otherwise lookahead one more turn
             else:
                 actions = get_actions((_state.sides[0].team, _state.sides[1].team))
-                opp_action = self.opp_policy.decision(State((_state.sides[1], _state.sides[0])))  # assume greedy and single decision
+                opp_action = self.opp_policy.decision(State((_state.sides[1], _state.sides[0])),
+                                                      None)  # assume greedy and single decision
                 evals = [self.eval_action(_state, action, opp_action, depth + 1) for action in actions]
                 val += prob * max(evals, default=0.)  # assuming greedy
             weight += prob
         return 0.975 * val / weight
 
     def decision(self,
-                 state: State) -> list[BattleCommand]:
+                 state: State,
+                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         action_eval: dict[tuple[tuple[int, int], ...], float] = {}
         # deduce initial state
-        _state = deduce_state(state, self.opp_team, self.max_moves)
+        _state = deduce_state(state, opp_view, self.max_moves)
         # iterate over all our possible actions
         for action in get_actions((_state.sides[0].team, _state.sides[1].team)):
             # assume a single and greedy decision from opponent
-            opp_action = self.opp_policy.decision(State((_state.sides[1], _state.sides[0])))
+            opp_action = self.opp_policy.decision(State((_state.sides[1], _state.sides[0])), None)
             value = self.eval_action(_state, action, opp_action, 0)
             key = tuple(tuple(a) for a in action)
             action_eval[key] = value
@@ -252,7 +254,8 @@ class TerminalBattle(BattlePolicy):
     """
 
     def decision(self,
-                 state: State) -> list[BattleCommand]:
+                 state: State,
+                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         cmds: list[BattleCommand] = []
         team = state.sides[0].team
         print('~ Actions ~')

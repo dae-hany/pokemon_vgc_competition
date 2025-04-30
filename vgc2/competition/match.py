@@ -17,9 +17,10 @@ def subteam(team: Team,
 
 def run_battle(engine: BattleEngine,
                agent: tuple[BattlePolicy, BattlePolicy],
+               team_view: tuple[TeamView, TeamView],
                view: tuple[StateView, StateView]) -> int:
     while not engine.finished():
-        engine.run_turn((agent[0].decision(view[0]), agent[1].decision(view[1])))
+        engine.run_turn((agent[0].decision(view[0], team_view[1]), agent[1].decision(view[1], team_view[0])))
     return engine.winning_side
 
 
@@ -71,7 +72,7 @@ class Match:
         state = State(get_battle_teams(team, self.n_active))
         state_view = StateView(state, 0, view), StateView(state, 1, view)
         engine = BattleEngine(state)
-        self.wins[run_battle(engine, agent, state_view)] += 1
+        self.wins[run_battle(engine, agent, base_view, state_view)] += 1
 
     def _run_random(self):
         agent = self.cm[0].competitor.battle_policy, self.cm[1].competitor.battle_policy

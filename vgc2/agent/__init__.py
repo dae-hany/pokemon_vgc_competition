@@ -1,9 +1,12 @@
 from abc import abstractmethod, ABC
+from typing import Optional
 
-from vgc2.battle_engine import BattleCommand, Move, Type
+from vgc2.battle_engine import BattleCommand
 from vgc2.battle_engine.game_state import State
-from vgc2.battle_engine.modifiers import Stats, Nature
+from vgc2.battle_engine.modifiers import Stats, Nature, Type
+from vgc2.battle_engine.move import Move
 from vgc2.battle_engine.team import Team
+from vgc2.battle_engine.view import TeamView
 from vgc2.meta import Meta, Roster, MoveSet
 from vgc2.meta.constraints import Constraints
 
@@ -18,7 +21,8 @@ class BattlePolicy(ABC):
 
     @abstractmethod
     def decision(self,
-                 state: State) -> list[BattleCommand]:
+                 state: State,
+                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         pass
 
 

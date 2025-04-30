@@ -209,7 +209,7 @@ class BattleEngine:  # TODO Debug mode
             self.state.sides[not side].team.switch(self.state.sides[not side].team.get_active_pos(defender),
                                                    self.state.sides[not side].team.first_from_reserve())
         elif not _move.self_boosts and any(b != 0 for b in _move.boosts):
-            defender.boosts = [int(clip(_b + b, -6, 6)) for _b, b in zip(defender.boosts, _move.boosts)]
+            defender.boosts = [int(clip(_b + b, a_min=-6, a_max=6)) for _b, b in zip(defender.boosts, _move.boosts)]
 
     def _end_of_turn_state_effects(self):
         all_active = self.state.sides[0].team.active + self.state.sides[1].team.active

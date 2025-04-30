@@ -44,7 +44,7 @@ class RemoteCompetitorManager(RemoteManager):
     def _run_method(self, msg):
         match msg[0]:
             case 'BattlePolicy':
-                self.conn.send(self.competitor.battle_policy.decision(msg[1]))
+                self.conn.send(self.competitor.battle_policy.decision(msg[1], msg[2]))
             case 'SelectionPolicy':
                 self.conn.send(self.competitor.selection_policy.decision(msg[1], msg[2]))
             case 'TeamBuildPolicy':

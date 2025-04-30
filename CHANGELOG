@@ -1,5 +1,11 @@
 ## Changelog
 
+### Version 1.0.5 (April 2025)
+
+* BattlePolicy now receives two parameters, state view and team view
+    * this was required because we need to propagate the memory of what was already revealed to remote processes
+    * battle agents receiving opponent team view as a constructor parameter hindered the design of systems using vgc2
+
 ### Version 1.0.4 (February 2025)
 
 * Introduced BattleRuleParam
