@@ -66,7 +66,7 @@ class BattlingTeam:
     def fainted(self) -> bool:
         return all(p.fainted() for p in self.active + self.reserve)
 
-    def total_hp(self):
+    def tie_breaker(self):
         return sum(p.hp for p in self.active + self.reserve)
 
     def get_active_pos(self,

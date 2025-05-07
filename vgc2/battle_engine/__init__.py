@@ -60,32 +60,30 @@ class BattleEngine:  # TODO Debug mode
         self.winning_side = -1
         self._move_queue = []
         self._switch_queue = []
+        self.turn = 0
 
     def run_turn(self,
                  commands: FullCommand):
+        self.turn += 1
         self._set_action_queue(commands)
         try:
             self._perform_switches()
             self._perform_moves()
             self._end_of_turn_state_effects()
-            self.turn += 1
             if self.turn >= self.turn_limit:
-                print("Turn limit reached!")
-                raise BattleEngine.TeamFainted
+                self.winning_side = int(self.state.sides[0].team.tie_breaker() > self.state.sides[1].team.tie_breaker())
+                return
         except BattleEngine.TeamFainted:
-            if self.state.sides[1].team.fainted() and not self.state.sides[0].team.fainted():
+            team0_fainted, team1_fainted = self.state.sides[0].team.fainted(), self.state.sides[1].team.fainted()
+            if team1_fainted and not team0_fainted:
                 self.winning_side = 0
-            if self.state.sides[0].team.fainted() and not self.state.sides[1].team.fainted():
-                self.winning_side = 1
-            if self.state.sides[0].team.total_hp() > self.state.sides[1].team.total_hp():
-                self.winning_side = 0
-            else:
+            if team0_fainted and not team1_fainted:
                 self.winning_side = 1
             return
         self.state._on_turn_end(self.params)
 
     def finished(self) -> bool:
-        return self.state.terminal()
+        return self.state.terminal() or self.turn >= self.turn_limit
 
     def _set_action_queue(self,
                           commands: FullCommand):
