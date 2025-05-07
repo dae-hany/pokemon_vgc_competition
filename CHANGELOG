@@ -1,5 +1,10 @@
 ## Changelog
 
+### Version 1.0.6 (May 2025)
+
+* Fixed Evasion/Accuracy modifier bug, where their difference could surpass the -6, 6 interval, and is now clipped.
+* Turn Limit in Battle Engine
+
 ### Version 1.0.5 (April 2025)
 
 * BattlePolicy now receives two parameters, state view and team view

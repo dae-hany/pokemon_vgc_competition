@@ -66,6 +66,9 @@ class BattlingTeam:
     def fainted(self) -> bool:
         return all(p.fainted() for p in self.active + self.reserve)
 
+    def total_hp(self):
+        return sum(p.hp for p in self.active + self.reserve)
+
     def get_active_pos(self,
                        pkm: BattlingPokemon) -> int:
         return next((i for i, p in enumerate(self.active) if p == pkm), -1)

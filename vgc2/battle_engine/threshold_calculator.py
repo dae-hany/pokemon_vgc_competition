@@ -1,3 +1,5 @@
+from numpy import clip
+
 from vgc2.battle_engine.constants import BattleRuleParam
 from vgc2.battle_engine.modifiers import Stat
 from vgc2.battle_engine.move import Move
@@ -8,8 +10,9 @@ def accuracy_evasion_modifier(params: BattleRuleParam,
                               move: Move,
                               attacker: BattlingPokemon,
                               defender: BattlingPokemon) -> float:
-    return params.ACCURACY_MULTIPLIER_LOOKUP[attacker.boosts[Stat.ACCURACY] -
-                                             (0 if move.ignore_evasion else defender.boosts[Stat.EVASION])]
+    return params.ACCURACY_MULTIPLIER_LOOKUP[
+        int(clip(attacker.boosts[Stat.ACCURACY] - (0 if move.ignore_evasion else defender.boosts[Stat.EVASION]), -6,
+                 6).item())]
 
 
 def protect_modifier(params: BattleRuleParam,
