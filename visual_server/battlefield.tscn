@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlj0wx03ffi5j"]
+
+[ext_resource type="Script" uid="uid://b6fj0atwe6ubo" path="res://battlefield.gd" id="1_fxwnf"]
+[ext_resource type="PackedScene" uid="uid://c26fp2130v5p5" path="res://healthbar_3d.tscn" id="3_vsh2u"]
+[ext_resource type="Texture2D" uid="uid://d1ug3j2gjgkki" path="res://sprites/pkm/0_1.png" id="4_tkjg1"]
+[ext_resource type="Script" uid="uid://cyeg1265jdisd" path="res://fade_screen.gd" id="4_vsh2u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fxwnf"]
+load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vsh2u"]
+load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tkjg1"]
+load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y8d5v"]
+load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
+
+[node name="Battlefield" type="Node3D" node_paths=PackedStringArray("left_sprites", "right_sprites")]
+script = ExtResource("1_fxwnf")
+left_sprites = [NodePath("LeftSide/Sprite3DL0"), NodePath("LeftSide/Sprite3DL1"), NodePath("LeftSide/Sprite3DL2"), NodePath("LeftSide/Sprite3DL3")]
+right_sprites = [NodePath("RightSide/Sprite3DR0"), NodePath("RightSide/Sprite3DR1"), NodePath("RightSide/Sprite3DR2"), NodePath("RightSide/Sprite3DR3")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00125198, 0, 1.00004)
+
+[node name="LeftSide" type="Node3D" parent="."]
+
+[node name="Sprite3DL0" type="Sprite3D" parent="LeftSide"]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.25, -0.214668, 0.2)
+texture_filter = 0
+texture = ExtResource("4_tkjg1")
+
+[node name="Healthbar3D" parent="LeftSide/Sprite3DL0" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.000529796, 0.383484, 0.0018692)
+
+[node name="Sprite3DL1" type="Sprite3D" parent="LeftSide"]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.5, 0, 0)
+texture_filter = 0
+texture = ExtResource("4_tkjg1")
+
+[node name="Healthbar3D" parent="LeftSide/Sprite3DL1" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.000529766, 0.383484, 0.0018692)
+
+[node name="Sprite3DL2" type="Sprite3D" parent="LeftSide"]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -1.25, 0, -0.5)
+texture_filter = 0
+texture = SubResource("CompressedTexture2D_fxwnf")
+
+[node name="Healthbar3D" parent="LeftSide/Sprite3DL2" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.000529766, 0.383484, 0.0018692)
+
+[node name="Sprite3DL3" type="Sprite3D" parent="LeftSide"]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -1.75, 0, -0.5)
+texture_filter = 0
+texture = SubResource("CompressedTexture2D_vsh2u")
+
+[node name="Healthbar3D" parent="LeftSide/Sprite3DL3" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.000529766, 0.383484, 0.0018692)
+
+[node name="RightSide" type="Node3D" parent="."]
+
+[node name="Sprite3DR0" type="Sprite3D" parent="RightSide"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.25, -0.212668, 0.2)
+texture_filter = 0
+texture = ExtResource("4_tkjg1")
+
+[node name="Healthbar3D" parent="RightSide/Sprite3DR0" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.000529766, 0.383484, -0.0018692)
+
+[node name="Sprite3DR1" type="Sprite3D" parent="RightSide"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.502054, 0.00184798, -0.000644207)
+texture_filter = 0
+texture = ExtResource("4_tkjg1")
+
+[node name="Healthbar3D" parent="RightSide/Sprite3DR1" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.000529766, 0.383484, -0.0018692)
+
+[node name="Sprite3DR2" type="Sprite3D" parent="RightSide"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.25, 0, -0.5)
+texture_filter = 0
+texture = SubResource("CompressedTexture2D_tkjg1")
+
+[node name="Healthbar3D" parent="RightSide/Sprite3DR2" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.000529766, 0.383484, -0.0018692)
+
+[node name="Sprite3DR3" type="Sprite3D" parent="RightSide"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.75, 0, -0.5)
+texture_filter = 0
+texture = SubResource("CompressedTexture2D_y8d5v")
+
+[node name="Healthbar3D" parent="RightSide/Sprite3DR3" instance=ExtResource("3_vsh2u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.000529766, 0.383484, -0.0018692)
+
+[node name="FadeScreen" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("4_vsh2u")

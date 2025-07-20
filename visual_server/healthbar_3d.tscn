@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c26fp2130v5p5"]
+
+[ext_resource type="Texture2D" uid="uid://ddfea3d8v1usw" path="res://sprites/barHorizontal_green_mid 200.png" id="1_mm0o1"]
+[ext_resource type="Script" uid="uid://ckuv4srj1dsxe" path="res://healthbar_3d.gd" id="2_ymgm0"]
+[ext_resource type="Script" uid="uid://dcsa70na5cq1s" path="res://texture_progress_bar.gd" id="3_g35cs"]
+
+[node name="Healthbar3D" type="Sprite3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_mm0o1")
+script = ExtResource("2_ymgm0")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(200, 60)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("1_mm0o1")
+script = ExtResource("3_g35cs")
