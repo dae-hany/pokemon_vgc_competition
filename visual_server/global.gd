@@ -42,3 +42,5 @@ const TYPE_TO_STRINGS := {
     Type.STEEL: ["16_1.png", "16_2.png", "16_3.png"],
     Type.FAIRY: ["17_1.png", "17_2.png", "17_3.png"]
 }
+
+var text_box: Label
