@@ -101,7 +101,7 @@ func _handle_battle(msg: Dictionary):
 	pass
 
 func _handle_turn(msg: Dictionary):
-	Global.text_box.show_message("Start turn {num}".format({"num": int(msg["number"])}))
+	Global.text_box.show_message("Start turn {num}.".format({"num": int(msg["number"])}))
 	await Global.text_box.text_finished
 
 func _handle_attack(msg: Dictionary):
