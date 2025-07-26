@@ -73,5 +73,9 @@ class BattlingTeam:
                        pkm: BattlingPokemon) -> int:
         return next((i for i, p in enumerate(self.active) if p == pkm), -1)
 
+    def get_reserve_pos(self,
+                        pkm: BattlingPokemon) -> int:
+        return next((i for i, p in enumerate(self.reserve) if p == pkm), -1)
+
     def first_from_reserve(self) -> int:
         return next((i for i, p in enumerate(self.reserve) if not p.fainted()), -1)

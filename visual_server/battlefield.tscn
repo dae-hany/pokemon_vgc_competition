@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlj0wx03ffi5j"]
+[gd_scene load_steps=13 format=3 uid="uid://dlj0wx03ffi5j"]
 
 [ext_resource type="Script" uid="uid://b6fj0atwe6ubo" path="res://battlefield.gd" id="1_fxwnf"]
 [ext_resource type="PackedScene" uid="uid://c26fp2130v5p5" path="res://healthbar_3d.tscn" id="3_vsh2u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cyeg1265jdisd" path="res://fade_screen.gd" id="4_vsh2u"]
 [ext_resource type="FontFile" uid="uid://buhbpwf3ldwf4" path="res://PKMN RBYGSC.ttf" id="5_tkjg1"]
 [ext_resource type="Script" uid="uid://ckb2iybsxfubh" path="res://text_box.gd" id="6_y8d5v"]
+[ext_resource type="Script" uid="uid://cbpyxs018ay7o" path="res://network_server.gd" id="7_y8rib"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fxwnf"]
 load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
@@ -136,3 +137,6 @@ offset_bottom = 609.0
 label_settings = SubResource("LabelSettings_y8d5v")
 vertical_alignment = 2
 script = ExtResource("6_y8d5v")
+
+[node name="NetworkServer" type="Node3D" parent="."]
+script = ExtResource("7_y8rib")

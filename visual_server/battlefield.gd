@@ -3,6 +3,8 @@ extends Node3D
 @export var left_sprites: Array[Node3D] = []
 @export var right_sprites: Array[Node3D] = []
 
+@onready var network_server: NetworkServer = get_node("NetworkServer")
+
 var _is_animating = false
 
 func _ready():
@@ -67,3 +69,52 @@ func _input(event):
 		await faint(left_sprites[0], 0.2)
 		await switch(left_sprites[0], left_sprites[2], 0.5)
 		_is_animating = false
+
+func _process(delta: float) -> void:
+	if network_server and not _is_animating and network_server.has_message():
+		var msg = network_server.get_next_message()
+		_animate_event(msg)
+
+# This needs to be async
+func _animate_event(msg: Dictionary):
+	_is_animating = true
+	match msg.get("event", ""):
+		"Battle":
+			await _handle_battle(msg)
+		"Turn":
+			await _handle_turn(msg)
+		"Attack":
+			await _handle_attack(msg)
+		"Damage":
+			await _handle_damage(msg)
+		"Switch":
+			await _handle_switch(msg)
+		"Faint":
+			await _handle_faint(msg)
+		"End":
+			await _handle_end(msg)
+		_:
+			print("Unknown event:", msg)
+	_is_animating = false
+
+func _handle_battle(msg: Dictionary):
+	pass
+
+func _handle_turn(msg: Dictionary):
+	Global.text_box.show_message("Start turn {num}".format({"num": int(msg["number"])}))
+	await Global.text_box.text_finished
+
+func _handle_attack(msg: Dictionary):
+	pass
+
+func _handle_damage(msg: Dictionary):
+	pass
+
+func _handle_switch(msg: Dictionary):
+	pass
+
+func _handle_faint(msg: Dictionary):
+	pass
+
+func _handle_end(msg: Dictionary):
+	pass

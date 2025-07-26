@@ -5,13 +5,15 @@ from vgc2.battle_engine.constants import BattleRuleParam
 from vgc2.battle_engine.damage_calculator import calculate_damage, calculate_poison_damage, calculate_sand_damage, \
     calculate_burn_damage, calculate_stealth_rock_damage
 from vgc2.battle_engine.game_state import State, Side
-from vgc2.battle_engine.modifiers import Weather, Terrain, Hazard, Status, Category, Type
+from vgc2.battle_engine.modifiers import Weather, Terrain, Hazard, Status, Category, Type, Stat
 from vgc2.battle_engine.move import Move, BattlingMove
 from vgc2.battle_engine.pokemon import BattlingPokemon
 from vgc2.battle_engine.priority_calculator import priority_calculator
+from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack
 from vgc2.battle_engine.team import Team, BattlingTeam
 from vgc2.battle_engine.threshold_calculator import paralysis_threshold, move_hit_threshold, thaw_threshold
 from vgc2.battle_engine.view import StateView, TeamView
+from vgc2.net.godot_com import GodotClient
 
 BattleCommand = tuple[int, int]  # action, target
 FullCommand = tuple[list[BattleCommand], list[BattleCommand]]
@@ -25,7 +27,7 @@ class BattleEngine:  # TODO Debug mode
         pass
 
     __slots__ = ('state', 'params', 'winning_side', 'acc_rng', 'eff_rng', 'sta_rng', '_move_queue', '_switch_queue',
-                 'turn_limit', 'turn')
+                 'turn_limit', 'turn', 'debug', 'event_queue', 'client')
 
     def __init__(self,
                  state: State,
@@ -33,7 +35,8 @@ class BattleEngine:  # TODO Debug mode
                  acc_rng: tuple[tuple[Generator, ...], tuple[Generator, ...]] = ((_RNG, _RNG), (_RNG, _RNG)),
                  eff_rng: tuple[tuple[Generator, ...], tuple[Generator, ...]] = ((_RNG, _RNG), (_RNG, _RNG)),
                  sta_rng: tuple[tuple[Generator, ...], tuple[Generator, ...]] = ((_RNG, _RNG), (_RNG, _RNG)),
-                 turn_limit: int = 100):
+                 turn_limit: int = 100,
+                 debug: bool = False):
         self.state = state
         self.params = params
         self.acc_rng = acc_rng
@@ -45,6 +48,11 @@ class BattleEngine:  # TODO Debug mode
         self._set_state_engine()
         self.turn_limit = turn_limit
         self.turn = 0
+        self.debug = debug
+        self.event_queue = EventQueue()
+        if self.debug:
+            self.client = GodotClient()
+            self.event_queue.push(Battle((self.state.sides[0].team, self.state.sides[1].team)))
 
     def __str__(self):
         return str(self.state)
@@ -61,10 +69,21 @@ class BattleEngine:  # TODO Debug mode
         self._move_queue = []
         self._switch_queue = []
         self.turn = 0
+        self.event_queue.empty()
+
+    def render(self):
+        if self.debug:
+            while self.event_queue.not_empty():
+                event = self.event_queue.pop()
+                if not self.client.send_message(event.serialize()):
+                    self.event_queue.insert(event)
+                    break
 
     def run_turn(self,
                  commands: FullCommand):
         self.turn += 1
+        if self.debug:
+            self.event_queue.push(Turn(self.turn))
         self._set_action_queue(commands)
         try:
             self._perform_switches()
@@ -79,6 +98,8 @@ class BattleEngine:  # TODO Debug mode
                 self.winning_side = 0
             if team0_fainted and not team1_fainted:
                 self.winning_side = 1
+            if self.debug:
+                self.event_queue.push(End(self.winning_side))
             return
         self.state._on_turn_end(self.params)
 
@@ -131,6 +152,9 @@ class BattleEngine:  # TODO Debug mode
                 if (self.acc_rng[side][pos].random() >=
                         move_hit_threshold(self.params, _move.constants, attacker, defender)):
                     continue
+                if self.debug:
+                    self.event_queue.push(Attack(side, pos, self.state.sides[not side].team.get_active_pos(defender),
+                                                 _move.constants))
                 failed = False
                 # perform next move, damaged is applied first and then effects, unless opponent protected itself
                 damage = calculate_damage(self.params, side, _move.constants, self.state, attacker, defender)
@@ -236,6 +260,8 @@ class BattleEngine:  # TODO Debug mode
     def _on_fainted(self,
                     pkm: BattlingPokemon):
         side = self.state.get_side(pkm)
+        if self.debug:
+            self.event_queue.push(Faint(side, self.state.sides[side].team.get_active_pos(pkm)))
         if self.state.sides[side].team.fainted():
             raise BattleEngine.TeamFainted()
         self.state.sides[side].team.switch(self.state.sides[side].team.get_active_pos(pkm),
@@ -250,8 +276,19 @@ class BattleEngine:  # TODO Debug mode
         if not switch_in:
             return
         side = self.state.get_side(switch_in)
+        if self.debug:
+            self.event_queue.push(Switch(side, self.state.sides[side].team.get_active_pos(switch_in),
+                                         self.state.sides[side].team.get_reserve_pos(switch_out)))
         if (self.state.sides[side].conditions.poison_spikes and Type.POISON not in switch_in.types and
                 Type.STEEL not in switch_in.types and switch_in.status == Status.NONE):
             switch_in.status = Status.POISON
         if self.state.sides[side].conditions.stealth_rock:
             switch_in.deal_damage(calculate_stealth_rock_damage(self.params, switch_in))
+
+    def _on_damage(self,
+                   pkm: BattlingPokemon,
+                   damage: int):
+        if self.debug:
+            side = self.state.get_side(pkm)
+            self.event_queue.push(Damage(damage / pkm.constants.species.base_stats[Stat.MAX_HP], side,
+                                         self.state.sides[side].team.get_active_pos(pkm)))
