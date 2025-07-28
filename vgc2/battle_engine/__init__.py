@@ -204,21 +204,37 @@ class BattleEngine:
         # State changes
         if _move.weather_start != Weather.CLEAR and _move.weather_start != self.state.weather:
             self.state.weather = _move.weather_start
+            if self.debug:
+                self.event_queue.push(Message(f"The weather is {_move.weather_start.name}"))
         elif _move.field_start != Terrain.NONE and _move.field_start != self.state.field:
             self.state.field = _move.field_start
+            if self.debug:
+                self.event_queue.push(Message(f"The field is {_move.field_start.name}"))
         elif _move.toggle_trickroom and not self.state.trickroom:
             self.state.trickroom = True
+            if self.debug:
+                self.event_queue.push(Message("Trick room in effect."))
         # Side conditions changes
         elif _move.toggle_lightscreen and not self.state.sides[side].conditions.lightscreen:
             self.state.sides[side].conditions.lightscreen = True
+            if self.debug:
+                self.event_queue.push(Message("Light screen in effect."))
         elif _move.toggle_reflect and not self.state.sides[side].conditions.reflect:
             self.state.sides[side].conditions.reflect = True
+            if self.debug:
+                self.event_queue.push(Message("Reflect in effect."))
         elif _move.toggle_tailwind and not self.state.sides[side].conditions.tailwind:
             self.state.sides[side].conditions.tailwind = True
+            if self.debug:
+                self.event_queue.push(Message("Tailwind in effect."))
         elif _move.hazard == Hazard.STEALTH_ROCK:
             self.state.sides[side].conditions.stealth_rock = True
+            if self.debug:
+                self.event_queue.push(Message("Stealth Rock in effect."))
         elif _move.hazard == Hazard.TOXIC_SPIKES:
             self.state.sides[side].conditions.poison_spikes = True
+            if self.debug:
+                self.event_queue.push(Message("Poison Spikes in effect."))
         # Pokémon effects
         elif _move.heal > 0:
             attacker.recover(int(damage * _move.heal))
@@ -233,6 +249,8 @@ class BattleEngine:
             attacker.boosts = clip([_b + b for _b, b in zip(attacker.boosts, _move.boosts)], a_min=-6, a_max=6).tolist()
         elif _move.protect:
             attacker.protect = True
+            if self.debug:
+                self.event_queue.push(Message("Protects itself."))
 
     def _perform_target_effects(self,
                                 _move: Move,
@@ -241,10 +259,14 @@ class BattleEngine:
         # Pokémon effects
         if _move.status != Status.NONE and defender.status == Status.NONE:
             defender.status = _move.status
+            if self.debug:
+                self.event_queue.push(Message(f"It is now {_move.status.name}."))
         # Move Effects
         elif _move.disable and not any(
                 m.disabled for m in defender.battling_moves) and defender.last_used_move is not None:
             defender.last_used_move.disabled = True
+            if self.debug:
+                self.event_queue.push(Message("It disabled last move."))
         elif _move.force_switch:
             self.state.sides[not side].team.switch(self.state.sides[not side].team.get_active_pos(defender),
                                                    self.state.sides[not side].team.first_from_reserve())

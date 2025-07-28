@@ -11,8 +11,8 @@ var _is_animating = false
 func set_type(sprite: Node3D, type: int, index: int = 0):
 	sprite.get_child(0).texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index])
 
-func attack(sprite: Node3D, duration: float = 0.25):
-	Global.text_box.show_message("Perform attack!")
+func attack(sprite: Node3D, msg: Dictionary, duration: float = 0.25):
+	Global.text_box.show_message("Perform {power} {type} attack!".format({"type": msg["type"], "power": int(msg["power"])}))
 	await Global.text_box.text_finished
 	var tween = create_tween()
 	tween.tween_property(sprite.get_child(0), "rotation_degrees:z", 45, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -123,7 +123,7 @@ func _handle_attack(msg: Dictionary):
 	var side = int(msg["side"])
 	var attacker = int(msg["attacker"])
 	var sprites = left_sprites if side == 0 else right_sprites
-	await attack(sprites[attacker], 0.1)
+	await attack(sprites[attacker], msg, 0.1)
 
 func _handle_damage(msg: Dictionary):
 	var side = int(msg["side"])
@@ -140,7 +140,6 @@ func _handle_switch(msg: Dictionary):
 	# special case where we switch active positions
 	if switch_in == -1:
 		if switch_out-2 == 0:
-			print("switch fainted", switch_in, switch_out)
 			switch_in = 1
 			switch_out = 0
 		else:

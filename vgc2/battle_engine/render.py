@@ -78,7 +78,9 @@ class Attack(Event):
             "event": "Attack",
             "side": self.side,
             "attacker": self.attacker,
-            "category": int(self.move.category)
+            "category": int(self.move.category),
+            "type": str(self.move.pkm_type.name),
+            "power": int(self.move.base_power)
         })
 
 
