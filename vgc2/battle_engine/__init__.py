@@ -43,7 +43,7 @@ class BattleEngine:  # TODO Debug mode
         self.eff_rng = eff_rng
         self.sta_rng = sta_rng
         self.winning_side: int = -1
-        self._move_queue: list[tuple[int, BattlingPokemon, BattlingMove, list[BattlingPokemon]]] = []
+        self._move_queue: list[tuple[int, BattlingPokemon, BattlingMove, list[int]]] = []
         self._switch_queue: list[tuple[int, int, int]] = []
         self._set_state_engine()
         self.turn_limit = turn_limit
@@ -109,6 +109,7 @@ class BattleEngine:  # TODO Debug mode
     def _set_action_queue(self,
                           commands: FullCommand):
         for side in (0, 1):
+            # print(commands)
             for i, a in enumerate(commands[side]):
                 if i >= len(self.state.sides[side].team.active):
                     continue
@@ -117,8 +118,9 @@ class BattleEngine:  # TODO Debug mode
                     def_act = self.state.sides[not side].team.active
                     if not user.battling_moves:
                         raise Exception('Invalid Game State: Pokemon with 0 moves.')
+                    # print("side", side, "a", a)
                     self._move_queue += [(side, user, user.battling_moves[a[0]],
-                                          [def_act[a[1] if a[1] < len(def_act) else 0]])]
+                                          [a[1] if a[1] < len(def_act) else 0])]
                 else:
                     self._switch_queue += [(side, i, a[1])]
 
@@ -130,7 +132,7 @@ class BattleEngine:  # TODO Debug mode
     def _perform_moves(self):
         while len(self._move_queue) > 0:
             # determine next move
-            side, attacker, _move, defenders = (
+            side, attacker, _move, def_pos = (
                 self._move_queue.pop(max(enumerate([priority_calculator(self.params, a[2].constants, a[1], self.state)
                                                     for a in self._move_queue]), key=lambda x: x[1])[0]))
             # before each move check if Pokémon can attack due status or have its status removed
@@ -145,6 +147,8 @@ class BattleEngine:  # TODO Debug mode
             if _move != STRUGGLE:
                 _move.pp = max(0, _move.pp - 1)
                 attacker.on_move_used(_move)
+            def_act = self.state.sides[not side].team.active
+            defenders = [def_act[i] for i in def_pos] if len(def_act) > 1 else [def_act[0]]
             for defender in defenders:
                 if defender.protect:
                     protected = True
@@ -258,19 +262,23 @@ class BattleEngine:  # TODO Debug mode
                     pkm: BattlingPokemon):
         side = self.state.get_side(pkm)
         _team = self.state.sides[side].team
+        pos = _team.get_active_pos(pkm)
         if self.debug:
-            self.event_queue.push(Faint(side, _team.get_active_pos(pkm)))
+            self.event_queue.push(Faint(side, pos))
         if _team.fainted():
             raise BattleEngine.TeamFainted()
-        _team.switch(_team.get_active_pos(pkm), _team.first_from_reserve())
+        _team.switch(pos, _team.first_from_reserve())
 
     def _on_switch(self,
                    switch_in: BattlingPokemon | None,
-                   switch_out: BattlingPokemon):
+                   switch_out: BattlingPokemon,
+                   active_pos: int = -1):
         # if a Pokémon switches out it will no longer perform its moves
         self._move_queue = [a for a in self._move_queue if a[1] != switch_out]
         # hazards
         if not switch_in:
+            if self.debug:
+                self.event_queue.push(Switch(self.state.get_side(switch_out), -1, active_pos))
             return
         side = self.state.get_side(switch_in)
         _team = self.state.sides[side].team

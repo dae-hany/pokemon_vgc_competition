@@ -135,6 +135,9 @@ func _handle_switch(msg: Dictionary):
 	var side = int(msg["side"])
 	var switch_in = int(msg["switch_in"])
 	var switch_out = int(msg["switch_out"]) + 2
+	if switch_in == -1 and switch_out == 0:
+		switch_in = 0
+		switch_out = 1
 	var sprites = left_sprites if side == 0 else right_sprites
 	await switch(sprites[switch_out], sprites[switch_in], 0.5)
 	var temp = sprites[switch_out]

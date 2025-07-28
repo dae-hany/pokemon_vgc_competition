@@ -5,6 +5,7 @@
 * Visual Server (Godot Engine)
 * Visual Debug
     * Network communication via UDP.
+* Switch bug fixed where Pokémon just switched out could take damage from scheduled attacks.
 
 ### Version 1.0.6 (May 2025)
 
