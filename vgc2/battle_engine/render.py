@@ -88,18 +88,18 @@ class Attack(Event):
 
 class Damage(Event):
     def __init__(self,
-                 damage_rate: int,
+                 hp_rate: int,
                  side: int,
                  defender: int,
                  ):
-        self.damage_rate = damage_rate
+        self.hp_rate = hp_rate
         self.side = side
         self.defender = defender
 
     def serialize(self) -> str:
         return json.dumps({
             "event": "Damage",
-            "damage_rate": self.damage_rate,
+            "hp_rate": self.hp_rate,
             "side": self.side,
             "defender": self.defender
         })

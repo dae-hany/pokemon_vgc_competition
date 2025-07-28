@@ -286,9 +286,8 @@ class BattleEngine:  # TODO Debug mode
             switch_in.deal_damage(calculate_stealth_rock_damage(self.params, switch_in))
 
     def _on_damage(self,
-                   pkm: BattlingPokemon,
-                   damage: int):
+                   pkm: BattlingPokemon):
         if self.debug:
             side = self.state.get_side(pkm)
-            self.event_queue.push(Damage(damage / pkm.constants.species.base_stats[Stat.MAX_HP], side,
+            self.event_queue.push(Damage(pkm.hp / pkm.constants.stats[Stat.MAX_HP], side,
                                          self.state.sides[side].team.get_active_pos(pkm)))

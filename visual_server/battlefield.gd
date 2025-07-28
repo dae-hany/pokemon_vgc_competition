@@ -4,20 +4,11 @@ extends Node3D
 @export var right_sprites: Array[Node3D] = []
 
 @onready var network_server: NetworkServer = get_node("NetworkServer")
+@onready var fade_screen: FadeScreen = get_node("FadeScreen")
 
 var _is_animating = false
 
-func _ready():
-	set_type(left_sprites[0], Global.Type.BUG)
-	set_type(left_sprites[1], Global.Type.FIRE)
-	set_type(left_sprites[2], Global.Type.FLYING)
-	set_type(left_sprites[3], Global.Type.WATER)
-	set_type(right_sprites[0], Global.Type.PSYCHIC)
-	set_type(right_sprites[1], Global.Type.NORMAL)
-	set_type(right_sprites[2], Global.Type.DARK)
-	set_type(right_sprites[3], Global.Type.ROCK)
-
-func set_type(sprite: Node3D, type: Global.Type, index: int = 0):
+func set_type(sprite: Node3D, type: int, index: int = 0):
 	sprite.get_child(0).texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index])
 
 func attack(sprite: Node3D, duration: float = 0.25):
@@ -59,17 +50,6 @@ func faint(sprite: Node3D, duration: float = 0.5):
 	tween.tween_interval(0.1)
 	await tween.finished
 
-func _input(event):
-	if event.is_action_pressed("debug") and not _is_animating:
-		_is_animating = true
-		#attack(left_sprites[0])
-		await attack(right_sprites[0], 0.1)
-		await damage(left_sprites[0])
-		await left_sprites[0].get_child(1).set_health(40)
-		await faint(left_sprites[0], 0.2)
-		await switch(left_sprites[0], left_sprites[2], 0.5)
-		_is_animating = false
-
 func _process(delta: float) -> void:
 	if network_server and not _is_animating and network_server.has_message():
 		var msg = network_server.get_next_message()
@@ -98,23 +78,59 @@ func _animate_event(msg: Dictionary):
 	_is_animating = false
 
 func _handle_battle(msg: Dictionary):
-	pass
+	if not fade_screen.is_faded_out():
+		Global.text_box.text = ""
+		await fade_screen.fade_out_in()
+	for side in msg["teams"].size():
+		var team = msg["teams"][side]
+		var sprites = left_sprites if side == 0 else right_sprites
+		for i in team["active"].size():
+			set_type(sprites[i], int(team["active"][i]["type"]))
+			sprites[i].get_child(0).rotation_degrees.z = 0
+			sprites[i].get_child(1).health_bar.value = 100.
+		for i in team["reserve"].size():
+			set_type(sprites[i+2], int(team["reserve"][i]["type"]))
+			sprites[i+2].get_child(0).rotation_degrees.z = 0
+			sprites[i+2].get_child(1).health_bar.value = 100.
+	await fade_screen.fade_out_in()
 
 func _handle_turn(msg: Dictionary):
-	Global.text_box.show_message("Start turn {num}.".format({"num": int(msg["number"])}))
+	var number = int(msg["number"])
+	Global.text_box.show_message("Start turn {num}.".format({"num": number}))
 	await Global.text_box.text_finished
 
 func _handle_attack(msg: Dictionary):
-	pass
+	var side = int(msg["side"])
+	var attacker = int(msg["attacker"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	await attack(sprites[attacker], 0.1)
 
 func _handle_damage(msg: Dictionary):
-	pass
+	var side = int(msg["side"])
+	var defender = int(msg["defender"])
+	var hp_rate = msg["hp_rate"]
+	var sprites = left_sprites if side == 0 else right_sprites
+	await damage(sprites[defender])
+	await sprites[defender].get_child(1).set_health(hp_rate * 100)
 
 func _handle_switch(msg: Dictionary):
-	pass
+	var side = int(msg["side"])
+	var switch_in = int(msg["switch_in"])
+	var switch_out = int(msg["switch_out"]) + 2
+	var sprites = left_sprites if side == 0 else right_sprites
+	await switch(sprites[switch_out], sprites[switch_in], 0.5)
+	var temp = sprites[switch_out]
+	sprites[switch_out] = sprites[switch_in]
+	sprites[switch_in] = temp
 
 func _handle_faint(msg: Dictionary):
-	pass
+	var side = int(msg["side"])
+	var pos = int(msg["pos"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	await faint(sprites[pos], 0.2)
 
 func _handle_end(msg: Dictionary):
-	pass
+	var side = int(msg["side"])
+	Global.text_box.show_message("Battle ended. Player {side} won!".format({"side": side}))
+	await Global.text_box.text_finished
+	await get_tree().create_timer(3.0).timeout
