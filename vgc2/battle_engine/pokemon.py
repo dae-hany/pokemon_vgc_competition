@@ -225,4 +225,3 @@ class BattlingPokemon:
 
     def on_move_used(self, move: BattlingMove):
         self.constants._on_move_used(self.battling_moves.index(move))
-        self._engine._on_attack(self, move)

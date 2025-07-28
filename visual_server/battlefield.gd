@@ -83,6 +83,8 @@ func _animate_event(msg: Dictionary):
 			await _handle_switch(msg)
 		"Faint":
 			await _handle_faint(msg)
+		"Message":
+			await _handle_message(msg)
 		"End":
 			await _handle_end(msg)
 		_:
@@ -135,20 +137,29 @@ func _handle_switch(msg: Dictionary):
 	var side = int(msg["side"])
 	var switch_in = int(msg["switch_in"])
 	var switch_out = int(msg["switch_out"]) + 2
-	if switch_in == -1 and switch_out == 0:
-		switch_in = 0
-		switch_out = 1
+	# special case where we switch active positions
+	if switch_in == -1:
+		if switch_out-2 == 0:
+			print("switch fainted", switch_in, switch_out)
+			switch_in = 1
+			switch_out = 0
+		else:
+			return
 	var sprites = left_sprites if side == 0 else right_sprites
-	await switch(sprites[switch_out], sprites[switch_in], 0.5)
 	var temp = sprites[switch_out]
 	sprites[switch_out] = sprites[switch_in]
 	sprites[switch_in] = temp
+	await switch(sprites[switch_out], sprites[switch_in], 0.5)
 
 func _handle_faint(msg: Dictionary):
 	var side = int(msg["side"])
 	var pos = int(msg["pos"])
 	var sprites = left_sprites if side == 0 else right_sprites
 	await faint(sprites[pos], 0.2)
+
+func _handle_message(msg: Dictionary):
+	Global.text_box.show_message(msg["message"])
+	await Global.text_box.text_finished
 
 func _handle_end(msg: Dictionary):
 	var side = int(msg["side"])

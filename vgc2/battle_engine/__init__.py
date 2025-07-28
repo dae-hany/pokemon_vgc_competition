@@ -9,7 +9,7 @@ from vgc2.battle_engine.modifiers import Weather, Terrain, Hazard, Status, Categ
 from vgc2.battle_engine.move import Move, BattlingMove
 from vgc2.battle_engine.pokemon import BattlingPokemon
 from vgc2.battle_engine.priority_calculator import priority_calculator
-from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack
+from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack, Message
 from vgc2.battle_engine.team import Team, BattlingTeam
 from vgc2.battle_engine.threshold_calculator import paralysis_threshold, move_hit_threshold, thaw_threshold
 from vgc2.battle_engine.view import StateView, TeamView
@@ -138,6 +138,8 @@ class BattleEngine:  # TODO Debug mode
             # before each move check if Pokémon can attack due status or have its status removed
             pos = self.state.sides[side].team.get_active_pos(attacker)
             if self._perform_status(attacker, side, pos, _move.constants):
+                if self.debug:
+                    self.event_queue.push(Message("It cannot move!"))
                 continue
             if all(m.pp == 0 for m in attacker.battling_moves):
                 _move = STRUGGLE
@@ -147,6 +149,7 @@ class BattleEngine:  # TODO Debug mode
             if _move != STRUGGLE:
                 _move.pp = max(0, _move.pp - 1)
                 attacker.on_move_used(_move)
+            self._on_attack(attacker, _move)
             def_act = self.state.sides[not side].team.active
             defenders = [def_act[i] for i in def_pos] if len(def_act) > 1 else [def_act[0]]
             for defender in defenders:
@@ -155,6 +158,8 @@ class BattleEngine:  # TODO Debug mode
                     continue
                 if (self.acc_rng[side][pos].random() >=
                         move_hit_threshold(self.params, _move.constants, attacker, defender)):
+                    if self.debug:
+                        self.event_queue.push(Message("The move failed!"))
                     continue
                 failed = False
                 # perform next move, damaged is applied first and then effects, unless opponent protected itself
@@ -277,6 +282,7 @@ class BattleEngine:  # TODO Debug mode
         self._move_queue = [a for a in self._move_queue if a[1] != switch_out]
         # hazards
         if not switch_in:
+            # special case where we switch active positions
             if self.debug:
                 self.event_queue.push(Switch(self.state.get_side(switch_out), -1, active_pos))
             return

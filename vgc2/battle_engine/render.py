@@ -136,6 +136,19 @@ class Faint(Event):
         })
 
 
+class Message(Event):
+
+    def __init__(self,
+                 message: str):
+        self.message = message
+
+    def serialize(self) -> str:
+        return json.dumps({
+            "event": "Message",
+            "message": self.message,
+        })
+
+
 class End(Event):
 
     def __init__(self,
