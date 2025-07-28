@@ -199,7 +199,7 @@ class BattlingPokemon:
     def deal_damage(self,
                     damage: int):
         self.hp = max(0, self.hp - damage)
-        self._engine._on_damage(self)
+        self._engine._on_damage(self, damage)
         if self.fainted():
             self._engine._on_fainted(self)
 
@@ -225,3 +225,4 @@ class BattlingPokemon:
 
     def on_move_used(self, move: BattlingMove):
         self.constants._on_move_used(self.battling_moves.index(move))
+        self._engine._on_attack(self, move)

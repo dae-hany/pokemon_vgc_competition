@@ -68,11 +68,9 @@ class Attack(Event):
     def __init__(self,
                  side: int,
                  attacker: int,
-                 defender: int,
                  move):
         self.side = side
         self.attacker = attacker
-        self.defender = defender
         self.move = move
 
     def serialize(self) -> str:
@@ -80,8 +78,6 @@ class Attack(Event):
             "event": "Attack",
             "side": self.side,
             "attacker": self.attacker,
-            "defender": self.defender,
-            "type": int(self.move.pkm_type),
             "category": int(self.move.category)
         })
 

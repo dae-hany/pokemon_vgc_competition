@@ -152,9 +152,6 @@ class BattleEngine:  # TODO Debug mode
                 if (self.acc_rng[side][pos].random() >=
                         move_hit_threshold(self.params, _move.constants, attacker, defender)):
                     continue
-                if self.debug:
-                    self.event_queue.push(Attack(side, pos, self.state.sides[not side].team.get_active_pos(defender),
-                                                 _move.constants))
                 failed = False
                 # perform next move, damaged is applied first and then effects, unless opponent protected itself
                 damage = calculate_damage(self.params, side, _move.constants, self.state, attacker, defender)
@@ -260,12 +257,12 @@ class BattleEngine:  # TODO Debug mode
     def _on_fainted(self,
                     pkm: BattlingPokemon):
         side = self.state.get_side(pkm)
+        _team = self.state.sides[side].team
         if self.debug:
-            self.event_queue.push(Faint(side, self.state.sides[side].team.get_active_pos(pkm)))
-        if self.state.sides[side].team.fainted():
+            self.event_queue.push(Faint(side, _team.get_active_pos(pkm)))
+        if _team.fainted():
             raise BattleEngine.TeamFainted()
-        self.state.sides[side].team.switch(self.state.sides[side].team.get_active_pos(pkm),
-                                           self.state.sides[side].team.first_from_reserve())
+        _team.switch(_team.get_active_pos(pkm), _team.first_from_reserve())
 
     def _on_switch(self,
                    switch_in: BattlingPokemon | None,
@@ -276,18 +273,26 @@ class BattleEngine:  # TODO Debug mode
         if not switch_in:
             return
         side = self.state.get_side(switch_in)
+        _team = self.state.sides[side].team
         if self.debug:
-            self.event_queue.push(Switch(side, self.state.sides[side].team.get_active_pos(switch_in),
-                                         self.state.sides[side].team.get_reserve_pos(switch_out)))
+            self.event_queue.push(Switch(side, _team.get_active_pos(switch_in), _team.get_reserve_pos(switch_out)))
         if (self.state.sides[side].conditions.poison_spikes and Type.POISON not in switch_in.types and
                 Type.STEEL not in switch_in.types and switch_in.status == Status.NONE):
             switch_in.status = Status.POISON
         if self.state.sides[side].conditions.stealth_rock:
             switch_in.deal_damage(calculate_stealth_rock_damage(self.params, switch_in))
 
-    def _on_damage(self,
-                   pkm: BattlingPokemon):
+    def _on_attack(self,
+                   pkm: BattlingPokemon,
+                   _move: BattlingMove):
         if self.debug:
+            side = self.state.get_side(pkm)
+            self.event_queue.push(Attack(side, self.state.sides[side].team.get_active_pos(pkm), _move.constants))
+
+    def _on_damage(self,
+                   pkm: BattlingPokemon,
+                   damage: float):
+        if self.debug and damage > 0:
             side = self.state.get_side(pkm)
             self.event_queue.push(Damage(pkm.hp / pkm.constants.stats[Stat.MAX_HP], side,
                                          self.state.sides[side].team.get_active_pos(pkm)))

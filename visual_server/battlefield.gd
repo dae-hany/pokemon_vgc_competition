@@ -19,6 +19,15 @@ func attack(sprite: Node3D, duration: float = 0.25):
 	tween.tween_property(sprite.get_child(0), "rotation_degrees:z", 0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).set_delay(duration)
 	await tween.finished
 
+func other(sprite: Node3D, duration: float = 0.25, target_scale: float = 1.3):
+	Global.text_box.show_message("Perform move!")
+	var base_scale = sprite.get_child(0).scale
+	await Global.text_box.text_finished
+	var tween = create_tween()
+	tween.tween_property(sprite.get_child(0), "scale", target_scale * base_scale, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(sprite.get_child(0), "scale", base_scale, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN).set_delay(duration)
+	await tween.finished
+
 func switch(sprite_a: Node3D, sprite_b: Node3D, duration: float = 1.5):
 	Global.text_box.show_message("Switch!")
 	await Global.text_box.text_finished
@@ -64,7 +73,10 @@ func _animate_event(msg: Dictionary):
 		"Turn":
 			await _handle_turn(msg)
 		"Attack":
-			await _handle_attack(msg)
+			if int(msg["category"]) == 0:
+				await _handle_other(msg)
+			else:
+				await _handle_attack(msg)
 		"Damage":
 			await _handle_damage(msg)
 		"Switch":
@@ -98,6 +110,12 @@ func _handle_turn(msg: Dictionary):
 	var number = int(msg["number"])
 	Global.text_box.show_message("Start turn {num}.".format({"num": number}))
 	await Global.text_box.text_finished
+
+func _handle_other(msg: Dictionary):
+	var side = int(msg["side"])
+	var attacker = int(msg["attacker"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	await other(sprites[attacker], 0.1)
 
 func _handle_attack(msg: Dictionary):
 	var side = int(msg["side"])
@@ -133,4 +151,4 @@ func _handle_end(msg: Dictionary):
 	var side = int(msg["side"])
 	Global.text_box.show_message("Battle ended. Player {side} won!".format({"side": side}))
 	await Global.text_box.text_finished
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
