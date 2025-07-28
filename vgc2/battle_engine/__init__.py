@@ -22,7 +22,7 @@ _RNG = default_rng()
 STRUGGLE = BattlingMove(Move(Type.TYPELESS, 50, 1., 0, Category.PHYSICAL, recoil=.5))
 
 
-class BattleEngine:  # TODO Debug mode
+class BattleEngine:
     class TeamFainted(Exception):
         pass
 
