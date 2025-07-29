@@ -8,11 +8,18 @@ extends Node3D
 
 var _is_animating = false
 
-func set_type(sprite: Node3D, type: int, index: int = 0):
+func set_base_type(sprite: Node3D, type: int, index: int = 0):
 	var texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index]) 
 	sprite.get_child(0).texture = texture
 	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", texture)
 	sprite.get_child(0).material_override.set_shader_parameter("grayscale", 0.0)
+
+func change_type(sprite: Node3D, type: int, index: int = 0):
+	var texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index]) 
+	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", texture)
+
+func reset_type(sprite: Node3D):
+	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", sprite.get_child(0).texture)
 
 func attack(sprite: Node3D, msg: Dictionary, duration: float = 0.25):
 	Global.text_box.show_message("Perform {power} {type} attack!".format({"type": msg["type"], "power": int(msg["power"])}))
@@ -32,6 +39,8 @@ func other(sprite: Node3D, duration: float = 0.25, target_scale: float = 1.3):
 	await tween.finished
 
 func switch(sprite_a: Node3D, sprite_b: Node3D, duration: float = 1.5):
+	reset_type(sprite_a)
+	reset_type(sprite_b)
 	Global.text_box.show_message("Switch!")
 	await Global.text_box.text_finished
 	var pos_a = sprite_a.global_position
@@ -93,6 +102,8 @@ func _animate_event(msg: Dictionary):
 			await _handle_faint(msg)
 		"Message":
 			await _handle_message(msg)
+		"TypeChange":
+			await _handle_type_change(msg)
 		"End":
 			await _handle_end(msg)
 		_:
@@ -107,11 +118,11 @@ func _handle_battle(msg: Dictionary):
 		var team = msg["teams"][side]
 		var sprites = left_sprites if side == 0 else right_sprites
 		for i in team["active"].size():
-			set_type(sprites[i], int(team["active"][i]["type"]))
+			set_base_type(sprites[i], int(team["active"][i]["type"]))
 			sprites[i].get_child(0).rotation_degrees.z = 0
 			sprites[i].get_child(1).health_bar.value = 100.
 		for i in team["reserve"].size():
-			set_type(sprites[i+2], int(team["reserve"][i]["type"]))
+			set_base_type(sprites[i+2], int(team["reserve"][i]["type"]))
 			sprites[i+2].get_child(0).rotation_degrees.z = 0
 			sprites[i+2].get_child(1).health_bar.value = 100.
 	await fade_screen.fade_out_in()
@@ -166,6 +177,15 @@ func _handle_faint(msg: Dictionary):
 
 func _handle_message(msg: Dictionary):
 	Global.text_box.show_message(msg["message"])
+	await Global.text_box.text_finished
+
+func _handle_type_change(msg: Dictionary):
+	var side = int(msg["side"])
+	var pos = int(msg["pos"])
+	var index = int(msg["type"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	change_type(sprites[pos], index)
+	Global.text_box.show_message("Type changed!")
 	await Global.text_box.text_finished
 
 func _handle_end(msg: Dictionary):

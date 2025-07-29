@@ -6,6 +6,7 @@
 * Visual Debug
     * Network communication via UDP.
 * Switch bug fixed where Pokémon just switched out could take damage from scheduled attacks.
+* Switch bug fixed where Pokémon with changed types would not reset on switch.
 
 ### Version 1.0.6 (May 2025)
 

@@ -151,6 +151,25 @@ class Message(Event):
         })
 
 
+class TypeChange(Event):
+
+    def __init__(self,
+                 side: int,
+                 pos: int,
+                 _type: int):
+        self.side = side
+        self.pos = pos
+        self.type = _type
+
+    def serialize(self) -> str:
+        return json.dumps({
+            "event": "TypeChange",
+            "side": self.side,
+            "pos": self.pos,
+            "type": self.type
+        })
+
+
 class End(Event):
 
     def __init__(self,

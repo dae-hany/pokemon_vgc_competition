@@ -208,6 +208,7 @@ class BattlingPokemon:
         self.hp = min(self.hp + heal, self.constants.species.base_stats[Stat.MAX_HP])
 
     def on_switch(self):
+        self.types = self.constants.species.types
         self.boosts = [0] * 8
         for move in self.battling_moves:
             move.disabled = False

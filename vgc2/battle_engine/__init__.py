@@ -9,7 +9,7 @@ from vgc2.battle_engine.modifiers import Weather, Terrain, Hazard, Status, Categ
 from vgc2.battle_engine.move import Move, BattlingMove
 from vgc2.battle_engine.pokemon import BattlingPokemon
 from vgc2.battle_engine.priority_calculator import priority_calculator
-from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack, Message
+from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack, Message, TypeChange
 from vgc2.battle_engine.team import Team, BattlingTeam
 from vgc2.battle_engine.threshold_calculator import paralysis_threshold, move_hit_threshold, thaw_threshold
 from vgc2.battle_engine.view import StateView, TeamView
@@ -205,11 +205,11 @@ class BattleEngine:
         if _move.weather_start != Weather.CLEAR and _move.weather_start != self.state.weather:
             self.state.weather = _move.weather_start
             if self.debug:
-                self.event_queue.push(Message(f"The weather is {_move.weather_start.name}"))
+                self.event_queue.push(Message(f"The weather is {_move.weather_start.name}."))
         elif _move.field_start != Terrain.NONE and _move.field_start != self.state.field:
             self.state.field = _move.field_start
             if self.debug:
-                self.event_queue.push(Message(f"The field is {_move.field_start.name}"))
+                self.event_queue.push(Message(f"The field is {_move.field_start.name}."))
         elif _move.toggle_trickroom and not self.state.trickroom:
             self.state.trickroom = True
             if self.debug:
@@ -245,8 +245,13 @@ class BattleEngine:
                                                self.state.sides[side].team.first_from_reserve())
         elif _move.change_type:
             attacker.types = [attacker.battling_moves[0].constants.pkm_type]
+            if self.debug:
+                self.event_queue.push(TypeChange(side, self.state.sides[side].team.get_active_pos(attacker),
+                                                 attacker.types[0]))
         elif _move.self_boosts and any(b != 0 for b in _move.boosts):
             attacker.boosts = clip([_b + b for _b, b in zip(attacker.boosts, _move.boosts)], a_min=-6, a_max=6).tolist()
+            if self.debug:
+                self.event_queue.push(Message("Poison Spikes in effect."))
         elif _move.protect:
             attacker.protect = True
             if self.debug:
