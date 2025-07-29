@@ -9,7 +9,10 @@ extends Node3D
 var _is_animating = false
 
 func set_type(sprite: Node3D, type: int, index: int = 0):
-	sprite.get_child(0).texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index])
+	var texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index]) 
+	sprite.get_child(0).texture = texture
+	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", texture)
+	sprite.get_child(0).material_override.set_shader_parameter("grayscale", 0.0)
 
 func attack(sprite: Node3D, msg: Dictionary, duration: float = 0.25):
 	Global.text_box.show_message("Perform {power} {type} attack!".format({"type": msg["type"], "power": int(msg["power"])}))
@@ -54,9 +57,14 @@ func damage(sprite: Node3D, offset := 0.05, duration := 0.05, shakes := 6):
 func faint(sprite: Node3D, duration: float = 0.5):
 	Global.text_box.show_message("Fainted!")
 	await Global.text_box.text_finished
+	var shader_material = sprite.get_child(0).material_override
 	var tween = create_tween()
-	tween.tween_property(sprite.get_child(0), "rotation_degrees:z", 90, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_interval(0.1)
+	tween.tween_property(
+		shader_material,
+		"shader_parameter/grayscale",  # special path to animate shader uniforms
+		1.0,                           # target value
+		1.0                           # duration in seconds
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await tween.finished
 
 func _process(delta: float) -> void:
