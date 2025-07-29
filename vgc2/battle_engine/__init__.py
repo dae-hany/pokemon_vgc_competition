@@ -140,8 +140,6 @@ class BattleEngine:
             # before each move check if Pokémon can attack due status or have its status removed
             pos = self.state.sides[side].team.get_active_pos(attacker)
             if self._perform_status(attacker, side, pos, _move.constants):
-                if self.debug:
-                    self.event_queue.push(Message("It cannot move!"))
                 continue
             if all(m.pp == 0 for m in attacker.battling_moves):
                 _move = STRUGGLE
@@ -185,16 +183,26 @@ class BattleEngine:
         match attacker.status:
             case Status.PARALYZED:
                 if self.sta_rng[side][pos].random() < paralysis_threshold(self.params):
+                    if self.debug:
+                        self.event_queue.push(Message("Its PARALYZED, it cannot move!"))
                     return True
             case Status.SLEEP:
                 if attacker._wake_turns == 0:
                     attacker.status = Status.NONE
+                    if self.debug:
+                        self.event_queue.push(Message("Its no longer SLEEP!"))
                 else:
+                    if self.debug:
+                        self.event_queue.push(Message("Its SLEEP, it cannot move!"))
                     return True
             case Status.FROZEN:
                 if _move.pkm_type == Type.FIRE or self.sta_rng[side][pos].random() < thaw_threshold(self.params):
                     attacker.status = Status.NONE
+                    if self.debug:
+                        self.event_queue.push(Message("Its no longer FROZEN!"))
                 else:
+                    if self.debug:
+                        self.event_queue.push(Message("Its FROZEN, it cannot move!"))
                     return True
         return False
 
