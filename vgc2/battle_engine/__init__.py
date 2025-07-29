@@ -15,6 +15,7 @@ from vgc2.battle_engine.team import Team, BattlingTeam
 from vgc2.battle_engine.threshold_calculator import paralysis_threshold, move_hit_threshold, thaw_threshold
 from vgc2.battle_engine.view import StateView, TeamView
 from vgc2.net.godot_com import GodotClient
+from vgc2.util.log import format_boosts
 
 BattleCommand = tuple[int, int]  # action, target
 FullCommand = tuple[list[BattleCommand], list[BattleCommand]]
@@ -252,7 +253,7 @@ class BattleEngine:
         elif _move.self_boosts and any(b != 0 for b in _move.boosts):
             attacker.boosts = clip([_b + b for _b, b in zip(attacker.boosts, _move.boosts)], a_min=-6, a_max=6).tolist()
             if self.debug:
-                self.event_queue.push(Message("Poison Spikes in effect."))
+                self.event_queue.push(Message("Its " + format_boosts(_move.boosts)))
         elif _move.protect:
             attacker.protect = True
             if self.debug:
@@ -278,6 +279,8 @@ class BattleEngine:
                                                    self.state.sides[not side].team.first_from_reserve())
         elif not _move.self_boosts and any(b != 0 for b in _move.boosts):
             defender.boosts = clip([_b + b for _b, b in zip(defender.boosts, _move.boosts)], a_min=-6, a_max=6).tolist()
+            if self.debug:
+                self.event_queue.push(Message("Target " + format_boosts(_move.boosts)))
 
     def _end_of_turn_state_effects(self):
         all_active = self.state.sides[0].team.active + self.state.sides[1].team.active

@@ -7,7 +7,7 @@
     * Network communication via UDP.
 * Switch bug fixed where Pokémon just switched out could take damage from scheduled attacks.
 * Switch bug fixed where Pokémon with changed types would not reset on switch.
-* Heal bug fixed where the rate of restoration was done using base species max hp and not the actual amx hp.
+* Heal bug fixed where the rate of restoration was done using base species max hp and not the actual max hp.
 
 ### Version 1.0.6 (May 2025)
 
