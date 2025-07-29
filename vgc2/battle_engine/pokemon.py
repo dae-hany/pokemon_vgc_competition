@@ -199,14 +199,17 @@ class BattlingPokemon:
     def deal_damage(self,
                     damage: int):
         self.hp = max(0, self.hp - damage)
+        self._engine._on_damage(self, damage)
         if self.fainted():
             self._engine._on_fainted(self)
 
     def recover(self,
                 heal: int):
-        self.hp = min(self.hp + heal, self.constants.species.base_stats[Stat.MAX_HP])
+        self.hp = min(self.hp + heal, self.constants.stats[Stat.MAX_HP])
+        self._engine._on_heal(self, heal)
 
     def on_switch(self):
+        self.types = self.constants.species.types
         self.boosts = [0] * 8
         for move in self.battling_moves:
             move.disabled = False

@@ -21,6 +21,7 @@ def run_battle(engine: BattleEngine,
                view: tuple[StateView, StateView]) -> int:
     while not engine.finished():
         engine.run_turn((agent[0].decision(view[0], team_view[1]), agent[1].decision(view[1], team_view[0])))
+        engine.render()
     return engine.winning_side
 
 

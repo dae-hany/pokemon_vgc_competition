@@ -45,7 +45,7 @@ class BattlingTeam:
         old_active = self.active[active_pos]
         if all(p.fainted() for p in self.reserve) and old_active.fainted():  # active fainted and reserve fainted
             self.reserve += [self.active.pop(active_pos)]
-            self._engine._on_switch(None, old_active)
+            self._engine._on_switch(None, old_active, active_pos)
             return
         if not 0 <= reserve_pos < len(self.reserve):
             return
@@ -72,6 +72,10 @@ class BattlingTeam:
     def get_active_pos(self,
                        pkm: BattlingPokemon) -> int:
         return next((i for i, p in enumerate(self.active) if p == pkm), -1)
+
+    def get_reserve_pos(self,
+                        pkm: BattlingPokemon) -> int:
+        return next((i for i, p in enumerate(self.reserve) if p == pkm), -1)
 
     def first_from_reserve(self) -> int:
         return next((i for i, p in enumerate(self.reserve) if not p.fainted()), -1)

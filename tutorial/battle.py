@@ -14,7 +14,7 @@ def main():
     team_view = TeamView(team[0]), TeamView(team[1])
     state = State(get_battle_teams(team, n_active))
     state_view = StateView(state, 0, team_view), StateView(state, 1, team_view)
-    engine = BattleEngine(state)
+    engine = BattleEngine(state, debug=True)
     agent = GreedyBattlePolicy(), RandomBattlePolicy()  # TreeSearchBattlePolicy(n_moves)
     print("~ Team 0 ~")
     print(team[0])

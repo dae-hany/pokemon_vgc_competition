@@ -1,20 +1,70 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlj0wx03ffi5j"]
+[gd_scene load_steps=22 format=3 uid="uid://dlj0wx03ffi5j"]
 
 [ext_resource type="Script" uid="uid://b6fj0atwe6ubo" path="res://battlefield.gd" id="1_fxwnf"]
+[ext_resource type="Shader" uid="uid://d1a1a8m5i30a6" path="res://grayscale_shader_material.gdshader" id="2_4eiu0"]
 [ext_resource type="PackedScene" uid="uid://c26fp2130v5p5" path="res://healthbar_3d.tscn" id="3_vsh2u"]
 [ext_resource type="Texture2D" uid="uid://d1ug3j2gjgkki" path="res://sprites/pkm/0_1.png" id="4_tkjg1"]
 [ext_resource type="Script" uid="uid://cyeg1265jdisd" path="res://fade_screen.gd" id="4_vsh2u"]
 [ext_resource type="FontFile" uid="uid://buhbpwf3ldwf4" path="res://PKMN RBYGSC.ttf" id="5_tkjg1"]
 [ext_resource type="Script" uid="uid://ckb2iybsxfubh" path="res://text_box.gd" id="6_y8d5v"]
+[ext_resource type="Script" uid="uid://cbpyxs018ay7o" path="res://network_server.gd" id="7_y8rib"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ki6g1"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qd1yl"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sg2xi"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fxwnf"]
 load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m83rw"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vsh2u"]
 load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2jhg"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5w7dd"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cho8x"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tkjg1"]
 load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7362"]
+render_priority = 0
+shader = ExtResource("2_4eiu0")
+shader_parameter/albedo_texture = ExtResource("4_tkjg1")
+shader_parameter/grayscale = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y8d5v"]
 load_path = "res://.godot/imported/0_1.png-0d00bc18c6bd81bb86c79900aa73d977.s3tc.ctex"
@@ -33,10 +83,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00125198, 0, 1.00004)
 [node name="LeftSide" type="Node3D" parent="."]
 
 [node name="PkmL0" type="Node3D" parent="LeftSide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.214668, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.2, 0.2)
 
 [node name="Sprite3DL0" type="Sprite3D" parent="LeftSide/PkmL0"]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ki6g1")
 texture_filter = 0
 texture = ExtResource("4_tkjg1")
 
@@ -44,10 +95,11 @@ texture = ExtResource("4_tkjg1")
 transform = Transform3D(-0.125, 0, -1.09278e-08, 0, 0.125, 0, 1.09278e-08, 0, -0.125, 0, 0.2, 0)
 
 [node name="PkmL1" type="Node3D" parent="LeftSide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.05, 0)
 
 [node name="Sprite3DL1" type="Sprite3D" parent="LeftSide/PkmL1"]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_qd1yl")
 texture_filter = 0
 texture = ExtResource("4_tkjg1")
 
@@ -59,6 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -0.5)
 
 [node name="Sprite3DL2" type="Sprite3D" parent="LeftSide/PkmL2"]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_sg2xi")
 texture_filter = 0
 texture = SubResource("CompressedTexture2D_fxwnf")
 
@@ -70,6 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, -0.5)
 
 [node name="Sprite3DL3" type="Sprite3D" parent="LeftSide/PkmL3"]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_m83rw")
 texture_filter = 0
 texture = SubResource("CompressedTexture2D_vsh2u")
 
@@ -79,10 +133,11 @@ transform = Transform3D(-0.125, 0, -1.09278e-08, 0, 0.125, 0, 1.09278e-08, 0, -0
 [node name="RightSide" type="Node3D" parent="."]
 
 [node name="PkmR0" type="Node3D" parent="RightSide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.213, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.2, 0.2)
 
 [node name="Sprite3DR0" type="Sprite3D" parent="RightSide/PkmR0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_r2jhg")
 texture_filter = 0
 texture = ExtResource("4_tkjg1")
 
@@ -90,10 +145,11 @@ texture = ExtResource("4_tkjg1")
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0.2, 0)
 
 [node name="PkmR1" type="Node3D" parent="RightSide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502054, 0.00184798, -0.000644207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.05, -0.001)
 
 [node name="Sprite3DR1" type="Sprite3D" parent="RightSide/PkmR1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.00184798, 0)
+material_override = SubResource("ShaderMaterial_5w7dd")
 texture_filter = 0
 texture = ExtResource("4_tkjg1")
 
@@ -105,6 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -0.5)
 
 [node name="Sprite3DR2" type="Sprite3D" parent="RightSide/PkmR2"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_cho8x")
 texture_filter = 0
 texture = SubResource("CompressedTexture2D_tkjg1")
 
@@ -116,6 +173,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0, -0.5)
 
 [node name="Sprite3DR3" type="Sprite3D" parent="RightSide/PkmR3"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_t7362")
 texture_filter = 0
 texture = SubResource("CompressedTexture2D_y8d5v")
 
@@ -136,3 +194,6 @@ offset_bottom = 609.0
 label_settings = SubResource("LabelSettings_y8d5v")
 vertical_alignment = 2
 script = ExtResource("6_y8d5v")
+
+[node name="NetworkServer" type="Node3D" parent="."]
+script = ExtResource("7_y8rib")

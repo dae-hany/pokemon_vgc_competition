@@ -1,5 +1,14 @@
 ## Changelog
 
+### Version 1.0.7 (July 2025)
+
+* Visual Server (Godot Engine)
+* Visual Debug
+    * Network communication via UDP.
+* Switch bug fixed where Pokémon just switched out could take damage from scheduled attacks.
+* Switch bug fixed where Pokémon with changed types would not reset on switch.
+* Heal bug fixed where the rate of restoration was done using base species max hp and not the actual max hp.
+
 ### Version 1.0.6 (May 2025)
 
 * Fixed Evasion/Accuracy modifier bug, where their difference could surpass the -6, 6 interval, and is now clipped.

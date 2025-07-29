@@ -3,30 +3,44 @@ extends Node3D
 @export var left_sprites: Array[Node3D] = []
 @export var right_sprites: Array[Node3D] = []
 
+@onready var network_server: NetworkServer = get_node("NetworkServer")
+@onready var fade_screen: FadeScreen = get_node("FadeScreen")
+
 var _is_animating = false
 
-func _ready():
-	set_type(left_sprites[0], Global.Type.BUG)
-	set_type(left_sprites[1], Global.Type.FIRE)
-	set_type(left_sprites[2], Global.Type.FLYING)
-	set_type(left_sprites[3], Global.Type.WATER)
-	set_type(right_sprites[0], Global.Type.PSYCHIC)
-	set_type(right_sprites[1], Global.Type.NORMAL)
-	set_type(right_sprites[2], Global.Type.DARK)
-	set_type(right_sprites[3], Global.Type.ROCK)
+func set_base_type(sprite: Node3D, type: int, index: int = 0):
+	var texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index]) 
+	sprite.get_child(0).texture = texture
+	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", texture)
+	sprite.get_child(0).material_override.set_shader_parameter("grayscale", 0.0)
 
-func set_type(sprite: Node3D, type: Global.Type, index: int = 0):
-	sprite.get_child(0).texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index])
+func change_type(sprite: Node3D, type: int, index: int = 0):
+	var texture = load("res://sprites/pkm/" + Global.TYPE_TO_STRINGS[type][index]) 
+	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", texture)
 
-func attack(sprite: Node3D, duration: float = 0.25):
-	Global.text_box.show_message("Perform attack!")
+func reset_type(sprite: Node3D):
+	sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", sprite.get_child(0).texture)
+
+func attack(sprite: Node3D, msg: Dictionary, duration: float = 0.25):
+	Global.text_box.show_message("Perform {power} {type} attack!".format({"type": msg["type"], "power": int(msg["power"])}))
 	await Global.text_box.text_finished
 	var tween = create_tween()
 	tween.tween_property(sprite.get_child(0), "rotation_degrees:z", 45, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite.get_child(0), "rotation_degrees:z", 0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).set_delay(duration)
 	await tween.finished
 
+func other(sprite: Node3D, duration: float = 0.25, target_scale: float = 1.3):
+	Global.text_box.show_message("Perform move!")
+	var base_scale = sprite.get_child(0).scale
+	await Global.text_box.text_finished
+	var tween = create_tween()
+	tween.tween_property(sprite.get_child(0), "scale", target_scale * base_scale, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(sprite.get_child(0), "scale", base_scale, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN).set_delay(duration)
+	await tween.finished
+
 func switch(sprite_a: Node3D, sprite_b: Node3D, duration: float = 1.5):
+	reset_type(sprite_a)
+	reset_type(sprite_b)
 	Global.text_box.show_message("Switch!")
 	await Global.text_box.text_finished
 	var pos_a = sprite_a.global_position
@@ -52,18 +66,141 @@ func damage(sprite: Node3D, offset := 0.05, duration := 0.05, shakes := 6):
 func faint(sprite: Node3D, duration: float = 0.5):
 	Global.text_box.show_message("Fainted!")
 	await Global.text_box.text_finished
+	var shader_material = sprite.get_child(0).material_override
 	var tween = create_tween()
-	tween.tween_property(sprite.get_child(0), "rotation_degrees:z", 90, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_interval(0.1)
+	tween.tween_property(
+		shader_material,
+		"shader_parameter/grayscale",  # special path to animate shader uniforms
+		1.0,                           # target value
+		1.0                           # duration in seconds
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await tween.finished
 
-func _input(event):
-	if event.is_action_pressed("debug") and not _is_animating:
-		_is_animating = true
-		#attack(left_sprites[0])
-		await attack(right_sprites[0], 0.1)
-		await damage(left_sprites[0])
-		await left_sprites[0].get_child(1).set_health(40)
-		await faint(left_sprites[0], 0.2)
-		await switch(left_sprites[0], left_sprites[2], 0.5)
-		_is_animating = false
+func _process(delta: float) -> void:
+	if network_server and not _is_animating and network_server.has_message():
+		var msg = network_server.get_next_message()
+		_animate_event(msg)
+
+# This needs to be async
+func _animate_event(msg: Dictionary):
+	_is_animating = true
+	match msg.get("event", ""):
+		"Battle":
+			await _handle_battle(msg)
+		"Turn":
+			await _handle_turn(msg)
+		"Attack":
+			if int(msg["category"]) == 0:
+				await _handle_other(msg)
+			else:
+				await _handle_attack(msg)
+		"Damage":
+			await _handle_damage(msg)
+		"Heal":
+			await _handle_heal(msg)
+		"Switch":
+			await _handle_switch(msg)
+		"Faint":
+			await _handle_faint(msg)
+		"Message":
+			await _handle_message(msg)
+		"TypeChange":
+			await _handle_type_change(msg)
+		"End":
+			await _handle_end(msg)
+		_:
+			print("Unknown event:", msg)
+	_is_animating = false
+
+func _handle_battle(msg: Dictionary):
+	if not fade_screen.is_faded_out():
+		Global.text_box.text = ""
+		await fade_screen.fade_out_in()
+	for side in msg["teams"].size():
+		var team = msg["teams"][side]
+		var sprites = left_sprites if side == 0 else right_sprites
+		for i in team["active"].size():
+			set_base_type(sprites[i], int(team["active"][i]["type"]))
+			sprites[i].get_child(0).rotation_degrees.z = 0
+			sprites[i].get_child(1).health_bar.value = 100.
+		for i in team["reserve"].size():
+			set_base_type(sprites[i+2], int(team["reserve"][i]["type"]))
+			sprites[i+2].get_child(0).rotation_degrees.z = 0
+			sprites[i+2].get_child(1).health_bar.value = 100.
+	await fade_screen.fade_out_in()
+
+func _handle_turn(msg: Dictionary):
+	var number = int(msg["number"])
+	Global.text_box.show_message("Start turn {num}.".format({"num": number}))
+	await Global.text_box.text_finished
+
+func _handle_other(msg: Dictionary):
+	var side = int(msg["side"])
+	var attacker = int(msg["attacker"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	await other(sprites[attacker], 0.1)
+
+func _handle_attack(msg: Dictionary):
+	var side = int(msg["side"])
+	var attacker = int(msg["attacker"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	await attack(sprites[attacker], msg, 0.1)
+
+func _handle_damage(msg: Dictionary):
+	var side = int(msg["side"])
+	var defender = int(msg["defender"])
+	var hp_rate = msg["hp_rate"]
+	var sprites = left_sprites if side == 0 else right_sprites
+	await damage(sprites[defender])
+	await sprites[defender].get_child(1).set_health(hp_rate * 100)
+
+func _handle_heal(msg: Dictionary):
+	var side = int(msg["side"])
+	var defender = int(msg["defender"])
+	var hp_rate = msg["hp_rate"]
+	var sprites = left_sprites if side == 0 else right_sprites
+	Global.text_box.show_message("Restored HP!")
+	await Global.text_box.text_finished
+	await sprites[defender].get_child(1).set_health(hp_rate * 100)
+
+func _handle_switch(msg: Dictionary):
+	var side = int(msg["side"])
+	var switch_in = int(msg["switch_in"])
+	var switch_out = int(msg["switch_out"]) + 2
+	# special case where we switch active positions
+	if switch_in == -1:
+		if switch_out-2 == 0:
+			switch_in = 1
+			switch_out = 0
+		else:
+			return
+	var sprites = left_sprites if side == 0 else right_sprites
+	var temp = sprites[switch_out]
+	sprites[switch_out] = sprites[switch_in]
+	sprites[switch_in] = temp
+	await switch(sprites[switch_out], sprites[switch_in], 0.5)
+
+func _handle_faint(msg: Dictionary):
+	var side = int(msg["side"])
+	var pos = int(msg["pos"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	await faint(sprites[pos], 0.2)
+
+func _handle_message(msg: Dictionary):
+	Global.text_box.show_message(msg["message"])
+	await Global.text_box.text_finished
+
+func _handle_type_change(msg: Dictionary):
+	var side = int(msg["side"])
+	var pos = int(msg["pos"])
+	var index = int(msg["type"])
+	var sprites = left_sprites if side == 0 else right_sprites
+	change_type(sprites[pos], index)
+	Global.text_box.show_message("Type changed!")
+	await Global.text_box.text_finished
+
+func _handle_end(msg: Dictionary):
+	var side = int(msg["side"])
+	Global.text_box.show_message("Battle ended. Player {side} won!".format({"side": side}))
+	await Global.text_box.text_finished
+	await get_tree().create_timer(2.0).timeout
