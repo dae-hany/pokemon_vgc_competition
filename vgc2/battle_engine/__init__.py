@@ -9,7 +9,8 @@ from vgc2.battle_engine.modifiers import Weather, Terrain, Hazard, Status, Categ
 from vgc2.battle_engine.move import Move, BattlingMove
 from vgc2.battle_engine.pokemon import BattlingPokemon
 from vgc2.battle_engine.priority_calculator import priority_calculator
-from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack, Message, TypeChange
+from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Faint, Damage, Attack, Message, TypeChange, \
+    Heal
 from vgc2.battle_engine.team import Team, BattlingTeam
 from vgc2.battle_engine.threshold_calculator import paralysis_threshold, move_hit_threshold, thaw_threshold
 from vgc2.battle_engine.view import StateView, TeamView
@@ -337,3 +338,11 @@ class BattleEngine:
             side = self.state.get_side(pkm)
             self.event_queue.push(Damage(pkm.hp / pkm.constants.stats[Stat.MAX_HP], side,
                                          self.state.sides[side].team.get_active_pos(pkm)))
+
+    def _on_heal(self,
+                 pkm: BattlingPokemon,
+                 heal: float):
+        if self.debug and heal > 0:
+            side = self.state.get_side(pkm)
+            self.event_queue.push(Heal(pkm.hp / pkm.constants.stats[Stat.MAX_HP], side,
+                                       self.state.sides[side].team.get_active_pos(pkm)))

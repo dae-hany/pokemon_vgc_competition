@@ -205,7 +205,8 @@ class BattlingPokemon:
 
     def recover(self,
                 heal: int):
-        self.hp = min(self.hp + heal, self.constants.species.base_stats[Stat.MAX_HP])
+        self.hp = min(self.hp + heal, self.constants.stats[Stat.MAX_HP])
+        self._engine._on_heal(self, heal)
 
     def on_switch(self):
         self.types = self.constants.species.types

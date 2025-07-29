@@ -103,6 +103,25 @@ class Damage(Event):
         })
 
 
+class Heal(Event):
+    def __init__(self,
+                 hp_rate: int,
+                 side: int,
+                 defender: int,
+                 ):
+        self.hp_rate = hp_rate
+        self.side = side
+        self.defender = defender
+
+    def serialize(self) -> str:
+        return json.dumps({
+            "event": "Heal",
+            "hp_rate": self.hp_rate,
+            "side": self.side,
+            "defender": self.defender
+        })
+
+
 class Switch(Event):
 
     def __init__(self,

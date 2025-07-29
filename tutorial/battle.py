@@ -10,6 +10,10 @@ def main():
     team_size = 4
     n_moves = 4
     team = gen_team(team_size, n_moves), gen_team(team_size, n_moves)
+    for t in team:
+        for p in t.members:
+            for m in p.moves:
+                m.heal = 0.3
     label_teams(team)
     team_view = TeamView(team[0]), TeamView(team[1])
     state = State(get_battle_teams(team, n_active))

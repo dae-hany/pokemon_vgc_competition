@@ -96,6 +96,8 @@ func _animate_event(msg: Dictionary):
 				await _handle_attack(msg)
 		"Damage":
 			await _handle_damage(msg)
+		"Heal":
+			await _handle_heal(msg)
 		"Switch":
 			await _handle_switch(msg)
 		"Faint":
@@ -150,6 +152,15 @@ func _handle_damage(msg: Dictionary):
 	var hp_rate = msg["hp_rate"]
 	var sprites = left_sprites if side == 0 else right_sprites
 	await damage(sprites[defender])
+	await sprites[defender].get_child(1).set_health(hp_rate * 100)
+
+func _handle_heal(msg: Dictionary):
+	var side = int(msg["side"])
+	var defender = int(msg["defender"])
+	var hp_rate = msg["hp_rate"]
+	var sprites = left_sprites if side == 0 else right_sprites
+	Global.text_box.show_message("Restored HP!")
+	await Global.text_box.text_finished
 	await sprites[defender].get_child(1).set_health(hp_rate * 100)
 
 func _handle_switch(msg: Dictionary):
