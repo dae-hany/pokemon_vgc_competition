@@ -4,19 +4,21 @@ from typing import Callable
 from vgc2.competition import CompetitorManager
 from vgc2.competition.match import Match
 from vgc2.meta import Roster
+from vgc2.net.stream import StreamClient
 from vgc2.util.generator import TeamGenerator, gen_team
 
 
 class MatchHandler:
     __slots__ = ('max_team_size', 'max_pkm_moves', 'n_active', 'n_battles', 'random_teams', 'gen', 'prev', 'cm',
-                 'winner')
+                 'winner', 'client')
 
     def __init__(self,
                  max_team_size: int = 4,
                  max_pkm_moves: int = 4,
                  n_active: int = 2,
                  n_battles: int = 10,
-                 gen: TeamGenerator | None = gen_team):
+                 gen: TeamGenerator | None = gen_team,
+                 client: StreamClient | None = None):
         self.max_team_size = max_team_size
         self.max_pkm_moves = max_pkm_moves
         self.n_active = n_active
@@ -26,6 +28,7 @@ class MatchHandler:
         self.prev: tuple | None = None
         self.cm: tuple[CompetitorManager, CompetitorManager] | None = None
         self.winner: CompetitorManager | None = None
+        self.client = client
 
     def setup(self, cms):
         if len(cms) == 1:
@@ -33,8 +36,10 @@ class MatchHandler:
         elif len(cms) == 2:
             self.cm = cms[0], cms[1]
         else:
-            self.prev = (MatchHandler(self.max_team_size, self.max_pkm_moves, self.n_active, self.n_battles, self.gen),
-                         MatchHandler(self.max_team_size, self.max_pkm_moves, self.n_active, self.n_battles, self.gen))
+            self.prev = (MatchHandler(self.max_team_size, self.max_pkm_moves, self.n_active, self.n_battles, self.gen,
+                                      self.client),
+                         MatchHandler(self.max_team_size, self.max_pkm_moves, self.n_active, self.n_battles, self.gen,
+                                      self.client))
             self.prev[0].setup(cms[:len(cms) // 2])
             self.prev[1].setup(cms[len(cms) // 2:])
 
@@ -48,7 +53,8 @@ class MatchHandler:
                     self.cm = (mh.winner,)
                 else:
                     self.cm += (mh.winner,)
-        match = Match(self.cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, self.gen)
+        match = Match(self.cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, self.gen,
+                      self.client)
         match.run()
         self.winner = self.cm[match.wins[1] > match.wins[0]]
 
@@ -61,14 +67,15 @@ class TreeTournament:
                  max_team_size: int = 4,
                  max_pkm_moves: int = 4,
                  n_active: int = 2,
-                 n_battles: int = 10):
+                 n_battles: int = 10,
+                 client: StreamClient | None = None):
         self.cms: list[CompetitorManager] = []
         self.roster_gen = roster_gen
         self.max_team_size = max_team_size
         self.max_pkm_moves = max_pkm_moves
         self.n_active = n_active
         self.mh = MatchHandler(max_team_size, max_pkm_moves, n_active, n_battles,
-                               roster_gen if isinstance(roster_gen, Callable) else None)
+                               roster_gen if isinstance(roster_gen, Callable) else None, client)
 
     def register(self,
                  cm: CompetitorManager):

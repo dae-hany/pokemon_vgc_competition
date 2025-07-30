@@ -14,7 +14,7 @@ from vgc2.battle_engine.render import EventQueue, Turn, End, Switch, Battle, Fai
 from vgc2.battle_engine.team import Team, BattlingTeam
 from vgc2.battle_engine.threshold_calculator import paralysis_threshold, move_hit_threshold, thaw_threshold
 from vgc2.battle_engine.view import StateView, TeamView
-from vgc2.net.godot_com import GodotClient
+from vgc2.net.stream import StreamClient
 from vgc2.util.log import format_boosts
 
 BattleCommand = tuple[int, int]  # action, target
@@ -53,7 +53,6 @@ class BattleEngine:
         self.debug = debug
         self.event_queue = EventQueue()
         if self.debug:
-            self.client = GodotClient()
             self.event_queue.push(Battle((self.state.sides[0].team, self.state.sides[1].team)))
 
     def __str__(self):
@@ -73,11 +72,11 @@ class BattleEngine:
         self.turn = 0
         self.event_queue.empty()
 
-    def render(self):
-        if self.debug:
+    def render(self, client: StreamClient | None = None):
+        if self.debug and client is not None:
             while self.event_queue.not_empty():
                 event = self.event_queue.pop()
-                if not self.client.send_message(event.serialize()):
+                if not client.send(event.serialize()):
                     self.event_queue.insert(event)
                     break
 

@@ -1,5 +1,11 @@
 ## Changelog
 
+### Version 1.0.7.1 (July 2025)
+
+* Minor fixes.
+* Save replays in VGC AI Competition.
+* Play file stored replays on visual server.
+
 ### Version 1.0.7 (July 2025)
 
 * Visual Server (Godot Engine)

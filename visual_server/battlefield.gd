@@ -38,9 +38,10 @@ func other(sprite: Node3D, duration: float = 0.25, target_scale: float = 1.3):
 	tween.tween_property(sprite.get_child(0), "scale", base_scale, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN).set_delay(duration)
 	await tween.finished
 
-func switch(sprite_a: Node3D, sprite_b: Node3D, duration: float = 1.5):
-	reset_type(sprite_a)
-	reset_type(sprite_b)
+func switch(sprite_a: Node3D, sprite_b: Node3D, duration: float = 1.5, special_case: bool = false):
+	if not special_case:
+		reset_type(sprite_a)
+		reset_type(sprite_b)
 	Global.text_box.show_message("Switch!")
 	await Global.text_box.text_finished
 	var pos_a = sprite_a.global_position
@@ -113,6 +114,10 @@ func _animate_event(msg: Dictionary):
 	_is_animating = false
 
 func _handle_battle(msg: Dictionary):
+	for sprite in left_sprites + right_sprites:
+		sprite.get_child(0).texture = null
+		sprite.get_child(0).material_override.set_shader_parameter("albedo_texture", null)
+		sprite.get_child(1).health_bar.visible = false
 	if not fade_screen.is_faded_out():
 		Global.text_box.text = ""
 		await fade_screen.fade_out_in()
@@ -122,10 +127,12 @@ func _handle_battle(msg: Dictionary):
 		for i in team["active"].size():
 			set_base_type(sprites[i], int(team["active"][i]["type"]))
 			sprites[i].get_child(0).rotation_degrees.z = 0
+			sprites[i].get_child(1).health_bar.visible = true
 			sprites[i].get_child(1).health_bar.value = 100.
 		for i in team["reserve"].size():
 			set_base_type(sprites[i+2], int(team["reserve"][i]["type"]))
 			sprites[i+2].get_child(0).rotation_degrees.z = 0
+			sprites[i+2].get_child(1).health_bar.visible = true
 			sprites[i+2].get_child(1).health_bar.value = 100.
 	await fade_screen.fade_out_in()
 
@@ -168,17 +175,19 @@ func _handle_switch(msg: Dictionary):
 	var switch_in = int(msg["switch_in"])
 	var switch_out = int(msg["switch_out"]) + 2
 	# special case where we switch active positions
+	var special_case = false
 	if switch_in == -1:
 		if switch_out-2 == 0:
 			switch_in = 1
 			switch_out = 0
+			special_case = true
 		else:
 			return
 	var sprites = left_sprites if side == 0 else right_sprites
 	var temp = sprites[switch_out]
 	sprites[switch_out] = sprites[switch_in]
 	sprites[switch_in] = temp
-	await switch(sprites[switch_out], sprites[switch_in], 0.5)
+	await switch(sprites[switch_out], sprites[switch_in], 0.5, special_case)
 
 func _handle_faint(msg: Dictionary):
 	var side = int(msg["side"])
