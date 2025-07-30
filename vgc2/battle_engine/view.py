@@ -17,10 +17,10 @@ class PokemonView(Pokemon):
 
     def __getattr__(self,
                     attr):
+        if attr == "_pkm":
+            return None
         if attr == "moves":
             return [self._pkm.moves[i] for i in self._revealed]
-        if attr in ["_pkm"]:
-            return None
         return getattr(self._pkm, attr)
 
     def _on_move_used(self,

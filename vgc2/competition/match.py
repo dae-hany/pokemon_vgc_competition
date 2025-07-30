@@ -65,6 +65,7 @@ class Match:
             self._run_random()
         else:
             self._run_non_random()
+        print(self.cm[0].competitor.name + " vs " + self.cm[1].competitor.name + " ends in " + str(self.wins) + ".")
 
     def _run_once(self,
                   selector: tuple[SelectionPolicy, SelectionPolicy],
@@ -93,7 +94,7 @@ class Match:
             label_teams(base_team)
             base_view = TeamView(base_team[0]), TeamView(base_team[1])
             self._run_once(selector, base_team, base_view, agent)
-            self._run_once(selector, (base_team[0], base_team[1]), (base_view[0], base_view[1]), agent)
+            self._run_once(selector, (base_team[1], base_team[0]), (base_view[1], base_view[0]), agent)
             tie = self.wins[0] == self.wins[1]
             runs += 1
 

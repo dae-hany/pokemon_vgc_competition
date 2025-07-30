@@ -1,0 +1,80 @@
+{"event": "Battle", "teams": [{"active": [{"type": 1}, {"type": 1}], "reserve": [{"type": 1}, {"type": 17}, {"type": 17}, {"type": 17}, {"type": 13}, {"type": 13}, {"type": 13}, {"type": 13}, {"type": 12}, {"type": 12}, {"type": 12}, {"type": 12}, {"type": 1}, {"type": 17}]}, {"active": [{"type": 13}, {"type": 4}], "reserve": [{"type": 12}, {"type": 12}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.8723404255319149, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.6322188449848024, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.8037383177570093, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.9528619528619529, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.5045592705167173, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.9057239057239057, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.26791277258566976, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.3768996960486322, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.8585858585858586, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.5858585858585859, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.7723404255319148, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8662613981762918, "side": 0, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.44042553191489364, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.2127659574468085, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7325227963525835, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.22492401215805471, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.31313131313131315, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.597667638483965, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.04040404040404041, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 53}
+{"event": "Damage", "hp_rate": 0.1519756838905775, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.577259475218659, "side": 1, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.1749271137026239, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 107}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 53}
+{"event": "Damage", "hp_rate": 0.0790273556231003, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.15451895043731778, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 78}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

@@ -1,0 +1,156 @@
+{"event": "Battle", "teams": [{"active": [{"type": 14}, {"type": 14}], "reserve": [{"type": 14}, {"type": 14}, {"type": 5}, {"type": 5}, {"type": 5}, {"type": 5}, {"type": 15}, {"type": 15}, {"type": 15}, {"type": 15}, {"type": 13}, {"type": 13}, {"type": 13}, {"type": 13}]}, {"active": [{"type": 9}, {"type": 16}], "reserve": [{"type": 2}, {"type": 8}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 37}
+{"event": "Damage", "hp_rate": 0.8681818181818182, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.75, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.7551020408163265, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.895, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.5522727272727272, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.6181818181818182, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.5102040816326531, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.79, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 37}
+{"event": "Damage", "hp_rate": 0.4863636363636364, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.23636363636363636, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.2653061224489796, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.685, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 37}
+{"event": "Damage", "hp_rate": 0.10454545454545454, "side": 0, "defender": 0}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 17}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.30227272727272725, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.02040816326530612, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.475, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.10454545454545454, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 37}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 84}
+{"event": "Damage", "hp_rate": 0.7045454545454546, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.265, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 37}
+{"event": "Damage", "hp_rate": 0.5068181818181818, "side": 0, "defender": 1}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 17}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 84}
+{"event": "Damage", "hp_rate": 0.21136363636363636, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.055, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 37}
+{"event": "Damage", "hp_rate": 0.013636363636363636, "side": 0, "defender": 1}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 17}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 84}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.6984126984126984, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Turn", "number": 9}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Heal", "hp_rate": 1.0, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 10}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.6481481481481481, "side": 1, "defender": 1}
+{"event": "Heal", "hp_rate": 1.0, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 56}
+{"event": "Damage", "hp_rate": 0.9079497907949791, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 104}
+{"event": "Damage", "hp_rate": 0.7657657657657657, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Turn", "number": 11}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.4894179894179894, "side": 1, "defender": 1}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Turn", "number": 12}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.43915343915343913, "side": 1, "defender": 1}
+{"event": "Heal", "hp_rate": 0.9205020920502092, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.6418918918918919, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Turn", "number": 13}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.48423423423423423, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.36036036036036034, "side": 1, "defender": 0}
+{"event": "Turn", "number": 14}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.3888888888888889, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.23648648648648649, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Turn", "number": 15}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.07882882882882883, "side": 1, "defender": 0}
+{"event": "Heal", "hp_rate": 0.9665271966527197, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.23015873015873015, "side": 1, "defender": 1}
+{"event": "Turn", "number": 16}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Heal", "hp_rate": 1.0, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.07142857142857142, "side": 1, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Turn", "number": 17}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 48}
+{"event": "Damage", "hp_rate": 0.021164021164021163, "side": 1, "defender": 0}
+{"event": "Heal", "hp_rate": 1.0, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 54}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

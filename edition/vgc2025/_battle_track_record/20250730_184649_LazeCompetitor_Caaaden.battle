@@ -1,0 +1,215 @@
+{"event": "Battle", "teams": [{"active": [{"type": 6}, {"type": 6}], "reserve": [{"type": 6}, {"type": 5}, {"type": 5}, {"type": 5}, {"type": 5}, {"type": 6}, {"type": 7}, {"type": 7}, {"type": 7}, {"type": 7}, {"type": 8}, {"type": 8}, {"type": 8}, {"type": 8}]}, {"active": [{"type": 11}, {"type": 11}], "reserve": [{"type": 6}, {"type": 2}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 121}
+{"event": "Damage", "hp_rate": 0.7265822784810126, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 112}
+{"event": "Damage", "hp_rate": 0.44050632911392407, "side": 0, "defender": 0}
+{"event": "Message", "message": "The field is GRASSY_TERRAIN."}
+{"event": "Damage", "hp_rate": 0.9705882352941176, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9679969879518072, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 121}
+{"event": "Damage", "hp_rate": 0.1670886075949367, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 112}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 131}
+{"event": "Damage", "hp_rate": 0.5522875816993464, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5228758169934641, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9359939759036144, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 121}
+{"event": "Damage", "hp_rate": 0.7265822784810126, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 112}
+{"event": "Damage", "hp_rate": 0.44050632911392407, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 131}
+{"event": "Damage", "hp_rate": 0.10457516339869281, "side": 1, "defender": 0}
+{"event": "Heal", "hp_rate": 0.44556962025316454, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 131}
+{"event": "Damage", "hp_rate": 0.634789156626506, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.07516339869281045, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6027861445783133, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 121}
+{"event": "Damage", "hp_rate": 0.17215189873417722, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 112}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 131}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.5707831325301205, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Damage", "hp_rate": 0.4704225352112676, "side": 0, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.5645569620253165, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.5387801204819277, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.1291139240506329, "side": 0, "defender": 1}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.3942018072289157, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.3621987951807229, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 3}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Damage", "hp_rate": 0.9623456790123457, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.3301957831325301, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.7887323943661971, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.8462962962962963, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.730246913580247, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6925925925925925, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.29819277108433734, "side": 1, "defender": 1}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.5774647887323944, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Damage", "hp_rate": 0.04788732394366197, "side": 0, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.6549382716049382, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.26618975903614456, "side": 1, "defender": 1}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.12161144578313253, "side": 1, "defender": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 5}
+{"event": "Damage", "hp_rate": 0.6172839506172839, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.08960843373493976, "side": 1, "defender": 1}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Damage", "hp_rate": 0.4704225352112676, "side": 0, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 131}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.5012345679012346, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.46358024691358024, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.05760542168674699, "side": 1, "defender": 1}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.7417721518987341, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 76}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 131}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Damage", "hp_rate": 0.42592592592592593, "side": 1, "defender": 0}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.4835443037974684, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.04810126582278481, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.30987654320987656, "side": 1, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 5}
+{"event": "Damage", "hp_rate": 0.2722222222222222, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9716666666666667, "side": 1, "defender": 1}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.28732394366197184, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.885, "side": 1, "defender": 1}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 6}
+{"event": "Damage", "hp_rate": 0.2345679012345679, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8566666666666667, "side": 1, "defender": 1}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 134}
+{"event": "Damage", "hp_rate": 0.7133333333333334, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.6574585635359116, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.0055248618784530384, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.6266666666666667, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.19691358024691358, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5983333333333334, "side": 1, "defender": 1}
+{"event": "Turn", "number": 16}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 134}
+{"event": "Damage", "hp_rate": 0.455, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.8169014084507042, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.0808641975308642, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.043209876543209874, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.4266666666666667, "side": 1, "defender": 1}
+{"event": "Turn", "number": 17}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ICE", "power": 47}
+{"event": "Damage", "hp_rate": 0.780281690140845, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 124}
+{"event": "Damage", "hp_rate": 0.5408450704225352, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.34, "side": 1, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 7}
+{"event": "Damage", "hp_rate": 0.31166666666666665, "side": 1, "defender": 0}
+{"event": "Turn", "number": 18}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 134}
+{"event": "Damage", "hp_rate": 0.16833333333333333, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 94}
+{"event": "Damage", "hp_rate": 0.34806629834254144, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 74}
+{"event": "Damage", "hp_rate": 0.08166666666666667, "side": 1, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 7}
+{"event": "Damage", "hp_rate": 0.05333333333333334, "side": 1, "defender": 0}
+{"event": "Turn", "number": 19}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 134}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

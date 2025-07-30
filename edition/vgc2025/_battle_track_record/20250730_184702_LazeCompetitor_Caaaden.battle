@@ -1,0 +1,118 @@
+{"event": "Battle", "teams": [{"active": [{"type": 2}, {"type": 2}], "reserve": [{"type": 11}, {"type": 11}, {"type": 11}, {"type": 11}, {"type": 14}, {"type": 14}, {"type": 14}, {"type": 14}, {"type": 2}, {"type": 2}, {"type": 4}, {"type": 4}, {"type": 4}, {"type": 4}]}, {"active": [{"type": 11}, {"type": 17}], "reserve": [{"type": 15}, {"type": 2}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 46}
+{"event": "Damage", "hp_rate": 0.8947368421052632, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.9040404040404041, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.7560975609756098, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8854166666666666, "side": 1, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 46}
+{"event": "Damage", "hp_rate": 0.7894736842105263, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.5121951219512195, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.03523035230352303, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8667929292929293, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.01744579945799458, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 46}
+{"event": "Damage", "hp_rate": 0.7368421052631579, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.48295454545454547, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.46433080808080807, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.47417840375586856, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.08049242424242424, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 123}
+{"event": "Damage", "hp_rate": 0.5964912280701754, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.06186868686868687, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.45495892018779344, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 62}
+{"event": "Damage", "hp_rate": 0.5548245614035088, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.19909037558685447, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.17987089201877934, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 62}
+{"event": "Damage", "hp_rate": 0.4692982456140351, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.2631578947368421, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.7599067599067599, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.05701754385964912, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.6433566433566433, "side": 1, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 42}
+{"event": "Damage", "hp_rate": 0.585081585081585, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Message", "message": "The field is GRASSY_TERRAIN."}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 42}
+{"event": "Damage", "hp_rate": 0.5268065268065268, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.793859649122807, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.2867132867132867, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Damage", "hp_rate": 0.2674825174825175, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 42}
+{"event": "Damage", "hp_rate": 0.2092074592074592, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.6907894736842105, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 94}
+{"event": "Damage", "hp_rate": 0.09265734265734266, "side": 1, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.07342657342657342, "side": 1, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 42}
+{"event": "Damage", "hp_rate": 0.015151515151515152, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 42}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

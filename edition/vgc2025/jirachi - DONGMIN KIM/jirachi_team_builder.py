@@ -86,12 +86,12 @@ class MaxFirepowerTeamBuildPolicy(TeamBuildPolicy):
                 'weak': [Type.FIRE, Type.ICE, Type.FLYING, Type.POISON, Type.BUG]
             },
             Type.PSYCHIC: {
-                'super_effective': [Type.FIGHTING, Type.POISON],
+                'super_effective': [Type.FIGHT, Type.POISON],
                 'weak': [Type.BUG, Type.GHOST, Type.DARK]
             },
             Type.DARK: {
                 'super_effective': [Type.PSYCHIC, Type.GHOST],
-                'weak': [Type.FIGHTING, Type.BUG, Type.FAIRY]
+                'weak': [Type.FIGHT, Type.BUG, Type.FAIRY]
             }
         }
 

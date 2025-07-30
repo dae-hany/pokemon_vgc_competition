@@ -110,7 +110,9 @@ class BattleEngine:
     def _set_action_queue(self,
                           commands: FullCommand):
         for side in (0, 1):
-            # print(commands)
+            # if len(commands[side]) > len(self.state.sides[side].team.active):
+            #    print(f"Side {side} cheated.")
+            #    continue
             for i, a in enumerate(commands[side]):
                 if i >= len(self.state.sides[side].team.active):
                     continue

@@ -1,0 +1,126 @@
+{"event": "Battle", "teams": [{"active": [{"type": 3}, {"type": 3}], "reserve": [{"type": 3}, {"type": 1}, {"type": 1}, {"type": 1}, {"type": 1}, {"type": 3}, {"type": 16}, {"type": 16}, {"type": 16}, {"type": 16}, {"type": 11}, {"type": 11}, {"type": 11}, {"type": 11}]}, {"active": [{"type": 3}, {"type": 14}], "reserve": [{"type": 7}, {"type": 17}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 99}
+{"event": "Damage", "hp_rate": 0.7552870090634441, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 118}
+{"event": "Damage", "hp_rate": 0.4229607250755287, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 83}
+{"event": "Damage", "hp_rate": 0.9464285714285714, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "BUG", "power": 83}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 2}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 118}
+{"event": "Damage", "hp_rate": 0.09063444108761329, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 83}
+{"event": "Damage", "hp_rate": 0.7513368983957219, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.5267379679144385, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.9486404833836858, "side": 0, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.8469387755102041, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.30213903743315507, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8972809667673716, "side": 0, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.7474489795918368, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.6479591836734694, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.07754010695187166, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.03927492447129909, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.548469387755102, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8731117824773413, "side": 0, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.8931116389548693, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Damage", "hp_rate": 0.4652567975830816, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 83}
+{"event": "Damage", "hp_rate": 0.7980997624703088, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.6912114014251781, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 76}
+{"event": "Damage", "hp_rate": 0.4489795918367347, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8489425981873112, "side": 0, "defender": 1}
+{"event": "Turn", "number": 9}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Damage", "hp_rate": 0.31419939577039274, "side": 0, "defender": 1}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "BUG", "power": 83}
+{"event": "Damage", "hp_rate": 0.5961995249406176, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Damage", "hp_rate": 0.2824773413897281, "side": 0, "defender": 1}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.30641330166270786, "side": 1, "defender": 1}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 2}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0166270783847981, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 95}
+{"event": "Damage", "hp_rate": 0.5168067226890757, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7147058823529412, "side": 1, "defender": 0}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.5676470588235294, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.42058823529411765, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 95}
+{"event": "Damage", "hp_rate": 0.03361344537815126, "side": 0, "defender": 0}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.2735294117647059, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.1264705882352941, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 95}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 3}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

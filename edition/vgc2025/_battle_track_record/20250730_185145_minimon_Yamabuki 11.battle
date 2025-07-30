@@ -1,0 +1,105 @@
+{"event": "Battle", "teams": [{"active": [{"type": 14}, {"type": 17}], "reserve": [{"type": 1}, {"type": 12}]}, {"active": [{"type": 9}, {"type": 4}], "reserve": [{"type": 10}, {"type": 7}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.7477678571428571, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 131}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GRASS", "power": 111}
+{"event": "Damage", "hp_rate": 0.5848214285714286, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 91}
+{"event": "Damage", "hp_rate": 0.9074074074074074, "side": 0, "defender": 1}
+{"event": "Message", "message": "The field is MISTY_TERRAIN."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.3325892857142857, "side": 1, "defender": 0}
+{"event": "Message", "message": "The weather is SAND."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FAIRY", "power": 116}
+{"event": "Damage", "hp_rate": 0.8402777777777778, "side": 0, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GRASS", "power": 111}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 91}
+{"event": "Damage", "hp_rate": 0.5098814229249012, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.4871541501976285, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8009259259259259, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.29268973214285715, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9658119658119658, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.04045758928571429, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DARK", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ICE", "power": 71}
+{"event": "Damage", "hp_rate": 0.7268518518518519, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.4644268774703557, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6875, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.9629396984924623, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9316239316239316, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 102}
+{"event": "Damage", "hp_rate": 0.5559045226130653, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GRASS", "power": 24}
+{"event": "Damage", "hp_rate": 0.6412037037037037, "side": 0, "defender": 1}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 91}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9624689826302729, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6018518518518519, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.5188442211055276, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8974358974358975, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 135}
+{"event": "Damage", "hp_rate": 0.14949748743718594, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GRASS", "power": 24}
+{"event": "Damage", "hp_rate": 0.9202853598014888, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 91}
+{"event": "Damage", "hp_rate": 0.5092592592592593, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8827543424317618, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.4699074074074074, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.11243718592964824, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8632478632478633, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 135}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Damage", "hp_rate": 0.8452233250620348, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.4305555555555556, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.9662356321839081, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8290598290598291, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 91}
+{"event": "Damage", "hp_rate": 0.7633374689826302, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 60}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 66}
+{"event": "Damage", "hp_rate": 0.6417493796526055, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 60}
+{"event": "Damage", "hp_rate": 0.23076923076923078, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 66}
+{"event": "Damage", "hp_rate": 0.5201612903225806, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 66}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

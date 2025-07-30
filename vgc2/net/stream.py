@@ -51,7 +51,7 @@ class GodotClient(StreamClient):
 class FileClient(StreamClient):
     def __init__(self):
         self._file = None
-        os.mkdir("record")
+        os.makedirs("record", exist_ok=True)
 
     def start_stream(self,
                      name: str = "log") -> None:

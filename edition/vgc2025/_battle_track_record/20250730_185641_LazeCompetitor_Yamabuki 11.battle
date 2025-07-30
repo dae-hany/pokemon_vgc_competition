@@ -1,0 +1,185 @@
+{"event": "Battle", "teams": [{"active": [{"type": 1}, {"type": 1}], "reserve": [{"type": 1}, {"type": 1}, {"type": 4}, {"type": 4}, {"type": 4}, {"type": 4}, {"type": 16}, {"type": 16}, {"type": 16}, {"type": 16}, {"type": 12}, {"type": 12}, {"type": 12}, {"type": 12}]}, {"active": [{"type": 2}, {"type": 6}], "reserve": [{"type": 1}, {"type": 1}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.8773388773388774, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.9356846473029046, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIGHT", "power": 130}
+{"event": "Damage", "hp_rate": 0.8239277652370203, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 16}
+{"event": "Damage", "hp_rate": 0.8081264108352144, "side": 0, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.8357588357588358, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8941908713692946, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.6735966735966736, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.8091286307053942, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIGHT", "power": 130}
+{"event": "Damage", "hp_rate": 0.8239277652370203, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 16}
+{"event": "Damage", "hp_rate": 0.8081264108352144, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.632016632016632, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7676348547717843, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.4698544698544699, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.7676537585421412, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 16}
+{"event": "Damage", "hp_rate": 0.9841986455981941, "side": 0, "defender": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.4282744282744283, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.6810933940774487, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.44874715261959, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.6884875846501128, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 16}
+{"event": "Damage", "hp_rate": 0.672686230248307, "side": 0, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.3866943866943867, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.3621867881548975, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.12984054669703873, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.8645598194130926, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 16}
+{"event": "Damage", "hp_rate": 0.8487584650112867, "side": 0, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.34511434511434513, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.04328018223234624, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GHOST", "power": 117}
+{"event": "Damage", "hp_rate": 0.2686230248306998, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.7261410788381742, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.9645833333333333, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 110}
+{"event": "Damage", "hp_rate": 0.6388261851015802, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.8729166666666667, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 109}
+{"event": "Damage", "hp_rate": 0.48081264108352145, "side": 0, "defender": 1}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Damage", "hp_rate": 0.6846473029045643, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.83125, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.5995850622406639, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 130}
+{"event": "Damage", "hp_rate": 0.09255079006772009, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 109}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.5145228215767634, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.4730290456431535, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7895833333333333, "side": 1, "defender": 1}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.6979166666666666, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 130}
+{"event": "Damage", "hp_rate": 0.672686230248307, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 86}
+{"event": "Damage", "hp_rate": 0.6094808126410836, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.3879668049792531, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.34647302904564314, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.65625, "side": 1, "defender": 1}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.5645833333333333, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 130}
+{"event": "Damage", "hp_rate": 0.43340857787810383, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.2863070539419087, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its Special Attack decreased! Speed decreased!"}
+{"event": "Damage", "hp_rate": 0.24481327800829875, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5229166666666667, "side": 1, "defender": 1}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "STEEL", "power": 76}
+{"event": "Damage", "hp_rate": 0.4469525959367946, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.15975103734439833, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 109}
+{"event": "Damage", "hp_rate": 0.27539503386004516, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.0995850622406639, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its Special Attack decreased! Speed decreased!"}
+{"event": "Damage", "hp_rate": 0.058091286307053944, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.48125, "side": 1, "defender": 1}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "STEEL", "power": 76}
+{"event": "Damage", "hp_rate": 0.24153498871331827, "side": 0, "defender": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.38958333333333334, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 109}
+{"event": "Damage", "hp_rate": 0.0835214446952596, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.35625, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.016597510373443983, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.3145833333333333, "side": 1, "defender": 1}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.28125, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 130}
+{"event": "Damage", "hp_rate": 0.2708803611738149, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 109}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.24791666666666667, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.30353430353430355, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.20625, "side": 1, "defender": 1}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.11458333333333333, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 109}
+{"event": "Damage", "hp_rate": 0.8419864559819413, "side": 0, "defender": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GROUND", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.1891891891891892, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.14760914760914762, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.07291666666666667, "side": 1, "defender": 1}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 86}
+{"event": "Damage", "hp_rate": 0.7787810383747178, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 16}
+{"event": "Damage", "hp_rate": 0.7629796839729119, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 99}
+{"event": "Damage", "hp_rate": 0.033264033264033266, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

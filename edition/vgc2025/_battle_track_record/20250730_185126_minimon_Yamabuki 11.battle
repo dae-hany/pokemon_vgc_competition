@@ -1,0 +1,110 @@
+{"event": "Battle", "teams": [{"active": [{"type": 3}, {"type": 7}], "reserve": [{"type": 2}, {"type": 4}]}, {"active": [{"type": 7}, {"type": 13}], "reserve": [{"type": 9}, {"type": 15}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 130}
+{"event": "Damage", "hp_rate": 0.6936274509803921, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 134}
+{"event": "Damage", "hp_rate": 0.8284518828451883, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 76}
+{"event": "Damage", "hp_rate": 0.42401960784313725, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its Defense sharply increased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.6841004184100419, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.9322916666666666, "side": 0, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 130}
+{"event": "Damage", "hp_rate": 0.75, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 134}
+{"event": "Damage", "hp_rate": 0.5125523012552301, "side": 1, "defender": 1}
+{"event": "Message", "message": "Target Defense decreased! Accuracy increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 104}
+{"event": "Damage", "hp_rate": 0.2426470588235294, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its Defense sharply increased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.29916317991631797, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.6484375, "side": 0, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 130}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.5104166666666666, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.08577405857740586, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.4088541666666667, "side": 0, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 130}
+{"event": "Damage", "hp_rate": 0.7338877338877339, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.5343035343035343, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Heal", "hp_rate": 0.7110187110187111, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.8853503184713376, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.375, "side": 0, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ROCK", "power": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.5114345114345115, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.6114649681528662, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.367983367983368, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.1683991683991684, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.3375796178343949, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 67}
+{"event": "Damage", "hp_rate": 0.1942675159235669, "side": 1, "defender": 1}
+{"event": "Message", "message": "The field is GRASSY_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 119}
+{"event": "Damage", "hp_rate": 0.7453416149068323, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 67}
+{"event": "Damage", "hp_rate": 0.050955414012738856, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.5010351966873706, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.45962732919254656, "side": 0, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 119}
+{"event": "Damage", "hp_rate": 0.20496894409937888, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.16356107660455488, "side": 0, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 59}
+{"event": "Damage", "hp_rate": 0.12215320910973085, "side": 0, "defender": 0}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "BUG", "power": 92}
+{"event": "Damage", "hp_rate": 0.014492753623188406, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}
