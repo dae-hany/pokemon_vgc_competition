@@ -3,20 +3,34 @@ from multiprocessing.connection import Client
 
 from vgc2.competition import CompetitorManager
 from vgc2.competition.ecosystem import Championship, Strategy, label_roster
-from vgc2.meta import BasicMeta
+from vgc2.meta import BasicMeta, MoveSet, Roster
 from vgc2.net.client import ProxyCompetitor
 from vgc2.net.server import BASE_PORT
+from vgc2.net.stream import FileClient
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
+
+
+def print_roster(move_set: MoveSet,
+                 roster: Roster):
+    print("## Move Set ##")
+    for m in move_set:
+        print(m)
+    print()
+    print("## Roster ##")
+    for p in roster:
+        print(p)
+    print()
 
 
 def main(_args):
     move_set = gen_move_set(_args.n_moves)
     roster = gen_pkm_roster(_args.roster_size, move_set)
+    print_roster(move_set, roster)
     label_roster(move_set, roster)
     meta = BasicMeta(move_set, roster)
     conns = []
     championship = Championship(roster, meta, _args.epochs, _args.n_active, _args.n_battles, _args.max_team_size,
-                                _args.max_pkm_moves, Strategy.ELO_PAIRING)
+                                _args.max_pkm_moves, Strategy.ELO_PAIRING, FileClient())
     for i in range(_args.n_agents):
         address = ('localhost', _args.base_port + i)
         conn = Client(address, authkey=f'Competitor {i}'.encode('utf-8'))
@@ -25,7 +39,7 @@ def main(_args):
     championship.run()
     ranking = championship.ranking()
     winner = ranking[0]
-    print(winner.competitor.name + " wins the tournament!")
+    print(winner.competitor.name + " wins the championship!")
     print(f"ELO {winner.elo}")
     for conn in conns:
         conn.close()

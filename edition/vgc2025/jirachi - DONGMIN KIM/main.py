@@ -7,7 +7,7 @@ from vgc2.net.server import RemoteCompetitorManager, BASE_PORT
 
 def main(_args):
     _id = _args.id
-    competitor = SmartJirachiBattleCompetitor()  # SmartJirachiChampionshipCompetitor()
+    competitor = SmartJirachiChampionshipCompetitor()  # SmartJirachiChampionshipCompetitor()
     server = RemoteCompetitorManager(competitor, port=BASE_PORT + _id, authkey=f'Competitor {_id}'.encode('utf-8'))
     server.run()
 

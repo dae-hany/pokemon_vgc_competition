@@ -27,6 +27,13 @@ class PokemonSpecies:
                 ", Types " + str([t.name for t in self.types]) +
                 ", Moves " + str([str(m) for m in self.moves]))
 
+    def __getstate__(self):
+        return {slot: [] if slot == '_instances' else getattr(self, slot) for slot in self.__slots__}
+
+    def __setstate__(self, state):
+        for key, value in state.items():
+            setattr(self, key, value)
+
     def edit(self,
              base_stats: Stats,
              types: list[Type],
@@ -130,7 +137,17 @@ class Pokemon:
                 ", Moves " + str([str(m) for m in self.moves]))
 
     def __del__(self):
-        self.species._instances.remove(self)
+        try:
+            self.species._instances.remove(self)
+        except ValueError:
+            pass
+
+    def __getstate__(self):
+        return {slot: [] if slot == '_views' else getattr(self, slot) for slot in self.__slots__}
+
+    def __setstate__(self, state):
+        for key, value in state.items():
+            setattr(self, key, value)
 
     def _base_edit(self):
         self.stats = calculate_stats(self.species.base_stats, self.level, self.ivs, self.evs, self.nature)
@@ -180,6 +197,13 @@ class BattlingPokemon:
                 (", Boosts " + str(self.boosts[1:]) if any(b > 0 for b in self.boosts) else "") +
                 (", " + self.status.name if self.status != Status.NONE else "") +
                 (", Moves " + str([str(m) for m in self.battling_moves])))
+
+    def __getstate__(self):
+        return {slot: None if slot == '_engine' else getattr(self, slot) for slot in self.__slots__}
+
+    def __setstate__(self, state):
+        for key, value in state.items():
+            setattr(self, key, value)
 
     def reset(self):
         self.hp = self.constants.stats[Stat.MAX_HP]

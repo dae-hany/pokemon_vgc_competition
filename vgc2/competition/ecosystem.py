@@ -10,11 +10,13 @@ from vgc2.competition.match import Match
 from vgc2.meta import Roster, Meta, MoveSet
 from vgc2.meta.constraints import Constraints
 from vgc2.meta.evaluator import MetaEvaluator, evaluate_meta
+from vgc2.net.stream import StreamClient
 
 
 class Strategy(IntEnum):
-    RANDOM_PAIRING = 0
-    ELO_PAIRING = 1
+    FIXED = 0
+    RANDOM_PAIRING = 1
+    ELO_PAIRING = 2
 
 
 def build_team(cmd: TeamBuildCommand,
@@ -32,7 +34,7 @@ def label_roster(move_set: MoveSet,
 
 class Championship:
     __slots__ = ('cm', 'roster', 'meta', 'epochs', 'n_active', 'n_battles', 'max_team_size', 'max_pkm_moves',
-                 'strategy')
+                 'strategy', 'client')
 
     def __init__(self,
                  roster: Roster,
@@ -42,7 +44,8 @@ class Championship:
                  n_battles: int = 3,
                  max_team_size: int = 4,
                  max_pkm_moves: int = 4,
-                 strategy: Strategy = Strategy.RANDOM_PAIRING):
+                 strategy: Strategy = Strategy.RANDOM_PAIRING,
+                 client: StreamClient | None = None):
         self.cm: list[CompetitorManager] = []
         self.roster = roster
         self.meta = meta
@@ -52,6 +55,7 @@ class Championship:
         self.max_team_size = max_team_size
         self.max_pkm_moves = max_pkm_moves
         self.strategy = strategy
+        self.client = client
 
     def register(self,
                  cm: CompetitorManager):
@@ -59,11 +63,16 @@ class Championship:
 
     def run(self):
         e = 0
+        shuffle(self.cm)
         while e < self.epochs:
             self._build_teams()
             self._pairings()
             self._matches()
             e += 1
+            print(f"\nWave {e} ELO ratings:")
+            for cm in self.cm:
+                print(cm.competitor.name + " ELO " + str(cm.elo))
+            print()
 
     def _build_teams(self):
         for cm in self.cm:
@@ -75,14 +84,15 @@ class Championship:
             case Strategy.RANDOM_PAIRING:
                 shuffle(self.cm)
             case Strategy.ELO_PAIRING:
-                sorted(self.cm, key=lambda x: -x.elo)
+                self.cm = sorted(self.cm, key=lambda x: -x.elo)
 
     def _matches(self):
         n_matches = len(self.cm) // 2
         m = 0
         while m < n_matches:
             cm = self.cm[2 * m], self.cm[2 * m + 1]
-            match = Match(cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, False)
+            match = Match(cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, False,
+                          self.client)
             match.run()
             winner = 1 if match.wins[1] > match.wins[0] else 0
             cm[0].elo, cm[1].elo = elo_rating(cm[0].elo, cm[1].elo, winner)

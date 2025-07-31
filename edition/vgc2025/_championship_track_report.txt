@@ -1,0 +1,681 @@
+## Move Set ##
+FLYING, Power 130, Accuracy 0.92, Max PP 10, PHYSICAL, Probability 0.07, TOXIC_SPIKES
+GROUND, Power 52, Max PP 13, PHYSICAL, Probability 0.63, Reflect
+FIRE, Power 55, Max PP 5, SPECIAL, Probability 0.61, Light Screen
+BUG, Power 77, Accuracy 0.93, Max PP 10, PHYSICAL, Probability 0.45, Protect
+NORMAL, Power 67, Max PP 14, SPECIAL, Probability 0.52, RAIN
+DARK, Accuracy 0.86, Max PP 11, OTHER, Recoil 0.22
+POISON, Max PP 11, OTHER, Self Switch
+GROUND, Power 124, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.11, SUN
+BUG, Power 140, Accuracy 0.77, Max PP 6, PHYSICAL, Priority 1
+BUG, Accuracy 0.77, Max PP 10, OTHER, Self Boosts (0, 0, 0, 0, 1, 0, 0, -1)
+FLYING, Power 81, Max PP 10, SPECIAL, Probability 0.42, Light Screen
+FAIRY, Accuracy 0.99, Max PP 11, OTHER, Reflect
+DRAGON, Accuracy 0.91, Max PP 8, OTHER, Target Boosts (0, 0, 0, 0, -1, 0, 0, 1)
+STEEL, Max PP 11, OTHER, RAIN
+STEEL, Power 72, Max PP 10, SPECIAL, Probability 0.49, Trickroom
+GHOST, Max PP 8, OTHER, Force Switch
+WATER, Power 113, Accuracy 0.86, Max PP 6, PHYSICAL, Probability 0.19, Tailwind
+NORMAL, Power 99, Accuracy 0.75, Max PP 9, SPECIAL, Priority 1, Probability 0.29, BURN
+ICE, Power 140, Max PP 8, PHYSICAL, Priority 1
+ELECTRIC, Power 60, Max PP 10, PHYSICAL, Probability 0.57, Recoil 0.19
+FAIRY, Max PP 5, OTHER, Heal 0.37
+ELECTRIC, Power 20, Max PP 9, SPECIAL, Probability 0.86, Heal 0.01
+FIRE, Power 125, Accuracy 0.79, Max PP 10, PHYSICAL, Priority 1, Probability 0.11, SUN
+FAIRY, Power 110, Max PP 11, PHYSICAL, Priority 1, Probability 0.21, Protect
+PSYCHIC, Power 96, Max PP 9, PHYSICAL, Priority 1, Probability 0.31, STEALTH_ROCK
+DARK, Power 71, Accuracy 0.90, Max PP 9, PHYSICAL, Probability 0.49, Self Switch
+GHOST, Power 60, Max PP 11, PHYSICAL, Probability 0.57, GRASSY_TERRAIN
+ICE, Power 103, Max PP 10, PHYSICAL, Probability 0.26, Ignore Evasion
+WATER, Accuracy 0.99, Max PP 7, OTHER, Priority 1, FROZEN
+DRAGON, Accuracy 0.96, Max PP 13, OTHER, Protect
+DARK, Power 108, Accuracy 0.78, Max PP 11, PHYSICAL, Probability 0.23, Light Screen
+ROCK, Power 72, Accuracy 0.97, Max PP 12, PHYSICAL, Priority 1, Probability 0.49, Heal 0.37
+DRAGON, Power 115, Accuracy 0.89, Max PP 8, SPECIAL, Priority 1, Probability 0.18, STEALTH_ROCK
+GRASS, Power 60, Accuracy 0.80, Max PP 13, SPECIAL, Priority 1, Probability 0.57, Force Switch
+GHOST, Accuracy 0.85, Max PP 9, OTHER, Tailwind
+ICE, Power 87, Accuracy 0.96, Max PP 8, SPECIAL, Priority 1, Probability 0.38, Disable
+GROUND, Power 55, Accuracy 0.93, Max PP 12, SPECIAL, Probability 0.61, Self Switch
+FLYING, Power 84, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.40, SAND
+BUG, Power 97, Max PP 14, PHYSICAL, Probability 0.31, Change Type
+GHOST, Power 34, Max PP 8, SPECIAL, Priority 1, Probability 0.76, Ignore Evasion
+DARK, Accuracy 0.80, Max PP 12, OTHER, Force Switch
+FAIRY, Max PP 7, OTHER, MISTY_TERRAIN
+FLYING, Power 7, Max PP 8, SPECIAL, Probability 0.95, Change Type
+FIRE, Max PP 9, OTHER, Priority 1, Disable
+DARK, Power 140, Accuracy 0.76, Max PP 8, SPECIAL, Priority 1
+FIRE, Power 140, Accuracy 0.79, Max PP 11, SPECIAL
+GROUND, Power 140, Max PP 12, PHYSICAL
+GHOST, Accuracy 0.83, Max PP 11, OTHER, Priority 1, Protect
+GHOST, Power 140, Accuracy 0.77, Max PP 6, SPECIAL, Priority 1
+FIRE, Power 39, Accuracy 0.95, Max PP 8, SPECIAL, Priority 1, Probability 0.72, Heal 0.29
+GHOST, Power 128, Accuracy 0.85, Max PP 11, PHYSICAL, Priority 1, Probability 0.09, TOXIC
+BUG, Power 116, Max PP 8, SPECIAL, Priority 1, Probability 0.17, Light Screen
+STEEL, Power 40, Accuracy 0.91, Max PP 10, SPECIAL, Priority 1, Probability 0.71, Self Switch
+PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED
+FAIRY, Max PP 11, OTHER, Recoil 0.47
+FIGHT, Power 133, Accuracy 0.90, Max PP 9, SPECIAL, Probability 0.05, Trickroom
+PSYCHIC, Power 111, Max PP 10, SPECIAL, Priority 1, Probability 0.21, SUN
+STEEL, Max PP 9, OTHER, Disable
+GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1
+POISON, Max PP 10, OTHER, Priority 1, Heal 0.40
+NORMAL, Max PP 12, OTHER, Priority 1, SNOW
+FIGHT, Power 112, Accuracy 0.86, Max PP 9, SPECIAL, Priority 1, Probability 0.20, Self Switch
+FIRE, Power 73, Accuracy 0.98, Max PP 9, PHYSICAL, Probability 0.48, Recoil 0.14
+DRAGON, Power 115, Max PP 10, SPECIAL, Priority 1, Probability 0.18, FROZEN
+GRASS, Max PP 8, OTHER, Priority 1, Trickroom
+STEEL, Power 69, Max PP 11, PHYSICAL, Probability 0.51, Protect
+FLYING, Accuracy 0.95, Max PP 12, OTHER, Force Switch
+FIRE, Power 70, Accuracy 0.75, Max PP 5, PHYSICAL, Probability 0.50, BURN
+NORMAL, Power 35, Max PP 6, SPECIAL, Priority 1, Probability 0.75, Target Boosts (0, -1, 0, 0, 0, 0, 0, -1)
+ICE, Power 94, Max PP 9, SPECIAL, Priority 1, Probability 0.33, Change Type
+WATER, Power 113, Max PP 10, PHYSICAL, Probability 0.19, Light Screen
+NORMAL, Power 66, Accuracy 0.76, Max PP 7, PHYSICAL, Probability 0.53, Trickroom
+DARK, Power 111, Accuracy 0.92, Max PP 8, PHYSICAL, Probability 0.21, SUN
+BUG, Accuracy 0.88, Max PP 10, OTHER, Self Switch
+FIGHT, Accuracy 0.90, Max PP 8, OTHER, Change Type
+DRAGON, Max PP 10, OTHER, Priority 1, Trickroom
+GRASS, Max PP 7, OTHER, Reflect
+FIRE, Accuracy 0.83, Max PP 10, OTHER, STEALTH_ROCK
+DARK, Max PP 9, OTHER, Disable
+ICE, Power 111, Accuracy 0.86, Max PP 12, PHYSICAL, Priority 1, Probability 0.21, SAND
+FLYING, Power 74, Max PP 7, PHYSICAL, Probability 0.47, MISTY_TERRAIN
+ROCK, Power 73, Accuracy 0.82, Max PP 11, SPECIAL, Priority 1, Probability 0.48, TOXIC_SPIKES
+FIRE, Power 107, Accuracy 0.77, Max PP 9, PHYSICAL, Probability 0.24, SNOW
+FIGHT, Power 140, Accuracy 0.97, Max PP 10, SPECIAL
+GRASS, Accuracy 0.77, Max PP 11, OTHER, Priority 1, Protect
+GRASS, Accuracy 0.93, Max PP 9, OTHER, SUN
+ELECTRIC, Power 36, Max PP 11, PHYSICAL, Probability 0.74, Target Boosts (0, 1, 0, 1, 0, 0, 0, 0)
+ICE, Max PP 10, OTHER, MISTY_TERRAIN
+GHOST, Power 120, Max PP 9, SPECIAL, Priority 1, Probability 0.14, Light Screen
+POISON, Power 85, Accuracy 0.90, Max PP 13, SPECIAL, Probability 0.39, Tailwind
+ELECTRIC, Max PP 10, OTHER, Tailwind
+WATER, Power 62, Accuracy 0.97, Max PP 9, PHYSICAL, Priority 1, Probability 0.56, SNOW
+FAIRY, Accuracy 0.80, Max PP 6, OTHER, Priority 1, Change Type
+FLYING, Power 140, Max PP 5, PHYSICAL
+GHOST, Power 16, Accuracy 0.93, Max PP 9, SPECIAL, Probability 0.89, Force Switch
+BUG, Power 84, Max PP 9, PHYSICAL, Probability 0.40, Reflect
+STEEL, Max PP 9, OTHER, Priority 1, TOXIC_SPIKES
+WATER, Power 52, Max PP 6, PHYSICAL, Probability 0.63, Disable
+FIRE, Power 97, Max PP 7, SPECIAL, Priority 1, Probability 0.31, Ignore Evasion
+DRAGON, Power 83, Accuracy 0.75, Max PP 10, SPECIAL, Probability 0.41, Ignore Evasion
+
+## Roster ##
+Base Stats (114, 112, 109, 99, 70, 97), Types ['STEEL'], Moves ['ELECTRIC, Max PP 10, OTHER, Tailwind', 'WATER, Accuracy 0.99, Max PP 7, OTHER, Priority 1, FROZEN', 'PSYCHIC, Power 96, Max PP 9, PHYSICAL, Priority 1, Probability 0.31, STEALTH_ROCK', 'GHOST, Power 16, Accuracy 0.93, Max PP 9, SPECIAL, Probability 0.89, Force Switch']
+Base Stats (131, 87, 104, 40, 137, 140), Types ['ROCK'], Moves ['DRAGON, Power 115, Accuracy 0.89, Max PP 8, SPECIAL, Priority 1, Probability 0.18, STEALTH_ROCK', 'GHOST, Accuracy 0.85, Max PP 9, OTHER, Tailwind', 'FIGHT, Power 140, Accuracy 0.97, Max PP 10, SPECIAL', 'FAIRY, Accuracy 0.80, Max PP 6, OTHER, Priority 1, Change Type']
+Base Stats (135, 112, 43, 140, 70, 139), Types ['ICE'], Moves ['FIRE, Accuracy 0.83, Max PP 10, OTHER, STEALTH_ROCK', 'GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1', 'FIGHT, Power 133, Accuracy 0.90, Max PP 9, SPECIAL, Probability 0.05, Trickroom', 'ELECTRIC, Power 20, Max PP 9, SPECIAL, Probability 0.86, Heal 0.01']
+Base Stats (109, 93, 126, 89, 83, 114), Types ['BUG', 'DRAGON'], Moves ['GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1', 'GHOST, Power 120, Max PP 9, SPECIAL, Priority 1, Probability 0.14, Light Screen', 'FAIRY, Max PP 11, OTHER, Recoil 0.47', 'BUG, Power 97, Max PP 14, PHYSICAL, Probability 0.31, Change Type']
+Base Stats (119, 65, 68, 140, 108, 112), Types ['FLYING', 'ROCK'], Moves ['FLYING, Power 7, Max PP 8, SPECIAL, Probability 0.95, Change Type', 'FIGHT, Power 133, Accuracy 0.90, Max PP 9, SPECIAL, Probability 0.05, Trickroom', 'WATER, Power 62, Accuracy 0.97, Max PP 9, PHYSICAL, Priority 1, Probability 0.56, SNOW', 'DRAGON, Power 115, Accuracy 0.89, Max PP 8, SPECIAL, Priority 1, Probability 0.18, STEALTH_ROCK']
+Base Stats (80, 105, 93, 76, 82, 63), Types ['POISON', 'STEEL'], Moves ['GRASS, Accuracy 0.77, Max PP 11, OTHER, Priority 1, Protect', 'NORMAL, Power 35, Max PP 6, SPECIAL, Priority 1, Probability 0.75, Target Boosts (0, -1, 0, 0, 0, 0, 0, -1)', 'BUG, Power 116, Max PP 8, SPECIAL, Priority 1, Probability 0.17, Light Screen', 'ICE, Power 140, Max PP 8, PHYSICAL, Priority 1']
+Base Stats (160, 132, 120, 81, 136, 77), Types ['STEEL'], Moves ['DRAGON, Power 83, Accuracy 0.75, Max PP 10, SPECIAL, Probability 0.41, Ignore Evasion', 'FIRE, Accuracy 0.83, Max PP 10, OTHER, STEALTH_ROCK', 'FIRE, Power 39, Accuracy 0.95, Max PP 8, SPECIAL, Priority 1, Probability 0.72, Heal 0.29', 'GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1']
+Base Stats (110, 104, 115, 127, 81, 31), Types ['POISON', 'PSYCHIC'], Moves ['GHOST, Accuracy 0.83, Max PP 11, OTHER, Priority 1, Protect', 'GHOST, Accuracy 0.85, Max PP 9, OTHER, Tailwind', 'POISON, Max PP 11, OTHER, Self Switch', 'STEEL, Max PP 11, OTHER, RAIN']
+Base Stats (130, 71, 52, 121, 139, 135), Types ['FAIRY', 'ROCK'], Moves ['DARK, Accuracy 0.80, Max PP 12, OTHER, Force Switch', 'STEEL, Max PP 9, OTHER, Disable', 'ICE, Power 94, Max PP 9, SPECIAL, Priority 1, Probability 0.33, Change Type', 'FAIRY, Accuracy 0.80, Max PP 6, OTHER, Priority 1, Change Type']
+Base Stats (160, 139, 116, 87, 89, 40), Types ['FIRE', 'FIGHT'], Moves ['GHOST, Max PP 8, OTHER, Force Switch', 'DARK, Power 71, Accuracy 0.90, Max PP 9, PHYSICAL, Probability 0.49, Self Switch', 'FIRE, Max PP 9, OTHER, Priority 1, Disable', 'DARK, Accuracy 0.86, Max PP 11, OTHER, Recoil 0.22']
+Base Stats (74, 39, 86, 93, 128, 69), Types ['WATER', 'DRAGON'], Moves ['FIRE, Power 70, Accuracy 0.75, Max PP 5, PHYSICAL, Probability 0.50, BURN', 'FLYING, Power 130, Accuracy 0.92, Max PP 10, PHYSICAL, Probability 0.07, TOXIC_SPIKES', 'BUG, Power 97, Max PP 14, PHYSICAL, Probability 0.31, Change Type', 'GRASS, Accuracy 0.93, Max PP 9, OTHER, SUN']
+Base Stats (101, 140, 74, 71, 36, 108), Types ['ICE', 'DRAGON'], Moves ['GHOST, Power 34, Max PP 8, SPECIAL, Priority 1, Probability 0.76, Ignore Evasion', 'FAIRY, Accuracy 0.80, Max PP 6, OTHER, Priority 1, Change Type', 'ELECTRIC, Power 36, Max PP 11, PHYSICAL, Probability 0.74, Target Boosts (0, 1, 0, 1, 0, 0, 0, 0)', 'FIRE, Power 39, Accuracy 0.95, Max PP 8, SPECIAL, Priority 1, Probability 0.72, Heal 0.29']
+Base Stats (133, 76, 97, 116, 119, 140), Types ['ICE'], Moves ['DARK, Max PP 9, OTHER, Disable', 'ELECTRIC, Power 20, Max PP 9, SPECIAL, Probability 0.86, Heal 0.01', 'GROUND, Power 52, Max PP 13, PHYSICAL, Probability 0.63, Reflect', 'FIRE, Power 97, Max PP 7, SPECIAL, Priority 1, Probability 0.31, Ignore Evasion']
+Base Stats (134, 64, 83, 89, 66, 137), Types ['BUG'], Moves ['FIRE, Power 39, Accuracy 0.95, Max PP 8, SPECIAL, Priority 1, Probability 0.72, Heal 0.29', 'GHOST, Power 34, Max PP 8, SPECIAL, Priority 1, Probability 0.76, Ignore Evasion', 'FAIRY, Power 110, Max PP 11, PHYSICAL, Priority 1, Probability 0.21, Protect', 'ICE, Max PP 10, OTHER, MISTY_TERRAIN']
+Base Stats (151, 65, 60, 128, 93, 40), Types ['GHOST'], Moves ['BUG, Power 84, Max PP 9, PHYSICAL, Probability 0.40, Reflect', 'DRAGON, Accuracy 0.91, Max PP 8, OTHER, Target Boosts (0, 0, 0, 0, -1, 0, 0, 1)', 'GROUND, Power 124, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.11, SUN', 'DRAGON, Power 115, Accuracy 0.89, Max PP 8, SPECIAL, Priority 1, Probability 0.18, STEALTH_ROCK']
+Base Stats (91, 140, 65, 132, 109, 107), Types ['FAIRY', 'NORMAL'], Moves ['BUG, Accuracy 0.77, Max PP 10, OTHER, Self Boosts (0, 0, 0, 0, 1, 0, 0, -1)', 'WATER, Power 113, Max PP 10, PHYSICAL, Probability 0.19, Light Screen', 'PSYCHIC, Power 96, Max PP 9, PHYSICAL, Priority 1, Probability 0.31, STEALTH_ROCK', 'GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1']
+Base Stats (100, 77, 80, 67, 140, 106), Types ['GROUND'], Moves ['ICE, Power 94, Max PP 9, SPECIAL, Priority 1, Probability 0.33, Change Type', 'BUG, Accuracy 0.77, Max PP 10, OTHER, Self Boosts (0, 0, 0, 0, 1, 0, 0, -1)', 'FIRE, Power 140, Accuracy 0.79, Max PP 11, SPECIAL', 'GHOST, Power 140, Accuracy 0.77, Max PP 6, SPECIAL, Priority 1']
+Base Stats (148, 63, 139, 121, 140, 99), Types ['FAIRY', 'POISON'], Moves ['PSYCHIC, Power 111, Max PP 10, SPECIAL, Priority 1, Probability 0.21, SUN', 'DARK, Max PP 9, OTHER, Disable', 'GRASS, Accuracy 0.93, Max PP 9, OTHER, SUN', 'DARK, Accuracy 0.80, Max PP 12, OTHER, Force Switch']
+Base Stats (72, 117, 93, 105, 95, 101), Types ['ELECTRIC', 'ICE'], Moves ['FAIRY, Accuracy 0.99, Max PP 11, OTHER, Reflect', 'PSYCHIC, Power 111, Max PP 10, SPECIAL, Priority 1, Probability 0.21, SUN', 'WATER, Power 113, Max PP 10, PHYSICAL, Probability 0.19, Light Screen', 'DRAGON, Power 115, Max PP 10, SPECIAL, Priority 1, Probability 0.18, FROZEN']
+Base Stats (110, 123, 95, 119, 111, 90), Types ['BUG'], Moves ['GROUND, Power 124, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.11, SUN', 'FIGHT, Power 133, Accuracy 0.90, Max PP 9, SPECIAL, Probability 0.05, Trickroom', 'BUG, Accuracy 0.88, Max PP 10, OTHER, Self Switch', 'DRAGON, Accuracy 0.96, Max PP 13, OTHER, Protect']
+Base Stats (99, 24, 92, 140, 71, 140), Types ['POISON'], Moves ['GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1', 'DARK, Accuracy 0.80, Max PP 12, OTHER, Force Switch', 'PSYCHIC, Power 96, Max PP 9, PHYSICAL, Priority 1, Probability 0.31, STEALTH_ROCK', 'FLYING, Power 130, Accuracy 0.92, Max PP 10, PHYSICAL, Probability 0.07, TOXIC_SPIKES']
+Base Stats (118, 140, 57, 64, 140, 128), Types ['GHOST', 'FIGHT'], Moves ['GROUND, Power 140, Accuracy 0.88, Max PP 8, PHYSICAL, Priority 1', 'NORMAL, Power 66, Accuracy 0.76, Max PP 7, PHYSICAL, Probability 0.53, Trickroom', 'ICE, Power 140, Max PP 8, PHYSICAL, Priority 1', 'ROCK, Power 73, Accuracy 0.82, Max PP 11, SPECIAL, Priority 1, Probability 0.48, TOXIC_SPIKES']
+Base Stats (101, 140, 54, 72, 56, 109), Types ['GHOST', 'GRASS'], Moves ['FIRE, Power 107, Accuracy 0.77, Max PP 9, PHYSICAL, Probability 0.24, SNOW', 'PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED', 'GROUND, Power 55, Accuracy 0.93, Max PP 12, SPECIAL, Probability 0.61, Self Switch', 'WATER, Power 52, Max PP 6, PHYSICAL, Probability 0.63, Disable']
+Base Stats (145, 136, 140, 140, 67, 66), Types ['ICE', 'FIRE'], Moves ['DRAGON, Max PP 10, OTHER, Priority 1, Trickroom', 'DRAGON, Power 115, Accuracy 0.89, Max PP 8, SPECIAL, Priority 1, Probability 0.18, STEALTH_ROCK', 'WATER, Power 62, Accuracy 0.97, Max PP 9, PHYSICAL, Priority 1, Probability 0.56, SNOW', 'STEEL, Power 40, Accuracy 0.91, Max PP 10, SPECIAL, Priority 1, Probability 0.71, Self Switch']
+Base Stats (69, 67, 140, 90, 98, 64), Types ['BUG', 'GRASS'], Moves ['BUG, Power 140, Accuracy 0.77, Max PP 6, PHYSICAL, Priority 1', 'FIGHT, Power 140, Accuracy 0.97, Max PP 10, SPECIAL', 'GHOST, Max PP 8, OTHER, Force Switch', 'BUG, Power 77, Accuracy 0.93, Max PP 10, PHYSICAL, Probability 0.45, Protect']
+Base Stats (160, 96, 80, 78, 140, 60), Types ['ROCK'], Moves ['GHOST, Max PP 8, OTHER, Force Switch', 'BUG, Power 97, Max PP 14, PHYSICAL, Probability 0.31, Change Type', 'PSYCHIC, Power 111, Max PP 10, SPECIAL, Priority 1, Probability 0.21, SUN', 'ELECTRIC, Power 20, Max PP 9, SPECIAL, Probability 0.86, Heal 0.01']
+Base Stats (160, 131, 140, 119, 111, 64), Types ['PSYCHIC', 'GRASS'], Moves ['FLYING, Power 140, Max PP 5, PHYSICAL', 'FIGHT, Power 112, Accuracy 0.86, Max PP 9, SPECIAL, Priority 1, Probability 0.20, Self Switch', 'FLYING, Power 84, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.40, SAND', 'GHOST, Power 34, Max PP 8, SPECIAL, Priority 1, Probability 0.76, Ignore Evasion']
+Base Stats (140, 114, 35, 140, 119, 66), Types ['WATER', 'FIGHT'], Moves ['WATER, Accuracy 0.99, Max PP 7, OTHER, Priority 1, FROZEN', 'GRASS, Accuracy 0.77, Max PP 11, OTHER, Priority 1, Protect', 'PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED', 'BUG, Accuracy 0.88, Max PP 10, OTHER, Self Switch']
+Base Stats (81, 96, 118, 140, 50, 132), Types ['FLYING', 'GRASS'], Moves ['FAIRY, Accuracy 0.99, Max PP 11, OTHER, Reflect', 'GHOST, Power 34, Max PP 8, SPECIAL, Priority 1, Probability 0.76, Ignore Evasion', 'BUG, Power 116, Max PP 8, SPECIAL, Priority 1, Probability 0.17, Light Screen', 'FIRE, Max PP 9, OTHER, Priority 1, Disable']
+Base Stats (109, 125, 58, 87, 55, 140), Types ['NORMAL'], Moves ['FLYING, Power 84, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.40, SAND', 'FLYING, Power 140, Max PP 5, PHYSICAL', 'DRAGON, Accuracy 0.96, Max PP 13, OTHER, Protect', 'GHOST, Power 16, Accuracy 0.93, Max PP 9, SPECIAL, Probability 0.89, Force Switch']
+Base Stats (154, 35, 134, 140, 75, 131), Types ['DARK'], Moves ['NORMAL, Power 67, Max PP 14, SPECIAL, Probability 0.52, RAIN', 'ELECTRIC, Power 60, Max PP 10, PHYSICAL, Probability 0.57, Recoil 0.19', 'FAIRY, Power 110, Max PP 11, PHYSICAL, Priority 1, Probability 0.21, Protect', 'PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED']
+Base Stats (160, 140, 108, 61, 140, 91), Types ['ELECTRIC', 'POISON'], Moves ['BUG, Power 116, Max PP 8, SPECIAL, Priority 1, Probability 0.17, Light Screen', 'ELECTRIC, Power 36, Max PP 11, PHYSICAL, Probability 0.74, Target Boosts (0, 1, 0, 1, 0, 0, 0, 0)', 'FIRE, Max PP 9, OTHER, Priority 1, Disable', 'WATER, Accuracy 0.99, Max PP 7, OTHER, Priority 1, FROZEN']
+Base Stats (90, 122, 118, 71, 140, 64), Types ['NORMAL'], Moves ['BUG, Power 116, Max PP 8, SPECIAL, Priority 1, Probability 0.17, Light Screen', 'GRASS, Max PP 7, OTHER, Reflect', 'PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED', 'FIRE, Max PP 9, OTHER, Priority 1, Disable']
+Base Stats (143, 89, 140, 103, 60, 116), Types ['ELECTRIC'], Moves ['GROUND, Power 140, Max PP 12, PHYSICAL', 'ICE, Power 103, Max PP 10, PHYSICAL, Probability 0.26, Ignore Evasion', 'ELECTRIC, Max PP 10, OTHER, Tailwind', 'PSYCHIC, Power 96, Max PP 9, PHYSICAL, Priority 1, Probability 0.31, STEALTH_ROCK']
+Base Stats (145, 53, 140, 140, 107, 138), Types ['PSYCHIC'], Moves ['GHOST, Power 140, Accuracy 0.77, Max PP 6, SPECIAL, Priority 1', 'GHOST, Power 16, Accuracy 0.93, Max PP 9, SPECIAL, Probability 0.89, Force Switch', 'FAIRY, Max PP 7, OTHER, MISTY_TERRAIN', 'FIRE, Power 140, Accuracy 0.79, Max PP 11, SPECIAL']
+Base Stats (58, 94, 140, 113, 98, 2), Types ['ROCK', 'GHOST'], Moves ['GHOST, Power 120, Max PP 9, SPECIAL, Priority 1, Probability 0.14, Light Screen', 'GROUND, Power 55, Accuracy 0.93, Max PP 12, SPECIAL, Probability 0.61, Self Switch', 'FIGHT, Accuracy 0.90, Max PP 8, OTHER, Change Type', 'FIRE, Power 55, Max PP 5, SPECIAL, Probability 0.61, Light Screen']
+Base Stats (138, 96, 130, 71, 81, 89), Types ['GROUND', 'FIGHT'], Moves ['DRAGON, Accuracy 0.96, Max PP 13, OTHER, Protect', 'ICE, Power 94, Max PP 9, SPECIAL, Priority 1, Probability 0.33, Change Type', 'FIRE, Max PP 9, OTHER, Priority 1, Disable', 'ICE, Power 103, Max PP 10, PHYSICAL, Probability 0.26, Ignore Evasion']
+Base Stats (95, 55, 64, 140, 111, 105), Types ['ICE', 'FAIRY'], Moves ['DRAGON, Accuracy 0.91, Max PP 8, OTHER, Target Boosts (0, 0, 0, 0, -1, 0, 0, 1)', 'FIRE, Power 107, Accuracy 0.77, Max PP 9, PHYSICAL, Probability 0.24, SNOW', 'GHOST, Accuracy 0.83, Max PP 11, OTHER, Priority 1, Protect', 'FLYING, Power 84, Accuracy 0.79, Max PP 9, PHYSICAL, Probability 0.40, SAND']
+Base Stats (123, 50, 117, 73, 39, 86), Types ['GRASS'], Moves ['GROUND, Power 52, Max PP 13, PHYSICAL, Probability 0.63, Reflect', 'FIRE, Accuracy 0.83, Max PP 10, OTHER, STEALTH_ROCK', 'FIRE, Power 97, Max PP 7, SPECIAL, Priority 1, Probability 0.31, Ignore Evasion', 'PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED']
+Base Stats (112, 140, 45, 53, 101, 94), Types ['DRAGON'], Moves ['FLYING, Power 81, Max PP 10, SPECIAL, Probability 0.42, Light Screen', 'BUG, Power 84, Max PP 9, PHYSICAL, Probability 0.40, Reflect', 'ICE, Power 140, Max PP 8, PHYSICAL, Priority 1', 'DRAGON, Accuracy 0.91, Max PP 8, OTHER, Target Boosts (0, 0, 0, 0, -1, 0, 0, 1)']
+Base Stats (108, 91, 60, 80, 140, 58), Types ['PSYCHIC'], Moves ['DARK, Accuracy 0.80, Max PP 12, OTHER, Force Switch', 'STEEL, Power 40, Accuracy 0.91, Max PP 10, SPECIAL, Priority 1, Probability 0.71, Self Switch', 'DARK, Power 108, Accuracy 0.78, Max PP 11, PHYSICAL, Probability 0.23, Light Screen', 'FLYING, Power 7, Max PP 8, SPECIAL, Probability 0.95, Change Type']
+Base Stats (160, 140, 117, 106, 119, 75), Types ['PSYCHIC'], Moves ['ICE, Power 94, Max PP 9, SPECIAL, Priority 1, Probability 0.33, Change Type', 'FIGHT, Accuracy 0.90, Max PP 8, OTHER, Change Type', 'BUG, Power 84, Max PP 9, PHYSICAL, Probability 0.40, Reflect', 'ELECTRIC, Power 60, Max PP 10, PHYSICAL, Probability 0.57, Recoil 0.19']
+Base Stats (93, 91, 46, 140, 103, 43), Types ['DRAGON', 'FIGHT'], Moves ['DARK, Power 108, Accuracy 0.78, Max PP 11, PHYSICAL, Probability 0.23, Light Screen', 'FAIRY, Accuracy 0.99, Max PP 11, OTHER, Reflect', 'FIGHT, Power 133, Accuracy 0.90, Max PP 9, SPECIAL, Probability 0.05, Trickroom', 'DRAGON, Power 83, Accuracy 0.75, Max PP 10, SPECIAL, Probability 0.41, Ignore Evasion']
+Base Stats (107, 140, 32, 89, 41, 97), Types ['DRAGON'], Moves ['ICE, Max PP 10, OTHER, MISTY_TERRAIN', 'NORMAL, Max PP 12, OTHER, Priority 1, SNOW', 'FIRE, Power 39, Accuracy 0.95, Max PP 8, SPECIAL, Priority 1, Probability 0.72, Heal 0.29', 'GHOST, Max PP 8, OTHER, Force Switch']
+Base Stats (93, 125, 102, 74, 89, 56), Types ['DRAGON', 'BUG'], Moves ['FIGHT, Power 140, Accuracy 0.97, Max PP 10, SPECIAL', 'FIRE, Max PP 9, OTHER, Priority 1, Disable', 'FLYING, Power 7, Max PP 8, SPECIAL, Probability 0.95, Change Type', 'FLYING, Power 81, Max PP 10, SPECIAL, Probability 0.42, Light Screen']
+Base Stats (79, 108, 90, 104, 62, 79), Types ['STEEL', 'NORMAL'], Moves ['FIRE, Power 107, Accuracy 0.77, Max PP 9, PHYSICAL, Probability 0.24, SNOW', 'WATER, Accuracy 0.99, Max PP 7, OTHER, Priority 1, FROZEN', 'GHOST, Power 34, Max PP 8, SPECIAL, Priority 1, Probability 0.76, Ignore Evasion', 'NORMAL, Power 99, Accuracy 0.75, Max PP 9, SPECIAL, Priority 1, Probability 0.29, BURN']
+Base Stats (123, 93, 125, 86, 140, 135), Types ['STEEL'], Moves ['FLYING, Power 74, Max PP 7, PHYSICAL, Probability 0.47, MISTY_TERRAIN', 'DRAGON, Power 83, Accuracy 0.75, Max PP 10, SPECIAL, Probability 0.41, Ignore Evasion', 'FIRE, Power 70, Accuracy 0.75, Max PP 5, PHYSICAL, Probability 0.50, BURN', 'ICE, Power 94, Max PP 9, SPECIAL, Priority 1, Probability 0.33, Change Type']
+Base Stats (99, 138, 119, 110, 89, 75), Types ['FAIRY'], Moves ['STEEL, Max PP 9, OTHER, Disable', 'BUG, Power 97, Max PP 14, PHYSICAL, Probability 0.31, Change Type', 'GRASS, Accuracy 0.93, Max PP 9, OTHER, SUN', 'FAIRY, Max PP 5, OTHER, Heal 0.37']
+Base Stats (127, 113, 134, 73, 90, 139), Types ['WATER', 'FLYING'], Moves ['FAIRY, Accuracy 0.80, Max PP 6, OTHER, Priority 1, Change Type', 'STEEL, Power 72, Max PP 10, SPECIAL, Probability 0.49, Trickroom', 'GROUND, Power 55, Accuracy 0.93, Max PP 12, SPECIAL, Probability 0.61, Self Switch', 'PSYCHIC, Accuracy 0.77, Max PP 10, OTHER, PARALYZED']
+Base Stats (110, 81, 79, 77, 0, 122), Types ['FIGHT'], Moves ['STEEL, Max PP 9, OTHER, Disable', 'POISON, Max PP 11, OTHER, Self Switch', 'GHOST, Power 120, Max PP 9, SPECIAL, Priority 1, Probability 0.14, Light Screen', 'DRAGON, Power 115, Accuracy 0.89, Max PP 8, SPECIAL, Priority 1, Probability 0.18, STEALTH_ROCK']
+
+LazeCompetitor vs minimon ends in [3, 0].
+JJJ vs Smart_Jirachi_Championship_AI ends in [3, 0].
+Caaaden vs Wolfe ends in [3, 0].
+IceMonte vs StocKarpador ends in [1, 2].
+Example 11 vs Botzilla ends in [0, 3].
+PeachCompetitor vs Example 2 ends in [3, 0].
+
+Wave 1 ELO ratings:
+LazeCompetitor ELO 1215.0
+minimon ELO 1185.0
+JJJ ELO 1215.0
+Smart_Jirachi_Championship_AI ELO 1185.0
+Caaaden ELO 1215.0
+Wolfe ELO 1185.0
+IceMonte ELO 1185.0
+StocKarpador ELO 1215.0
+Example 11 ELO 1185.0
+Botzilla ELO 1215.0
+PeachCompetitor ELO 1215.0
+Example 2 ELO 1185.0
+
+LazeCompetitor vs JJJ ends in [3, 0].
+Caaaden vs StocKarpador ends in [3, 0].
+Botzilla vs PeachCompetitor ends in [3, 0].
+minimon vs Smart_Jirachi_Championship_AI ends in [3, 0].
+Wolfe vs IceMonte ends in [1, 2].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 2 ELO ratings:
+LazeCompetitor ELO 1230.0
+JJJ ELO 1200.0
+Caaaden ELO 1230.0
+StocKarpador ELO 1200.0
+Botzilla ELO 1230.0
+PeachCompetitor ELO 1200.0
+minimon ELO 1200.0
+Smart_Jirachi_Championship_AI ELO 1170.0
+Wolfe ELO 1170.0
+IceMonte ELO 1200.0
+Example 11 ELO 1200.0
+Example 2 ELO 1170.0
+
+LazeCompetitor vs Caaaden ends in [3, 0].
+Botzilla vs JJJ ends in [0, 3].
+StocKarpador vs PeachCompetitor ends in [3, 0].
+minimon vs IceMonte ends in [3, 0].
+Example 11 vs Smart_Jirachi_Championship_AI ends in [0, 3].
+Wolfe vs Example 2 ends in [3, 0].
+
+Wave 3 ELO ratings:
+LazeCompetitor ELO 1245.0
+Caaaden ELO 1215.0
+Botzilla ELO 1216.2919947606663
+JJJ ELO 1213.7080052393337
+StocKarpador ELO 1215.0
+PeachCompetitor ELO 1185.0
+minimon ELO 1215.0
+IceMonte ELO 1185.0
+Example 11 ELO 1186.2919947606663
+Smart_Jirachi_Championship_AI ELO 1183.7080052393337
+Wolfe ELO 1185.0
+Example 2 ELO 1155.0
+
+LazeCompetitor vs Botzilla ends in [3, 0].
+Caaaden vs StocKarpador ends in [2, 1].
+minimon vs JJJ ends in [0, 3].
+Example 11 vs PeachCompetitor ends in [0, 3].
+IceMonte vs Wolfe ends in [0, 3].
+Smart_Jirachi_Championship_AI vs Example 2 ends in [3, 0].
+
+Wave 4 ELO ratings:
+LazeCompetitor ELO 1261.2366112039426
+Botzilla ELO 1200.0553835567237
+Caaaden ELO 1230.0
+StocKarpador ELO 1200.0
+minimon ELO 1200.0557796405628
+JJJ ELO 1228.6522255987709
+Example 11 ELO 1171.3477744012291
+PeachCompetitor ELO 1199.9442203594372
+IceMonte ELO 1170.0
+Wolfe ELO 1200.0
+Smart_Jirachi_Championship_AI ELO 1199.9446164432763
+Example 2 ELO 1138.7633887960574
+
+LazeCompetitor vs Caaaden ends in [3, 0].
+JJJ vs minimon ends in [3, 0].
+Botzilla vs StocKarpador ends in [0, 3].
+Wolfe vs Smart_Jirachi_Championship_AI ends in [3, 0].
+PeachCompetitor vs Example 11 ends in [3, 0].
+IceMonte vs Example 2 ends in [3, 0].
+
+Wave 5 ELO ratings:
+LazeCompetitor ELO 1277.5815822116838
+Caaaden ELO 1213.6550289922588
+JJJ ELO 1244.8840530094728
+minimon ELO 1183.8239522298609
+Botzilla ELO 1185.0577746570555
+StocKarpador ELO 1214.9976088996682
+Wolfe ELO 1215.0023911003318
+Smart_Jirachi_Championship_AI ELO 1184.9422253429445
+PeachCompetitor ELO 1216.1760477701391
+Example 11 ELO 1155.1159469905272
+IceMonte ELO 1186.3449710077412
+Example 2 ELO 1122.4184177883162
+
+LazeCompetitor vs JJJ ends in [3, 0].
+PeachCompetitor vs Wolfe ends in [0, 3].
+StocKarpador vs Caaaden ends in [1, 2].
+IceMonte vs Botzilla ends in [0, 3].
+Smart_Jirachi_Championship_AI vs minimon ends in [0, 3].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 6 ELO ratings:
+LazeCompetitor ELO 1293.989095079646
+JJJ ELO 1228.4765401415107
+PeachCompetitor ELO 1201.2267184090042
+Wolfe ELO 1229.9517204614667
+StocKarpador ELO 1200.0555724451733
+Caaaden ELO 1228.5970654467537
+IceMonte ELO 1171.4005434871465
+Botzilla ELO 1200.0022021776504
+Smart_Jirachi_Championship_AI ELO 1169.9905049074755
+minimon ELO 1198.77567266533
+Example 11 ELO 1171.5234598584893
+Example 2 ELO 1106.010904920354
+
+LazeCompetitor vs Wolfe ends in [3, 0].
+Caaaden vs JJJ ends in [0, 3].
+PeachCompetitor vs StocKarpador ends in [0, 3].
+Botzilla vs minimon ends in [2, 1].
+Example 11 vs IceMonte ends in [0, 3].
+Smart_Jirachi_Championship_AI vs Example 2 ends in [3, 0].
+
+Wave 7 ELO ratings:
+LazeCompetitor ELO 1311.7229229930354
+Wolfe ELO 1212.2178925480773
+Caaaden ELO 1213.6022689422546
+JJJ ELO 1243.4713366460098
+PeachCompetitor ELO 1186.2772806532132
+StocKarpador ELO 1215.0050102009643
+Botzilla ELO 1215.0551554933822
+minimon ELO 1183.722719349598
+Example 11 ELO 1156.5287665845992
+IceMonte ELO 1186.3952367610366
+Smart_Jirachi_Championship_AI ELO 1187.7219212705647
+Example 2 ELO 1088.2794885572648
+
+LazeCompetitor vs JJJ ends in [3, 0].
+Botzilla vs StocKarpador ends in [1, 2].
+Caaaden vs Wolfe ends in [2, 1].
+Smart_Jirachi_Championship_AI vs IceMonte ends in [0, 3].
+PeachCompetitor vs minimon ends in [0, 3].
+Example 11 vs Example 2 ends in [2, 1].
+
+Wave 8 ELO ratings:
+LazeCompetitor ELO 1329.6322529058948
+JJJ ELO 1225.5620067331504
+Botzilla ELO 1200.0573204396699
+StocKarpador ELO 1230.0028452546767
+Caaaden ELO 1228.662036959355
+Wolfe ELO 1197.158124530977
+Smart_Jirachi_Championship_AI ELO 1172.7791985667052
+IceMonte ELO 1201.3379594648961
+PeachCompetitor ELO 1171.3875679428725
+minimon ELO 1198.6124320599388
+Example 11 ELO 1174.438000588171
+Example 2 ELO 1070.370254553693
+
+LazeCompetitor vs StocKarpador ends in [3, 0].
+Caaaden vs JJJ ends in [0, 3].
+IceMonte vs Botzilla ends in [0, 3].
+minimon vs Wolfe ends in [3, 0].
+Example 11 vs Smart_Jirachi_Championship_AI ends in [0, 3].
+PeachCompetitor vs Example 2 ends in [3, 0].
+
+Wave 9 ELO ratings:
+LazeCompetitor ELO 1348.8194542869055
+StocKarpador ELO 1210.815643873666
+Caaaden ELO 1213.795872471198
+JJJ ELO 1240.4281712213074
+IceMonte ELO 1186.39324884567
+Botzilla ELO 1215.002031058896
+minimon ELO 1213.6752191964274
+Wolfe ELO 1182.0953373944883
+Example 11 ELO 1159.5096162841394
+Smart_Jirachi_Championship_AI ELO 1187.7075828707368
+PeachCompetitor ELO 1190.6299589990385
+Example 2 ELO 1051.127863497527
+
+LazeCompetitor vs JJJ ends in [3, 0].
+Botzilla vs Caaaden ends in [2, 1].
+minimon vs StocKarpador ends in [1, 2].
+PeachCompetitor vs Smart_Jirachi_Championship_AI ends in [2, 1].
+IceMonte vs Wolfe ends in [2, 1].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 10 ELO ratings:
+LazeCompetitor ELO 1368.3529483016678
+JJJ ELO 1220.894677206545
+Botzilla ELO 1230.054104901894
+Caaaden ELO 1198.7437986281998
+minimon ELO 1198.798674199588
+StocKarpador ELO 1225.6921888705053
+PeachCompetitor ELO 1205.7561251432003
+Smart_Jirachi_Championship_AI ELO 1172.581416726575
+IceMonte ELO 1201.5787951344957
+Wolfe ELO 1166.9097911056626
+Example 11 ELO 1179.0427364248562
+Example 2 ELO 1031.59474335681
+
+LazeCompetitor vs Botzilla ends in [3, 0].
+StocKarpador vs JJJ ends in [2, 1].
+PeachCompetitor vs IceMonte ends in [0, 3].
+minimon vs Caaaden ends in [3, 0].
+Example 11 vs Smart_Jirachi_Championship_AI ends in [0, 3].
+Wolfe vs Example 2 ends in [3, 0].
+
+Wave 11 ELO ratings:
+LazeCompetitor ELO 1389.0272147841868
+Botzilla ELO 1209.3798384193751
+StocKarpador ELO 1240.8993009355531
+JJJ ELO 1205.6875651414973
+PeachCompetitor ELO 1190.9364662871017
+IceMonte ELO 1216.3984539905944
+minimon ELO 1213.8010433684306
+Caaaden ELO 1183.7414294593573
+Example 11 ELO 1164.3216618650365
+Smart_Jirachi_Championship_AI ELO 1187.3024912863948
+Wolfe ELO 1187.4733138651186
+Example 2 ELO 1011.0312205973543
+
+LazeCompetitor vs StocKarpador ends in [3, 0].
+IceMonte vs minimon ends in [0, 3].
+Botzilla vs JJJ ends in [3, 0].
+PeachCompetitor vs Wolfe ends in [2, 1].
+Smart_Jirachi_Championship_AI vs Caaaden ends in [0, 3].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 12 ELO ratings:
+LazeCompetitor ELO 1410.061166287007
+StocKarpador ELO 1219.865349432733
+IceMonte ELO 1201.51059113235
+minimon ELO 1228.6889062266748
+Botzilla ELO 1224.5392406699941
+JJJ ELO 1190.5281628908783
+PeachCompetitor ELO 1206.0859776444172
+Wolfe ELO 1172.323802507803
+Smart_Jirachi_Championship_AI ELO 1172.4562293005772
+Caaaden ELO 1198.5876914451749
+Example 11 ELO 1185.5413077872365
+Example 2 ELO 989.8115746751542
+
+LazeCompetitor vs minimon ends in [3, 0].
+Botzilla vs StocKarpador ends in [1, 2].
+PeachCompetitor vs IceMonte ends in [0, 3].
+Caaaden vs JJJ ends in [0, 3].
+Example 11 vs Smart_Jirachi_Championship_AI ends in [0, 3].
+Wolfe vs Example 2 ends in [3, 0].
+
+Wave 13 ELO ratings:
+LazeCompetitor ELO 1432.2501604045126
+minimon ELO 1206.4999121091691
+Botzilla ELO 1209.7410166037098
+StocKarpador ELO 1234.6635734990173
+PeachCompetitor ELO 1191.283501540722
+IceMonte ELO 1216.3130672360453
+Caaaden ELO 1183.9355868636987
+JJJ ELO 1205.1802674723544
+Example 11 ELO 1171.105969087281
+Smart_Jirachi_Championship_AI ELO 1186.8915680005327
+Wolfe ELO 1194.5506485215983
+Example 2 ELO 967.5847286613591
+
+LazeCompetitor vs StocKarpador ends in [3, 0].
+IceMonte vs Botzilla ends in [0, 3].
+minimon vs JJJ ends in [0, 3].
+Wolfe vs PeachCompetitor ends in [3, 0].
+Smart_Jirachi_Championship_AI vs Caaaden ends in [1, 2].
+Example 11 vs Example 2 ends in [2, 1].
+
+Wave 14 ELO ratings:
+LazeCompetitor ELO 1454.966218116927
+StocKarpador ELO 1211.947515786603
+IceMonte ELO 1201.5967716334299
+Botzilla ELO 1224.4573122063252
+minimon ELO 1191.5568854739809
+JJJ ELO 1220.1232941075427
+Wolfe ELO 1209.6916984378229
+PeachCompetitor ELO 1176.1424516244974
+Smart_Jirachi_Championship_AI ELO 1172.019184885712
+Caaaden ELO 1198.8079699785194
+Example 11 ELO 1194.0087886036983
+Example 2 ELO 944.6819091449418
+
+LazeCompetitor vs Botzilla ends in [3, 0].
+JJJ vs StocKarpador ends in [3, 0].
+Wolfe vs IceMonte ends in [2, 1].
+Caaaden vs Example 11 ends in [3, 0].
+minimon vs PeachCompetitor ends in [3, 0].
+Smart_Jirachi_Championship_AI vs Example 2 ends in [3, 0].
+
+Wave 15 ELO ratings:
+LazeCompetitor ELO 1478.6761191747041
+Botzilla ELO 1200.747411148548
+JJJ ELO 1235.4762056930704
+StocKarpador ELO 1196.5946042010753
+Wolfe ELO 1225.0411212959589
+IceMonte ELO 1186.2473487752939
+Caaaden ELO 1214.015154117032
+Example 11 ELO 1178.8016044651858
+minimon ELO 1207.2219437761162
+PeachCompetitor ELO 1160.477393322362
+Smart_Jirachi_Championship_AI ELO 1195.6378427986651
+Example 2 ELO 921.0632512319886
+
+LazeCompetitor vs JJJ ends in [3, 0].
+Wolfe vs Caaaden ends in [2, 1].
+minimon vs Botzilla ends in [1, 2].
+StocKarpador vs Smart_Jirachi_Championship_AI ends in [3, 0].
+IceMonte vs Example 11 ends in [3, 0].
+PeachCompetitor vs Example 2 ends in [3, 0].
+
+Wave 16 ELO ratings:
+LazeCompetitor ELO 1502.7414989098042
+JJJ ELO 1211.4108259579702
+Wolfe ELO 1240.5169908214605
+Caaaden ELO 1198.5392845915303
+minimon ELO 1192.501439466659
+Botzilla ELO 1215.4679154580053
+StocKarpador ELO 1211.6359108068382
+Smart_Jirachi_Championship_AI ELO 1180.5965361929022
+IceMonte ELO 1201.5687581945576
+Example 11 ELO 1163.480195045922
+PeachCompetitor ELO 1184.4383427411651
+Example 2 ELO 897.1023018131857
+
+LazeCompetitor vs Wolfe ends in [3, 0].
+Botzilla vs StocKarpador ends in [2, 1].
+JJJ vs IceMonte ends in [3, 0].
+Caaaden vs minimon ends in [0, 3].
+PeachCompetitor vs Smart_Jirachi_Championship_AI ends in [1, 2].
+Example 11 vs Example 2 ends in [2, 1].
+
+Wave 17 ELO ratings:
+LazeCompetitor ELO 1527.3110477554578
+Wolfe ELO 1215.947441975807
+Botzilla ELO 1230.633349689574
+StocKarpador ELO 1196.4704765752695
+JJJ ELO 1226.8356285570114
+IceMonte ELO 1186.1439555955164
+Caaaden ELO 1183.7999330812804
+minimon ELO 1207.2407909769088
+PeachCompetitor ELO 1169.604200103042
+Smart_Jirachi_Championship_AI ELO 1195.4306788310253
+Example 11 ELO 1188.1552674938891
+Example 2 ELO 872.4272293652186
+
+LazeCompetitor vs Botzilla ends in [3, 0].
+JJJ vs Wolfe ends in [3, 0].
+minimon vs StocKarpador ends in [2, 1].
+Smart_Jirachi_Championship_AI vs Example 11 ends in [3, 0].
+IceMonte vs Caaaden ends in [1, 2].
+PeachCompetitor vs Example 2 ends in [3, 0].
+
+Wave 18 ELO ratings:
+LazeCompetitor ELO 1552.7076242430528
+Botzilla ELO 1205.236773201979
+JJJ ELO 1242.3055555283406
+Wolfe ELO 1200.4775150044777
+minimon ELO 1222.7056339379972
+StocKarpador ELO 1181.005633614181
+Smart_Jirachi_Championship_AI ELO 1210.744737684451
+Example 11 ELO 1172.8412086404635
+IceMonte ELO 1171.2451536469607
+Caaaden ELO 1198.6987350298361
+PeachCompetitor ELO 1195.0119657047317
+Example 2 ELO 847.0194637635291
+
+LazeCompetitor vs JJJ ends in [3, 0].
+minimon vs Smart_Jirachi_Championship_AI ends in [3, 0].
+Botzilla vs Wolfe ends in [3, 0].
+Caaaden vs PeachCompetitor ends in [3, 0].
+StocKarpador vs Example 11 ends in [3, 0].
+IceMonte vs Example 2 ends in [3, 0].
+
+Wave 19 ELO ratings:
+LazeCompetitor ELO 1578.40372534758
+JJJ ELO 1216.6094544238135
+minimon ELO 1238.2218234323313
+Smart_Jirachi_Championship_AI ELO 1195.2285481901167
+Botzilla ELO 1220.442234044477
+Wolfe ELO 1185.27205416198
+Caaaden ELO 1213.8578996825072
+PeachCompetitor ELO 1179.8528010520606
+StocKarpador ELO 1196.358055307256
+Example 11 ELO 1157.4887869473885
+IceMonte ELO 1197.2263649645847
+Example 2 ELO 821.0382524459051
+
+LazeCompetitor vs minimon ends in [3, 0].
+Botzilla vs JJJ ends in [2, 1].
+Caaaden vs IceMonte ends in [2, 1].
+StocKarpador vs Smart_Jirachi_Championship_AI ends in [3, 0].
+Wolfe vs PeachCompetitor ends in [3, 0].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 20 ELO ratings:
+LazeCompetitor ELO 1604.6940103982815
+minimon ELO 1211.9315383816297
+Botzilla ELO 1235.6077017300977
+JJJ ELO 1201.4439867381927
+Caaaden ELO 1229.575392799261
+IceMonte ELO 1181.508871847831
+StocKarpador ELO 1211.4068198776547
+Smart_Jirachi_Championship_AI ELO 1180.1797836197181
+Wolfe ELO 1200.50600315378
+PeachCompetitor ELO 1164.6188520602605
+Example 11 ELO 1183.7086762531396
+Example 2 ELO 794.8183631401539
+
+LazeCompetitor vs Botzilla ends in [3, 0].
+Caaaden vs minimon ends in [0, 3].
+StocKarpador vs JJJ ends in [1, 2].
+Wolfe vs Example 11 ends in [3, 0].
+IceMonte vs Smart_Jirachi_Championship_AI ends in [3, 0].
+PeachCompetitor vs Example 2 ends in [3, 0].
+
+Wave 21 ELO ratings:
+LazeCompetitor ELO 1631.4922390318816
+Botzilla ELO 1208.8094730964976
+Caaaden ELO 1215.336485073751
+minimon ELO 1226.1704461071397
+StocKarpador ELO 1196.8368321039188
+JJJ ELO 1216.0139745119286
+Wolfe ELO 1216.2306375539129
+Example 11 ELO 1167.9840418530068
+IceMonte ELO 1196.566252919329
+Smart_Jirachi_Championship_AI ELO 1165.1224025482202
+PeachCompetitor ELO 1191.4288198389086
+Example 2 ELO 768.0083953615057
+
+LazeCompetitor vs minimon ends in [3, 0].
+Wolfe vs JJJ ends in [0, 3].
+Caaaden vs Botzilla ends in [0, 3].
+StocKarpador vs IceMonte ends in [3, 0].
+PeachCompetitor vs Example 11 ends in [3, 0].
+Smart_Jirachi_Championship_AI vs Example 2 ends in [3, 0].
+
+Wave 22 ELO ratings:
+LazeCompetitor ELO 1658.8399742191868
+minimon ELO 1198.8227109198344
+Wolfe ELO 1201.2399916481504
+JJJ ELO 1231.004620417691
+Caaaden ELO 1200.6182456869221
+Botzilla ELO 1223.5277124833265
+StocKarpador ELO 1211.8485139439993
+IceMonte ELO 1181.5545710792485
+PeachCompetitor ELO 1207.4394787291942
+Example 11 ELO 1151.9733829627212
+Smart_Jirachi_Championship_AI ELO 1192.3536594013692
+Example 2 ELO 740.7771385083568
+
+LazeCompetitor vs JJJ ends in [3, 0].
+Botzilla vs StocKarpador ends in [2, 1].
+PeachCompetitor vs Wolfe ends in [0, 3].
+Caaaden vs minimon ends in [0, 3].
+Smart_Jirachi_Championship_AI vs IceMonte ends in [0, 3].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 23 ELO ratings:
+LazeCompetitor ELO 1686.4847878359842
+JJJ ELO 1203.3598068008937
+Botzilla ELO 1239.0317541758686
+StocKarpador ELO 1196.3444722514569
+PeachCompetitor ELO 1192.707103699099
+Wolfe ELO 1215.9723666782456
+Caaaden ELO 1185.6957644640904
+minimon ELO 1213.7451921426662
+Smart_Jirachi_Championship_AI ELO 1177.8197434362612
+IceMonte ELO 1196.0884870443565
+Example 11 ELO 1179.4017480648415
+Example 2 ELO 713.3487734062364
+
+LazeCompetitor vs Botzilla ends in [3, 0].
+Wolfe vs minimon ends in [0, 3].
+JJJ vs StocKarpador ends in [2, 1].
+IceMonte vs PeachCompetitor ends in [3, 0].
+Caaaden vs Example 11 ends in [3, 0].
+Smart_Jirachi_Championship_AI vs Example 2 ends in [3, 0].
+
+Wave 24 ELO ratings:
+LazeCompetitor ELO 1714.3633160594918
+Botzilla ELO 1211.153225952361
+Wolfe ELO 1201.0685202152902
+minimon ELO 1228.6490386056216
+JJJ ELO 1218.6626419851764
+StocKarpador ELO 1181.0416370671742
+IceMonte ELO 1211.2344684893644
+PeachCompetitor ELO 1177.561122254091
+Caaaden ELO 1200.9674692736853
+Example 11 ELO 1164.1300432552466
+Smart_Jirachi_Championship_AI ELO 1205.883464879601
+Example 2 ELO 685.2850519628968
+
+LazeCompetitor vs minimon ends in [3, 0].
+JJJ vs IceMonte ends in [2, 1].
+Botzilla vs Smart_Jirachi_Championship_AI ends in [3, 0].
+Wolfe vs Caaaden ends in [0, 3].
+StocKarpador vs PeachCompetitor ends in [3, 0].
+Example 11 vs Example 2 ends in [3, 0].
+
+Wave 25 ELO ratings:
+LazeCompetitor ELO 1742.6370884297814
+minimon ELO 1200.375266235332
+JJJ ELO 1233.9832931588785
+IceMonte ELO 1195.9138173156623
+Botzilla ELO 1226.380722381185
+Smart_Jirachi_Championship_AI ELO 1190.655968450777
+Wolfe ELO 1186.0728829350128
+Caaaden ELO 1215.9631065539627
+StocKarpador ELO 1196.1918979443237
+PeachCompetitor ELO 1162.4108613769415
+Example 11 ELO 1192.3383465841237
+Example 2 ELO 657.0767486340197
+
+LazeCompetitor wins the championship!
+ELO 1742.6370884297814

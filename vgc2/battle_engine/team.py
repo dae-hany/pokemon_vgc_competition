@@ -29,6 +29,13 @@ class BattlingTeam:
     def __str__(self):
         return "Active " + str([str(a) for a in self.active]) + ", Reserve " + str([str(r) for r in self.reserve])
 
+    def __getstate__(self):
+        return {slot: [] if slot == '_views' else None if slot == '_engine' else getattr(self, slot) for slot in self.__slots__}
+
+    def __setstate__(self, state):
+        for key, value in state.items():
+            setattr(self, key, value)
+
     def reset(self):
         self.active = self._initial_active[:]
         self.reserve = self._initial_reserve[:]

@@ -1,0 +1,89 @@
+{"event": "Battle", "teams": [{"active": [{"type": 12}, {"type": 5}], "reserve": [{"type": 11}, {"type": 9}]}, {"active": [{"type": 16}, {"type": 5}], "reserve": [{"type": 12}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.6709511568123393, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.41201716738197425, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.34190231362467866, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "WATER", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.012853470437017995, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 20}
+{"event": "Damage", "hp_rate": 0.9174757281553398, "side": 0, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Turn", "number": 5}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 133}
+{"event": "Damage", "hp_rate": 0.08796296296296297, "side": 1, "defender": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.8447368421052631, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 20}
+{"event": "Damage", "hp_rate": 0.718421052631579, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 133}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 62}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.5097087378640777, "side": 0, "defender": 1}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 17}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 133}
+{"event": "Damage", "hp_rate": 0.8598574821852731, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 17}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 133}
+{"event": "Damage", "hp_rate": 0.7197149643705463, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 17}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 133}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 11}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 17}
+{"event": "Message", "message": "Its no longer FROZEN!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.4679334916864608, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.2517814726840855, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 115}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 13}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.3768776824034335, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

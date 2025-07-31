@@ -3,6 +3,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
+import joblib
 import numpy as np
 from numpy.random import choice
 
@@ -77,9 +78,9 @@ def q_table_battle_decision(q_table,
                             n_actions: int,
                             action_shape: list[int]) -> list[BattleCommand]:
     # encode state
-    obs = np.zeros(2179)  # what encoder expects
+    obs = np.zeros(5000)  # what encoder expects
     encode_state(obs, state, ctx)
-    state_key = tuple(round(x, 1) for x in obs)
+    state_key = tuple(round(x, 1) for x in obs[:2179])
     debug_mode = True
 
     commands = []

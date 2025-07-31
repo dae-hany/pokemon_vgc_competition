@@ -1,5 +1,11 @@
 ## Changelog
 
+### Version 1.0.7.2 (July 2025)
+
+* Major bug fixes.
+    * Stopped recursive serialization over multiprocessing.
+* Minor fixes.
+
 ### Version 1.0.7.1 (July 2025)
 
 * Minor fixes.

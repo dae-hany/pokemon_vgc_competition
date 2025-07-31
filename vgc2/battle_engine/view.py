@@ -1,6 +1,10 @@
+from vgc2.battle_engine import BattlingMove, Move, Type, Category
 from vgc2.battle_engine.game_state import Side, State
 from vgc2.battle_engine.pokemon import Pokemon, BattlingPokemon
 from vgc2.battle_engine.team import Team, BattlingTeam
+
+
+DUMMY_MOVE = BattlingMove(Move(Type.NORMAL, 100, 1., 10, Category.PHYSICAL))
 
 
 class PokemonView(Pokemon):
@@ -13,7 +17,10 @@ class PokemonView(Pokemon):
         self._revealed: list[int] = []
 
     def __del__(self):
-        self._pkm._views.remove(self)
+        try:
+            self._pkm._views.remove(self)
+        except ValueError:
+            pass
 
     def __getattr__(self,
                     attr):
@@ -44,7 +51,10 @@ class BattlingPokemonView(BattlingPokemon):
         self._revealed: list[int] = []
 
     def __del__(self):
-        self._pkm.constants._views.remove(self)
+        try:
+            self._pkm.constants._views.remove(self)
+        except ValueError:
+            pass
 
     def __getattr__(self,
                     attr):
@@ -53,7 +63,8 @@ class BattlingPokemonView(BattlingPokemon):
         if attr == "constants":
             return self._constants_view
         if attr == "battling_moves":
-            return [self._pkm.battling_moves[i] for i in self._revealed]
+            return ([self._pkm.battling_moves[i] for i in self._revealed]
+                    + [DUMMY_MOVE] * (len(self._pkm.battling_moves) - len(self._revealed)))
         return getattr(self._pkm, attr)
 
     def _on_move_used(self,
@@ -91,28 +102,31 @@ class TeamView(Team):
 
 
 class BattlingTeamView(BattlingTeam):
-    __slots__ = ('_team', '_views', '_revealed')
+    __slots__ = ('_team', '_battling_views', '_revealed')
 
     def __init__(self, team: BattlingTeam, view: TeamView):
         self._team = team
-        self._views = ({p: BattlingPokemonView(p, v) for p, v in
-                        zip(self._team.active, view.members[:len(self._team.active)])} |
-                       {p: BattlingPokemonView(p, v) for p, v in
-                        zip(self._team.reserve, view.members[len(self._team.active):])})
+        self._battling_views = ({p: BattlingPokemonView(p, v) for p, v in
+                                 zip(self._team.active, view.members[:len(self._team.active)])} |
+                                {p: BattlingPokemonView(p, v) for p, v in
+                                 zip(self._team.reserve, view.members[len(self._team.active):])})
         self._revealed: list[BattlingPokemon] = [p for p in self._team.active]
         self._team._views += [self]
 
     def __del__(self):
-        self._team._views.remove(self)
+        try:
+            self._team._views.remove(self)
+        except ValueError:
+            pass
 
     def __getattr__(self,
                     attr):
         if attr == "_team":
             return None
         if attr == "active":
-            return [self._views[p] for p in self._team.active]
+            return [self._battling_views[p] for p in self._team.active]
         if attr == "reserve":
-            return [self._views[p] for p in self._team.reserve if p in self._revealed]
+            return [self._battling_views[p] for p in self._team.reserve if p in self._revealed]
         return getattr(self._team, attr)
 
     def on_switch(self, switch_in: BattlingPokemon | None):
@@ -129,7 +143,10 @@ class SideView(Side):
         self._side._views += [self]
 
     def __del__(self):
-        self._side._views.remove(self)
+        try:
+            self._side._views.remove(self)
+        except ValueError:
+            pass
 
     def __getattr__(self,
                     attr):

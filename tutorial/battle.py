@@ -2,7 +2,7 @@ from vgc2.agent.battle import GreedyBattlePolicy, RandomBattlePolicy
 from vgc2.battle_engine import BattleEngine, State, StateView, TeamView
 from vgc2.battle_engine.game_state import get_battle_teams
 from vgc2.competition.match import run_battle, label_teams
-from vgc2.net.godot_com import GodotClient
+from vgc2.net.stream import GodotClient
 from vgc2.util.generator import gen_team
 
 

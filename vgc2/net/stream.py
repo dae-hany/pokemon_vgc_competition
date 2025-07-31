@@ -52,13 +52,15 @@ class FileClient(StreamClient):
     def __init__(self):
         self._file = None
         os.makedirs("record", exist_ok=True)
+        self.id = 0
 
     def start_stream(self,
                      name: str = "log") -> None:
         self.close()  # Close previous stream
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        filename = f"record/{timestamp}_{name}.battle"
+        filename = f"record/{timestamp}_{self.id}_{name}.battle"
         self._file = open(filename, "w", encoding="utf-8")
+        self.id += 1
 
     def send(self,
              msg: str) -> bool:

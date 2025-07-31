@@ -71,7 +71,8 @@ def greedy_double_battle_decision(params: BattleRuleParam,
                 hp[target] = new_hp
             strategies += [(ko, damage, sources, targets)]
     if len(strategies) == 0:
-        return [(choice(len(a.battling_moves)), choice(len(defenders))) for a in attackers] if attackers else []
+        return [(choice(len(a.battling_moves)) if len(a.battling_moves) > 0 else 0, choice(len(defenders)))
+                for a in attackers]
     best = max(strategies, key=lambda x: 1000 * x[0] + x[1])
     return list(zip(best[2], best[3]))
 

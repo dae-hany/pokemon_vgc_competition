@@ -68,6 +68,14 @@ class Side:
     def __str__(self):
         return str(self.team) + str(self.conditions)
 
+    def __getstate__(self):
+        return {slot: [] if slot == '_views' else None if slot == '_engine' else getattr(self, slot)
+                for slot in self.__slots__}
+
+    def __setstate__(self, state):
+        for key, value in state.items():
+            setattr(self, key, value)
+
     def set_team(self, team: BattlingTeam, view):
         self.team = team
         for v in self._views:
