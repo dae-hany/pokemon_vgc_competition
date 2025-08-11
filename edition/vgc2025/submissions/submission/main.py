@@ -6,7 +6,7 @@ from vgc2.net.server import BASE_PORT, RemoteCompetitorManager
 
 def main(_args):
     _id = _args.id
-    competitor = S7Competitor(name=f"Yamabuki {_id}")
+    competitor = S7Competitor(name=f"Yamabuki")
     server = RemoteCompetitorManager(
         competitor, port=BASE_PORT + _id, authkey=f"Competitor {_id}".encode("utf-8")
     )

@@ -1,0 +1,149 @@
+{"event": "Battle", "teams": [{"active": [{"type": 15}, {"type": 10}], "reserve": [{"type": 7}, {"type": 4}]}, {"active": [{"type": 15}, {"type": 10}], "reserve": [{"type": 7}, {"type": 4}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.4362934362934363, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.43157894736842106, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 66}
+{"event": "Damage", "hp_rate": 0.10038610038610038, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 66}
+{"event": "Damage", "hp_rate": 0.12, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.8148148148148148, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.8018018018018018, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.6666666666666666, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now TOXIC."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.8797709923664122, "side": 0, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.6296296296296297, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.46846846846846846, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.7595419847328244, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.3310810810810811, "side": 1, "defender": 1}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 15}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.6736641221374046, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.13288288288288289, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.7402298850574712, "side": 1, "defender": 1}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.6091954022988506, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now TOXIC."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ROCK", "power": 0}
+{"event": "Message", "message": "The weather is SAND."}
+{"event": "Damage", "hp_rate": 0.6354961832061069, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5933641975308642, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.9589322381930184, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5695402298850575, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.44080459770114944, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.30977011494252876, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ROCK", "power": 0}
+{"event": "Damage", "hp_rate": 0.5973282442748091, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5570987654320988, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.917864476386037, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.27011494252873564, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.5114503816793893, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.1413793103448276, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.010344827586206896, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ROCK", "power": 0}
+{"event": "Damage", "hp_rate": 0.4732824427480916, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5208333333333334, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8767967145790554, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.8357289527720739, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.7946611909650924, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.4351145038167939, "side": 0, "defender": 0}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Damage", "hp_rate": 0.3969465648854962, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.4845679012345679, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.7535934291581109, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.7125256673511293, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now TOXIC."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "Target Special Defense increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.6940451745379876, "side": 1, "defender": 0}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Damage", "hp_rate": 0.35877862595419846, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.44830246913580246, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.6529774127310062, "side": 1, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 126}
+{"event": "Damage", "hp_rate": 0.38657407407407407, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.6160164271047228, "side": 1, "defender": 0}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.5010266940451745, "side": 1, "defender": 0}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "Target Special Defense increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.46406570841889117, "side": 1, "defender": 0}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.3490759753593429, "side": 1, "defender": 0}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.31211498973305957, "side": 1, "defender": 0}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.1971252566735113, "side": 1, "defender": 0}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.3577674897119342, "side": 0, "defender": 1}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 27}
+{"event": "Damage", "hp_rate": 0.1601642710472279, "side": 1, "defender": 0}
+{"event": "Message", "message": "Target Attack increased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 68}
+{"event": "Damage", "hp_rate": 0.045174537987679675, "side": 1, "defender": 0}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 67}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

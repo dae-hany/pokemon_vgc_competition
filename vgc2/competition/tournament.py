@@ -1,6 +1,7 @@
 from random import shuffle
 from typing import Callable
 
+from vgc2.battle_engine.security import sanitized_team_build_decision
 from vgc2.competition import CompetitorManager
 from vgc2.competition.match import Match
 from vgc2.meta import Roster
@@ -84,8 +85,8 @@ class TreeTournament:
     def set_teams(self):
         if isinstance(self.roster_gen, Roster):
             for cm in self.cms:
-                cm.team = cm.competitor.team_build_policy.decision(self.roster_gen, None, self.max_team_size,
-                                                                   self.max_pkm_moves, self.n_active)
+                cm.team = sanitized_team_build_decision(cm.competitor.team_build_policy, self.roster_gen, None,
+                                                        self.max_team_size, self.max_pkm_moves, self.n_active)
 
     def build_tree(self):
         shuffle(self.cms)

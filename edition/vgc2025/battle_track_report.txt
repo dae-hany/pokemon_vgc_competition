@@ -1,13 +1,14 @@
-LazeCompetitor vs Caaaden ends in [20, 0].
-StocKarpador vs LazeCompetitor ends in [1, 19].
-JJJ vs Example 3 ends in [20, 0].
-IceMonte vs JJJ ends in [15, 17].
-LazeCompetitor vs JJJ ends in [20, 0].
-Yamabuki 11 vs Botzilla ends in [11, 9].
-minimon vs Yamabuki 11 ends in [8, 12].
-Example vs Smart_Jirachi_Battle_AI ends in [9, 11].
-PeachCompetitor vs Wolfe ends in [13, 7].
-Smart_Jirachi_Battle_AI vs PeachCompetitor ends in [11, 9].
-Yamabuki 11 vs Smart_Jirachi_Battle_AI ends in [12, 8].
-LazeCompetitor vs Yamabuki 11 ends in [20, 0].
-LazeCompetitor wins the tournament!
+Wolfe vs higmon ends in [20, 0].
+StocKarpador vs Wolfe ends in [12, 8].
+Botzilla vs Example 11 ends in [20, 0].
+Smart_Jirachi_Championship_AI vs JJJ ends in [10, 12].
+Botzilla vs JJJ ends in [12, 10].
+StocKarpador vs Botzilla ends in [12, 8].
+Yamabuki vs Evo ends in [11, 9].
+IceMonte vs Yamabuki ends in [8, 12].
+LazeCompetitor vs PeachCompetitor ends in [3, 17].
+Caaaden vs minimon ends in [16, 14].
+PeachCompetitor vs Caaaden ends in [7, 13].
+Yamabuki vs Caaaden ends in [12, 8].
+StocKarpador vs Yamabuki ends in [10, 12].
+Yamabuki wins the tournament!

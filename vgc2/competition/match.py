@@ -1,6 +1,7 @@
 from vgc2.agent import BattlePolicy, SelectionPolicy
 from vgc2.battle_engine import BattleEngine, State
 from vgc2.battle_engine.game_state import get_battle_teams
+from vgc2.battle_engine.security import sanitized_selection_decision
 from vgc2.battle_engine.team import Team
 from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition import CompetitorManager
@@ -72,8 +73,8 @@ class Match:
                   base_team: tuple[Team, Team],
                   base_view: tuple[TeamView, TeamView],
                   agent: tuple[BattlePolicy, BattlePolicy]):
-        idx = (selector[0].decision((base_team[0], base_view[1]), self.max_team_size),
-               selector[1].decision((base_team[1], base_view[0]), self.max_team_size))
+        idx = (sanitized_selection_decision(selector[0], (base_team[0], base_view[1]), self.max_team_size),
+               sanitized_selection_decision(selector[1], (base_team[1], base_view[0]), self.max_team_size))
         sub = (subteam(base_team[0], base_view[0], idx[0]), subteam(base_team[1], base_view[1], idx[1]))
         team, view = (sub[0][0], sub[1][0]), (sub[0][1], sub[1][1])
         state = State(get_battle_teams(team, self.n_active))

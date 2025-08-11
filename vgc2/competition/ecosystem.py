@@ -4,6 +4,7 @@ from random import shuffle
 from vgc2.agent import TeamBuildCommand, RosterBalanceCommand, MoveSetBalanceCommand
 from vgc2.battle_engine import Team
 from vgc2.battle_engine.pokemon import Pokemon
+from vgc2.battle_engine.security import sanitized_team_build_decision
 from vgc2.competition import CompetitorManager, DesignCompetitorManager
 from vgc2.competition.elo import elo_rating
 from vgc2.competition.match import Match
@@ -76,8 +77,9 @@ class Championship:
 
     def _build_teams(self):
         for cm in self.cm:
-            cm.team = build_team(cm.competitor.team_build_policy.decision(
-                self.roster, self.meta, self.max_team_size, self.max_pkm_moves, self.n_active), self.roster)
+            cm.team = build_team(sanitized_team_build_decision(cm.competitor.team_build_policy, self.roster,
+                                                               self.meta, self.max_team_size, self.max_pkm_moves,
+                                                               self.n_active), self.roster)
 
     def _pairings(self):
         match self.strategy:

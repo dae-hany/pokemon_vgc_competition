@@ -6,7 +6,7 @@ from vgc2.competition import Competitor
 
 class EvoCompetitor(Competitor):
 
-    def __init__(self, name: str = "Example"):
+    def __init__(self, name: str = "Evo"):
         self.__name = name
         self.__battle_policy = bp.EvoBattlePolicy()
         self.__selection_policy = sp.BasicSelectionPolicy()

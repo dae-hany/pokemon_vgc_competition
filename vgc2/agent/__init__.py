@@ -1,5 +1,4 @@
 from abc import abstractmethod, ABC
-from typing import Optional
 
 from vgc2.battle_engine import BattleCommand
 from vgc2.battle_engine.game_state import State
@@ -22,7 +21,7 @@ class BattlePolicy(ABC):
     @abstractmethod
     def decision(self,
                  state: State,
-                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
+                 opp_view: TeamView | None = None) -> list[BattleCommand]:
         pass
 
 
