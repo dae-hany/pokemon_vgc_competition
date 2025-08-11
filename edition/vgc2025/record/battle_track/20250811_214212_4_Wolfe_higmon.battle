@@ -1,0 +1,65 @@
+{"event": "Battle", "teams": [{"active": [{"type": 3}, {"type": 2}], "reserve": [{"type": 12}, {"type": 14}]}, {"active": [{"type": 1}, {"type": 17}], "reserve": [{"type": 10}, {"type": 11}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Damage", "hp_rate": 0.8787878787878788, "side": 1, "defender": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.354978354978355, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Damage", "hp_rate": 0.925207756232687, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 84}
+{"event": "Damage", "hp_rate": 0.8368298368298368, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Damage", "hp_rate": 0.8484848484848485, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 84}
+{"event": "Damage", "hp_rate": 0.6736596736596736, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7818181818181819, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.4598337950138504, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Damage", "hp_rate": 0.6303030303030303, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 84}
+{"event": "Damage", "hp_rate": 0.5104895104895105, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 123}
+{"event": "Damage", "hp_rate": 0.07272727272727272, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 109}
+{"event": "Damage", "hp_rate": 0.44, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 83}
+{"event": "Damage", "hp_rate": 0.2673684210526316, "side": 1, "defender": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 63}
+{"event": "Damage", "hp_rate": 0.34265734265734266, "side": 0, "defender": 0}
+{"event": "Message", "message": "Target Special Defense decreased! Speed increased!"}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "ICE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 63}
+{"event": "Damage", "hp_rate": 0.09324009324009325, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

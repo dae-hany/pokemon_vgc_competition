@@ -1,0 +1,72 @@
+{"event": "Battle", "teams": [{"active": [{"type": 1}, {"type": 10}], "reserve": [{"type": 5}, {"type": 3}]}, {"active": [{"type": 15}, {"type": 13}], "reserve": [{"type": 12}, {"type": 17}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 111}
+{"event": "Damage", "hp_rate": 0.6709511568123393, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 111}
+{"event": "Damage", "hp_rate": 0.34190231362467866, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 90}
+{"event": "Damage", "hp_rate": 0.3435897435897436, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 73}
+{"event": "Damage", "hp_rate": 0.8361344537815126, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 84}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 90}
+{"event": "Damage", "hp_rate": 0.8284960422163589, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 75}
+{"event": "Damage", "hp_rate": 0.8903654485049833, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 90}
+{"event": "Damage", "hp_rate": 0.6743697478991597, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 90}
+{"event": "Damage", "hp_rate": 0.6569920844327177, "side": 0, "defender": 1}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 73}
+{"event": "Damage", "hp_rate": 0.3388704318936877, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.43799472295514513, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.6336659663865546, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 90}
+{"event": "Damage", "hp_rate": 0.47190126050420167, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 90}
+{"event": "Damage", "hp_rate": 0.26649076517150394, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 70}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Message", "message": "The weather is SAND."}
+{"event": "Damage", "hp_rate": 0.43119747899159666, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.963180693069307, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.23054089709762532, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.3904936974789916, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 90}
+{"event": "Damage", "hp_rate": 0.22872899159663865, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 90}
+{"event": "Damage", "hp_rate": 0.05903693931398417, "side": 0, "defender": 1}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 70}
+{"event": "Damage", "hp_rate": 0.07116596638655462, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.03046218487394958, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9263613861386139, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.02308707124010554, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

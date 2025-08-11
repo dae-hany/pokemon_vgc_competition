@@ -1,0 +1,62 @@
+{"event": "Battle", "teams": [{"active": [{"type": 12}, {"type": 17}], "reserve": [{"type": 0}, {"type": 4}]}, {"active": [{"type": 17}, {"type": 6}], "reserve": [{"type": 9}, {"type": 8}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 137}
+{"event": "Damage", "hp_rate": 0.5309278350515464, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 126}
+{"event": "Damage", "hp_rate": 0.43844492440604754, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ROCK", "power": 86}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GHOST", "power": 124}
+{"event": "Damage", "hp_rate": 0.6563380281690141, "side": 0, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 89}
+{"event": "Damage", "hp_rate": 0.29381443298969073, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 55}
+{"event": "Damage", "hp_rate": 0.38292011019283745, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 103}
+{"event": "Damage", "hp_rate": 0.6340425531914894, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GHOST", "power": 124}
+{"event": "Damage", "hp_rate": 0.3126760563380282, "side": 0, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 89}
+{"event": "Damage", "hp_rate": 0.05670103092783505, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 55}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 103}
+{"event": "Damage", "hp_rate": 0.6308139534883721, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 89}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 103}
+{"event": "Damage", "hp_rate": 0.2680851063829787, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 89}
+{"event": "Damage", "hp_rate": 0.07605633802816901, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GRASS", "power": 105}
+{"event": "Damage", "hp_rate": 0.26453488372093026, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 89}
+{"event": "Damage", "hp_rate": 0.7447447447447447, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.6262886597938144, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "STEEL", "power": 117}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GRASS", "power": 105}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

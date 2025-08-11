@@ -1,0 +1,55 @@
+{"event": "Battle", "teams": [{"active": [{"type": 11}, {"type": 17}], "reserve": [{"type": 10}, {"type": 1}]}, {"active": [{"type": 2}, {"type": 3}], "reserve": [{"type": 14}, {"type": 12}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 123}
+{"event": "Damage", "hp_rate": 0.44242424242424244, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 64}
+{"event": "Damage", "hp_rate": 0.8179916317991632, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 111}
+{"event": "Damage", "hp_rate": 0.47785547785547783, "side": 1, "defender": 1}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 123}
+{"event": "Damage", "hp_rate": 0.6863157894736842, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 64}
+{"event": "Damage", "hp_rate": 0.6359832635983264, "side": 1, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 77}
+{"event": "Damage", "hp_rate": 0.1087866108786611, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 123}
+{"event": "Damage", "hp_rate": 0.3726315789473684, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 77}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 77}
+{"event": "Damage", "hp_rate": 0.7877984084880637, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "WATER", "power": 63}
+{"event": "Damage", "hp_rate": 0.556989247311828, "side": 1, "defender": 1}
+{"event": "Message", "message": "Target Special Defense decreased! Speed increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FIGHT", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 97}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "WATER", "power": 63}
+{"event": "Damage", "hp_rate": 0.22580645161290322, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

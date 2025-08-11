@@ -1,0 +1,45 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 10}], "reserve": [{"type": 5}, {"type": 9}]}, {"active": [{"type": 10}, {"type": 13}], "reserve": [{"type": 14}, {"type": 15}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 139}
+{"event": "Damage", "hp_rate": 0.9209039548022598, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.07344632768361582, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 80}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 19}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 80}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 19}
+{"event": "Damage", "hp_rate": 0.9452380952380952, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "POISON", "power": 113}
+{"event": "Damage", "hp_rate": 0.835214446952596, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 139}
+{"event": "Damage", "hp_rate": 0.2516703786191537, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.6049661399548533, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 139}
+{"event": "Damage", "hp_rate": 0.5666666666666667, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.777511961722488, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.09523809523809523, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 80}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

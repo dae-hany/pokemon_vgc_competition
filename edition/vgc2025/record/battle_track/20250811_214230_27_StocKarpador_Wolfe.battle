@@ -1,0 +1,62 @@
+{"event": "Battle", "teams": [{"active": [{"type": 11}, {"type": 1}], "reserve": [{"type": 5}, {"type": 2}]}, {"active": [{"type": 10}, {"type": 1}], "reserve": [{"type": 12}, {"type": 9}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "POISON", "power": 103}
+{"event": "Damage", "hp_rate": 0.6441717791411042, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FAIRY", "power": 90}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.6276923076923077, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 114}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.987603305785124, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 90}
+{"event": "Damage", "hp_rate": 0.9256198347107438, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.6263736263736264, "side": 0, "defender": 1}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.49793388429752067, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 114}
+{"event": "Damage", "hp_rate": 0.4305555555555556, "side": 0, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 90}
+{"event": "Damage", "hp_rate": 0.6317567567567568, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 108}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "GHOST", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 14}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 108}
+{"event": "Damage", "hp_rate": 0.2962962962962963, "side": 0, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "STEEL", "power": 90}
+{"event": "Damage", "hp_rate": 0.13194444444444445, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.2128099173553719, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 108}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Message", "message": "Its Special Attack increased! Accuracy decreased!"}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 108}
+{"event": "Damage", "hp_rate": 0.5857988165680473, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 114}
+{"event": "Damage", "hp_rate": 0.28402366863905326, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 44}
+{"event": "Damage", "hp_rate": 0.4189189189189189, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "STEEL", "power": 90}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 108}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

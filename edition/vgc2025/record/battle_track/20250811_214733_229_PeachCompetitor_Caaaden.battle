@@ -1,0 +1,57 @@
+{"event": "Battle", "teams": [{"active": [{"type": 16}, {"type": 2}], "reserve": [{"type": 17}, {"type": 15}]}, {"active": [{"type": 14}, {"type": 5}], "reserve": [{"type": 0}, {"type": 13}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 116}
+{"event": "Damage", "hp_rate": 0.23148148148148148, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 54}
+{"event": "Damage", "hp_rate": 0.8066298342541437, "side": 0, "defender": 1}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GRASS", "power": 96}
+{"event": "Damage", "hp_rate": 0.7983193277310925, "side": 1, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 54}
+{"event": "Damage", "hp_rate": 0.5552486187845304, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 138}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "PSYCHIC", "power": 65}
+{"event": "Message", "message": "The weather is RAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 127}
+{"event": "Damage", "hp_rate": 0.011049723756906077, "side": 0, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 138}
+{"event": "Damage", "hp_rate": 0.7330097087378641, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.3115264797507788, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 127}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 138}
+{"event": "Damage", "hp_rate": 0.46601941747572817, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 127}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 138}
+{"event": "Damage", "hp_rate": 0.19902912621359223, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.6708542713567839, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FAIRY", "power": 119}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Message", "message": "Reflect in effect."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 97}
+{"event": "Damage", "hp_rate": 0.26625386996904027, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

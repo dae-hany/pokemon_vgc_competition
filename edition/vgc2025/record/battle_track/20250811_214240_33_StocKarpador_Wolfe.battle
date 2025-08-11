@@ -1,0 +1,79 @@
+{"event": "Battle", "teams": [{"active": [{"type": 12}, {"type": 0}], "reserve": [{"type": 10}, {"type": 17}]}, {"active": [{"type": 7}, {"type": 13}], "reserve": [{"type": 17}, {"type": 8}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "NORMAL", "power": 79}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.13780918727915195, "side": 0, "defender": 1}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 127}
+{"event": "Damage", "hp_rate": 0.7175141242937854, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 81}
+{"event": "Damage", "hp_rate": 0.5384615384615384, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.33076923076923076, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 117}
+{"event": "Damage", "hp_rate": 0.4745762711864407, "side": 1, "defender": 1}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 81}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Message", "message": "Its Evasion increased! Accuracy increased!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.12307692307692308, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 81}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.9230769230769231, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 117}
+{"event": "Damage", "hp_rate": 0.23163841807909605, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 88}
+{"event": "Damage", "hp_rate": 0.5, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.9106699751861043, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 117}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 115}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 14}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "GROUND", "power": 0}
+{"event": "Message", "message": "Its Defense increased! Speed increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 81}
+{"event": "Damage", "hp_rate": 0.652605459057072, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "GROUND", "power": 0}
+{"event": "Message", "message": "Its Defense increased! Speed increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 81}
+{"event": "Damage", "hp_rate": 0.4014423076923077, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 101}
+{"event": "Damage", "hp_rate": 0.25961538461538464, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 81}
+{"event": "Damage", "hp_rate": 0.16105769230769232, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 101}
+{"event": "Damage", "hp_rate": 0.019230769230769232, "side": 0, "defender": 0}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 115}
+{"event": "Damage", "hp_rate": 0.7335243553008596, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GRASS", "power": 95}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

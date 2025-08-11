@@ -1,0 +1,78 @@
+{"event": "Battle", "teams": [{"active": [{"type": 6}, {"type": 0}], "reserve": [{"type": 0}, {"type": 15}]}, {"active": [{"type": 6}, {"type": 12}], "reserve": [{"type": 16}, {"type": 10}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.5916666666666667, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 64}
+{"event": "Damage", "hp_rate": 0.6934673366834171, "side": 0, "defender": 1}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 97}
+{"event": "Damage", "hp_rate": 0.5327313769751693, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6749371859296482, "side": 0, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.2754396984924623, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 64}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 97}
+{"event": "Damage", "hp_rate": 0.18181818181818182, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.18333333333333332, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 134}
+{"event": "Damage", "hp_rate": 0.327313769751693, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 64}
+{"event": "Damage", "hp_rate": 0.10416666666666667, "side": 0, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 97}
+{"event": "Damage", "hp_rate": 0.09480812641083522, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.08346354166666667, "side": 0, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 134}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 64}
+{"event": "Damage", "hp_rate": 0.8547717842323651, "side": 0, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 110}
+{"event": "Damage", "hp_rate": 0.1226215644820296, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8340248962655602, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 134}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.3921161825726141, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 110}
+{"event": "Damage", "hp_rate": 0.6888888888888889, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 134}
+{"event": "Damage", "hp_rate": 0.5066666666666667, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DARK", "power": 64}
+{"event": "Damage", "hp_rate": 0.8097447795823666, "side": 0, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 134}
+{"event": "Damage", "hp_rate": 0.5422535211267606, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.5614849187935035, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 88}
+{"event": "Damage", "hp_rate": 0.10208816705336426, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 134}
+{"event": "Damage", "hp_rate": 0.08450704225352113, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 105}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

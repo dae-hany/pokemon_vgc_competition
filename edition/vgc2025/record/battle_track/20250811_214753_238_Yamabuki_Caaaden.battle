@@ -1,0 +1,67 @@
+{"event": "Battle", "teams": [{"active": [{"type": 0}, {"type": 1}], "reserve": [{"type": 11}, {"type": 17}]}, {"active": [{"type": 12}, {"type": 0}], "reserve": [{"type": 2}, {"type": 3}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 60}
+{"event": "Damage", "hp_rate": 0.7881548974943052, "side": 0, "defender": 0}
+{"event": "Message", "message": "The field is GRASSY_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 69}
+{"event": "Damage", "hp_rate": 0.510250569476082, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 1.0, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "STEEL", "power": 92}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.698961937716263, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 118}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Damage", "hp_rate": 0.6865342163355408, "side": 0, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.7989949748743719, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FAIRY", "power": 121}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Damage", "hp_rate": 0.9329758713136729, "side": 0, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Target Defense sharply decreased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.46112600536193027, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 105}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.8688524590163934, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Damage", "hp_rate": 0.3730684326710817, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 105}
+{"event": "Damage", "hp_rate": 0.7002341920374707, "side": 1, "defender": 0}
+{"event": "Message", "message": "The field is ELECTRIC_TERRAIN."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Damage", "hp_rate": 0.059602649006622516, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 105}
+{"event": "Damage", "hp_rate": 0.531615925058548, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 57}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

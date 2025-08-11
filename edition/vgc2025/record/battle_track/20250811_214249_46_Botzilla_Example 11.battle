@@ -1,0 +1,71 @@
+{"event": "Battle", "teams": [{"active": [{"type": 15}, {"type": 0}], "reserve": [{"type": 9}, {"type": 12}]}, {"active": [{"type": 14}, {"type": 5}], "reserve": [{"type": 10}, {"type": 15}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 84}
+{"event": "Damage", "hp_rate": 0.9155672823218998, "side": 0, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 131}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.6886543535620053, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 74}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 84}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 74}
+{"event": "Damage", "hp_rate": 0.8799171842650103, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 131}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 82}
+{"event": "Damage", "hp_rate": 0.463768115942029, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.46174142480211083, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 21}
+{"event": "Damage", "hp_rate": 0.953125, "side": 0, "defender": 0}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 69}
+{"event": "Damage", "hp_rate": 0.13526570048309178, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 54}
+{"event": "Damage", "hp_rate": 0.7209821428571429, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 74}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.6183035714285714, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 19}
+{"event": "Damage", "hp_rate": 0.41952506596306066, "side": 0, "defender": 1}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 131}
+{"event": "Damage", "hp_rate": 0.3944020356234097, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 82}
+{"event": "Damage", "hp_rate": 0.7912621359223301, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 19}
+{"event": "Damage", "hp_rate": 0.5825892857142857, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 101}
+{"event": "Damage", "hp_rate": 0.23482849604221637, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 131}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 82}
+{"event": "Damage", "hp_rate": 0.5825242718446602, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.0079155672823219, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 69}
+{"event": "Damage", "hp_rate": 0.32038834951456313, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 69}
+{"event": "Damage", "hp_rate": 0.05825242718446602, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 19}
+{"event": "Damage", "hp_rate": 0.546875, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 74}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

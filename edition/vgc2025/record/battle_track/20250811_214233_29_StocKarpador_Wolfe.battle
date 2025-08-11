@@ -1,0 +1,62 @@
+{"event": "Battle", "teams": [{"active": [{"type": 6}, {"type": 14}], "reserve": [{"type": 16}, {"type": 10}]}, {"active": [{"type": 15}, {"type": 4}], "reserve": [{"type": 13}, {"type": 11}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 127}
+{"event": "Damage", "hp_rate": 0.2433734939759036, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GRASS", "power": 98}
+{"event": "Damage", "hp_rate": 0.6367924528301887, "side": 1, "defender": 0}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 120}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 127}
+{"event": "Damage", "hp_rate": 0.723342939481268, "side": 0, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GRASS", "power": 98}
+{"event": "Damage", "hp_rate": 0.27358490566037735, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 120}
+{"event": "Damage", "hp_rate": 0.2968299711815562, "side": 0, "defender": 1}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "Message", "message": "Its Special Defense decreased! Speed decreased!"}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ROCK", "power": 61}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GRASS", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 133}
+{"event": "Damage", "hp_rate": 0.7613293051359517, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 127}
+{"event": "Damage", "hp_rate": 0.3894230769230769, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FAIRY", "power": 101}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 79}
+{"event": "Damage", "hp_rate": 0.40483383685800606, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 127}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GRASS", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 127}
+{"event": "Damage", "hp_rate": 0.7811550151975684, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 140}
+{"event": "Damage", "hp_rate": 0.6375, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.17933130699088146, "side": 0, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 127}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

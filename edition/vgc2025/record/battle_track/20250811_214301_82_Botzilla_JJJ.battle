@@ -1,0 +1,62 @@
+{"event": "Battle", "teams": [{"active": [{"type": 9}, {"type": 9}], "reserve": [{"type": 17}, {"type": 15}]}, {"active": [{"type": 5}, {"type": 7}], "reserve": [{"type": 12}, {"type": 2}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.26146788990825687, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 36}
+{"event": "Damage", "hp_rate": 0.8535211267605634, "side": 1, "defender": 1}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.49812734082397003, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 36}
+{"event": "Damage", "hp_rate": 0.7070422535211267, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.5808580858085809, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.264026402640264, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 36}
+{"event": "Damage", "hp_rate": 0.5605633802816902, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 30}
+{"event": "Damage", "hp_rate": 0.978125, "side": 1, "defender": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 47}
+{"event": "Damage", "hp_rate": 0.966804979253112, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GHOST", "power": 36}
+{"event": "Damage", "hp_rate": 0.4140845070422535, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 53}
+{"event": "Damage", "hp_rate": 0.8215767634854771, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.6390041493775933, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 98}
+{"event": "Damage", "hp_rate": 0.36901408450704226, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 53}
+{"event": "Damage", "hp_rate": 0.49377593360995853, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.3112033195020747, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 98}
+{"event": "Damage", "hp_rate": 0.323943661971831, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 53}
+{"event": "Damage", "hp_rate": 0.16597510373443983, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 125}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

@@ -1,0 +1,83 @@
+{"event": "Battle", "teams": [{"active": [{"type": 13}, {"type": 17}], "reserve": [{"type": 9}, {"type": 4}]}, {"active": [{"type": 11}, {"type": 0}], "reserve": [{"type": 12}, {"type": 15}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 45}
+{"event": "Damage", "hp_rate": 0.8698347107438017, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.768595041322314, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.6573816155988857, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ICE", "power": 121}
+{"event": "Damage", "hp_rate": 0.116991643454039, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7479338842975206, "side": 1, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.6466942148760331, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 45}
+{"event": "Damage", "hp_rate": 0.5165289256198347, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ICE", "power": 121}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.49586776859504134, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.39462809917355374, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ICE", "power": 121}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Damage", "hp_rate": 0.3739669421487603, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 54}
+{"event": "Damage", "hp_rate": 0.2871900826446281, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.1859504132231405, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.7084398976982097, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ICE", "power": 121}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.1652892561983471, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.0640495867768595, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.8367346938775511, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Damage", "hp_rate": 0.04338842975206612, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.673469387755102, "side": 0, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 61}
+{"event": "Damage", "hp_rate": 0.5379464285714286, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 71}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.5102040816326531, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 71}
+{"event": "Damage", "hp_rate": 0.24744897959183673, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.08418367346938775, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 109}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 71}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

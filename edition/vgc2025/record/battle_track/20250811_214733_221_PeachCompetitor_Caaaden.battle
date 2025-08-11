@@ -1,0 +1,66 @@
+{"event": "Battle", "teams": [{"active": [{"type": 17}, {"type": 5}], "reserve": [{"type": 5}, {"type": 0}]}, {"active": [{"type": 15}, {"type": 6}], "reserve": [{"type": 10}, {"type": 4}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 91}
+{"event": "Damage", "hp_rate": 0.9587852494577006, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Message", "message": "Its Special Attack increased! Evasion increased!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 99}
+{"event": "Damage", "hp_rate": 0.8438818565400844, "side": 0, "defender": 1}
+{"event": "Message", "message": "Reflect in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 104}
+{"event": "Damage", "hp_rate": 0.3796095444685466, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.7215189873417721, "side": 0, "defender": 1}
+{"event": "Message", "message": "Its Special Attack increased! Evasion increased!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 99}
+{"event": "Damage", "hp_rate": 0.7617728531855956, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FLYING", "power": 112}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 104}
+{"event": "Damage", "hp_rate": 0.5, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.5991561181434599, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIGHT", "power": 96}
+{"event": "Damage", "hp_rate": 0.4282700421940928, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FLYING", "power": 112}
+{"event": "Damage", "hp_rate": 0.2642857142857143, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 82}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Message", "message": "Its Attack sharply decreased!"}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.3059071729957806, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "NORMAL", "power": 85}
+{"event": "Damage", "hp_rate": 0.6177285318559557, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FLYING", "power": 112}
+{"event": "Damage", "hp_rate": 0.4550561797752809, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.18354430379746836, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FLYING", "power": 112}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 104}
+{"event": "Damage", "hp_rate": 0.4213197969543147, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Message", "message": "Its Special Attack increased! Evasion increased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

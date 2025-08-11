@@ -1,0 +1,75 @@
+{"event": "Battle", "teams": [{"active": [{"type": 3}, {"type": 7}], "reserve": [{"type": 15}, {"type": 3}]}, {"active": [{"type": 12}, {"type": 11}], "reserve": [{"type": 6}, {"type": 0}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.8584905660377359, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 110}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 124}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 120}
+{"event": "Damage", "hp_rate": 0.2358490566037736, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ICE", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 124}
+{"event": "Damage", "hp_rate": 0.7204301075268817, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 35}
+{"event": "Damage", "hp_rate": 0.5627240143369175, "side": 1, "defender": 1}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.47530864197530864, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 63}
+{"event": "Damage", "hp_rate": 0.3046594982078853, "side": 1, "defender": 1}
+{"event": "Heal", "hp_rate": 0.5462962962962963, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 110}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 44}
+{"event": "Damage", "hp_rate": 0.47717842323651455, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 110}
+{"event": "Damage", "hp_rate": 0.04979253112033195, "side": 0, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 112}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9800824175824175, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.5375722543352601, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 82}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 87}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 66}
+{"event": "Damage", "hp_rate": 0.9427197802197802, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 55}
+{"event": "Damage", "hp_rate": 0.8958990536277602, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 110}
+{"event": "Damage", "hp_rate": 0.501577287066246, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 124}
+{"event": "Damage", "hp_rate": 0.6306318681318681, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 55}
+{"event": "Damage", "hp_rate": 0.39747634069400634, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 110}
+{"event": "Damage", "hp_rate": 0.0031545741324921135, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 124}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 35}
+{"event": "Damage", "hp_rate": 0.6042582417582417, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 82}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

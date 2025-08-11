@@ -1,0 +1,77 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 7}], "reserve": [{"type": 8}, {"type": 11}]}, {"active": [{"type": 14}, {"type": 9}], "reserve": [{"type": 4}, {"type": 1}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 115}
+{"event": "Damage", "hp_rate": 0.6100478468899522, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.6010230179028133, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FLYING", "power": 80}
+{"event": "Damage", "hp_rate": 0.1815856777493606, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DARK", "power": 98}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 115}
+{"event": "Damage", "hp_rate": 0.22009569377990432, "side": 1, "defender": 1}
+{"event": "Message", "message": "The weather is RAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FLYING", "power": 80}
+{"event": "Damage", "hp_rate": 0.68, "side": 0, "defender": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 131}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "ICE", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FLYING", "power": 80}
+{"event": "Damage", "hp_rate": 0.43911439114391143, "side": 0, "defender": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.6516666666666666, "side": 0, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 131}
+{"event": "Damage", "hp_rate": 0.19480519480519481, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 39}
+{"event": "Damage", "hp_rate": 0.33166666666666667, "side": 0, "defender": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FLYING", "power": 80}
+{"event": "Damage", "hp_rate": 0.011666666666666667, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 126}
+{"event": "Damage", "hp_rate": 0.5481727574750831, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 131}
+{"event": "Damage", "hp_rate": 0.3388704318936877, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FLYING", "power": 80}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 115}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 113}
+{"event": "Damage", "hp_rate": 0.6407766990291263, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.5218446601941747, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 0.25, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 115}
+{"event": "Message", "message": "The weather is RAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 113}
+{"event": "Damage", "hp_rate": 0.16262135922330098, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.043689320388349516, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 0.3051948051948052, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 113}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

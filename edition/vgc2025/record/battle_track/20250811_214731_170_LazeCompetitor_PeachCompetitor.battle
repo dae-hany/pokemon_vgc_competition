@@ -1,0 +1,50 @@
+{"event": "Battle", "teams": [{"active": [{"type": 1}, {"type": 6}], "reserve": [{"type": 12}, {"type": 4}]}, {"active": [{"type": 6}, {"type": 0}], "reserve": [{"type": 17}, {"type": 10}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 77}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 101}
+{"event": "Damage", "hp_rate": 0.4339622641509434, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 107}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 101}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Message", "message": "Its no longer FROZEN!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ICE", "power": 60}
+{"event": "Damage", "hp_rate": 0.17452830188679244, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 107}
+{"event": "Damage", "hp_rate": 0.6876876876876877, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its no longer FROZEN!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ICE", "power": 60}
+{"event": "Damage", "hp_rate": 0.5201900237529691, "side": 0, "defender": 1}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 107}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ICE", "power": 60}
+{"event": "Damage", "hp_rate": 0.9447368421052632, "side": 0, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 77}
+{"event": "Damage", "hp_rate": 0.4763157894736842, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 107}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GHOST", "power": 56}
+{"event": "Damage", "hp_rate": 0.2894736842105263, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6786786786786787, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 77}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

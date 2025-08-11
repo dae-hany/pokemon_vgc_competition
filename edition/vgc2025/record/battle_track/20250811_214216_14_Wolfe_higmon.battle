@@ -1,0 +1,103 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 15}], "reserve": [{"type": 4}, {"type": 7}]}, {"active": [{"type": 7}, {"type": 10}], "reserve": [{"type": 15}, {"type": 10}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.8918918918918919, "side": 1, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.8097686375321337, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 101}
+{"event": "Damage", "hp_rate": 0.7588357588357588, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.6507276507276507, "side": 1, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.6195372750642674, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 101}
+{"event": "Damage", "hp_rate": 0.5176715176715176, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 38}
+{"event": "Damage", "hp_rate": 0.4095634095634096, "side": 1, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.5244215938303342, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 101}
+{"event": "Damage", "hp_rate": 0.2765072765072765, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 38}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.42930591259640105, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 101}
+{"event": "Damage", "hp_rate": 0.14345114345114346, "side": 1, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 59}
+{"event": "Damage", "hp_rate": 0.060291060291060294, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.3341902313624679, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 59}
+{"event": "Damage", "hp_rate": 0.8990147783251231, "side": 1, "defender": 1}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.2390745501285347, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.4802955665024631, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 59}
+{"event": "Damage", "hp_rate": 0.43103448275862066, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.04884318766066838, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.012315270935960592, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 59}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9815231362467867, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "Its Attack sharply increased!"}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GHOST", "power": 90}
+{"event": "Damage", "hp_rate": 0.5772727272727273, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.8735539845758354, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 88}
+{"event": "Damage", "hp_rate": 0.8195694087403599, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 127}
+{"event": "Damage", "hp_rate": 0.9026315789473685, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.6368421052631579, "side": 1, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 131}
+{"event": "Damage", "hp_rate": 0.7398778920308483, "side": 0, "defender": 0}
+{"event": "TypeChange", "side": 1, "pos": 0, "type": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 127}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 131}
+{"event": "Damage", "hp_rate": 0.6601863753213367, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 82}
+{"event": "Damage", "hp_rate": 0.4, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

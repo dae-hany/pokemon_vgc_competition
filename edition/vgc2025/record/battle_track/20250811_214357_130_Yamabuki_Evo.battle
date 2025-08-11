@@ -1,0 +1,85 @@
+{"event": "Battle", "teams": [{"active": [{"type": 12}, {"type": 10}], "reserve": [{"type": 10}, {"type": 2}]}, {"active": [{"type": 7}, {"type": 17}], "reserve": [{"type": 14}, {"type": 14}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.7665903890160183, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 116}
+{"event": "Damage", "hp_rate": 0.5102974828375286, "side": 0, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.25699745547073793, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 106}
+{"event": "Damage", "hp_rate": 0.9092920353982301, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.7390243902439024, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 116}
+{"event": "Damage", "hp_rate": 0.3195121951219512, "side": 0, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 106}
+{"event": "Damage", "hp_rate": 0.46994535519125685, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.05853658536585366, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 116}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9706125827814569, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.35148514851485146, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "BUG", "power": 46}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 20}
+{"event": "Damage", "hp_rate": 0.4668192219679634, "side": 0, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 106}
+{"event": "Damage", "hp_rate": 0.37986270022883295, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.36041189931350115, "side": 0, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 20}
+{"event": "Damage", "hp_rate": 0.3169336384439359, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 106}
+{"event": "Damage", "hp_rate": 0.2299771167048055, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.21052631578947367, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 20}
+{"event": "Damage", "hp_rate": 0.16704805491990846, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 106}
+{"event": "Damage", "hp_rate": 0.08009153318077804, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.06064073226544622, "side": 0, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "POISON", "power": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "STEEL", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

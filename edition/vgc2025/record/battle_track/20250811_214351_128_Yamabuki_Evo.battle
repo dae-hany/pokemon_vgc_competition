@@ -1,0 +1,49 @@
+{"event": "Battle", "teams": [{"active": [{"type": 16}, {"type": 4}], "reserve": [{"type": 14}, {"type": 8}]}, {"active": [{"type": 2}, {"type": 14}], "reserve": [{"type": 5}, {"type": 2}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.7531380753138075, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIGHT", "power": 103}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 51}
+{"event": "Damage", "hp_rate": 0.9112903225806451, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.5062761506276151, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 51}
+{"event": "Damage", "hp_rate": 0.18828451882845187, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 42}
+{"event": "Damage", "hp_rate": 0.13807531380753138, "side": 0, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 133}
+{"event": "Damage", "hp_rate": 0.03556485355648536, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Damage", "hp_rate": 0.28104575163398693, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "POISON", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

@@ -1,0 +1,63 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 12}], "reserve": [{"type": 1}, {"type": 9}]}, {"active": [{"type": 2}, {"type": 11}], "reserve": [{"type": 5}, {"type": 1}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.5723140495867769, "side": 0, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 44}
+{"event": "Damage", "hp_rate": 0.5169811320754717, "side": 0, "defender": 1}
+{"event": "Message", "message": "The weather is SUN."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 55}
+{"event": "Damage", "hp_rate": 0.4556213017751479, "side": 1, "defender": 0}
+{"event": "Message", "message": "The weather is RAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FAIRY", "power": 25}
+{"event": "Damage", "hp_rate": 0.9261538461538461, "side": 0, "defender": 0}
+{"event": "Message", "message": "The field is MISTY_TERRAIN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 110}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 116}
+{"event": "Damage", "hp_rate": 0.20615384615384616, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 1.0, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.53099173553719, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.9712837837837838, "side": 0, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 64}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 116}
+{"event": "Damage", "hp_rate": 0.3243801652892562, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 1.0, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GROUND", "power": 118}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9425675675675675, "side": 0, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 117}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 64}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 116}
+{"event": "Damage", "hp_rate": 0.3141891891891892, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.28547297297297297, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "POISON", "power": 64}
+{"event": "Damage", "hp_rate": 0.9421296296296297, "side": 1, "defender": 1}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 116}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

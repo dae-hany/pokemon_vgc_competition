@@ -1,0 +1,80 @@
+{"event": "Battle", "teams": [{"active": [{"type": 5}, {"type": 14}], "reserve": [{"type": 2}, {"type": 12}]}, {"active": [{"type": 6}, {"type": 8}], "reserve": [{"type": 1}, {"type": 16}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 111}
+{"event": "Damage", "hp_rate": 0.647887323943662, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "PSYCHIC", "power": 109}
+{"event": "Damage", "hp_rate": 0.2056338028169014, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.6894117647058824, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.8706199460916442, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.5576470588235294, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ICE", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 87}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.48, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.38386308068459657, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "PSYCHIC", "power": 109}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.4023529411764706, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "PSYCHIC", "power": 109}
+{"event": "Damage", "hp_rate": 0.7638297872340426, "side": 0, "defender": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.8373626373626374, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.8005390835579514, "side": 0, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.4829787234042553, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.3247058823529412, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "PSYCHIC", "power": 109}
+{"event": "Damage", "hp_rate": 0.24680851063829787, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ICE", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.6747252747252748, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 111}
+{"event": "Damage", "hp_rate": 0.5309973045822103, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 74}
+{"event": "Damage", "hp_rate": 0.41509433962264153, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.24705882352941178, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 111}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 74}
+{"event": "Damage", "hp_rate": 0.2991913746630728, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.16941176470588235, "side": 1, "defender": 1}
+{"event": "Damage", "hp_rate": 0.2668463611859838, "side": 0, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "ICE", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

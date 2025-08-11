@@ -1,0 +1,52 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 15}], "reserve": [{"type": 5}, {"type": 9}]}, {"active": [{"type": 9}, {"type": 4}], "reserve": [{"type": 2}, {"type": 11}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.8533834586466166, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.21411764705882352, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.706766917293233, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "NORMAL", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.9, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 128}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DARK", "power": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.8, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DARK", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.528125, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.428125, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DARK", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 128}
+{"event": "Damage", "hp_rate": 0.05625, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

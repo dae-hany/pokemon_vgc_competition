@@ -1,0 +1,82 @@
+{"event": "Battle", "teams": [{"active": [{"type": 1}, {"type": 0}], "reserve": [{"type": 11}, {"type": 5}]}, {"active": [{"type": 11}, {"type": 8}], "reserve": [{"type": 10}, {"type": 13}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.8568376068376068, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.4326923076923077, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.8337730870712401, "side": 1, "defender": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.7136752136752137, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.6675461741424802, "side": 1, "defender": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.852803738317757, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.6845794392523364, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.5641025641025641, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.5373831775700935, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.3691588785046729, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.41452991452991456, "side": 0, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FLYING", "power": 121}
+{"event": "Damage", "hp_rate": 0.2219626168224299, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.053738317757009345, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.26495726495726496, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.11538461538461539, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 100}
+{"event": "Damage", "hp_rate": 0.3245382585751979, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.158311345646438, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.6729411764705883, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.9, "side": 0, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 137}
+{"event": "Damage", "hp_rate": 0.5294117647058824, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.2023529411764706, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 59}
+{"event": "Damage", "hp_rate": 0.8, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 137}
+{"event": "Damage", "hp_rate": 0.058823529411764705, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

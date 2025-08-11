@@ -1,0 +1,91 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 15}], "reserve": [{"type": 12}, {"type": 0}]}, {"active": [{"type": 13}, {"type": 7}], "reserve": [{"type": 8}, {"type": 3}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 99}
+{"event": "Damage", "hp_rate": 0.9180327868852459, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.6416861826697893, "side": 1, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.3524804177545692, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 99}
+{"event": "Damage", "hp_rate": 0.8201970443349754, "side": 1, "defender": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 127}
+{"event": "Damage", "hp_rate": 0.2903981264637002, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 72}
+{"event": "Damage", "hp_rate": 0.9457202505219207, "side": 0, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 115}
+{"event": "Damage", "hp_rate": 0.6748768472906403, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.8104166666666667, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.5365344467640919, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Message", "message": "Its no longer FROZEN!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 108}
+{"event": "Damage", "hp_rate": 0.583743842364532, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ROCK", "power": 97}
+{"event": "Damage", "hp_rate": 0.20416666666666666, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.1906005221932115, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 103}
+{"event": "Damage", "hp_rate": 0.02610966057441253, "side": 0, "defender": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ROCK", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.12734864300626306, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 126}
+{"event": "Damage", "hp_rate": 0.312807881773399, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 108}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 140}
+{"event": "Damage", "hp_rate": 0.7078313253012049, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.025052192066805846, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DRAGON", "power": 108}
+{"event": "Damage", "hp_rate": 0.75, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DRAGON", "power": 79}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 9}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.12349397590361445, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 86}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DRAGON", "power": 79}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.5833333333333334, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ICE", "power": 86}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

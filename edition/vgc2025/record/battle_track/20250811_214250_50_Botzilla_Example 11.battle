@@ -1,0 +1,78 @@
+{"event": "Battle", "teams": [{"active": [{"type": 0}, {"type": 17}], "reserve": [{"type": 8}, {"type": 6}]}, {"active": [{"type": 4}, {"type": 5}], "reserve": [{"type": 5}, {"type": 9}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.2894736842105263, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 114}
+{"event": "Damage", "hp_rate": 0.42133333333333334, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 104}
+{"event": "Damage", "hp_rate": 0.11052631578947368, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 114}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9614234449760766, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 104}
+{"event": "Damage", "hp_rate": 0.3465909090909091, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 115}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.038157894736842106, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.9221698113207547, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 63}
+{"event": "Damage", "hp_rate": 0.9643765903307888, "side": 0, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 115}
+{"event": "Damage", "hp_rate": 0.535377358490566, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 104}
+{"event": "Damage", "hp_rate": 0.27122641509433965, "side": 1, "defender": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 115}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 104}
+{"event": "Damage", "hp_rate": 0.9103260869565217, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 63}
+{"event": "Damage", "hp_rate": 0.9287531806615776, "side": 0, "defender": 1}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 115}
+{"event": "Damage", "hp_rate": 0.7771739130434783, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 96}
+{"event": "Damage", "hp_rate": 0.6086956521739131, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5917119565217391, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 115}
+{"event": "Damage", "hp_rate": 0.4585597826086957, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 96}
+{"event": "Damage", "hp_rate": 0.29008152173913043, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.27309782608695654, "side": 1, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 115}
+{"event": "Damage", "hp_rate": 0.13994565217391305, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 96}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

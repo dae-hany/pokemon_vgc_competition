@@ -1,0 +1,53 @@
+{"event": "Battle", "teams": [{"active": [{"type": 7}, {"type": 13}], "reserve": [{"type": 7}, {"type": 13}]}, {"active": [{"type": 1}, {"type": 13}], "reserve": [{"type": 9}, {"type": 7}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.017964071856287425, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GHOST", "power": 124}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.8471074380165289, "side": 0, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 83}
+{"event": "Damage", "hp_rate": 0.3489736070381232, "side": 1, "defender": 1}
+{"event": "Heal", "hp_rate": 0.9297520661157025, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 83}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Heal", "hp_rate": 1.0, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 91}
+{"event": "Damage", "hp_rate": 0.9692737430167597, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.8471074380165289, "side": 0, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 83}
+{"event": "Damage", "hp_rate": 0.7988505747126436, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.20391061452513967, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.6942148760330579, "side": 0, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 83}
+{"event": "Damage", "hp_rate": 0.5977011494252874, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 89}
+{"event": "Damage", "hp_rate": 0.5413223140495868, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 83}
+{"event": "Damage", "hp_rate": 0.39655172413793105, "side": 1, "defender": 0}
+{"event": "Heal", "hp_rate": 0.5661157024793388, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

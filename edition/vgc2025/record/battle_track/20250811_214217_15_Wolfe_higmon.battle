@@ -1,0 +1,37 @@
+{"event": "Battle", "teams": [{"active": [{"type": 10}, {"type": 15}], "reserve": [{"type": 10}, {"type": 7}]}, {"active": [{"type": 15}, {"type": 4}], "reserve": [{"type": 7}, {"type": 10}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "ROCK", "power": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 129}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 89}
+{"event": "Damage", "hp_rate": 0.7146529562982005, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "Its Attack sharply increased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 122}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "ROCK", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "Its Attack sharply increased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 122}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 140}
+{"event": "Damage", "hp_rate": 0.49373433583959897, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 78}
+{"event": "Damage", "hp_rate": 0.2781954887218045, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Message", "message": "Its Attack sharply increased!"}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

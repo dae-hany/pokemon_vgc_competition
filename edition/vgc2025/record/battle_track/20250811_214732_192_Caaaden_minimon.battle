@@ -1,0 +1,160 @@
+{"event": "Battle", "teams": [{"active": [{"type": 12}, {"type": 13}], "reserve": [{"type": 7}, {"type": 9}]}, {"active": [{"type": 7}, {"type": 15}], "reserve": [{"type": 4}, {"type": 11}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 102}
+{"event": "Damage", "hp_rate": 0.6521739130434783, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "Its Special Attack increased! Special Defense increased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 105}
+{"event": "Damage", "hp_rate": 0.5806451612903226, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 124}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 102}
+{"event": "Damage", "hp_rate": 0.30434782608695654, "side": 1, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 98}
+{"event": "Damage", "hp_rate": 0.42036553524804177, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 102}
+{"event": "Damage", "hp_rate": 0.13043478260869565, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "Its Special Attack increased! Special Defense increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.12903225806451613, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 102}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "WATER", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 121}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 120}
+{"event": "Damage", "hp_rate": 0.5579514824797843, "side": 0, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 120}
+{"event": "Damage", "hp_rate": 0.11590296495956873, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.7138810198300283, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ICE", "power": 34}
+{"event": "Damage", "hp_rate": 0.04582210242587601, "side": 0, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Damage", "hp_rate": 0.0906515580736544, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 120}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 34}
+{"event": "Damage", "hp_rate": 0.402088772845953, "side": 0, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 34}
+{"event": "Damage", "hp_rate": 0.3838120104438642, "side": 0, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 121}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 34}
+{"event": "Damage", "hp_rate": 0.36553524804177545, "side": 0, "defender": 0}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 34}
+{"event": "Damage", "hp_rate": 0.3472584856396867, "side": 0, "defender": 0}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 34}
+{"event": "Damage", "hp_rate": 0.3289817232375979, "side": 0, "defender": 0}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 121}
+{"event": "Turn", "number": 16}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 17}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 18}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FIRE", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 19}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.8083333333333333, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Turn", "number": 20}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 121}
+{"event": "Damage", "hp_rate": 0.27154046997389036, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.6604166666666667, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 21}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 121}
+{"event": "Damage", "hp_rate": 0.21409921671018275, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 22}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 121}
+{"event": "Damage", "hp_rate": 0.1566579634464752, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.5125, "side": 1, "defender": 0}
+{"event": "Turn", "number": 23}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.3645833333333333, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 24}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.21666666666666667, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Turn", "number": 25}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.041666666666666664, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 26}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

@@ -1,0 +1,62 @@
+{"event": "Battle", "teams": [{"active": [{"type": 16}, {"type": 15}], "reserve": [{"type": 12}, {"type": 8}]}, {"active": [{"type": 4}, {"type": 14}], "reserve": [{"type": 16}, {"type": 1}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.3684210526315789, "side": 1, "defender": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 15}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.27680798004987534, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 15}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "BUG", "power": 77}
+{"event": "Damage", "hp_rate": 0.6865979381443299, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.22443890274314215, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DARK", "power": 128}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DARK", "power": 116}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 124}
+{"event": "Damage", "hp_rate": 0.647887323943662, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.8798185941043084, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FAIRY", "power": 78}
+{"event": "Damage", "hp_rate": 0.4845360824742268, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 15}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 115}
+{"event": "Damage", "hp_rate": 0.5058275058275058, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.43917525773195876, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 131}
+{"event": "Damage", "hp_rate": 0.2494172494172494, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 124}
+{"event": "Damage", "hp_rate": 0.09324009324009325, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 109}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 131}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

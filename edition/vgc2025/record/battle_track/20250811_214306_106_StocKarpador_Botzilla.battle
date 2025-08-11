@@ -1,0 +1,134 @@
+{"event": "Battle", "teams": [{"active": [{"type": 1}, {"type": 5}], "reserve": [{"type": 12}, {"type": 4}]}, {"active": [{"type": 11}, {"type": 13}], "reserve": [{"type": 8}, {"type": 9}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 63}
+{"event": "Damage", "hp_rate": 0.8680412371134021, "side": 0, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Damage", "hp_rate": 0.29439252336448596, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.9608355091383812, "side": 0, "defender": 0}
+{"event": "Message", "message": "Target Evasion decreased! Accuracy decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.7360824742268042, "side": 1, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DARK", "power": 100}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.9216710182767625, "side": 0, "defender": 0}
+{"event": "Message", "message": "Target Evasion decreased! Accuracy decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.7525773195876289, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.8025210084033614, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.8825065274151436, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.6371134020618556, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.6050420168067226, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Message", "message": "Its no longer FROZEN!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.8433420365535248, "side": 0, "defender": 0}
+{"event": "Message", "message": "Target Evasion decreased! Accuracy decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.47216494845360824, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.804177545691906, "side": 0, "defender": 0}
+{"event": "Message", "message": "Target Evasion decreased! Accuracy decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.5216494845360825, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.20824742268041238, "side": 1, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 113}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.7911227154046997, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.7780678851174935, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "POISON", "power": 100}
+{"event": "Damage", "hp_rate": 0.7232375979112271, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.7101827676240209, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.40756302521008403, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 69}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.21008403361344538, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 113}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 102}
+{"event": "Damage", "hp_rate": 0.6553524804177546, "side": 0, "defender": 0}
+{"event": "Message", "message": "Reflect in effect."}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 113}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 1, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 113}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

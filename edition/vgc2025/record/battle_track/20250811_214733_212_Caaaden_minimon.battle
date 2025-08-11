@@ -1,0 +1,79 @@
+{"event": "Battle", "teams": [{"active": [{"type": 5}, {"type": 1}], "reserve": [{"type": 3}, {"type": 15}]}, {"active": [{"type": 1}, {"type": 11}], "reserve": [{"type": 6}, {"type": 4}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 123}
+{"event": "Damage", "hp_rate": 0.6013513513513513, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.7125890736342043, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 45}
+{"event": "Damage", "hp_rate": 0.5292792792792793, "side": 1, "defender": 0}
+{"event": "Message", "message": "The field is ELECTRIC_TERRAIN."}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 123}
+{"event": "Damage", "hp_rate": 0.13063063063063063, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.4251781472684085, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 45}
+{"event": "Damage", "hp_rate": 0.05855855855855856, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 123}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 45}
+{"event": "Damage", "hp_rate": 0.9905437352245863, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "WATER", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 123}
+{"event": "Damage", "hp_rate": 0.7446808510638298, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.46808510638297873, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 101}
+{"event": "Damage", "hp_rate": 0.6787709497206704, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.3547486033519553, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 123}
+{"event": "Damage", "hp_rate": 0.2222222222222222, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.030726256983240222, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 123}
+{"event": "Damage", "hp_rate": 0.6838235294117647, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "WATER", "power": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.8673469387755102, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FLYING", "power": 0}
+{"event": "Message", "message": "Target Attack sharply increased!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.22448979591836735, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.7275204359673024, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

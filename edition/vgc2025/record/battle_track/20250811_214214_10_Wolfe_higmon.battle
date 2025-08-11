@@ -1,0 +1,93 @@
+{"event": "Battle", "teams": [{"active": [{"type": 6}, {"type": 17}], "reserve": [{"type": 6}, {"type": 12}]}, {"active": [{"type": 0}, {"type": 3}], "reserve": [{"type": 4}, {"type": 8}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Damage", "hp_rate": 0.5782312925170068, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "POISON", "power": 69}
+{"event": "Damage", "hp_rate": 0.8636363636363636, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Damage", "hp_rate": 0.8005698005698005, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "POISON", "power": 69}
+{"event": "Damage", "hp_rate": 0.6256684491978609, "side": 0, "defender": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.6011396011396012, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "POISON", "power": 69}
+{"event": "Damage", "hp_rate": 0.3877005347593583, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Damage", "hp_rate": 0.4017094017094017, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.2022792022792023, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "POISON", "power": 69}
+{"event": "Damage", "hp_rate": 0.1497326203208556, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Damage", "hp_rate": 0.002849002849002849, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Message", "message": "The field is ELECTRIC_TERRAIN."}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Damage", "hp_rate": 0.8512195121951219, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.4560975609756098, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.06097560975609756, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 132}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "DARK", "power": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.853185595567867, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.8755186721991701, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 89}
+{"event": "Damage", "hp_rate": 0.7590027700831025, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 78}
+{"event": "Damage", "hp_rate": 0.6343490304709142, "side": 1, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.7510373443983402, "side": 0, "defender": 0}
+{"event": "Message", "message": "The weather is RAIN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DRAGON", "power": 89}
+{"event": "Damage", "hp_rate": 0.5401662049861495, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 78}
+{"event": "Damage", "hp_rate": 0.4155124653739612, "side": 1, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.6265560165975104, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 60}
+{"event": "Damage", "hp_rate": 0.3047091412742382, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.15789473684210525, "side": 1, "defender": 0}
+{"event": "Message", "message": "The field is ELECTRIC_TERRAIN."}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.5020746887966805, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 62}
+{"event": "Damage", "hp_rate": 0.09141274238227147, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ICE", "power": 92}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

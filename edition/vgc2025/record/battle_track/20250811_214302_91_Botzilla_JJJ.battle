@@ -1,0 +1,43 @@
+{"event": "Battle", "teams": [{"active": [{"type": 4}, {"type": 3}], "reserve": [{"type": 16}, {"type": 3}]}, {"active": [{"type": 0}, {"type": 17}], "reserve": [{"type": 3}, {"type": 13}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "STEEL", "power": 92}
+{"event": "Damage", "hp_rate": 0.4, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 132}
+{"event": "Damage", "hp_rate": 0.7046511627906977, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 115}
+{"event": "Damage", "hp_rate": 0.6658595641646489, "side": 1, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 132}
+{"event": "Damage", "hp_rate": 0.5550239234449761, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 80}
+{"event": "Damage", "hp_rate": 0.24102564102564103, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.5681159420289855, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 104}
+{"event": "Damage", "hp_rate": 0.46246973365617433, "side": 1, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 132}
+{"event": "Damage", "hp_rate": 0.2857142857142857, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "GROUND", "power": 97}
+{"event": "Damage", "hp_rate": 0.1266233766233766, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "ICE", "power": 0}
+{"event": "Message", "message": "Target Defense increased! Evasion decreased!"}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 132}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

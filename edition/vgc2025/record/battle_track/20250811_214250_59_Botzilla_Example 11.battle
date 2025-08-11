@@ -1,0 +1,70 @@
+{"event": "Battle", "teams": [{"active": [{"type": 16}, {"type": 5}], "reserve": [{"type": 5}, {"type": 10}]}, {"active": [{"type": 1}, {"type": 4}], "reserve": [{"type": 1}, {"type": 7}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.5561959654178674, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.11239193083573487, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 75}
+{"event": "Damage", "hp_rate": 0.7357293868921776, "side": 0, "defender": 0}
+{"event": "Message", "message": "Trick room in effect."}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 136}
+{"event": "Damage", "hp_rate": 0.3696969696969697, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 130}
+{"event": "Damage", "hp_rate": 0.22427440633245382, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 68}
+{"event": "Damage", "hp_rate": 0.6173361522198731, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.5154929577464789, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 75}
+{"event": "Damage", "hp_rate": 0.8771929824561403, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 93}
+{"event": "Damage", "hp_rate": 0.4422535211267606, "side": 1, "defender": 0}
+{"event": "Message", "message": "The weather is SAND."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 140}
+{"event": "Damage", "hp_rate": 0.7134502923976608, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.6805555555555556, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.9626543209876544, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "GHOST", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 93}
+{"event": "Damage", "hp_rate": 0.6169753086419754, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.5182098765432098, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6476608187134503, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.4808641975308642, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.38209876543209875, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 93}
+{"event": "Damage", "hp_rate": 0.03641975308641975, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 8}
+{"event": "Damage", "hp_rate": 0.5919661733615222, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6147660818713451, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

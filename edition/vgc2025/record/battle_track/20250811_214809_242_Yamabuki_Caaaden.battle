@@ -1,0 +1,119 @@
+{"event": "Battle", "teams": [{"active": [{"type": 2}, {"type": 11}], "reserve": [{"type": 4}, {"type": 4}]}, {"active": [{"type": 1}, {"type": 4}], "reserve": [{"type": 9}, {"type": 13}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 65}
+{"event": "Damage", "hp_rate": 0.8861607142857143, "side": 0, "defender": 0}
+{"event": "Message", "message": "The field is MISTY_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 131}
+{"event": "Damage", "hp_rate": 0.8311345646437994, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 59}
+{"event": "Damage", "hp_rate": 0.7767653758542141, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 65}
+{"event": "Damage", "hp_rate": 0.7723214285714286, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 131}
+{"event": "Damage", "hp_rate": 0.484375, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 110}
+{"event": "Damage", "hp_rate": 0.49658314350797267, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 65}
+{"event": "Damage", "hp_rate": 0.3705357142857143, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.6307692307692307, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "ELECTRIC", "power": 131}
+{"event": "Damage", "hp_rate": 0.08258928571428571, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 112}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.9032258064516129, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.5319693094629157, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 44}
+{"event": "Damage", "hp_rate": 0.2710997442455243, "side": 0, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "STEEL", "power": 67}
+{"event": "Damage", "hp_rate": 0.8436724565756824, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Damage", "hp_rate": 0.09207161125319693, "side": 0, "defender": 0}
+{"event": "Message", "message": "Reflect in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 108}
+{"event": "Damage", "hp_rate": 0.43672456575682383, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIRE", "power": 44}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Damage", "hp_rate": 0.6338983050847458, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 59}
+{"event": "Damage", "hp_rate": 0.3225806451612903, "side": 1, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DRAGON", "power": 82}
+{"event": "Damage", "hp_rate": 0.20677966101694914, "side": 0, "defender": 0}
+{"event": "Message", "message": "Its Accuracy sharply decreased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 112}
+{"event": "Damage", "hp_rate": 0.7229551451187335, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "DRAGON", "power": 0}
+{"event": "TypeChange", "side": 0, "pos": 0, "type": 12}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FLYING", "power": 108}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 82}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "Its Accuracy sharply decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 99}
+{"event": "Damage", "hp_rate": 0.830316742081448, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 82}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 108}
+{"event": "Damage", "hp_rate": 0.6447963800904978, "side": 1, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 108}
+{"event": "Damage", "hp_rate": 0.4592760180995475, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 99}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FLYING", "power": 108}
+{"event": "Damage", "hp_rate": 0.2737556561085973, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.09728506787330317, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 70}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

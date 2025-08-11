@@ -1,0 +1,91 @@
+{"event": "Battle", "teams": [{"active": [{"type": 3}, {"type": 6}], "reserve": [{"type": 4}, {"type": 4}]}, {"active": [{"type": 3}, {"type": 14}], "reserve": [{"type": 10}, {"type": 5}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 125}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "PSYCHIC", "power": 118}
+{"event": "Damage", "hp_rate": 0.57847533632287, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.3181818181818182, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "BUG", "power": 94}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 98}
+{"event": "Damage", "hp_rate": 0.42152466367713004, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 125}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 105}
+{"event": "Damage", "hp_rate": 0.456, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.21066666666666667, "side": 0, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 125}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 55}
+{"event": "Damage", "hp_rate": 0.13866666666666666, "side": 0, "defender": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 75}
+{"event": "Damage", "hp_rate": 0.7671641791044777, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 98}
+{"event": "Damage", "hp_rate": 0.6388059701492538, "side": 1, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Message", "message": "Its PARALYZED, it cannot move!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ELECTRIC", "power": 55}
+{"event": "Damage", "hp_rate": 0.06666666666666667, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 108}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 75}
+{"event": "Damage", "hp_rate": 0.49725274725274726, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 108}
+{"event": "Damage", "hp_rate": 0.7365439093484419, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Message", "message": "Its PARALYZED, it cannot move!"}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 75}
+{"event": "Damage", "hp_rate": 0.6889848812095032, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 107}
+{"event": "Damage", "hp_rate": 0.8530805687203792, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 111}
+{"event": "Damage", "hp_rate": 0.4794816414686825, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Message", "message": "Its PARALYZED, it cannot move!"}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 75}
+{"event": "Damage", "hp_rate": 0.16846652267818574, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 107}
+{"event": "Damage", "hp_rate": 0.7061611374407583, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ELECTRIC", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "Its PARALYZED, it cannot move!"}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 37}
+{"event": "Damage", "hp_rate": 0.5313432835820896, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Message", "message": "Its PARALYZED, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 75}
+{"event": "Damage", "hp_rate": 0.29850746268656714, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 37}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Message", "message": "Its PARALYZED, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "ROCK", "power": 75}
+{"event": "Damage", "hp_rate": 0.06567164179104477, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 98}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

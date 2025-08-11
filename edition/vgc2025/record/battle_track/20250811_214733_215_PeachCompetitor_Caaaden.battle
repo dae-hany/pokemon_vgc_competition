@@ -1,0 +1,61 @@
+{"event": "Battle", "teams": [{"active": [{"type": 5}, {"type": 2}], "reserve": [{"type": 5}, {"type": 3}]}, {"active": [{"type": 4}, {"type": 9}], "reserve": [{"type": 0}, {"type": 12}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DARK", "power": 114}
+{"event": "Damage", "hp_rate": 0.6434108527131783, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GROUND", "power": 106}
+{"event": "Damage", "hp_rate": 0.8276699029126213, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 118}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DARK", "power": 114}
+{"event": "Damage", "hp_rate": 0.18394648829431437, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 118}
+{"event": "Damage", "hp_rate": 0.03359173126614987, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Damage", "hp_rate": 0.9585921325051759, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "GHOST", "power": 98}
+{"event": "Damage", "hp_rate": 0.7791666666666667, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 118}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Damage", "hp_rate": 0.970514950166113, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.917184265010352, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ROCK", "power": 139}
+{"event": "Damage", "hp_rate": 0.7014119601328903, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 136}
+{"event": "Damage", "hp_rate": 0.6024844720496895, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6719269102990033, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5610766045548654, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 101}
+{"event": "Damage", "hp_rate": 0.4161129568106312, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ROCK", "power": 139}
+{"event": "Damage", "hp_rate": 0.14700996677740863, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 79}
+{"event": "Damage", "hp_rate": 0.37681159420289856, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.1175249169435216, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.33540372670807456, "side": 1, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ROCK", "power": 101}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

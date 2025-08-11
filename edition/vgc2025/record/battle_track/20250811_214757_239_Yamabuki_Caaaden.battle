@@ -1,0 +1,86 @@
+{"event": "Battle", "teams": [{"active": [{"type": 0}, {"type": 2}], "reserve": [{"type": 12}, {"type": 3}]}, {"active": [{"type": 11}, {"type": 17}], "reserve": [{"type": 1}, {"type": 0}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 113}
+{"event": "Damage", "hp_rate": 0.6920415224913494, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "DARK", "power": 113}
+{"event": "Damage", "hp_rate": 0.7939698492462312, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 1.0, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.8688524590163934, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Damage", "hp_rate": 0.6865342163355408, "side": 1, "defender": 1}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 60}
+{"event": "Damage", "hp_rate": 0.9410187667560321, "side": 1, "defender": 0}
+{"event": "Message", "message": "The field is GRASSY_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 118}
+{"event": "Damage", "hp_rate": 0.5703517587939698, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 0.695364238410596, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 86}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.4691689008042895, "side": 1, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 118}
+{"event": "Damage", "hp_rate": 0.34673366834170855, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 86}
+{"event": "Damage", "hp_rate": 0.7377049180327869, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GROUND", "power": 71}
+{"event": "Damage", "hp_rate": 0.7494305239179955, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.1457286432160804, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 118}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "NORMAL", "power": 73}
+{"event": "Damage", "hp_rate": 0.5518763796909493, "side": 1, "defender": 1}
+{"event": "Message", "message": "Target Special Defense decreased! Evasion decreased!"}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.5953757225433526, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "WATER", "power": 118}
+{"event": "Damage", "hp_rate": 0.2514450867052023, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 121}
+{"event": "Damage", "hp_rate": 0.18322295805739514, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 81}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Message", "message": "The weather is SAND."}
+{"event": "Damage", "hp_rate": 0.21856936416184972, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6984777517564403, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.7101366742596811, "side": 1, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FAIRY", "power": 121}
+{"event": "Damage", "hp_rate": 0.17482915717539863, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6592505854800936, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.13553530751708429, "side": 1, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "DRAGON", "power": 140}
+{"event": "Damage", "hp_rate": 0.49063231850117095, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "NORMAL", "power": 73}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

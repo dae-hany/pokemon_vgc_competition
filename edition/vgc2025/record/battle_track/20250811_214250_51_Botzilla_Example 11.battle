@@ -1,0 +1,60 @@
+{"event": "Battle", "teams": [{"active": [{"type": 5}, {"type": 5}], "reserve": [{"type": 9}, {"type": 4}]}, {"active": [{"type": 6}, {"type": 8}], "reserve": [{"type": 17}, {"type": 0}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.5833333333333334, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 114}
+{"event": "Damage", "hp_rate": 0.5095541401273885, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "FAIRY", "power": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Turn", "number": 2}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.16666666666666666, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 114}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.01910828025477707, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 34}
+{"event": "Damage", "hp_rate": 0.910377358490566, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "POISON", "power": 105}
+{"event": "Damage", "hp_rate": 0.7311320754716981, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 74}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.3875598086124402, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 97}
+{"event": "Damage", "hp_rate": 0.6986666666666667, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 115}
+{"event": "Damage", "hp_rate": 0.5012722646310432, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 34}
+{"event": "Damage", "hp_rate": 0.6415094339622641, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 97}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 115}
+{"event": "Damage", "hp_rate": 0.2853333333333333, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FIRE", "power": 44}
+{"event": "Damage", "hp_rate": 0.6014150943396226, "side": 0, "defender": 0}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "STEEL", "power": 140}
+{"event": "Damage", "hp_rate": 0.07783018867924528, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 97}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ICE", "power": 74}
+{"event": "Damage", "hp_rate": 0.3893129770992366, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 115}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

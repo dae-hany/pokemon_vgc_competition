@@ -1,0 +1,63 @@
+{"event": "Battle", "teams": [{"active": [{"type": 2}, {"type": 14}], "reserve": [{"type": 4}, {"type": 15}]}, {"active": [{"type": 17}, {"type": 2}], "reserve": [{"type": 10}, {"type": 6}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 137}
+{"event": "Damage", "hp_rate": 0.7244897959183674, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ELECTRIC", "power": 122}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 120}
+{"event": "Damage", "hp_rate": 0.7397660818713451, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FAIRY", "power": 119}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 137}
+{"event": "Damage", "hp_rate": 0.8014354066985646, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 120}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 15}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FAIRY", "power": 119}
+{"event": "Damage", "hp_rate": 0.2872340425531915, "side": 0, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 137}
+{"event": "Damage", "hp_rate": 0.6028708133971292, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 120}
+{"event": "Damage", "hp_rate": 0.9354120267260579, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 15}
+{"event": "Damage", "hp_rate": 0.888641425389755, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its Defense increased! Special Attack decreased!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ROCK", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 137}
+{"event": "Damage", "hp_rate": 0.8319327731092437, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 77}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 15}
+{"event": "Damage", "hp_rate": 0.695906432748538, "side": 1, "defender": 1}
+{"event": "Message", "message": "Its Defense increased! Special Attack decreased!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FAIRY", "power": 119}
+{"event": "Damage", "hp_rate": 0.35294117647058826, "side": 0, "defender": 1}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 10}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 137}
+{"event": "Damage", "hp_rate": 0.5023923444976076, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 77}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 15}
+{"event": "Damage", "hp_rate": 0.8418708240534521, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "FAIRY", "power": 119}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 137}
+{"event": "Damage", "hp_rate": 0.4019138755980861, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 15}
+{"event": "Damage", "hp_rate": 0.7951002227171492, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its Defense increased! Special Attack decreased!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "NORMAL", "power": 119}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

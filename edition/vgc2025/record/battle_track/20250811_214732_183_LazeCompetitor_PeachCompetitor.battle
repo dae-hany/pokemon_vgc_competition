@@ -1,0 +1,67 @@
+{"event": "Battle", "teams": [{"active": [{"type": 11}, {"type": 6}], "reserve": [{"type": 8}, {"type": 13}]}, {"active": [{"type": 1}, {"type": 17}], "reserve": [{"type": 12}, {"type": 6}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 140}
+{"event": "Damage", "hp_rate": 0.48009950248756217, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 61}
+{"event": "Damage", "hp_rate": 0.9214092140921409, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 94}
+{"event": "Damage", "hp_rate": 0.12935323383084577, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 56}
+{"event": "Damage", "hp_rate": 0.7994579945799458, "side": 1, "defender": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 17}
+{"event": "Damage", "hp_rate": 0.06965174129353234, "side": 0, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 61}
+{"event": "Damage", "hp_rate": 0.7208672086720868, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 99}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Damage", "hp_rate": 0.9903449292452831, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 56}
+{"event": "Damage", "hp_rate": 0.5989159891598916, "side": 1, "defender": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FAIRY", "power": 90}
+{"event": "Damage", "hp_rate": 0.6979405034324943, "side": 1, "defender": 1}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GROUND", "power": 129}
+{"event": "Damage", "hp_rate": 0.22619398584905662, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "WATER", "power": 99}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.9650135869565217, "side": 0, "defender": 0}
+{"event": "Heal", "hp_rate": 0.7398373983739838, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GRASS", "power": 56}
+{"event": "Damage", "hp_rate": 0.562929061784897, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 17}
+{"event": "Damage", "hp_rate": 0.897078804347826, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 115}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 94}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 56}
+{"event": "Damage", "hp_rate": 0.775175644028103, "side": 1, "defender": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.6519337016574586, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "GHOST", "power": 109}
+{"event": "Damage", "hp_rate": 0.24585635359116023, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "GRASS", "power": 56}
+{"event": "Damage", "hp_rate": 0.550351288056206, "side": 1, "defender": 0}
+{"event": "Message", "message": "Stealth Rock in effect."}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "ICE", "power": 17}
+{"event": "Damage", "hp_rate": 0.04696132596685083, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

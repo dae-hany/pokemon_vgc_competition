@@ -1,0 +1,71 @@
+{"event": "Battle", "teams": [{"active": [{"type": 2}, {"type": 6}], "reserve": [{"type": 1}, {"type": 7}]}, {"active": [{"type": 10}, {"type": 5}], "reserve": [{"type": 9}, {"type": 16}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.8280922431865828, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 119}
+{"event": "Damage", "hp_rate": 0.4254742547425474, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.5299145299145299, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 92}
+{"event": "Damage", "hp_rate": 0.791095890410959, "side": 0, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 140}
+{"event": "Damage", "hp_rate": 0.6561844863731656, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 119}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.05982905982905983, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 92}
+{"event": "Damage", "hp_rate": 0.5821917808219178, "side": 0, "defender": 1}
+{"event": "Message", "message": "Target Special Defense decreased! Speed decreased!"}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "FIRE", "power": 119}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.9502487562189055, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 83}
+{"event": "Damage", "hp_rate": 0.5639412997903563, "side": 0, "defender": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.7114427860696517, "side": 1, "defender": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 140}
+{"event": "Damage", "hp_rate": 0.2976939203354298, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 80}
+{"event": "Damage", "hp_rate": 0.6399176954732511, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DARK", "power": 49}
+{"event": "Damage", "hp_rate": 0.2431865828092243, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.472636815920398, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 80}
+{"event": "Damage", "hp_rate": 0.27983539094650206, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 83}
+{"event": "Damage", "hp_rate": 0.8967254408060453, "side": 0, "defender": 1}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.23383084577114427, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its SLEEP, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 80}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 140}
+{"event": "Damage", "hp_rate": 0.208955223880597, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "GROUND", "power": 93}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

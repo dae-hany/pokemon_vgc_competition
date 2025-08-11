@@ -1,0 +1,51 @@
+{"event": "Battle", "teams": [{"active": [{"type": 2}, {"type": 11}], "reserve": [{"type": 3}, {"type": 11}]}, {"active": [{"type": 3}, {"type": 4}], "reserve": [{"type": 2}, {"type": 17}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 43}
+{"event": "Damage", "hp_rate": 0.8952164009111617, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Damage", "hp_rate": 0.3712984054669704, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 65}
+{"event": "Damage", "hp_rate": 0.48501362397820164, "side": 0, "defender": 0}
+{"event": "Message", "message": "Reflect in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 96}
+{"event": "Damage", "hp_rate": 0.7601713062098501, "side": 0, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "POISON", "power": 43}
+{"event": "Damage", "hp_rate": 0.26651480637813213, "side": 1, "defender": 1}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 96}
+{"event": "Damage", "hp_rate": 0.2452316076294278, "side": 0, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Damage", "hp_rate": 0.4910025706940874, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "WATER", "power": 100}
+{"event": "Damage", "hp_rate": 0.5189504373177842, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FLYING", "power": 96}
+{"event": "Damage", "hp_rate": 0.005449591280653951, "side": 0, "defender": 0}
+{"event": "Message", "message": "It is now BURN."}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIGHT", "power": 93}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "The field is MISTY_TERRAIN."}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ROCK", "power": 103}
+{"event": "Damage", "hp_rate": 0.7924107142857143, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 135}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

@@ -1,0 +1,59 @@
+{"event": "Battle", "teams": [{"active": [{"type": 9}, {"type": 4}], "reserve": [{"type": 2}, {"type": 11}]}, {"active": [{"type": 5}, {"type": 9}], "reserve": [{"type": 15}, {"type": 10}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 132}
+{"event": "Damage", "hp_rate": 0.5924050632911393, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GHOST", "power": 119}
+{"event": "Damage", "hp_rate": 0.6776470588235294, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 104}
+{"event": "Damage", "hp_rate": 0.05569620253164557, "side": 1, "defender": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 44}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Message", "message": "Its Speed decreased! Evasion decreased!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 104}
+{"event": "Damage", "hp_rate": 0.3908355795148248, "side": 1, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 44}
+{"event": "Damage", "hp_rate": 0.2560646900269542, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its Speed decreased! Evasion decreased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "ICE", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 121}
+{"event": "Damage", "hp_rate": 0.5255102040816326, "side": 1, "defender": 1}
+{"event": "Message", "message": "The weather is SNOW."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 132}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "PSYCHIC", "power": 121}
+{"event": "Damage", "hp_rate": 0.05102040816326531, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 44}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Message", "message": "Its Speed decreased! Evasion decreased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 128}
+{"event": "Damage", "hp_rate": 0.7178082191780822, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 132}
+{"event": "Damage", "hp_rate": 0.4328767123287671, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "GROUND", "power": 115}
+{"event": "Damage", "hp_rate": 0.9, "side": 0, "defender": 0}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 75}
+{"event": "Damage", "hp_rate": 0.26575342465753427, "side": 1, "defender": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "POISON", "power": 132}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

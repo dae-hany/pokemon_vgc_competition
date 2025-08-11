@@ -1,0 +1,102 @@
+{"event": "Battle", "teams": [{"active": [{"type": 6}, {"type": 1}], "reserve": [{"type": 16}, {"type": 8}]}, {"active": [{"type": 14}, {"type": 12}], "reserve": [{"type": 2}, {"type": 5}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 68}
+{"event": "Damage", "hp_rate": 0.8468085106382979, "side": 1, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 87}
+{"event": "Damage", "hp_rate": 0.8355795148247979, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.8373626373626374, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7654986522911051, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 68}
+{"event": "Damage", "hp_rate": 0.6936170212765957, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "BUG", "power": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 87}
+{"event": "Damage", "hp_rate": 0.601078167115903, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.6747252747252748, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 68}
+{"event": "Damage", "hp_rate": 0.5404255319148936, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now FROZEN."}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.14468085106382977, "side": 1, "defender": 1}
+{"event": "Message", "message": "Its FROZEN, it cannot move!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 87}
+{"event": "Damage", "hp_rate": 0.4366576819407008, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.512087912087912, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.3665768194070081, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.33119946091644203, "side": 1, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 87}
+{"event": "Damage", "hp_rate": 0.8068459657701712, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIGHT", "power": 85}
+{"event": "Damage", "hp_rate": 0.34945054945054943, "side": 0, "defender": 0}
+{"event": "Damage", "hp_rate": 0.2611185983827493, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.22574123989218328, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.7686430317848411, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.04245283018867924, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "ROCK", "power": 87}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 111}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.9661971830985916, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.730440097799511, "side": 1, "defender": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 74}
+{"event": "Damage", "hp_rate": 0.5774647887323944, "side": 1, "defender": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.27323943661971833, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "FIRE", "power": 98}
+{"event": "Damage", "hp_rate": 0.8682352941176471, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FAIRY", "power": 111}
+{"event": "Damage", "hp_rate": 0.8357843137254902, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.23943661971830985, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.6922371638141809, "side": 1, "defender": 1}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 74}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.47707823960880197, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FAIRY", "power": 111}
+{"event": "Damage", "hp_rate": 0.6715686274509803, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.4388753056234719, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 74}
+{"event": "Damage", "hp_rate": 0.3019559902200489, "side": 1, "defender": 0}
+{"event": "Message", "message": "Poison Spikes in effect."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 140}
+{"event": "Damage", "hp_rate": 0.08679706601466992, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "WATER", "power": 0}
+{"event": "Damage", "hp_rate": 0.048594132029339855, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "FIRE", "power": 74}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

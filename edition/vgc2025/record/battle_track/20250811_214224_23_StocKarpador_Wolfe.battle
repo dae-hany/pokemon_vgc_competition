@@ -1,0 +1,85 @@
+{"event": "Battle", "teams": [{"active": [{"type": 6}, {"type": 16}], "reserve": [{"type": 14}, {"type": 6}]}, {"active": [{"type": 7}, {"type": 14}], "reserve": [{"type": 15}, {"type": 4}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 129}
+{"event": "Damage", "hp_rate": 0.2072072072072072, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 138}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 129}
+{"event": "Damage", "hp_rate": 0.8232848232848233, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "BUG", "power": 138}
+{"event": "Damage", "hp_rate": 0.5951742627345844, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 63}
+{"event": "Damage", "hp_rate": 0.5414012738853503, "side": 0, "defender": 0}
+{"event": "Turn", "number": 3}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 129}
+{"event": "Damage", "hp_rate": 0.684596577017115, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 110}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 63}
+{"event": "Damage", "hp_rate": 0.4352078239608802, "side": 0, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 81}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "WATER", "power": 71}
+{"event": "Damage", "hp_rate": 0.9358974358974359, "side": 1, "defender": 1}
+{"event": "Message", "message": "Its Attack increased! Evasion increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 132}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "POISON", "power": 81}
+{"event": "Damage", "hp_rate": 0.5446985446985447, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Damage", "hp_rate": 0.44871794871794873, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 135}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 132}
+{"event": "Damage", "hp_rate": 0.2869022869022869, "side": 0, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Damage", "hp_rate": 0.8739316239316239, "side": 1, "defender": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 135}
+{"event": "Damage", "hp_rate": 0.8098290598290598, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "STEEL", "power": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 7}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "NORMAL", "power": 132}
+{"event": "Damage", "hp_rate": 0.3036093418259023, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 110}
+{"event": "Damage", "hp_rate": 0.6239316239316239, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "ICE", "power": 71}
+{"event": "Damage", "hp_rate": 0.39316239316239315, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 2, "type": "STEEL", "power": 63}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FLYING", "power": 0}
+{"event": "Message", "message": "The weather is SAND."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 110}
+{"event": "Damage", "hp_rate": 0.20726495726495728, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "BUG", "power": 135}
+{"event": "Damage", "hp_rate": 0.14316239316239315, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.24532224532224534, "side": 0, "defender": 1}
+{"event": "Damage", "hp_rate": 0.10202991452991453, "side": 1, "defender": 0}
+{"event": "Turn", "number": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "FLYING", "power": 0}
+{"event": "Message", "message": "Its Special Defense decreased! Speed increased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 0, "type": "FLYING", "power": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "POISON", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}

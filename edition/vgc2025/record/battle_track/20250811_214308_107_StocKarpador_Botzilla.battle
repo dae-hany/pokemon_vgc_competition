@@ -1,0 +1,136 @@
+{"event": "Battle", "teams": [{"active": [{"type": 9}, {"type": 11}], "reserve": [{"type": 8}, {"type": 13}]}, {"active": [{"type": 12}, {"type": 5}], "reserve": [{"type": 1}, {"type": 4}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.8845360824742268, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "DARK", "power": 100}
+{"event": "Damage", "hp_rate": 0.6329896907216495, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 2, "type": "POISON", "power": 85}
+{"event": "Damage", "hp_rate": 0.685, "side": 0, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.23, "side": 0, "defender": 1}
+{"event": "Turn", "number": 2}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "TypeChange", "side": 1, "pos": 1, "type": 10}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIGHT", "power": 102}
+{"event": "Damage", "hp_rate": 0.6061855670103092, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.9092783505154639, "side": 0, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.5484536082474227, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Damage", "hp_rate": 0.6453608247422681, "side": 0, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.5278350515463918, "side": 1, "defender": 1}
+{"event": "Message", "message": "Target Evasion decreased! Accuracy decreased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Damage", "hp_rate": 0.7352941176470589, "side": 0, "defender": 0}
+{"event": "Turn", "number": 4}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GHOST", "power": 79}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Turn", "number": 5}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 140}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 63}
+{"event": "Damage", "hp_rate": 0.3958762886597938, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 0, "type": "PSYCHIC", "power": 0}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "DARK", "power": 100}
+{"event": "Damage", "hp_rate": 0.14432989690721648, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "POISON", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Message", "message": "Light screen in effect."}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 63}
+{"event": "Damage", "hp_rate": 0.012371134020618556, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Damage", "hp_rate": 0.47058823529411764, "side": 0, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "NORMAL", "power": 63}
+{"event": "Damage", "hp_rate": 0.8720626631853786, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Damage", "hp_rate": 0.43917525773195876, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Damage", "hp_rate": 0.7313084112149533, "side": 0, "defender": 1}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "DARK", "power": 113}
+{"event": "Damage", "hp_rate": 0.1422680412371134, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.8328981723237598, "side": 1, "defender": 1}
+{"event": "Message", "message": "Target Evasion decreased! Accuracy decreased!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Turn", "number": 10}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Damage", "hp_rate": 0.4158878504672897, "side": 0, "defender": 0}
+{"event": "Message", "message": "It is now POISON."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "FIGHT", "power": 104}
+{"event": "Damage", "hp_rate": 0.20588235294117646, "side": 0, "defender": 1}
+{"event": "Switch", "side": 1, "switch_in": 0, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.37704439252336447, "side": 0, "defender": 0}
+{"event": "Turn", "number": 11}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "GRASS", "power": 0}
+{"event": "Message", "message": "Protects itself."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.6091954022988506, "side": 1, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 128}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Damage", "hp_rate": 0.3382009345794392, "side": 0, "defender": 0}
+{"event": "Turn", "number": 12}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "NORMAL", "power": 63}
+{"event": "Damage", "hp_rate": 0.49712643678160917, "side": 1, "defender": 0}
+{"event": "Message", "message": "It is now SLEEP."}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FIRE", "power": 104}
+{"event": "Damage", "hp_rate": 0.10632183908045977, "side": 1, "defender": 0}
+{"event": "Message", "message": "Its no longer SLEEP!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 128}
+{"event": "Damage", "hp_rate": 0.1746495327102804, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 1}
+{"event": "Faint", "side": 0, "pos": 1}
+{"event": "Switch", "side": 0, "switch_in": 1, "switch_out": 1}
+{"event": "Damage", "hp_rate": 0.13580607476635514, "side": 0, "defender": 0}
+{"event": "Turn", "number": 13}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 128}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": -1, "switch_out": 0}
+{"event": "Message", "message": "Tailwind in effect."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 0, "type": "ELECTRIC", "power": 0}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 14}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 128}
+{"event": "Damage", "hp_rate": 0.032989690721649485, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DRAGON", "power": 14}
+{"event": "Damage", "hp_rate": 0.793733681462141, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "FIRE", "power": 106}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Turn", "number": 15}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "DRAGON", "power": 128}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "End", "side": 1}

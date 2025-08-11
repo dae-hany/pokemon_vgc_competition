@@ -1,0 +1,80 @@
+{"event": "Battle", "teams": [{"active": [{"type": 12}, {"type": 3}], "reserve": [{"type": 3}, {"type": 5}]}, {"active": [{"type": 4}, {"type": 5}], "reserve": [{"type": 5}, {"type": 12}]}]}
+{"event": "Turn", "number": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ROCK", "power": 140}
+{"event": "Damage", "hp_rate": 0.3648068669527897, "side": 1, "defender": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Damage", "hp_rate": 0.7007874015748031, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 140}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 0}
+{"event": "Turn", "number": 2}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "ROCK", "power": 140}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 64}
+{"event": "Damage", "hp_rate": 0.6167979002624672, "side": 0, "defender": 0}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Damage", "hp_rate": 0.31758530183727035, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "FIRE", "power": 140}
+{"event": "Damage", "hp_rate": 0.38386308068459657, "side": 1, "defender": 1}
+{"event": "Turn", "number": 3}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 64}
+{"event": "Damage", "hp_rate": 0.2335958005249344, "side": 0, "defender": 0}
+{"event": "Message", "message": "The field is MISTY_TERRAIN."}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 134}
+{"event": "Damage", "hp_rate": 0.2176039119804401, "side": 1, "defender": 1}
+{"event": "Turn", "number": 4}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "STEEL", "power": 88}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": 1, "switch_out": 1}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Damage", "hp_rate": 0.6790830945558739, "side": 0, "defender": 0}
+{"event": "Message", "message": "The field is PSYCHIC_TERRAIN."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 112}
+{"event": "Damage", "hp_rate": 0.8466386554621849, "side": 1, "defender": 0}
+{"event": "Damage", "hp_rate": 0.5816618911174785, "side": 0, "defender": 0}
+{"event": "Turn", "number": 5}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 123}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 70}
+{"event": "Damage", "hp_rate": 0.6632443531827515, "side": 1, "defender": 1}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 112}
+{"event": "Damage", "hp_rate": 0.41683778234086244, "side": 1, "defender": 1}
+{"event": "Turn", "number": 6}
+{"event": "Attack", "side": 1, "attacker": 1, "category": 1, "type": "GRASS", "power": 123}
+{"event": "Message", "message": "The move failed!"}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 1, "type": "WATER", "power": 70}
+{"event": "Damage", "hp_rate": 0.08008213552361396, "side": 1, "defender": 1}
+{"event": "Message", "message": "It is now PARALYZED."}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 66}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 1}
+{"event": "Faint", "side": 1, "pos": 1}
+{"event": "Switch", "side": 1, "switch_in": -1, "switch_out": 1}
+{"event": "Turn", "number": 7}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 134}
+{"event": "Damage", "hp_rate": 0.6197478991596639, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 2, "type": "PSYCHIC", "power": 66}
+{"event": "Damage", "hp_rate": 0.4411764705882353, "side": 1, "defender": 0}
+{"event": "Turn", "number": 8}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Damage", "hp_rate": 0.2607449856733524, "side": 0, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 134}
+{"event": "Damage", "hp_rate": 0.21428571428571427, "side": 1, "defender": 0}
+{"event": "Attack", "side": 0, "attacker": 0, "category": 1, "type": "DARK", "power": 112}
+{"event": "Damage", "hp_rate": 0.06092436974789916, "side": 1, "defender": 0}
+{"event": "Turn", "number": 9}
+{"event": "Attack", "side": 1, "attacker": 0, "category": 1, "type": "WATER", "power": 114}
+{"event": "Damage", "hp_rate": 0.0, "side": 0, "defender": 0}
+{"event": "Faint", "side": 0, "pos": 0}
+{"event": "Switch", "side": 0, "switch_in": 0, "switch_out": 1}
+{"event": "Attack", "side": 0, "attacker": 1, "category": 2, "type": "FAIRY", "power": 134}
+{"event": "Damage", "hp_rate": 0.0, "side": 1, "defender": 0}
+{"event": "Faint", "side": 1, "pos": 0}
+{"event": "End", "side": 0}
