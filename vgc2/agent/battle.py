@@ -82,10 +82,6 @@ class GreedyBattlePolicy(BattlePolicy):
     Greedy strategy that prioritizes KOs and damage output with only one turn lookahead. Performs no switches.
     """
 
-    def __init__(self,
-                 params: BattleRuleParam = BattleRuleParam()):
-        self.params = params
-
     def decision(self,
                  state: State,
                  opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
@@ -154,12 +150,10 @@ class TreeSearchBattlePolicy(BattlePolicy):
 
     def __init__(self,
                  max_moves: int = 4,
-                 max_depth: int = 1,
-                 params: BattleRuleParam = BattleRuleParam()):
+                 max_depth: int = 1):
         self.max_moves = max_moves
         self.max_depth = max_depth
-        self.params = params
-        self.opp_policy = GreedyBattlePolicy(params)
+        self.opp_policy = GreedyBattlePolicy()
 
     def get_states(self,
                    state: State,
@@ -233,6 +227,11 @@ class TreeSearchBattlePolicy(BattlePolicy):
         # print(list(max(action_eval, key=action_eval.get, default=0)))
         # return action that maximizes value
         return list(max(action_eval, key=action_eval.get, default=0))
+
+    def set_params(self,
+                   params: BattleRuleParam):
+        super().set_params(params)
+        self.opp_policy.set_params(params)
 
 
 # TerminalBattle

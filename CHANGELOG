@@ -1,5 +1,11 @@
 ## Changelog
 
+### Version 2.0.0 (October 2025)
+
+* Remote Parameterization of Battle Rules
+* Scalable Proxy Client and Server Classes
+* Battle Track Generic Rule Support
+
 ### Version 1.0.7.3 (August 2025)
 
 * Sanitized Commands Added (Selection and Team Building).

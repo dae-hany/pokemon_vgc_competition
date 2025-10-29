@@ -4,7 +4,7 @@ from typing import Callable
 from numpy import clip
 from numpy.random import default_rng, Generator
 
-from vgc2.battle_engine import Type
+from vgc2.battle_engine import Type, BattleRuleParam
 from vgc2.battle_engine.modifiers import Category, Weather, Terrain, Hazard, Status, Nature
 from vgc2.battle_engine.move import Move
 from vgc2.battle_engine.pokemon import PokemonSpecies, Pokemon
@@ -17,6 +17,7 @@ PokemonSpeciesGenerator = Callable[[MoveSet, int, Generator], PokemonSpecies]
 PokemonGenerator = Callable[[PokemonSpecies, int, Generator], Pokemon]
 RosterGenerator = Callable[[int, MoveSet, int, Generator, PokemonSpeciesGenerator], Roster]
 TeamGenerator = Callable[[int, int, Generator, MoveSetGenerator, PokemonSpeciesGenerator, PokemonGenerator], Team]
+RuleGenerator = Callable[[Generator], BattleRuleParam]
 
 _RNG = default_rng()
 
@@ -120,3 +121,7 @@ def gen_team_from_roster(roster: Roster,
                          rng: Generator = _RNG,
                          _gen_pkm: PokemonGenerator = gen_pkm) -> Team:
     return Team([_gen_pkm(roster[i], n_moves, rng) for i in rng.choice(len(roster), n)])
+
+
+def gen_rule_set(rng: Generator = _RNG) -> BattleRuleParam:
+    pass

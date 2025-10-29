@@ -14,15 +14,15 @@ class LazeCompetitor(Competitor):
         self.__team_build_policy = LazeTeamBuildPolicy()
 
     @property
-    def battle_policy(self) -> BattlePolicy | None:
+    def battlepolicy(self) -> BattlePolicy | None:
         return self.__battle_policy
 
     @property
-    def selection_policy(self) -> SelectionPolicy | None:
+    def selectionpolicy(self) -> SelectionPolicy | None:
         return self.__selection_policy
 
     @property
-    def team_build_policy(self) -> TeamBuildPolicy | None:
+    def teambuildpolicy(self) -> TeamBuildPolicy | None:
         return self.__team_build_policy
 
     @property

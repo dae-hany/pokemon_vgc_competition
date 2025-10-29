@@ -121,7 +121,7 @@ class ModelBattlePolicy(BattlePolicy):
         current_dir = Path(__file__).resolve().parent
         model_path = current_dir / 'trained_classifier.joblib'
         self.model = joblib.load(model_path)
-        self.greedy = GreedyBattlePolicy(BattleRuleParam())
+        self.greedy = GreedyBattlePolicy()
 
     def decision(self, state, opp_view=None):
         obs = np.zeros(2179)

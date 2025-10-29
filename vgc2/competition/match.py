@@ -1,5 +1,5 @@
 from vgc2.agent import BattlePolicy, SelectionPolicy
-from vgc2.battle_engine import BattleEngine, State
+from vgc2.battle_engine import BattleEngine, State, BattleRuleParam
 from vgc2.battle_engine.game_state import get_battle_teams
 from vgc2.battle_engine.security import sanitized_selection_decision
 from vgc2.battle_engine.team import Team
@@ -22,6 +22,8 @@ def run_battle(engine: BattleEngine,
                team_view: tuple[TeamView, TeamView],
                view: tuple[StateView, StateView],
                client: StreamClient | None = None) -> int:
+    agent[0].on_new_battle()
+    agent[1].on_new_battle()
     while not engine.finished():
         engine.run_turn((agent[0].decision(view[0], team_view[1]), agent[1].decision(view[1], team_view[0])))
         engine.render(client)
@@ -42,7 +44,7 @@ def label_teams(base_team: tuple[Team, Team]):
 
 class Match:
     __slots__ = ('cm', 'n_active', 'n_battles', 'max_team_size', 'max_pkm_moves', 'random_teams', 'gen', 'wins',
-                 'client')
+                 'params', 'client')
 
     def __init__(self,
                  cm: tuple[CompetitorManager, CompetitorManager],
@@ -51,6 +53,7 @@ class Match:
                  max_team_size: int = 4,
                  max_pkm_moves: int = 4,
                  gen: TeamGenerator | None = None,
+                 params: BattleRuleParam = BattleRuleParam(),
                  client: StreamClient | None = None):
         self.cm = cm
         self.n_active = n_active
@@ -59,6 +62,7 @@ class Match:
         self.max_pkm_moves = max_pkm_moves
         self.gen = gen
         self.wins = [0, 0]
+        self.params = params
         self.client = client
 
     def run(self):
@@ -79,14 +83,14 @@ class Match:
         team, view = (sub[0][0], sub[1][0]), (sub[0][1], sub[1][1])
         state = State(get_battle_teams(team, self.n_active))
         state_view = StateView(state, 0, view), StateView(state, 1, view)
-        engine = BattleEngine(state, debug=self.client is not None)
+        engine = BattleEngine(state, self.params, debug=self.client is not None)
         if self.client is not None:
             self.client.start_stream(self.cm[0].competitor.name + "_" + self.cm[1].competitor.name)
         self.wins[run_battle(engine, agent, base_view, state_view, self.client)] += 1
 
     def _run_random(self):
-        agent = self.cm[0].competitor.battle_policy, self.cm[1].competitor.battle_policy
-        selector = self.cm[0].competitor.selection_policy, self.cm[1].competitor.selection_policy
+        agent = self.cm[0].competitor.battlepolicy, self.cm[1].competitor.battlepolicy
+        selector = self.cm[0].competitor.selectionpolicy, self.cm[1].competitor.selectionpolicy
         tie = True
         runs = 0
         while tie or runs < self.n_battles:
@@ -100,8 +104,8 @@ class Match:
             runs += 1
 
     def _run_non_random(self):
-        agent = self.cm[0].competitor.battle_policy, self.cm[1].competitor.battle_policy
-        selector = self.cm[0].competitor.selection_policy, self.cm[1].competitor.selection_policy
+        agent = self.cm[0].competitor.battlepolicy, self.cm[1].competitor.battlepolicy
+        selector = self.cm[0].competitor.selectionpolicy, self.cm[1].competitor.selectionpolicy
         base_team = self.cm[0].team, self.cm[1].team
         base_view = TeamView(base_team[0]), TeamView(base_team[1])
         tie = True

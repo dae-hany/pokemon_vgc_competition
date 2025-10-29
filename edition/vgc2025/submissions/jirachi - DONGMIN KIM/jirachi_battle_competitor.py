@@ -68,15 +68,15 @@ class SmartJirachiBattleCompetitor(Competitor):
         return self.__name
 
     @property
-    def battle_policy(self) -> BattlePolicy:
+    def battlepolicy(self) -> BattlePolicy:
         return self.__battle_policy
 
     @property
-    def selection_policy(self) -> SelectionPolicy:
+    def selectionpolicy(self) -> SelectionPolicy:
         return self.__selection_policy
 
     @property
-    def team_build_policy(self):
+    def teambuildpolicy(self):
         return self.__team_build_policy
 
 

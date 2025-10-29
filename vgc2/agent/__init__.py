@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABC
 
-from vgc2.battle_engine import BattleCommand
+from vgc2.battle_engine import BattleCommand, BattleRuleParam
 from vgc2.battle_engine.game_state import State
 from vgc2.battle_engine.modifiers import Stats, Nature, Type
 from vgc2.battle_engine.move import Move
@@ -16,7 +16,23 @@ RosterBalanceCommand = list[tuple[int, list[Type], Stats, list[int]]]  # id, typ
 RuleBalanceCommand = list[float]  # parameters
 
 
-class BattlePolicy(ABC):
+class GameplayPolicy(ABC):
+    def __init_subclass__(cls, **kwargs):
+        super().__init_subclass__(**kwargs)
+        original_init = cls.__init__
+
+        def new_init(self, *args, **kw):
+            if not hasattr(self, "params") or self.params is None:
+                self.params = BattleRuleParam()
+            original_init(self, *args, **kw)
+
+        cls.__init__ = new_init
+
+    def set_params(self, params: BattleRuleParam):
+        self.params = params
+
+
+class BattlePolicy(GameplayPolicy, ABC):
 
     @abstractmethod
     def decision(self,
@@ -24,8 +40,11 @@ class BattlePolicy(ABC):
                  opp_view: TeamView | None = None) -> list[BattleCommand]:
         pass
 
+    def on_new_battle(self):
+        pass
 
-class SelectionPolicy(ABC):
+
+class SelectionPolicy(GameplayPolicy, ABC):
 
     @abstractmethod
     def decision(self,
@@ -34,7 +53,7 @@ class SelectionPolicy(ABC):
         pass
 
 
-class TeamBuildPolicy(ABC):
+class TeamBuildPolicy(GameplayPolicy, ABC):
 
     @abstractmethod
     def decision(self,

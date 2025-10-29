@@ -17,7 +17,7 @@ evo_competitor = EvoCompetitor(f"EvoTrainer 1")
 player1 = CompetitorManager(evo_competitor)
 player2 = CompetitorManager(EvoCompetitor(f"EvoTrainer 2"))
 
-match = Match((player1, player2), gen=gen_team)
+match = Match((player1, player2), team_gen=gen_team)
 match.run()
 if match.wins[0] > match.wins[1]:
     print("Match won by EvoTrainer 1")

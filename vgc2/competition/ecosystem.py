@@ -77,7 +77,7 @@ class Championship:
 
     def _build_teams(self):
         for cm in self.cm:
-            cm.team = build_team(sanitized_team_build_decision(cm.competitor.team_build_policy, self.roster,
+            cm.team = build_team(sanitized_team_build_decision(cm.competitor.teambuildpolicy, self.roster,
                                                                self.meta, self.max_team_size, self.max_pkm_moves,
                                                                self.n_active), self.roster)
 
@@ -145,8 +145,8 @@ class MetaDesign:
     def run(self):
         e = 0
         while e < self.epochs:
-            move_set_cmd, roster_cmd = self.dcm.competitor.meta_balance_policy.decision(self.move_set, self.roster,
-                                                                                        self.meta, self.constraints)
+            move_set_cmd, roster_cmd = self.dcm.competitor.metabalancepolicy.decision(self.move_set, self.roster,
+                                                                                      self.meta, self.constraints)
             build_move_set(move_set_cmd, self.move_set)
             build_roster(roster_cmd, self.roster, self.move_set)
             self.meta.change_roster(self.move_set, self.roster)
