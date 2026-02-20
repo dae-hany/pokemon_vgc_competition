@@ -147,7 +147,7 @@ def encode_pokemon(e: array,
     for j in range(0, ctx.n_stats):
         e[j + i] = pokemon.stats[j] / ctx.max_hp
     i += ctx.n_stats
-    i += multi_hot(e, pokemon.species.types, ctx.n_types)
+    i += multi_hot(e[i:], pokemon.species.types, ctx.n_types)
     return i
 
 
@@ -161,7 +161,8 @@ def encode_battling_pokemon(e: array,
     for m in pokemon.battling_moves:
         i += encode_battling_move(e[i:], m, ctx)
     e[i] = pokemon.hp / ctx.max_hp
-    i += multi_hot(e, pokemon.types, ctx.n_types)
+    i += 1
+    i += multi_hot(e[i], pokemon.types, ctx.n_types)
     for j in range(0, ctx.n_boosts):
         e[j + i] = pokemon.boosts[j] / ctx.max_boost
     i += ctx.n_boosts
