@@ -8,7 +8,7 @@ from vgc2.competition import CompetitorManager
 from vgc2.competition.match import Match
 from vgc2.meta import Roster
 from vgc2.net.stream import StreamClient
-from vgc2.util.generator import TeamGenerator, gen_team, RuleGenerator, _RNG
+from vgc2.util.generator import TeamGenerator, gen_team
 
 
 class MatchHandler:
@@ -59,7 +59,7 @@ class MatchHandler:
                 else:
                     self.cm += (mh.winner,)
         match = Match(self.cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, self.gen,
-                      self.params, self.client)
+                      self.params, client=self.client)
         match.run()
         self.winner = self.cm[match.wins[1] > match.wins[0]]
 

@@ -5,6 +5,7 @@ from vgc2.battle_engine.security import sanitized_selection_decision
 from vgc2.battle_engine.team import Team
 from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition import CompetitorManager
+from vgc2.meta import Meta
 from vgc2.net.stream import StreamClient
 from vgc2.util.generator import TeamGenerator, _RNG
 
@@ -35,16 +36,18 @@ def label_teams(base_team: tuple[Team, Team]):
     m_id = 0
     for t in base_team:
         for p in t.members:
-            p.species.id = p_id
-            p_id += 1
-            for m in p.species.moves:
-                m.id = m_id
-                m_id += 1
+            if p.species.id == -1:
+                p.species.id = p_id
+                p_id += 1
+                for m in p.species.moves:
+                    if m.id == -1:
+                        m.id = m_id
+                        m_id += 1
 
 
 class Match:
     __slots__ = ('cm', 'n_active', 'n_battles', 'max_team_size', 'max_pkm_moves', 'random_teams', 'gen', 'wins',
-                 'params', 'client')
+                 'params', 'meta', 'client')
 
     def __init__(self,
                  cm: tuple[CompetitorManager, CompetitorManager],
@@ -54,6 +57,7 @@ class Match:
                  max_pkm_moves: int = 4,
                  gen: TeamGenerator | None = None,
                  params: BattleRuleParam = BattleRuleParam(),
+                 meta: Meta | None = None,
                  client: StreamClient | None = None):
         self.cm = cm
         self.n_active = n_active
@@ -63,6 +67,7 @@ class Match:
         self.gen = gen
         self.wins = [0, 0]
         self.params = params
+        self.meta = meta
         self.client = client
 
     def run(self):
@@ -106,6 +111,11 @@ class Match:
     def _run_non_random(self):
         agent = self.cm[0].competitor.battlepolicy, self.cm[1].competitor.battlepolicy
         selector = self.cm[0].competitor.selectionpolicy, self.cm[1].competitor.selectionpolicy
+        if self.meta is not None:
+            selector[0].set_meta(self.meta)
+            agent[0].set_meta(self.meta)
+            selector[1].set_meta(self.meta)
+            agent[1].set_meta(self.meta)
         base_team = self.cm[0].team, self.cm[1].team
         base_view = TeamView(base_team[0]), TeamView(base_team[1])
         tie = True

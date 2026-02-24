@@ -40,6 +40,9 @@ class BattlePolicy(GameplayPolicy, ABC):
                  opp_view: TeamView | None = None) -> list[BattleCommand]:
         pass
 
+    def set_meta(self, meta: Meta):
+        pass
+
     def on_new_battle(self):
         pass
 
@@ -50,6 +53,9 @@ class SelectionPolicy(GameplayPolicy, ABC):
     def decision(self,
                  teams: tuple[Team, Team],
                  max_size: int) -> SelectionCommand:
+        pass
+
+    def set_meta(self, meta: Meta):
         pass
 
 

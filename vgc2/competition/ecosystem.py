@@ -20,6 +20,13 @@ class Strategy(IntEnum):
     ELO_PAIRING = 2
 
 
+STRATEGY_MAP = {
+    "fixed": Strategy.FIXED,
+    "random": Strategy.RANDOM_PAIRING,
+    "elo": Strategy.ELO_PAIRING
+}
+
+
 def build_team(cmd: TeamBuildCommand,
                roster: Roster) -> Team:
     return Team([Pokemon(roster[params[0]], params[4], 100, params[1], params[2], params[3]) for params in cmd])
@@ -93,8 +100,8 @@ class Championship:
         m = 0
         while m < n_matches:
             cm = self.cm[2 * m], self.cm[2 * m + 1]
-            match = Match(cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, False,
-                          self.client)
+            match = Match(cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, meta=self.meta,
+                          client=self.client)
             match.run()
             winner = 1 if match.wins[1] > match.wins[0] else 0
             cm[0].elo, cm[1].elo = elo_rating(cm[0].elo, cm[1].elo, winner)
