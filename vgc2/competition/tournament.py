@@ -104,6 +104,7 @@ class TreeTournament:
         self.mh.setup(self.cms)
 
     def run(self) -> CompetitorManager:
+        self.params.print_delta()
         if isinstance(self.roster_gen, list):
             self._set_rules()
             self._set_teams()

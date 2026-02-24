@@ -1,4 +1,4 @@
-from vgc2.battle_engine.modifiers import Stat, Nature
+from vgc2.battle_engine.modifiers import Stat, Nature, Type
 
 NATURES = {
     Nature.LONELY: {
@@ -86,6 +86,13 @@ NATURES = {
 
 class BattleRuleParam:
 
+    __slots__ = ('DAMAGE_MULTIPLICATION_ARRAY', 'BOOST_MULTIPLIER_LOOKUP', 'ACCURACY_MULTIPLIER_LOOKUP',
+                 'TRICKROOM_TURNS', 'WEATHER_TURNS', 'TERRAIN_TURNS', 'REFLECT_TURNS', 'LIGHTSCREEN_TURNS',
+                 'TAILWIND_TURNS', 'PARALYSIS_MODIFIER', 'TRICKROOM_MODIFIER', 'PROTECT_MODIFIER', 'THAW_THRESHOLD',
+                 'PARALYSIS_THRESHOLD', 'WEATHER_BOOST', 'WEATHER_UNBOOST', 'STAB_MODIFIER', 'BURN_DAMAGE_MODIFIER',
+                 'LIGHT_SCREEN_MODIFIER', 'REFLECT_MODIFIER', 'TERRAIN_DAMAGE_BOOST', 'TERRAIN_DAMAGE_UNBOOST',
+                 'STEALTH_ROCK_MODIFIER', 'POISON_MODIFIER', 'BURN_MODIFIER', 'SAND_MODIFIER')
+
     def __init__(self):
         self.DAMAGE_MULTIPLICATION_ARRAY = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, .5, 0, 1, 1, .5, 1, 1],
                                             [1, .5, .5, 1, 2, 2, 1, 1, 1, 1, 1, 2, .5, 1, .5, 1, 2, 1, 1],
@@ -162,3 +169,36 @@ class BattleRuleParam:
         self.POISON_MODIFIER = .125
         self.BURN_MODIFIER = .0625
         self.SAND_MODIFIER = .125
+
+    def print_delta(self, reference=None):
+        """Prints differences using __slots__ instead of __dict__."""
+        if reference is None:
+            reference = BattleRuleParam()
+
+        print(f"{'ATTRIBUTE':<25} | {'ORIGINAL':<10} | {'NEW':<10} | {'CHANGE'}")
+        print("-" * 75)
+
+        # We iterate over __slots__ instead of __dict__.items()
+        for attr in self.__slots__:
+            value = getattr(self, attr)
+
+            # 1. Handle Simple Numerical Attributes
+            if isinstance(value, (int, float)) and not isinstance(value, bool):
+                orig_val = getattr(reference, attr)
+                if value != orig_val:
+                    diff = value - orig_val
+                    print(f"{attr:<25} | {orig_val:<10.4f} | {value:<10.4f} | {diff:+.4f}")
+
+        # 2. Compare Type Matrix (Directly access by name since it's in slots)
+        print("\n--- TYPE CHART CHANGES ---")
+        type_changes = 0
+        for r in range(len(self.DAMAGE_MULTIPLICATION_ARRAY)):
+            for c in range(len(self.DAMAGE_MULTIPLICATION_ARRAY[0])):
+                new_v = self.DAMAGE_MULTIPLICATION_ARRAY[r][c]
+                old_v = reference.DAMAGE_MULTIPLICATION_ARRAY[r][c]
+                if new_v != old_v:
+                    print(f"Type {Type(r).name} vs Type {Type(c).name}: {old_v} -> {new_v}")
+                    type_changes += 1
+
+        if type_changes == 0:
+            print("No changes found in type effectiveness.")
