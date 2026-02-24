@@ -5,15 +5,16 @@ from vgc2.battle_engine import BattleRuleParam
 from vgc2.competition import CompetitorManager
 from vgc2.competition.tournament import TreeTournament
 from vgc2.net.client import ProxyCompetitor
-from vgc2.net.stream import FileClient
 from vgc2.net.server import BASE_PORT
+from vgc2.net.stream import CLIENT_MAP
 from vgc2.util.generator import gen_team, gen_rule_set
 
 
 def main(_args):
     conns = []
+    params = gen_rule_set(_args.n_attr_changes, _args.n_type_changes) if _args.random_rules else BattleRuleParam()
     tournament = TreeTournament(gen_team, _args.max_team_size, _args.max_pkm_moves, args.n_active, args.n_battles,
-                                gen_rule_set if _args.random_rules else BattleRuleParam(), FileClient())
+                                params, CLIENT_MAP[_args.stream]())
     for i in range(_args.n_agents):
         address = ('localhost', _args.base_port + i)
         conn = Client(address, authkey=f'Competitor {i}'.encode('utf-8'))
@@ -35,5 +36,8 @@ if __name__ == '__main__':
     parser.add_argument('--n_battles', type=int, default=10)
     parser.add_argument('--random_rules', action="store_true")
     parser.add_argument('--base_port', type=int, default=BASE_PORT)
+    parser.add_argument('--n_attr_changes', type=int, default=3)
+    parser.add_argument('--n_type_changes', type=int, default=5)
+    parser.add_argument("--stream", choices=CLIENT_MAP.keys(), default="file")
     args = parser.parse_args()
     main(args)

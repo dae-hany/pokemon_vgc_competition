@@ -65,8 +65,7 @@ class MatchHandler:
 
 
 class TreeTournament:
-    __slots__ = ('cms', 'roster_gen', 'max_team_size', 'max_pkm_moves', 'gen', 'n_active', 'n_battles', 'params',
-                 'mh')
+    __slots__ = ('cms', 'roster_gen', 'max_team_size', 'max_pkm_moves', 'n_active', 'params', 'mh')
 
     def __init__(self,
                  roster_gen: Roster | TeamGenerator,
@@ -74,16 +73,16 @@ class TreeTournament:
                  max_pkm_moves: int = 4,
                  n_active: int = 2,
                  n_battles: int = 10,
-                 rule_gen: BattleRuleParam | RuleGenerator = BattleRuleParam(),
+                 params: BattleRuleParam = BattleRuleParam(),
                  client: StreamClient | None = None):
         self.cms: list[CompetitorManager] = []
         self.roster_gen = roster_gen
         self.max_team_size = max_team_size
         self.max_pkm_moves = max_pkm_moves
         self.n_active = n_active
-        self.params = rule_gen if isinstance(rule_gen, BattleRuleParam) else rule_gen(_RNG)
+        self.params = params
         self.mh = MatchHandler(max_team_size, max_pkm_moves, n_active, n_battles,
-                               roster_gen if isinstance(roster_gen, Callable) else None, rule_gen, client)
+                               roster_gen if isinstance(roster_gen, Callable) else None, params, client)
 
     def register(self,
                  cm: CompetitorManager):
