@@ -13,6 +13,7 @@ from vgc2.util.generator import gen_team, gen_rule_set
 def main(_args):
     conns = []
     params = gen_rule_set(_args.n_attr_changes, _args.n_type_changes) if _args.random_rules else BattleRuleParam()
+    params.print_delta()
     tournament = TreeTournament(gen_team, _args.max_team_size, _args.max_pkm_moves, args.n_active, args.n_battles,
                                 params, CLIENT_MAP[_args.stream]())
     for i in range(_args.n_agents):
