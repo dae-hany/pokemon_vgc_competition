@@ -36,8 +36,13 @@ class Meta(ABC):
                         team: Team) -> float:
         pass
 
+    @abstractmethod
+    def n_pkm(self):
+        return 0.
+
 
 class BasicMeta(Meta):
+
     def __init__(self,
                  move_set: MoveSet,
                  roster: Roster,
@@ -97,3 +102,6 @@ class BasicMeta(Meta):
     def usage_rate_team(self,
                         team: Team) -> float:
         return sum(self.usage_rate_pokemon(p.species) for p in team.members) / len(team.members)
+
+    def n_pkm(self):
+        return len(self.roster)
