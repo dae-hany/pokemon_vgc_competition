@@ -4,8 +4,8 @@ from vgc2.agent import TeamBuildCommand
 from vgc2.agent import TeamBuildPolicy
 from vgc2.battle_engine.modifiers import Nature
 from vgc2.battle_engine.pokemon import calculate_stats
-from vgc2.meta import Meta
-from vgc2.meta import Roster
+from vgc2.balance import Meta
+from vgc2.balance import Roster
 
 
 class RandomTeamBuildPolicy(TeamBuildPolicy):

@@ -3,7 +3,7 @@ from numpy.random import choice, multinomial
 from vgc2.battle_engine.constants import BattleRuleParam
 from vgc2.agent import TeamBuildPolicy, TeamBuildCommand
 from vgc2.battle_engine.modifiers import Nature, Stats, Stat
-from vgc2.meta import Meta, Roster
+from vgc2.balance import Meta, Roster
 
 
 class LazeTeamBuildPolicy(TeamBuildPolicy):

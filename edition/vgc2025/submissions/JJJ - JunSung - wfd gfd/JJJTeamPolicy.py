@@ -5,7 +5,7 @@ from numpy.random import choice
 
 from vgc2.agent import TeamBuildPolicy, TeamBuildCommand
 from vgc2.battle_engine.modifiers import Nature, Type as PkmType, Category
-from vgc2.meta import Roster, Meta
+from vgc2.balance import Roster, Meta
 
 
 def max_expected_damage_against_type(

@@ -6,7 +6,7 @@ from numpy.random import choice
 
 from vgc2.agent import TeamBuildPolicy, TeamBuildCommand
 from vgc2.battle_engine.modifiers import Nature
-from vgc2.meta import Meta, Roster
+from vgc2.balance import Meta, Roster
 
 
 class PeachTeamBuildPolicy(TeamBuildPolicy):

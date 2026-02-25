@@ -9,7 +9,7 @@ from vgc2.battle_engine.modifiers import Category, Weather, Terrain, Hazard, Sta
 from vgc2.battle_engine.move import Move
 from vgc2.battle_engine.pokemon import PokemonSpecies, Pokemon
 from vgc2.battle_engine.team import Team
-from vgc2.meta import MoveSet, Roster
+from vgc2.balance import MoveSet, Roster
 
 MoveGenerator = Callable[[Generator], Move]
 MoveSetGenerator = Callable[[int, Generator, MoveGenerator], MoveSet]

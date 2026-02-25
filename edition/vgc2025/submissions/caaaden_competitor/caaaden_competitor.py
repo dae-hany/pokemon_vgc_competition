@@ -6,7 +6,7 @@ from vgc2.battle_engine.modifiers import Type, Status, Nature
 from vgc2.battle_engine.team import Team
 from vgc2.battle_engine.view import TeamView
 from vgc2.competition import Competitor
-from vgc2.meta import Meta, Roster
+from vgc2.balance import Meta, Roster
 
 
 class CaaadenBattlePolicy(BattlePolicy):

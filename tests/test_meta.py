@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 from vgc2.util.generator import gen_move_set, gen_pkm_roster, gen_team_from_roster
-from vgc2.meta import BasicMeta
+from vgc2.balance import BasicMeta
 
 
 @pytest.fixture

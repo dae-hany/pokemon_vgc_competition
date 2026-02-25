@@ -1,6 +1,6 @@
 from vgc2.agent import SelectionPolicy, SelectionCommand, TeamBuildPolicy
 from vgc2.battle_engine import Team
-from vgc2.meta import Roster, Meta
+from vgc2.balance import Roster, Meta
 
 
 def unique_crop_filter(lst, max_size):
