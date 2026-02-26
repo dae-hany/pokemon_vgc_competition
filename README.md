@@ -64,3 +64,11 @@ Please cite this work if used.
 
   doi={10.1109/CoG52621.2021.9618985}}
 ```
+
+## TODO
+
+* Add baseline team build, meta balance and rule balance
+* Make rule and meta evaluator generator
+* Add LLM policies
+* UI Visual App
+* Add more tests
