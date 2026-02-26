@@ -71,4 +71,6 @@ Please cite this work if used.
 * Make rule and meta evaluator generator
 * Add LLM policies
 * UI Visual App
+* Meta and Rule design constraints
+* Add objective function as parameter of  
 * Add more tests
