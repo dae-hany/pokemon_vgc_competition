@@ -7,7 +7,7 @@ from numpy.random import choice, multinomial
 from vgc2.agent import TeamBuildPolicy, TeamBuildCommand
 from vgc2.battle_engine.modifiers import Nature
 from vgc2.battle_engine.pokemon import calculate_stats
-from vgc2.meta import Roster, Meta
+from vgc2.balance.meta import Roster, Meta
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

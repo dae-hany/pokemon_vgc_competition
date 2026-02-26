@@ -12,11 +12,11 @@ class EvoCompetitor(Competitor):
         self.__selection_policy = sp.BasicSelectionPolicy()
 
     @property
-    def battle_policy(self) -> BattlePolicy | None:
+    def battlepolicy(self) -> BattlePolicy | None:
         return self.__battle_policy
 
     @property
-    def selection_policy(self) -> SelectionPolicy | None:
+    def selectionpolicy(self) -> SelectionPolicy | None:
         return self.__selection_policy
 
     @property

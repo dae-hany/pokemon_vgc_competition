@@ -6,7 +6,7 @@ from vgc2.battle_engine.modifiers import Type, Status, Nature
 from vgc2.battle_engine.team import Team
 from vgc2.battle_engine.view import TeamView
 from vgc2.competition import Competitor
-from vgc2.meta import Meta, Roster
+from vgc2.balance.meta import Meta, Roster
 
 
 class CaaadenBattlePolicy(BattlePolicy):
@@ -309,15 +309,15 @@ class CaaadenCompetitor(Competitor):
         self.__team_build_policy = CaaadenTeamBuildPolicy()
 
     @property
-    def battle_policy(self) -> BattlePolicy:
+    def battlepolicy(self) -> BattlePolicy:
         return self.__battle_policy
 
     @property
-    def selection_policy(self) -> SelectionPolicy:
+    def selectionpolicy(self) -> SelectionPolicy:
         return self.__selection_policy
 
     @property
-    def team_build_policy(self) -> TeamBuildPolicy:
+    def teambuildpolicy(self) -> TeamBuildPolicy:
         return self.__team_build_policy
 
     @property

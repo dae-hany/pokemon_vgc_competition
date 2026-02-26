@@ -127,7 +127,7 @@ class MonteCarloBattlePolicy(BattlePolicy):
         self.num_simulations = num_simulations
         self.max_depth = max_depth
         self.params = params
-        self.opp_policy = GreedyBattlePolicy(params)
+        self.opp_policy = GreedyBattlePolicy()
 
     def simulate(self, state: State, action: list[BattleCommand], depth: int, opp_action) -> float:
         """Simulates one rollout starting from given state and action."""

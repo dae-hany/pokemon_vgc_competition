@@ -1,26 +1,34 @@
 from abc import ABC
 
 from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy, MetaBalancePolicy, RuleBalancePolicy
-from vgc2.battle_engine import Team
+from vgc2.battle_engine import Team, BattleRuleParam
 
 
 class Competitor(ABC):
 
     @property
-    def battle_policy(self) -> BattlePolicy | None:
+    def battlepolicy(self) -> BattlePolicy | None:
         return None
 
     @property
-    def selection_policy(self) -> SelectionPolicy | None:
+    def selectionpolicy(self) -> SelectionPolicy | None:
         return None
 
     @property
-    def team_build_policy(self) -> TeamBuildPolicy | None:
+    def teambuildpolicy(self) -> TeamBuildPolicy | None:
         return None
 
     @property
     def name(self) -> str:
         return ""
+
+    def set_params(self, params: BattleRuleParam):
+        if self.battlepolicy:
+            self.battlepolicy.set_params(params)
+        if self.selectionpolicy:
+            self.selectionpolicy.set_params(params)
+        if self.teambuildpolicy:
+            self.teambuildpolicy.set_params(params)
 
 
 class CompetitorManager:
@@ -39,11 +47,11 @@ class CompetitorManager:
 class DesignCompetitor(ABC):
 
     @property
-    def meta_balance_policy(self) -> MetaBalancePolicy | None:
+    def metabalancepolicy(self) -> MetaBalancePolicy | None:
         return None
 
     @property
-    def rule_balance_policy(self) -> RuleBalancePolicy | None:
+    def rulebalancepolicy(self) -> RuleBalancePolicy | None:
         return None
 
     @property

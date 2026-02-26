@@ -1,81 +1,42 @@
+import inspect
 from multiprocessing.connection import Client
-from typing import Optional
 
-from vgc2.agent import BattlePolicy, SelectionPolicy, SelectionCommand, TeamBuildPolicy, TeamBuildCommand, \
-    MetaBalancePolicy, RosterBalanceCommand, RuleBalanceCommand, RuleBalancePolicy
-from vgc2.battle_engine import State, BattleCommand, Team, TeamView
+from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy, MetaBalancePolicy, RuleBalancePolicy
+from vgc2.battle_engine import BattleRuleParam
 from vgc2.competition import Competitor, DesignCompetitor
-from vgc2.meta import Meta, Roster, MoveSet
-from vgc2.meta.constraints import Constraints
 
 
-class ProxyBattlePolicy(BattlePolicy):
+def make_proxy_policy_class(base_class):
+    class Proxy(base_class):
+        def __init__(self, conn: Client):
+            self._conn = conn
 
-    def __init__(self,
-                 conn: Client):
-        self.__conn: Client = conn
+        # Implement abstract method(s)
+        def decision(self, *args, **kwargs):
+            self._conn.send({
+                "method": f"{base_class.__name__}.decision",
+                "args": args,
+                "kwargs": kwargs
+            })
+            return self._conn.recv()
 
-    def decision(self,
-                 state: State,
-                 opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
-        self.__conn.send(('BattlePolicy', state, opp_view))
-        return self.__conn.recv()
+    # Predefine all non-abstract, non-special methods from the base class
+    for name, func in inspect.getmembers(base_class, predicate=inspect.isfunction):
+        if name not in getattr(base_class, "__abstractmethods__", set()) and not name.startswith("__"):
+            def make_remote(n=name):
+                def remote_method(self, *args, **kwargs):
+                    self._conn.send({
+                        "method": f"{base_class.__name__}.{n}",
+                        "args": args,
+                        "kwargs": kwargs
+                    })
+                    return self._conn.recv()
 
+                return remote_method
 
-class ProxySelectionPolicy(SelectionPolicy):
+            setattr(Proxy, name, make_remote())
 
-    def __init__(self,
-                 conn: Client):
-        self.__conn: Client = conn
-
-    def decision(self,
-                 teams: tuple[Team, Team],
-                 max_size: int) -> SelectionCommand:
-        self.__conn.send(('SelectionPolicy', teams, max_size))
-        return self.__conn.recv()
-
-
-class ProxyTeamBuildPolicy(TeamBuildPolicy):
-
-    def __init__(self,
-                 conn: Client):
-        self.conn: Client = conn
-
-    def decision(self,
-                 roster: Roster,
-                 meta: Meta | None,
-                 max_team_size: int,
-                 max_pkm_moves: int,
-                 n_active: int) -> TeamBuildCommand:
-        self.conn.send(('TeamBuildPolicy', roster, meta, max_team_size, max_pkm_moves, n_active))
-        return self.conn.recv()
-
-
-class ProxyMetaBalancePolicy(MetaBalancePolicy):
-
-    def __init__(self,
-                 conn: Client):
-        self.__conn: Client = conn
-
-    def decision(self,
-                 move_set: MoveSet,
-                 roster: Roster,
-                 meta: Meta,
-                 constraints: Constraints) -> RosterBalanceCommand:
-        self.__conn.send(('BalancePolicy', move_set, roster, meta, constraints))
-        return self.__conn.recv()
-
-
-class ProxyRuleBalancePolicy(RuleBalancePolicy):
-
-    def __init__(self,
-                 conn: Client):
-        self.__conn: Client = conn
-
-    def decision(self,
-                 rules: RuleBalanceCommand) -> RuleBalanceCommand:
-        self.__conn.send(('RuleBalancePolicy', rules))
-        return self.__conn.recv()
+    return Proxy
 
 
 class ProxyCompetitor(Competitor):
@@ -83,25 +44,37 @@ class ProxyCompetitor(Competitor):
     def __init__(self,
                  conn: Client):
         self.__conn = conn
-        self.__battle_policy = ProxyBattlePolicy(conn)
-        self.__selection_policy = ProxySelectionPolicy(conn)
-        self.__team_build_policy = ProxyTeamBuildPolicy(conn)
+        self.__battle_policy = make_proxy_policy_class(BattlePolicy)(conn)
+        self.__selection_policy = make_proxy_policy_class(SelectionPolicy)(conn)
+        self.__team_build_policy = make_proxy_policy_class(TeamBuildPolicy)(conn)
 
     @property
-    def battle_policy(self) -> BattlePolicy:
+    def battlepolicy(self) -> BattlePolicy:
         return self.__battle_policy
 
     @property
-    def selection_policy(self) -> SelectionPolicy:
+    def selectionpolicy(self) -> SelectionPolicy:
         return self.__selection_policy
 
     @property
-    def team_build_policy(self) -> TeamBuildPolicy:
+    def teambuildpolicy(self) -> TeamBuildPolicy:
         return self.__team_build_policy
 
     @property
     def name(self) -> str:
-        self.__conn.send(('name',))
+        self.__conn.send({
+            "method": "Competitor.name",
+            "args": (),
+            "kwargs": {}
+        })
+        return self.__conn.recv()
+
+    def set_params(self, params: BattleRuleParam):
+        self.__conn.send({
+            "method": "Competitor.set_params",
+            "args": (params,),
+            "kwargs": {}
+        })
         return self.__conn.recv()
 
 
@@ -110,18 +83,22 @@ class ProxyDesignCompetitor(DesignCompetitor):
     def __init__(self,
                  conn: Client):
         self.__conn = conn
-        self.__meta_balance = ProxyMetaBalancePolicy(conn)
-        self.__rule_balance = ProxyRuleBalancePolicy(conn)
+        self.__meta_balance = make_proxy_policy_class(MetaBalancePolicy)(conn)
+        self.__rule_balance = make_proxy_policy_class(RuleBalancePolicy)(conn)
 
     @property
-    def meta_balance_policy(self) -> MetaBalancePolicy:
+    def metabalancepolicy(self) -> MetaBalancePolicy:
         return self.__meta_balance
 
     @property
-    def rule_balance_policy(self) -> RuleBalancePolicy:
+    def rulebalancepolicy(self) -> RuleBalancePolicy:
         return self.__rule_balance
 
     @property
     def name(self) -> str:
-        self.__conn.send(('name',))
+        self.__conn.send({
+            "method": "DesignCompetitor.name",
+            "args": (),
+            "kwargs": {}
+        })
         return self.__conn.recv()

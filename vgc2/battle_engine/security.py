@@ -1,11 +1,8 @@
 from vgc2.agent import SelectionPolicy, SelectionCommand, TeamBuildPolicy
+from vgc2.balance.meta import Roster, Meta
 from vgc2.battle_engine import Team
-from vgc2.meta import Roster, Meta
 
 
-# GPT Generated - Prompt
-# python remove repeated elements then crop list to max size if greater than
-# I also need to remove every element that is greater or equal to max size
 def unique_crop_filter(lst, max_size):
     seen = set()
     result = []
@@ -24,11 +21,6 @@ def sanitized_selection_decision(agent: SelectionPolicy,
     return unique_crop_filter(agent.decision(teams, max_size), max_size)
 
 
-# GPT Generated - Prompt
-# make me a filter method that truncates individual evs to 255 max, if the sum is larger than 510 evs normalize
-# (leaving ints) and ivs crop to 31 max
-# the list size also should be at most max_team_size,
-# and each max move for each Pokémon should be not 4 but max_pkm_moves
 def fix_builds(builds, max_team_size, max_pkm_moves):
     fixed_builds = []
 

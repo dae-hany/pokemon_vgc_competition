@@ -3,7 +3,6 @@ from vgc2.battle_engine.game_state import Side, State
 from vgc2.battle_engine.pokemon import Pokemon, BattlingPokemon
 from vgc2.battle_engine.team import Team, BattlingTeam
 
-
 DUMMY_MOVE = BattlingMove(Move(Type.NORMAL, 100, 1., 10, Category.PHYSICAL))
 
 

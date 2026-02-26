@@ -1,4 +1,4 @@
-# VGC AI Framework 2 1.0.7.3
+# VGC AI Framework 2 2.0.0
 
 [[_TOC_]]
 
@@ -64,3 +64,13 @@ Please cite this work if used.
 
   doi={10.1109/CoG52621.2021.9618985}}
 ```
+
+## TODO
+
+* Add baseline team build, meta balance and rule balance
+* Make rule and meta evaluator generator
+* Add LLM policies
+* UI Visual App
+* Meta and Rule design constraints
+* Add objective function as parameter of  
+* Add more tests

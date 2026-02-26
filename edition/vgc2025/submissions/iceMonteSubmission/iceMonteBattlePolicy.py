@@ -20,8 +20,8 @@ class IceMonteBattlePolicy(BattlePolicy):
     def __init__(self):
         super().__init__()
         self.params = BattleRuleParam()
-        self.opp_policy = GreedyBattlePolicy(self.params)
-        self.action_policy = GreedyIceBattlePolicy(self.params)
+        self.opp_policy = GreedyBattlePolicy()
+        self.action_policy = GreedyIceBattlePolicy()
         self.rollout_depth = 4
         self.C = 1.4
 

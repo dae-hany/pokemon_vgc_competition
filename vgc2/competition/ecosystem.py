@@ -1,16 +1,21 @@
+import time
 from enum import IntEnum
 from random import shuffle
 
 from vgc2.agent import TeamBuildCommand, RosterBalanceCommand, MoveSetBalanceCommand
+from vgc2.balance.meta import Roster, Meta, MoveSet
+from vgc2.balance.meta.constraints import MetaConstraints
+from vgc2.balance.meta.evaluator import MetaEvaluator
+from vgc2.balance.rules.constraints import RuleConstraints
+from vgc2.balance.rules.evaluator import RuleEvaluator
 from vgc2.battle_engine import Team
 from vgc2.battle_engine.pokemon import Pokemon
 from vgc2.battle_engine.security import sanitized_team_build_decision
 from vgc2.competition import CompetitorManager, DesignCompetitorManager
 from vgc2.competition.elo import elo_rating
+from vgc2.competition.fixed_matches import FixedMatches
 from vgc2.competition.match import Match
-from vgc2.meta import Roster, Meta, MoveSet
-from vgc2.meta.constraints import Constraints
-from vgc2.meta.evaluator import MetaEvaluator, evaluate_meta
+from vgc2.competition.score import time_score
 from vgc2.net.stream import StreamClient
 
 
@@ -18,6 +23,13 @@ class Strategy(IntEnum):
     FIXED = 0
     RANDOM_PAIRING = 1
     ELO_PAIRING = 2
+
+
+STRATEGY_MAP = {
+    "fixed": Strategy.FIXED,
+    "random": Strategy.RANDOM_PAIRING,
+    "elo": Strategy.ELO_PAIRING
+}
 
 
 def build_team(cmd: TeamBuildCommand,
@@ -77,7 +89,7 @@ class Championship:
 
     def _build_teams(self):
         for cm in self.cm:
-            cm.team = build_team(sanitized_team_build_decision(cm.competitor.team_build_policy, self.roster,
+            cm.team = build_team(sanitized_team_build_decision(cm.competitor.teambuildpolicy, self.roster,
                                                                self.meta, self.max_team_size, self.max_pkm_moves,
                                                                self.n_active), self.roster)
 
@@ -93,8 +105,8 @@ class Championship:
         m = 0
         while m < n_matches:
             cm = self.cm[2 * m], self.cm[2 * m + 1]
-            match = Match(cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, False,
-                          self.client)
+            match = Match(cm, self.n_active, self.n_battles, self.max_team_size, self.max_pkm_moves, meta=self.meta,
+                          client=self.client)
             match.run()
             winner = 1 if match.wins[1] > match.wins[0] else 0
             cm[0].elo, cm[1].elo = elo_rating(cm[0].elo, cm[1].elo, winner)
@@ -120,36 +132,67 @@ def build_roster(cmd: RosterBalanceCommand,
 
 
 class MetaDesign:
-    __slots__ = ('move_set', 'roster', 'meta', 'constraints', 'championship', 'epochs', 'dcm', 'meta_evaluator')
 
     def __init__(self,
                  move_set: MoveSet,
                  roster: Roster,
-                 meta: Meta,
-                 constraints: Constraints,
+                 constraints: MetaConstraints,
                  championship: Championship,
-                 epochs: int = 100,
-                 meta_evaluator: MetaEvaluator = evaluate_meta):
+                 balance_evaluators: list[MetaEvaluator],
+                 metric_weight: float = 0.7,
+                 time_weight: float = 0.3):
         self.move_set = move_set
         self.roster = roster
-        self.meta = meta
         self.constraints = constraints
         self.championship = championship
-        self.epochs = epochs
+        self.balance_evaluators = balance_evaluators
+        self.metric_weight = metric_weight
+        self.time_weight = time_weight
         self.dcm: DesignCompetitorManager
-        self.meta_evaluator = meta_evaluator
 
     def register(self, dcm: DesignCompetitorManager):
         self.dcm = dcm
 
     def run(self):
-        e = 0
-        while e < self.epochs:
-            move_set_cmd, roster_cmd = self.dcm.competitor.meta_balance_policy.decision(self.move_set, self.roster,
-                                                                                        self.meta, self.constraints)
+        for balance_evaluator in self.balance_evaluators:
+            start = time.perf_counter()
+            move_set_cmd, roster_cmd = self.dcm.competitor.metabalancepolicy.decision(self.move_set, self.roster,
+                                                                                      self.constraints)
+            end = time.perf_counter()
+            delta = end - start
             build_move_set(move_set_cmd, self.move_set)
             build_roster(roster_cmd, self.roster, self.move_set)
-            self.meta.change_roster(self.move_set, self.roster)
             self.championship.run()
-            self.dcm.score += self.meta_evaluator(self.meta)
-            e += 1
+            self.dcm.score += (self.metric_weight * balance_evaluator(self.championship.meta) + self.time_weight *
+                               time_score(delta))
+
+
+class RuleDesign:
+
+    def __init__(self,
+                 fixed_matches: FixedMatches,
+                 constraints: RuleConstraints,
+                 balance_evaluators: list[RuleEvaluator],
+                 metric_weight: float = 0.7,
+                 time_weight: float = 0.3):
+        self.constraints = constraints
+        self.fixed_matches = fixed_matches
+        self.balance_evaluators = balance_evaluators
+        self.metric_weight = metric_weight
+        self.time_weight = time_weight
+        self.dcm: DesignCompetitorManager
+
+    def register(self, dcm: DesignCompetitorManager):
+        self.dcm = dcm
+
+    def run(self):
+        for balance_evaluator in self.balance_evaluators:
+            start = time.perf_counter()
+            params = self.dcm.competitor.rulebalancepolicy.decision(self.fixed_matches.team_pairs, self.constraints)
+            end = time.perf_counter()
+            delta = end - start
+            self.fixed_matches.set_params(params)
+            self.fixed_matches.run()
+            self.dcm.score += (self.metric_weight * balance_evaluator(self.fixed_matches.rollouts,
+                                                                      self.fixed_matches.results) + self.time_weight *
+                               time_score(delta))

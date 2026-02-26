@@ -122,3 +122,10 @@ class FilePlayer:
                             print(f"[Play Warning] Failed to send: {msg}")
         except Exception as e:
             print(f"[FilePlayer Error] {e}")
+
+
+CLIENT_MAP = {
+    "godot": GodotClient,
+    "file": FileClient,
+    "both": FileAndGodotClient
+}

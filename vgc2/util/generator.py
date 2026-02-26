@@ -4,12 +4,12 @@ from typing import Callable
 from numpy import clip
 from numpy.random import default_rng, Generator
 
-from vgc2.battle_engine import Type
+from vgc2.balance.meta import MoveSet, Roster
+from vgc2.battle_engine import Type, BattleRuleParam
 from vgc2.battle_engine.modifiers import Category, Weather, Terrain, Hazard, Status, Nature
 from vgc2.battle_engine.move import Move
 from vgc2.battle_engine.pokemon import PokemonSpecies, Pokemon
 from vgc2.battle_engine.team import Team
-from vgc2.meta import MoveSet, Roster
 
 MoveGenerator = Callable[[Generator], Move]
 MoveSetGenerator = Callable[[int, Generator, MoveGenerator], MoveSet]
@@ -17,6 +17,7 @@ PokemonSpeciesGenerator = Callable[[MoveSet, int, Generator], PokemonSpecies]
 PokemonGenerator = Callable[[PokemonSpecies, int, Generator], Pokemon]
 RosterGenerator = Callable[[int, MoveSet, int, Generator, PokemonSpeciesGenerator], Roster]
 TeamGenerator = Callable[[int, int, Generator, MoveSetGenerator, PokemonSpeciesGenerator, PokemonGenerator], Team]
+RuleGenerator = Callable[[Generator], BattleRuleParam]
 
 _RNG = default_rng()
 
@@ -105,8 +106,8 @@ def gen_pkm(species: PokemonSpecies,
         nature=Nature(rng.choice(len(Nature), 1)[0]))
 
 
-def gen_team(n: int,
-             n_moves: int,
+def gen_team(n: int = 3,
+             n_moves: int = 4,
              rng: Generator = _RNG,
              _gen_move_set: MoveSetGenerator = gen_move_set,
              _gen_pkm_species: PokemonSpeciesGenerator = gen_pkm_species,
@@ -120,3 +121,50 @@ def gen_team_from_roster(roster: Roster,
                          rng: Generator = _RNG,
                          _gen_pkm: PokemonGenerator = gen_pkm) -> Team:
     return Team([_gen_pkm(roster[i], n_moves, rng) for i in rng.choice(len(roster), n)])
+
+
+def gen_rule_set(n_attr_changes: int = 3, n_type_changes: int = 5, rng: Generator = None) -> BattleRuleParam:
+    if rng is None:
+        rng = default_rng()
+
+    param = BattleRuleParam()
+
+    # 1. Handle Attribute Mutations (Turns, Modifiers, Thresholds)
+    # We exclude the complex data structures (Matrix/Dicts) for the first pass
+    target_attrs = [
+        'TRICKROOM_TURNS', 'WEATHER_TURNS', 'TERRAIN_TURNS', 'REFLECT_TURNS',
+        'LIGHTSCREEN_TURNS', 'TAILWIND_TURNS', 'PARALYSIS_MODIFIER',
+        'PROTECT_MODIFIER', 'THAW_THRESHOLD', 'PARALYSIS_THRESHOLD',
+        'WEATHER_BOOST', 'STAB_MODIFIER', 'BURN_MODIFIER'
+    ]
+
+    # Select random attributes to mutate
+    to_mutate = rng.choice(target_attrs, size=min(n_attr_changes, len(target_attrs)), replace=False)
+
+    for attr in to_mutate:
+        current_val = getattr(param, attr)
+        # Generate a mutation:
+        # For turns (integers), we offset by +/- 1-3
+        # For modifiers (floats), we multiply by a factor between 0.5 and 1.5
+        if isinstance(current_val, int):
+            new_val = max(1, current_val + rng.integers(-2, 3))
+        else:
+            new_val = round(current_val * rng.uniform(0.5, 1.5), 4)
+
+        setattr(param, attr, new_val)
+
+    # 2. Handle Type Chart Mutations (Cells)
+    # The matrix is 19x19. We pick random coordinates (row, col)
+    # Possible effectiveness values in Pokemon: 0, 0.5, 1, 2
+    possible_mults = [0.0, 0.5, 1.0, 2.0]
+
+    for _ in range(n_type_changes):
+        row = rng.integers(0, 19)
+        col = rng.integers(0, 19)
+        current_mult = param.DAMAGE_MULTIPLICATION_ARRAY[row][col]
+
+        # Pick a multiplier that is different from the current one
+        choices = [m for m in possible_mults if m != current_mult]
+        param.DAMAGE_MULTIPLICATION_ARRAY[row][col] = rng.choice(choices)
+
+    return param

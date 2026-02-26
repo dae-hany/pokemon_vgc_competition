@@ -36,8 +36,13 @@ class Meta(ABC):
                         team: Team) -> float:
         pass
 
+    @abstractmethod
+    def n_pkm(self):
+        return 0.
+
 
 class BasicMeta(Meta):
+
     def __init__(self,
                  move_set: MoveSet,
                  roster: Roster,
@@ -54,12 +59,18 @@ class BasicMeta(Meta):
                       value: int):
         for t in team:
             counted_moves = []
+            counted_species = []  # Added to track unique species per team
             for p in t.members:
-                self.pokemon_usage[p.species.id] += value
+                # Check for unique species in this team
+                if p.species.id not in counted_species:
+                    self.pokemon_usage[p.species.id] += value
+                    counted_species.append(p.species.id)
+
+                # Check for unique moves in this team
                 for m in p.moves:
-                    if m not in counted_moves:
+                    if m.id not in counted_moves:
                         self.move_usage[m.id] += value
-                        counted_moves += [m]
+                        counted_moves.append(m.id)
 
     def add_match(self,
                   team: tuple[Team, Team],
@@ -91,3 +102,6 @@ class BasicMeta(Meta):
     def usage_rate_team(self,
                         team: Team) -> float:
         return sum(self.usage_rate_pokemon(p.species) for p in team.members) / len(team.members)
+
+    def n_pkm(self):
+        return len(self.roster)
