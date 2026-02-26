@@ -9,7 +9,7 @@ from vgc2.battle_engine.modifiers import Category, Weather, Terrain, Hazard, Sta
 from vgc2.battle_engine.move import Move
 from vgc2.battle_engine.pokemon import PokemonSpecies, Pokemon
 from vgc2.battle_engine.team import Team
-from vgc2.balance import MoveSet, Roster
+from vgc2.balance.meta import MoveSet, Roster
 
 MoveGenerator = Callable[[Generator], Move]
 MoveSetGenerator = Callable[[int, Generator, MoveGenerator], MoveSet]
@@ -106,8 +106,8 @@ def gen_pkm(species: PokemonSpecies,
         nature=Nature(rng.choice(len(Nature), 1)[0]))
 
 
-def gen_team(n: int,
-             n_moves: int,
+def gen_team(n: int = 3,
+             n_moves: int = 4,
              rng: Generator = _RNG,
              _gen_move_set: MoveSetGenerator = gen_move_set,
              _gen_pkm_species: PokemonSpeciesGenerator = gen_pkm_species,

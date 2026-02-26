@@ -5,10 +5,10 @@ from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy
 from vgc2.agent.battle import GreedyBattlePolicy
 from vgc2.agent.selection import RandomSelectionPolicy
 from vgc2.agent.teambuild import RandomTeamBuildPolicy
-from vgc2.balance.meta_constraints import MetaConstraints
+from vgc2.balance.meta import MetaConstraints
 from vgc2.competition import CompetitorManager, DesignCompetitorManager, Competitor
 from vgc2.competition.ecosystem import Championship, Strategy, MetaDesign, label_roster
-from vgc2.balance import BasicMeta
+from vgc2.balance.meta import BasicMeta
 
 from vgc2.net.client import ProxyDesignCompetitor
 from vgc2.net.server import BASE_PORT

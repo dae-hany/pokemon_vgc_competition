@@ -4,10 +4,10 @@ from enum import IntEnum
 from random import shuffle
 
 from vgc2.agent import TeamBuildCommand, RosterBalanceCommand, MoveSetBalanceCommand
-from vgc2.balance import Roster, Meta, MoveSet
-from vgc2.balance.meta_constraints import MetaConstraints
-from vgc2.balance.meta_evaluator import MetaEvaluator
-from vgc2.balance.rule_constraints import RuleConstraints
+from vgc2.balance.meta import Roster, Meta, MoveSet
+from vgc2.balance.meta import MetaConstraints
+from vgc2.balance.meta import MetaEvaluator
+from vgc2.balance.rules import RuleConstraints
 
 from vgc2.battle_engine import Team
 from vgc2.battle_engine.pokemon import Pokemon

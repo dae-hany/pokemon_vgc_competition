@@ -20,7 +20,7 @@ try:
     from vgc2.battle_engine.modifiers import Type, Status, Nature, Weather, Terrain, Category
     from vgc2.battle_engine.modifiers import Stats as EVStats  # tuple[int, int, int, int, int, int]
     from vgc2.battle_engine.pokemon import Stat as StatIndex  # 열거형 (MAX_HP, ATTACK, ...)
-    from vgc2.balance import Meta, Roster
+    from vgc2.balance.meta import Meta, Roster
 
 except ImportError as e:
     print(f"VGC2 import error: {e}")

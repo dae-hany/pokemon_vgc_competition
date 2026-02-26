@@ -1,6 +1,6 @@
 from typing import Callable
 
-from vgc2.balance import Meta, Roster
+from vgc2.balance.meta import Meta, Roster
 
 MetaEvaluator = Callable[[Meta], float]
 

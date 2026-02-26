@@ -5,7 +5,7 @@ from vgc2.battle_engine.security import sanitized_selection_decision
 from vgc2.battle_engine.team import Team
 from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition import CompetitorManager
-from vgc2.balance import Meta
+from vgc2.balance.meta import Meta
 from vgc2.net.stream import StreamClient
 from vgc2.util.generator import TeamGenerator, _RNG
 

@@ -3,7 +3,7 @@ from multiprocessing.connection import Client
 
 from vgc2.competition import CompetitorManager
 from vgc2.competition.ecosystem import Championship, label_roster, STRATEGY_MAP
-from vgc2.balance import BasicMeta, MoveSet, Roster
+from vgc2.balance.meta import BasicMeta, MoveSet, Roster
 from vgc2.net.client import ProxyCompetitor
 from vgc2.net.server import BASE_PORT
 from vgc2.net.stream import CLIENT_MAP
