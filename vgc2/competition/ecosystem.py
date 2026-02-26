@@ -163,8 +163,8 @@ class MetaDesign:
             build_move_set(move_set_cmd, self.move_set)
             build_roster(roster_cmd, self.roster, self.move_set)
             self.championship.run()
-            self.dcm.score += (self.metric_weight * balance_evaluator(self.championship.meta) + self.time_weight *
-                               time_score(delta))
+            self.dcm.score += (self.metric_weight * balance_evaluator(self.championship.meta, self.championship.roster)
+                               + self.time_weight * time_score(delta))
 
 
 class RuleDesign:
