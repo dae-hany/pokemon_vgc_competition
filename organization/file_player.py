@@ -1,5 +1,6 @@
-import sys
 import os
+import sys
+
 from vgc2.net.stream import GodotClient, FilePlayer
 
 if len(sys.argv) > 1:

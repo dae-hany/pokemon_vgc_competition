@@ -1,5 +1,6 @@
 from abc import abstractmethod, ABC
 
+from vgc2.balance.meta import Meta, Roster, MoveSet
 from vgc2.balance.meta.constraints import MetaConstraints
 from vgc2.balance.rules.constraints import RuleConstraints
 from vgc2.battle_engine import BattleCommand, BattleRuleParam
@@ -8,7 +9,6 @@ from vgc2.battle_engine.modifiers import Stats, Nature, Type
 from vgc2.battle_engine.move import Move
 from vgc2.battle_engine.team import Team
 from vgc2.battle_engine.view import TeamView
-from vgc2.balance.meta import Meta, Roster, MoveSet
 
 SelectionCommand = list[int]  # indexes on team
 TeamBuildCommand = list[tuple[int, Stats, Stats, Nature, list[int]]]  # id, evs, ivs, nature, moves
@@ -85,7 +85,6 @@ class RuleBalancePolicy(ABC):
 
     @abstractmethod
     def decision(self,
-                 move_set: MoveSet,
-                 roster: Roster,
+                 team_pairs: list[tuple[Team, Team]],
                  constraints: RuleConstraints) -> BattleRuleParam:
         pass

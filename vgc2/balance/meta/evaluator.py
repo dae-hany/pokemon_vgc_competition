@@ -2,10 +2,11 @@ from typing import Callable
 
 from vgc2.balance.meta import Meta, Roster
 
-MetaEvaluator = Callable[[Meta], float]
+MetaEvaluator = Callable[[Meta, Roster], float]
 
 
-def evaluate_meta(meta: Meta, roster: Roster) -> float:
+def evaluate_meta(meta: Meta,
+                  roster: Roster) -> float:
     n = meta.n_pkm()
     if n == 0:
         return 0.

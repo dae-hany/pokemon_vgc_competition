@@ -1,14 +1,13 @@
 import time
-
 from enum import IntEnum
 from random import shuffle
 
 from vgc2.agent import TeamBuildCommand, RosterBalanceCommand, MoveSetBalanceCommand
 from vgc2.balance.meta import Roster, Meta, MoveSet
-from vgc2.balance.meta import MetaConstraints
-from vgc2.balance.meta import MetaEvaluator
-from vgc2.balance.rules import RuleConstraints
-
+from vgc2.balance.meta.constraints import MetaConstraints
+from vgc2.balance.meta.evaluator import MetaEvaluator
+from vgc2.balance.rules.constraints import RuleConstraints
+from vgc2.balance.rules.evaluator import RuleEvaluator
 from vgc2.battle_engine import Team
 from vgc2.battle_engine.pokemon import Pokemon
 from vgc2.battle_engine.security import sanitized_team_build_decision
@@ -171,15 +170,11 @@ class MetaDesign:
 class RuleDesign:
 
     def __init__(self,
-                 move_set: MoveSet,
-                 roster: Roster,
-                 constraints: RuleConstraints,
                  fixed_matches: FixedMatches,
-                 balance_evaluators: list[MetaEvaluator],
+                 constraints: RuleConstraints,
+                 balance_evaluators: list[RuleEvaluator],
                  metric_weight: float = 0.7,
                  time_weight: float = 0.3):
-        self.move_set = move_set
-        self.roster = roster
         self.constraints = constraints
         self.fixed_matches = fixed_matches
         self.balance_evaluators = balance_evaluators
@@ -193,10 +188,11 @@ class RuleDesign:
     def run(self):
         for balance_evaluator in self.balance_evaluators:
             start = time.perf_counter()
-            params = self.dcm.competitor.rulebalancepolicy.decision(self.move_set, self.roster, self.constraints)
+            params = self.dcm.competitor.rulebalancepolicy.decision(self.fixed_matches.team_pairs, self.constraints)
             end = time.perf_counter()
             delta = end - start
-
+            self.fixed_matches.set_params(params)
             self.fixed_matches.run()
-            self.dcm.score += (self.metric_weight * balance_evaluator(self.fixed_matches.meta) + self.time_weight *
+            self.dcm.score += (self.metric_weight * balance_evaluator(self.fixed_matches.rollouts,
+                                                                      self.fixed_matches.results) + self.time_weight *
                                time_score(delta))

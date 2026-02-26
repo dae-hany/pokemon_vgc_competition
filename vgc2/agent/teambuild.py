@@ -1,8 +1,8 @@
 from numpy.random import choice, multinomial
 
 from vgc2.agent import TeamBuildPolicy, TeamBuildCommand
-from vgc2.battle_engine.modifiers import Nature
 from vgc2.balance.meta import Meta, Roster
+from vgc2.battle_engine.modifiers import Nature
 
 
 class RandomTeamBuildPolicy(TeamBuildPolicy):
@@ -53,7 +53,7 @@ class TerminalTeamBuild(TeamBuildPolicy):
         # Build each team slot
         slot = 0
         while slot < max_team_size:
-            print(f"\n--- Select Pokémon for slot {slot+1}/{max_team_size} ---")
+            print(f"\n--- Select Pokémon for slot {slot + 1}/{max_team_size} ---")
             raw_idx = input("Species index (or -1 to stop): ").strip()
 
             if raw_idx == "":
@@ -83,7 +83,7 @@ class TerminalTeamBuild(TeamBuildPolicy):
 
             move_indexes = []
             while len(move_indexes) < max_pkm_moves:
-                m = input(f"Select move index ({len(move_indexes)+1}/{max_pkm_moves}, blank to stop): ").strip()
+                m = input(f"Select move index ({len(move_indexes) + 1}/{max_pkm_moves}, blank to stop): ").strip()
                 if m == "":
                     break
                 try:

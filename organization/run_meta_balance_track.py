@@ -5,11 +5,11 @@ from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy
 from vgc2.agent.battle import GreedyBattlePolicy
 from vgc2.agent.selection import RandomSelectionPolicy
 from vgc2.agent.teambuild import RandomTeamBuildPolicy
-from vgc2.balance.meta import MetaConstraints
+from vgc2.balance.meta import BasicMeta
+from vgc2.balance.meta.constraints import MetaConstraints
+from vgc2.balance.meta.evaluator import evaluate_meta
 from vgc2.competition import CompetitorManager, DesignCompetitorManager, Competitor
 from vgc2.competition.ecosystem import Championship, Strategy, MetaDesign, label_roster
-from vgc2.balance.meta import BasicMeta
-
 from vgc2.net.client import ProxyDesignCompetitor
 from vgc2.net.server import BASE_PORT
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
@@ -48,9 +48,9 @@ def main(_args):
     constraints = MetaConstraints()
     championship = Championship(roster, meta, _args.epochs, _args.n_active, _args.n_battles, _args.max_team_size,
                                 _args.max_pkm_moves, Strategy.ELO_PAIRING)
-    balance_design = MetaDesign(move_set, roster, constraints, championship, _args.d_epochs)
     for _ in range(_args.n_agents):
         championship.register(CompetitorManager(CPUCompetitor()))
+    balance_design = MetaDesign(move_set, roster, constraints, championship, [evaluate_meta])
     conn = Client(('localhost', _args.base_port), authkey='Competitor 0'.encode('utf-8'))
     dcm = DesignCompetitorManager(ProxyDesignCompetitor(conn))
     balance_design.register(dcm)
@@ -61,7 +61,6 @@ def main(_args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--d_epochs', type=int, default=100)
     parser.add_argument('--epochs', type=int, default=100)
     parser.add_argument('--n_moves', type=int, default=100)
     parser.add_argument('--roster_size', type=int, default=50)

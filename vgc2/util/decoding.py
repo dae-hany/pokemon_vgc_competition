@@ -185,7 +185,8 @@ def decode_pokemon(e: np.ndarray, ctx: EncodeContext) -> tuple[Pokemon, int]:
     return pokemon, i
 
 
-def decode_battling_team(e: np.ndarray, ctx: EncodeContext, n_active: int = 2, n_reserve: int = 2) -> tuple[BattlingTeam, int]:
+def decode_battling_team(e: np.ndarray, ctx: EncodeContext, n_active: int = 2, n_reserve: int = 2) -> tuple[
+    BattlingTeam, int]:
     # BattlingTeam is usually 1 active, 3 reserve
     active_pkm, reserve_pkm = [], []
     i = 0
