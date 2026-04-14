@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='vgc2',
-    version='2.1.0',
+    version='2.1.1',
     description='The VGC AI Framework emulates the Video Game Championships of Pokémon with AI Trainer agents.',
     url='https://gitlab.com/DracoStriker/pokemon-vgc-engine',
     author='Simão Reis',

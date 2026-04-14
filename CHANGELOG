@@ -1,5 +1,9 @@
 ## Changelog
 
+### Version 2.1.1 (April 2026)
+
+* Major bug in BattlingTeam fixed
+
 ### Version 2.1.0 (February 2026)
 
 * Multi-hot encode fixed in multiple usages
