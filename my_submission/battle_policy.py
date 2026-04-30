@@ -1,17 +1,14 @@
 """
 Enhanced Battle Policy for VGC AI Competition 2026.
 
-Strategy: Framework's GreedyBattlePolicy (proven strong) + Enhanced Switching.
+Strategy: Framework Greedy (proven optimal 1-turn) + Smart Switching.
 
-Key insight from benchmarking:
-- Framework Greedy's double battle logic exhaustively enumerates ALL (move, target)
-  combinations and picks the one maximizing 1000*KO + damage. This is already optimal
-  for pure-attack decisions.
-- Where we CAN improve: SWITCHING. Greedy NEVER switches.
-  Smart switching adds value when:
-  1. Current pokemon is about to be KO'd (defensive switch)
-  2. A reserve pokemon has much better matchup (offensive switch)
-  3. Current pokemon has no effective moves vs opponents (type disadvantage switch)
+IMPORTANT LESSONS LEARNED:
+- Forward simulation with StateView FAILS (DUMMY_MOVEs in copy)
+- Support move overrides (Protect, Tailwind, screens, weather) are NET NEGATIVE
+  vs Greedy because every setup turn = free damage for opponent.
+- The winning edge comes from Selection Policy (type coverage), not battle tactics.
+- Only switching adds value: Greedy NEVER switches, so this is pure upside.
 """
 from typing import Optional
 
@@ -51,8 +48,7 @@ class EnhancedBattlePolicy(BattlePolicy):
                     break
                 if pkm.fainted():
                     continue
-                # Don't override if greedy already chose a move with high value
-                # Check if switching would be better
+
                 switch_decision = self._evaluate_switch(
                     pkm, idx, my_team, opp_team, state, result[idx]
                 )
@@ -111,7 +107,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         # About to be KO'd AND has low HP AND not dealing great damage
         will_be_ko = max_incoming >= pkm.hp
         low_hp = hp_ratio < 0.3
-        not_threatening = my_best_dmg < 50  # not dealing much damage
+        not_threatening = my_best_dmg < 50
 
         if will_be_ko and low_hp and not_threatening:
             best = self._find_best_reserve(pkm, reserve, opp_team, state)
