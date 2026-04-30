@@ -13,7 +13,7 @@ from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition.match import label_teams
 from vgc2.util.generator import gen_team
 
-from my_submission.battle_policy import MCTSBattlePolicy
+from my_submission.battle_policy import EnhancedBattlePolicy
 
 
 def run_single_battle():
@@ -31,7 +31,7 @@ def run_single_battle():
     engine = BattleEngine(state, params)
     state_view = (StateView(state, 0, team_view), StateView(state, 1, team_view))
 
-    my_policy = MCTSBattlePolicy(time_limit_ms=85.0)
+    my_policy = EnhancedBattlePolicy()
     my_policy.set_params(params)
     opp_policy = GreedyBattlePolicy()
     opp_policy.set_params(params)
