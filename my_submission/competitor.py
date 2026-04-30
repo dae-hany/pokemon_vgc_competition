@@ -1,6 +1,6 @@
 """
 Competitor class for VGC AI Competition 2026.
-Combines MCTS Battle Policy, Coverage Selection Policy, and Smart Team Build Policy.
+Combines Enhanced Greedy Battle Policy, Coverage Selection Policy, and Smart Team Build Policy.
 """
 from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy
 from vgc2.competition import Competitor
@@ -13,14 +13,14 @@ from team_build_policy import SmartTeamBuildPolicy
 class DaehoCompetitor(Competitor):
     """
     Competition entry for Battle Track + Championship Track.
-    - Battle: MCTS with enhanced evaluation (time-budgeted)
+    - Battle: Enhanced Greedy (Greedy + Smart Switching)
     - Selection: Type-coverage-based team selection
     - Team Build: Type-analysis with EV/Nature optimization
     """
 
     def __init__(self, name: str = "Daeho_AI"):
         self.__name = name
-        self.__battle_policy = EnhancedBattlePolicy(max_depth=1, max_moves=4)
+        self.__battle_policy = EnhancedBattlePolicy()
         self.__selection_policy = CoverageSelectionPolicy()
         self.__team_build_policy = SmartTeamBuildPolicy()
 

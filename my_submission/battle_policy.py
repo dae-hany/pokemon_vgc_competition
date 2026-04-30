@@ -1,71 +1,82 @@
 """
-Battle Policy for VGC AI Competition 2026.
+Enhanced Battle Policy for VGC AI Competition 2026.
 
-Uses framework's GreedyBattlePolicy as core (proven strong vs Random: 20-0),
-with smart switching logic added on top.
+Strategy: Framework's GreedyBattlePolicy (proven strong) + Enhanced Switching.
 
-GreedyBattlePolicy already handles:
-- Damage calculation considering type effectiveness, STAB, weather, terrain
-- KO prioritization (1000*ko + damage scoring)
-- Both single and double battle formats
+Key insight from benchmarking:
+- Framework Greedy's double battle logic exhaustively enumerates ALL (move, target)
+  combinations and picks the one maximizing 1000*KO + damage. This is already optimal
+  for pure-attack decisions.
+- Where we CAN improve: SWITCHING. Greedy NEVER switches.
+  Smart switching adds value when:
+  1. Current pokemon is about to be KO'd (defensive switch)
+  2. A reserve pokemon has much better matchup (offensive switch)
+  3. Current pokemon has no effective moves vs opponents (type disadvantage switch)
 """
 from typing import Optional
 
 from vgc2.agent import BattlePolicy
 from vgc2.agent.battle import GreedyBattlePolicy
 from vgc2.battle_engine import (
-    State, BattleCommand, BattleRuleParam, calculate_damage,
-    TeamView
+    State, BattleCommand, BattleRuleParam, TeamView,
+    BattlingPokemon, calculate_damage
 )
-from vgc2.battle_engine.modifiers import Stat, Status, Category
+from vgc2.battle_engine.modifiers import Status, Stat, Category
 
 
 class EnhancedBattlePolicy(BattlePolicy):
     """
-    Enhanced Greedy with smart switching.
-    Framework's GreedyBattlePolicy as base + switch evaluation.
+    Framework Greedy + Enhanced Switching.
+    Greedy handles move selection (proven optimal for 1-turn lookahead).
+    We add switching logic that Greedy completely lacks.
     """
 
-    def __init__(self, max_depth: int = 1, max_moves: int = 4):
+    def __init__(self):
         self.greedy = GreedyBattlePolicy()
 
     def decision(self,
                  state: State,
                  opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
-        # Get greedy baseline commands
-        greedy_cmds = self.greedy.decision(state, opp_view)
+        try:
+            # Get greedy baseline (optimal move selection)
+            greedy_cmds = self.greedy.decision(state, opp_view)
 
-        # Evaluate if switching would be better for any active pokemon
-        my_team = state.sides[0].team
-        opp_team = state.sides[1].team
-        result = list(greedy_cmds)
+            my_team = state.sides[0].team
+            opp_team = state.sides[1].team
+            result = list(greedy_cmds)
 
-        for idx, pkm in enumerate(my_team.active):
-            if pkm.fainted():
-                continue
+            # Evaluate switching for each active pokemon
+            for idx, pkm in enumerate(my_team.active):
+                if idx >= len(result):
+                    break
+                if pkm.fainted():
+                    continue
+                # Don't override if greedy already chose a move with high value
+                # Check if switching would be better
+                switch_decision = self._evaluate_switch(
+                    pkm, idx, my_team, opp_team, state, result[idx]
+                )
+                if switch_decision is not None:
+                    result[idx] = switch_decision
 
-            # Check if current pokemon is in a bad situation
-            should_switch, switch_target = self._should_switch(
-                pkm, idx, my_team, opp_team, state
-            )
-            if should_switch and switch_target is not None:
-                result[idx] = (-1, switch_target)
+            return result
 
-        return result
+        except Exception:
+            return self.greedy.decision(state, opp_view)
 
-    def _should_switch(self, pkm, idx, my_team, opp_team, state):
-        """Evaluate if switching is beneficial."""
+    def _evaluate_switch(self, pkm, idx, my_team, opp_team, state, current_cmd):
+        """
+        Evaluate if switching is better than the greedy-chosen move.
+        Returns (-1, reserve_idx) if switching is recommended, None otherwise.
+        """
         reserve = my_team.reserve
-
-        # No reserve available
         if not reserve or all(r.fainted() for r in reserve):
-            return False, None
+            return None
 
-        # Don't switch if HP is high and doing well
         hp_ratio = pkm.hp / pkm.constants.stats[Stat.MAX_HP]
 
-        # Check if we're taking super-effective hits
-        is_threatened = False
+        # Calculate threat level: max damage any opponent can deal to us
+        max_incoming = 0
         for opp in opp_team.active:
             if opp.fainted():
                 continue
@@ -74,32 +85,128 @@ class EnhancedBattlePolicy(BattlePolicy):
                     continue
                 if move.constants.category not in (Category.PHYSICAL, Category.SPECIAL):
                     continue
-                dmg = calculate_damage(self.params, 1, move.constants, state, opp, pkm)
-                if dmg > pkm.hp * 0.6:
-                    is_threatened = True
-                    break
-
-        # Only switch if threatened AND we have a better option
-        if is_threatened and hp_ratio < 0.4:
-            # Find best reserve pokemon
-            best_idx = None
-            best_score = -1
-            for i, reserve_pkm in enumerate(reserve):
-                if reserve_pkm.fainted():
+                try:
+                    dmg = calculate_damage(self.params, 1, move.constants, state, opp, pkm)
+                    max_incoming = max(max_incoming, dmg)
+                except Exception:
                     continue
-                r_hp_ratio = reserve_pkm.hp / reserve_pkm.constants.stats[Stat.MAX_HP]
-                # Prefer higher HP ratio
-                score = r_hp_ratio * 100
-                # Bonus for speed advantage
-                score += reserve_pkm.constants.stats[Stat.SPEED] * 0.1
-                if score > best_score:
-                    best_score = score
-                    best_idx = i
 
-            if best_idx is not None and best_score > hp_ratio * 100 + 20:
-                return True, best_idx
+        # Calculate our best offensive output
+        my_best_dmg = 0
+        for move in pkm.battling_moves:
+            if move.pp <= 0 or move.disabled:
+                continue
+            for opp in opp_team.active:
+                if opp.fainted():
+                    continue
+                try:
+                    dmg = calculate_damage(self.params, 0, move.constants, state, pkm, opp)
+                    my_best_dmg = max(my_best_dmg, dmg)
+                except Exception:
+                    continue
 
-        return False, None
+        # --- Switching Conditions ---
+
+        # Condition 1: SURVIVAL SWITCH
+        # About to be KO'd AND has low HP AND not dealing great damage
+        will_be_ko = max_incoming >= pkm.hp
+        low_hp = hp_ratio < 0.3
+        not_threatening = my_best_dmg < 50  # not dealing much damage
+
+        if will_be_ko and low_hp and not_threatening:
+            best = self._find_best_reserve(pkm, reserve, opp_team, state)
+            if best is not None:
+                return (-1, best)
+
+        # Condition 2: TYPE DISADVANTAGE SWITCH
+        # Our pokemon has no effective attacks AND a reserve has much better matchup
+        if my_best_dmg < 30 and hp_ratio > 0.5:
+            best = self._find_offensive_reserve(reserve, opp_team, state, threshold=80)
+            if best is not None:
+                return (-1, best)
+
+        # Condition 3: STATUS + LOW HP SWITCH
+        # Badly statused (burn/toxic/freeze) and low HP
+        bad_status = pkm.status in (Status.BURN, Status.TOXIC, Status.FROZEN, Status.SLEEP)
+        if bad_status and hp_ratio < 0.4:
+            best = self._find_best_reserve(pkm, reserve, opp_team, state)
+            if best is not None:
+                return (-1, best)
+
+        return None
+
+    def _find_best_reserve(self, current_pkm, reserve, opp_team, state):
+        """Find the best reserve pokemon to switch to."""
+        best_idx = None
+        best_score = -1
+
+        current_hp_ratio = current_pkm.hp / current_pkm.constants.stats[Stat.MAX_HP]
+
+        for i, r_pkm in enumerate(reserve):
+            if r_pkm.fainted():
+                continue
+
+            r_hp_ratio = r_pkm.hp / r_pkm.constants.stats[Stat.MAX_HP]
+
+            # Must have decent HP
+            if r_hp_ratio < 0.3:
+                continue
+
+            score = r_hp_ratio * 100
+
+            # Bonus for offensive potential
+            for opp in opp_team.active:
+                if opp.fainted():
+                    continue
+                for move in r_pkm.battling_moves:
+                    if move.pp <= 0 or move.disabled:
+                        continue
+                    try:
+                        dmg = calculate_damage(self.params, 0, move.constants, state, r_pkm, opp)
+                        score += dmg * 0.3
+                    except Exception:
+                        continue
+
+            # Speed bonus
+            score += r_pkm.constants.stats[Stat.SPEED] * 0.05
+
+            if score > best_score:
+                best_score = score
+                best_idx = i
+
+        # Only switch if reserve is meaningfully better
+        if best_idx is not None and best_score > current_hp_ratio * 100 + 30:
+            return best_idx
+
+        return None
+
+    def _find_offensive_reserve(self, reserve, opp_team, state, threshold=80):
+        """Find a reserve pokemon with much better offensive matchup."""
+        best_idx = None
+        best_dmg = threshold  # minimum damage threshold
+
+        for i, r_pkm in enumerate(reserve):
+            if r_pkm.fainted():
+                continue
+            r_hp = r_pkm.hp / r_pkm.constants.stats[Stat.MAX_HP]
+            if r_hp < 0.4:
+                continue
+
+            for opp in opp_team.active:
+                if opp.fainted():
+                    continue
+                for move in r_pkm.battling_moves:
+                    if move.pp <= 0 or move.disabled:
+                        continue
+                    try:
+                        dmg = calculate_damage(self.params, 0, move.constants, state, r_pkm, opp)
+                        if dmg > best_dmg:
+                            best_dmg = dmg
+                            best_idx = i
+                    except Exception:
+                        continue
+
+        return best_idx
 
     def set_params(self, params: BattleRuleParam):
         super().set_params(params)

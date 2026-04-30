@@ -1,7 +1,8 @@
 """
-Debug test: Run a single battle to check MCTS behavior.
+Debug test: Run a single battle with MCTS policy to verify behavior.
 """
 import sys
+import time
 import traceback
 
 sys.path.insert(0, 'my_submission')
@@ -13,7 +14,7 @@ from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition.match import label_teams
 from vgc2.util.generator import gen_team
 
-from my_submission.battle_policy import EnhancedBattlePolicy
+from battle_policy import MCTSBattlePolicy
 
 
 def run_single_battle():
@@ -31,25 +32,36 @@ def run_single_battle():
     engine = BattleEngine(state, params)
     state_view = (StateView(state, 0, team_view), StateView(state, 1, team_view))
 
-    my_policy = EnhancedBattlePolicy()
+    my_policy = MCTSBattlePolicy(time_limit_ms=90.0)
     my_policy.set_params(params)
     opp_policy = GreedyBattlePolicy()
     opp_policy.set_params(params)
 
     turn = 0
+    turn_times = []
     while not engine.state.terminal() and turn < 100:
         turn += 1
         try:
+            t0 = time.perf_counter()
             my_cmds = my_policy.decision(state_view[0], opp_view=team_view[1])
+            t1 = time.perf_counter()
+            turn_time_ms = (t1 - t0) * 1000
+            turn_times.append(turn_time_ms)
+
             opp_cmds = opp_policy.decision(state_view[1])
             engine.run_turn((my_cmds, opp_cmds))
-            print(f"Turn {turn}: my_cmds={my_cmds}, opp_cmds={opp_cmds}")
+            print(f"Turn {turn}: my_cmds={my_cmds}, opp_cmds={opp_cmds} ({turn_time_ms:.1f}ms)")
         except Exception as e:
             print(f"ERROR on turn {turn}: {e}")
             traceback.print_exc()
             break
 
     print(f"\nBattle ended after {turn} turns. Winner: side {engine.winning_side}")
+    if turn_times:
+        avg_ms = sum(turn_times) / len(turn_times)
+        max_ms = max(turn_times)
+        print(f"Turn time: avg={avg_ms:.1f}ms, max={max_ms:.1f}ms")
+        print(f"Time limit compliance: {'PASS' if max_ms < 100 else 'FAIL'} (limit=100ms)")
 
 
 if __name__ == '__main__':
