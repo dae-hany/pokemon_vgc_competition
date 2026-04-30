@@ -13,7 +13,7 @@ from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition.match import label_teams
 from vgc2.util.generator import gen_team
 
-from battle_policy import MCTSBattlePolicy
+from my_submission.battle_policy import MCTSBattlePolicy
 
 
 def run_single_battle():
