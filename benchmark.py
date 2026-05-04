@@ -20,7 +20,7 @@ from vgc2.util.generator import gen_team
 from competitor import DaehoCompetitor
 
 
-N_MATCHES = 1000
+N_MATCHES = 500
 N_ACTIVE = 2
 MAX_TEAM_SIZE = 4
 MAX_PKM_MOVES = 4
