@@ -4,6 +4,12 @@ Tests DaehoCompetitor vs Greedy/2025 winners in Championship format.
 """
 import sys
 import os
+import io
+
+# Fix Unicode output on Windows
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 sys.path.insert(0, 'my_submission')
 
@@ -20,6 +26,27 @@ from vgc2.competition.ecosystem import Championship, label_roster, build_team
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
 
 from competitor import DaehoCompetitor
+
+
+class SafeSelectionPolicy:
+    """Wraps a selection policy with error handling fallback to first N."""
+    def __init__(self, inner_policy):
+        self._inner = inner_policy
+
+    def __getattr__(self, name):
+        """Proxy all other attributes to inner policy (e.g. set_meta)."""
+        return getattr(self._inner, name)
+
+    def decision(self, teams, max_size):
+        try:
+            result = self._inner.decision(teams, max_size)
+            n_members = len(teams[0].members)
+            valid = [i for i in result if 0 <= i < n_members]
+            if len(valid) >= min(max_size, n_members):
+                return valid[:max_size]
+        except Exception:
+            pass
+        return list(range(min(max_size, len(teams[0].members))))
 
 
 class SimpleCompetitor:
@@ -93,7 +120,8 @@ def load_2025_competitors():
         from iceMonteBattlePolicy import IceMonteBattlePolicy
         from iceMonteSelectionPolicy import IceMonteSelectionPolicy
         competitors.append(SimpleCompetitor(
-            "Yamabuki", IceMonteBattlePolicy(), IceMonteSelectionPolicy(),
+            "Yamabuki", IceMonteBattlePolicy(),
+            SafeSelectionPolicy(IceMonteSelectionPolicy()),
             RandomTeamBuildPolicy()
         ))
         print("  [OK] Yamabuki loaded")
@@ -111,7 +139,7 @@ def load_2025_competitors():
         competitors.append(SimpleCompetitor(
             "Jirachi",
             AlwaysSmartBeamSearchPolicy(time_limit_ms=90),
-            MaxFirepowerSelectionPolicy(),
+            SafeSelectionPolicy(MaxFirepowerSelectionPolicy()),
             RandomTeamBuildPolicy()
         ))
         print("  [OK] Jirachi loaded")
@@ -165,14 +193,24 @@ if __name__ == '__main__':
     # Test 1: vs Greedy only
     print("\n--- Test 1: Daeho_AI vs Greedy ---")
     greedy = make_greedy_competitor()
-    run_championship([my_comp, greedy], n_epochs=10)
+    try:
+        run_championship([my_comp, greedy], n_epochs=10)
+    except Exception as e:
+        print(f"  Test 1 failed: {e}")
 
-    # Test 2: vs 2025 Winners
+    # Test 2: vs 2025 Winners (with error handling)
     print("\n--- Test 2: Daeho_AI vs 2025 Winners ---")
     print("Loading 2025 winners...")
     winners = load_2025_competitors()
     if winners:
-        all_competitors = [DaehoCompetitor("Daeho_AI"), greedy] + winners
-        run_championship(all_competitors, n_epochs=20, n_battles=3)
+        # Test each winner individually to isolate failures
+        for winner in winners:
+            try:
+                print(f"\n  --- Daeho_AI vs {winner.name} ---")
+                all_comp = [DaehoCompetitor("Daeho_AI"), winner]
+                run_championship(all_comp, n_epochs=10, n_battles=3)
+            except Exception as e:
+                print(f"  Championship vs {winner.name} failed: {e}")
     else:
         print("No 2025 winners loaded, skipping.")
+

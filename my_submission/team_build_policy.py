@@ -153,7 +153,10 @@ class SmartTeamBuildPolicy(TeamBuildPolicy):
         # ── Meta adaptation: boost counter-meta pokemon ──
         if meta is not None:
             for i, species in enumerate(roster):
-                usage = meta.usage_rate_pokemon(species)
+                try:
+                    usage = meta.usage_rate_pokemon(species)
+                except (ZeroDivisionError, Exception):
+                    usage = 0.0
                 if usage > 0.1:
                     # Slightly penalize overused pokemon (anti-meta)
                     scores[i] *= 0.9

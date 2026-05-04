@@ -22,18 +22,19 @@ from competitor import DaehoCompetitor
 
 N_MATCHES = 500
 N_ACTIVE = 2
-MAX_TEAM_SIZE = 4
+TEAM_GEN_SIZE = 6    # Generate 6 pokemon per team
+MAX_TEAM_SIZE = 4    # Select 4 from 6 (selection policy matters!)
 MAX_PKM_MOVES = 4
 
 
 def run_single_match(my_battle, my_sel, opp_battle, opp_sel, params):
     """Run a single match. Returns 0 if side 0 wins, 1 otherwise."""
-    team = (gen_team(MAX_TEAM_SIZE, MAX_PKM_MOVES), gen_team(MAX_TEAM_SIZE, MAX_PKM_MOVES))
+    team = (gen_team(TEAM_GEN_SIZE, MAX_PKM_MOVES), gen_team(TEAM_GEN_SIZE, MAX_PKM_MOVES))
     label_teams(team)
     team_view = (TeamView(team[0]), TeamView(team[1]))
 
-    my_idx = sanitized_selection_decision(my_sel, (team[0], team_view[1]), MAX_TEAM_SIZE)
-    opp_idx = sanitized_selection_decision(opp_sel, (team[1], team_view[0]), MAX_TEAM_SIZE)
+    my_idx = sanitized_selection_decision(my_sel, (team[0], team_view[1]), TEAM_GEN_SIZE)[:MAX_TEAM_SIZE]
+    opp_idx = sanitized_selection_decision(opp_sel, (team[1], team_view[0]), TEAM_GEN_SIZE)[:MAX_TEAM_SIZE]
 
     my_sub_team, my_sub_view = subteam(team[0], team_view[0], my_idx)
     opp_sub_team, opp_sub_view = subteam(team[1], team_view[1], opp_idx)

@@ -50,8 +50,8 @@ def _best_damage_ratio(attacker: Pokemon, defender: Pokemon) -> float:
         if move.category not in (Category.PHYSICAL, Category.SPECIAL):
             continue
 
-        # Priority bonus (JJJ: base_power + 12 * priority - 6)
-        base_power = move.base_power + 12 * move.priority - 6
+        # Priority bonus: small boost for priority moves, no penalty
+        base_power = move.base_power + max(0, move.priority) * 10
         if base_power <= 0:
             continue
 
@@ -158,13 +158,15 @@ class CoverageSelectionPolicy(SelectionPolicy):
     - Shared weakness penalty (new)
     """
 
-    # Tunable weights (initial values based on JJJ ratios)
-    W_OFFENSE = 1.07
+    # Tunable weights
+    W_OFFENSE = 1.07    # max-coverage: sum of best damage per opponent
+    W_FIREPOWER = 0.30  # total team damage (JJJ-style)
     W_DEFENSE = 0.42
     W_BALANCE = 0.50
     W_SPEED = 0.30
     W_UTIL = 0.20
     W_WEAKNESS = 0.15
+    W_MIN_COV = 0.80  # Ensure worst matchup is covered
 
     def decision(self,
                  teams: tuple[Team, Team],
@@ -211,41 +213,53 @@ class CoverageSelectionPolicy(SelectionPolicy):
         """Multi-factor evaluation of a team combination."""
         members = [my_team[i] for i in combo]
 
-        # 1. Offensive: total damage ratio across all matchups (JJJ-style sum)
-        offense = sum(
-            sum(damage_matrix[i][j] for j in range(k))
-            for i in combo
-        )
-
-        # 2. Defensive bulk (JJJ-style)
-        defense = sum(defense_scores[i] for i in combo)
-
-        # 3. Coverage balance: minimize range of "best coverage per opponent"
-        #    For each opponent, what's the best we can do?
+        # For each opponent, the best damage our team can deal
         best_per_opp = [
             max(damage_matrix[i][j] for i in combo)
             for j in range(k)
         ]
+
+        # 1. Offense: sum of best coverage per opponent (max-based, like old policy)
+        #    This favors specialists who can counter specific threats
+        offense = sum(best_per_opp) if best_per_opp else 0.0
+
+        # 2. Firepower: total damage across all matchups (JJJ-style sum)
+        #    Secondary metric favoring raw team damage output
+        firepower = sum(
+            sum(damage_matrix[i][j] for j in range(k))
+            for i in combo
+        )
+
+        # 3. Defensive bulk (JJJ-style)
+        defense = sum(defense_scores[i] for i in combo)
+
+        # 4. Coverage balance: minimize range of best_per_opp
         if best_per_opp:
             balance = -(max(best_per_opp) - min(best_per_opp))
         else:
             balance = 0.0
 
-        # 4. Speed advantage (Yamabuki-style): count members faster than all opponents
+        # 5. Speed advantage (Yamabuki-style)
         speed_bonus = sum(
             1 for p in members
             if p.stats[Stat.SPEED] > opp_max_speed
         )
 
-        # 5. Utility moves (Yamabuki-style)
+        # 6. Utility moves (Yamabuki-style)
         util_bonus = sum(utility_scores[i] for i in combo)
 
-        # 6. Shared weakness penalty (new)
+        # 7. Shared weakness penalty
         weakness_penalty = _shared_weakness_penalty(members, opp_team)
 
+        # 8. Min coverage: ensure worst matchup is still reasonable
+        min_coverage = min(best_per_opp) if best_per_opp else 0.0
+
         return (self.W_OFFENSE * offense
+                + self.W_FIREPOWER * firepower
                 + self.W_DEFENSE * defense
                 + self.W_BALANCE * balance
                 + self.W_SPEED * speed_bonus
                 + self.W_UTIL * util_bonus
-                - self.W_WEAKNESS * weakness_penalty)
+                - self.W_WEAKNESS * weakness_penalty
+                + self.W_MIN_COV * min_coverage)
+
