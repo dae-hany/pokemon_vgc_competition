@@ -71,8 +71,8 @@ def _best_damage_ratio(attacker: Pokemon, defender: Pokemon) -> float:
         for dtype in defender.species.types:
             type_eff *= TYPE_CHART[move.pkm_type][dtype]
 
-        # Damage formula (simplified, level=100)
-        level = 100
+        # Damage formula (simplified, level=50 for VGC)
+        level = 50
         dmg = int((2 * level / 5) + 2)
         dmg = int(dmg * base_power)
         dmg = int(dmg * atk_stat / def_stat)
@@ -158,12 +158,12 @@ class CoverageSelectionPolicy(SelectionPolicy):
     - Shared weakness penalty (new)
     """
 
-    # Tunable weights
-    W_OFFENSE = 1.07    # max-coverage: sum of best damage per opponent
-    W_FIREPOWER = 0.30  # total team damage (JJJ-style)
+    # Tunable weights (Optimized for VGC)
+    W_OFFENSE = 1.30    # max-coverage: sum of best damage per opponent (Increased)
+    W_FIREPOWER = 0.40  # total team damage (Increased)
     W_DEFENSE = 0.42
     W_BALANCE = 0.50
-    W_SPEED = 0.30
+    W_SPEED = 0.60      # Yamabuki-style speed bonus (Increased)
     W_UTIL = 0.20
     W_WEAKNESS = 0.15
     W_MIN_COV = 0.80  # Ensure worst matchup is covered
