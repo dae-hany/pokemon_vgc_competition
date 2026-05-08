@@ -5,11 +5,16 @@ Tests DaehoCompetitor vs Greedy/2025 winners in Championship format.
 import sys
 import os
 import io
+import argparse
 
 # Fix Unicode output on Windows
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--ppo', action='store_true', help='Use PPOCompetitor')
+args, _ = parser.parse_known_args()
 
 sys.path.insert(0, 'my_submission')
 
@@ -25,7 +30,10 @@ from vgc2.competition import CompetitorManager
 from vgc2.competition.ecosystem import Championship, label_roster, build_team
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
 
-from competitor import DaehoCompetitor
+if args.ppo:
+    from ppo_submission.competitor import PPOCompetitor as DaehoCompetitor
+else:
+    from competitor import DaehoCompetitor
 
 
 class SafeSelectionPolicy:
@@ -188,29 +196,68 @@ def run_championship(competitors, n_epochs=10, n_battles=3,
 
 if __name__ == '__main__':
     print("Loading competitors...")
-    my_comp = DaehoCompetitor("Daeho_AI")
+    comp_name = "PPO_AI" if args.ppo else "Daeho_AI"
+    my_comp = DaehoCompetitor(comp_name)
+
+    final_summary = []
 
     # Test 1: vs Greedy only
-    print("\n--- Test 1: Daeho_AI vs Greedy ---")
+    print(f"\n--- Test 1: {comp_name} vs Greedy ---")
     greedy = make_greedy_competitor()
     try:
-        run_championship([my_comp, greedy], n_epochs=10)
+        ranking = run_championship([my_comp, greedy], n_epochs=10)
+        final_summary.append(("Greedy", ranking))
     except Exception as e:
         print(f"  Test 1 failed: {e}")
 
     # Test 2: vs 2025 Winners (with error handling)
-    print("\n--- Test 2: Daeho_AI vs 2025 Winners ---")
+    print(f"\n--- Test 2: {comp_name} vs 2025 Winners ---")
     print("Loading 2025 winners...")
     winners = load_2025_competitors()
     if winners:
         # Test each winner individually to isolate failures
         for winner in winners:
             try:
-                print(f"\n  --- Daeho_AI vs {winner.name} ---")
-                all_comp = [DaehoCompetitor("Daeho_AI"), winner]
-                run_championship(all_comp, n_epochs=10, n_battles=3)
+                print(f"\n  --- {comp_name} vs {winner.name} ---")
+                all_comp = [DaehoCompetitor(comp_name), winner]
+                ranking = run_championship(all_comp, n_epochs=10, n_battles=3)
+                final_summary.append((winner.name, ranking))
             except Exception as e:
                 print(f"  Championship vs {winner.name} failed: {e}")
     else:
         print("No 2025 winners loaded, skipping.")
+
+    # ---------------------------------------------------------
+    # Print Final Summary Table
+    # ---------------------------------------------------------
+    print("\n\n" + "="*75)
+    print(f" 🏆 FINAL CHAMPIONSHIP SUMMARY : {comp_name} 🏆 ")
+    print("="*75)
+    print(f" {'Opponent':<15} | {'Winner':<15} | {'My ELO':<10} | {'Opp ELO':<10} | {'Diff':<10}")
+    print("-" * 75)
+    for opp_name, ranking in final_summary:
+        my_elo = 0
+        opp_elo = 0
+        winner_name = ranking[0].competitor.name
+        for cm in ranking:
+            if cm.competitor.name == comp_name:
+                my_elo = cm.elo
+            else:
+                opp_elo = cm.elo
+        
+        diff = my_elo - opp_elo
+        diff_str = f"+{diff:.0f}" if diff > 0 else f"{diff:.0f}"
+        
+        if my_elo > opp_elo:
+            winner_disp = f"✅ {winner_name}"
+            diff_disp = f"{diff_str} 🔼"
+        elif my_elo < opp_elo:
+            winner_disp = f"❌ {winner_name}"
+            diff_disp = f"{diff_str} 🔽"
+        else:
+            winner_disp = f"➖ Draw"
+            diff_disp = f"{diff_str} ➖"
+            
+        print(f" {opp_name:<15} | {winner_disp:<15} | {my_elo:<10.0f} | {opp_elo:<10.0f} | {diff_disp:<10}")
+    print("="*75 + "\n")
 
