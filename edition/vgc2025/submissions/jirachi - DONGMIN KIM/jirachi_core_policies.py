@@ -192,11 +192,11 @@ class AlwaysSmartBeamSearchPolicy(BattlePolicy):
         # 상대방 평가자
         self.opponent_evaluator = OpponentEvaluator()
 
-        print("🧠 Always Smart Beam Search Policy Initialized")
-        print(f"⏰ Time Budget: {time_limit_ms}ms per decision")
-        print(f"🏆 Championship Mode: {'ON' if is_championship else 'OFF'}")
-        print("🌦️ Weather Support: 4개 날씨 완전 지원")
-        print("🌍 Terrain Support: 4개 지형 완전 지원 (누락 수정 완료)")
+        print("Always Smart Beam Search Policy Initialized")
+        print(f"Time Budget: {time_limit_ms}ms per decision")
+        print(f"Championship Mode: {'ON' if is_championship else 'OFF'}")
+        print("Weather Support: 4개 날씨 완전 지원")
+        print("Terrain Support: 4개 지형 완전 지원 (누락 수정 완료)")
 
     def decision(self, state: State, opp_view: Optional[TeamView] = None) -> List[BattleCommand]:
         """매번 Always Smart Beam Search 적용 - VGC2 호환"""
@@ -206,11 +206,11 @@ class AlwaysSmartBeamSearchPolicy(BattlePolicy):
         try:
             my_team = state.sides[0].team
 
-            print(f"🌟 Turn {self.turn_count}: Always Smart Beam Search Starting")
+            # print(f"🌟 Turn {self.turn_count}: Always Smart Beam Search Starting")
 
             # 1단계: 빠른 Greedy (5ms) - 항상 안전한 기본 결과 확보
             current_best = self._greedy_analysis(state)
-            print(f"⚡ Greedy baseline secured: {current_best.confidence:.2f} confidence")
+            # print(f"⚡ Greedy baseline secured: {current_best.confidence:.2f} confidence")
 
             # 2단계: 점진적 빔 서치 확장
             for beam_width in [2, 3, 4, 5]:
@@ -226,8 +226,8 @@ class AlwaysSmartBeamSearchPolicy(BattlePolicy):
                     beam_result = self._beam_search(state, beam_width, depth, remaining_time)
 
                     if beam_result and beam_result.evaluation_score > current_best.evaluation_score:
-                        print(
-                            f"🔥 Improved! Beam({beam_width},{depth}): {beam_result.evaluation_score:.0f} > {current_best.evaluation_score:.0f}")
+                        # print(
+                        #     f"🔥 Improved! Beam({beam_width},{depth}): {beam_result.evaluation_score:.0f} > {current_best.evaluation_score:.0f}")
                         current_best = beam_result
 
                 elapsed = (time.time() - start_time) * 1000
@@ -235,7 +235,7 @@ class AlwaysSmartBeamSearchPolicy(BattlePolicy):
                     break
 
             total_time = (time.time() - start_time) * 1000
-            print(f"✅ Final Decision ({total_time:.1f}ms)")
+            # print(f"✅ Final Decision ({total_time:.1f}ms)")
             return current_best.action
 
         except Exception as e:
