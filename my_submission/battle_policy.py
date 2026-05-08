@@ -1,191 +1,243 @@
 """
-1-Turn Minimax Battle Policy for General AI (VGC 2026).
+Advanced MCTS Battle Policy for VGC AI Competition 2026.
 
-Uses a fast heuristic simulation to evaluate all combinations of our moves 
-against all combinations of the opponent's moves, selecting the action 
-that maximizes our minimum guaranteed outcome (Minimax).
-Handles Speed, Protect, and Status intrinsically.
+Uses Monte Carlo Tree Search (MCTS) inspired by the 2025 Battle Track Winner (Yamabuki).
+Simulates outcomes using a Greedy rollout policy.
+Overcomes DUMMY_MOVE by generating a Mock State.
+Respects 100ms time limit constraint.
 """
+import random
+import time
+import math
 from typing import Optional
-import numpy as np
 
 from vgc2.agent import BattlePolicy
-from vgc2.battle_engine import State, BattleCommand, BattleRuleParam, TeamView
-from vgc2.battle_engine.modifiers import Stat, Category
+from vgc2.agent.battle import GreedyBattlePolicy
+from vgc2.battle_engine import State, BattleCommand, BattleRuleParam, TeamView, BattlingPokemon, BattlingMove
+from vgc2.battle_engine.modifiers import Status, Stat
+from vgc2.util.forward import copy_state, forward
 
-# Standard type effectiveness chart
-TYPE_CHART = np.array([
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, .5, 0, 1, 1, .5, 1, 1],
-    [1, .5, .5, 1, 2, 2, 1, 1, 1, 1, 1, 2, .5, 1, .5, 1, 2, 1, 1],
-    [1, 2, .5, 1, .5, 1, 1, 1, 2, 1, 1, 1, 2, 1, .5, 1, 1, 1, 1],
-    [1, 1, 2, .5, .5, 1, 1, 1, 0, 2, 1, 1, 1, 1, .5, 1, 1, 1, 1],
-    [1, .5, 2, 1, .5, 1, 1, .5, 2, .5, 1, .5, 2, 1, .5, 1, .5, 1, 1],
-    [1, .5, .5, 1, 2, .5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, .5, 1, 1],
-    [2, 1, 1, 1, 1, 2, 1, .5, 1, .5, .5, .5, 2, 0, 1, 2, 2, .5, 1],
-    [1, 1, 1, 1, 2, 1, 1, .5, .5, 1, 1, 1, .5, .5, 1, 1, 0, 2, 1],
-    [1, 2, 1, 2, .5, 1, 1, 2, 1, 0, 1, .5, 2, 1, 1, 1, 2, 1, 1],
-    [1, 1, 1, .5, 2, 1, 2, 1, 1, 1, 1, 2, .5, 1, 1, 1, .5, 1, 1],
-    [1, 1, 1, 1, 1, 1, 2, 2, 1, 1, .5, 1, 1, 1, 1, 0, .5, 1, 1],
-    [1, .5, 1, 1, 2, 1, .5, .5, 1, .5, 2, 1, 1, .5, 1, 2, .5, .5, 1],
-    [1, 2, 1, 1, 1, 2, .5, 1, .5, 2, 1, 2, 1, 1, 1, 1, .5, 1, 1],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, .5, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, .5, 0, 1],
-    [1, 1, 1, 1, 1, 1, .5, 1, 1, 1, 2, 1, 1, 2, 1, .5, 1, .5, 1],
-    [1, .5, .5, .5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, .5, 2, 1],
-    [1, .5, 1, 1, 1, 1, 2, .5, 1, 1, 1, 1, 1, 1, 2, 2, .5, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-], dtype=float)
-
-def _estimate_damage(attacker, defender, move) -> float:
-    if move.category not in (Category.PHYSICAL, Category.SPECIAL):
-        return 0.0
-    
-    atk_stat = attacker.constants.stats[Stat.ATTACK] if move.category == Category.PHYSICAL else attacker.constants.stats[Stat.SPECIAL_ATTACK]
-    def_stat = defender.constants.stats[Stat.DEFENSE] if move.category == Category.PHYSICAL else defender.constants.stats[Stat.SPECIAL_DEFENSE]
-    
-    stab = 1.5 if move.pkm_type in attacker.constants.species.types else 1.0
-    eff = 1.0
-    for dt in defender.constants.species.types:
-        eff *= TYPE_CHART[move.pkm_type, dt]
-        
-    dmg = int((2 * 50 / 5) + 2)
-    dmg = int(dmg * move.base_power)
-    dmg = int(dmg * atk_stat / def_stat)
-    dmg = int(dmg / 50) + 2
-    final = dmg * stab * eff
-    return final
 
 class EnhancedBattlePolicy(BattlePolicy):
     def __init__(self, time_limit_ms: int = 90):
         self.time_limit_ms = time_limit_ms
         self.params = BattleRuleParam()
+        self.opp_policy = GreedyBattlePolicy()
+        self.action_policy = GreedyBattlePolicy()
+        self.rollout_depth = 4
+        self.C = 1.4
 
     def set_params(self, params: BattleRuleParam):
         super().set_params(params)
         self.params = params
+        self.opp_policy.set_params(params)
+        self.action_policy.set_params(params)
 
-    def get_possible_actions(self, active_team, opp_team_size):
-        if not active_team:
+    class MCTNode:
+        def __init__(self, state: State, actions=None, parent=None, depth=0):
+            self.state = state
+            self.parent = parent
+            self.actions = actions
+            self.children = []
+            self.visit_count = 0
+            self.total_reward = 0
+            self.depth = depth
+            self.used_actions = set()
+
+    def _deduce_moves(self, pokemon: BattlingPokemon, max_moves: int):
+        n_moves = len(pokemon.battling_moves)
+        if n_moves < max_moves:
+            ids = [m.constants.id for m in pokemon.battling_moves]
+            moves = [m for m in pokemon.constants.species.moves if m.id not in ids]
+            if moves:
+                pokemon.battling_moves += [BattlingMove(m) for m in random.sample(moves, min(len(moves), max_moves - n_moves))]
+
+    def get_possible_actions(self, pokemon, state):
+        actions = []
+        for move_idx in range(len(pokemon.battling_moves)):
+            move = pokemon.battling_moves[move_idx]
+            if move.pp <= 0 or move.disabled:
+                continue
+            for enemy_idx in range(len(state.sides[1].team.active)):
+                actions.append((move_idx, enemy_idx))
+        if not actions:
+            actions.append((0, 0))
+        return actions
+
+    def get_all_possible_actions(self, state):
+        team = state.sides[0].team.active
+        if not team:
             return [[(0, 0)]]
             
-        actions1 = []
-        for i, move in enumerate(active_team[0].battling_moves):
-            if move.pp <= 0 or move.disabled: continue
-            for j in range(opp_team_size):
-                actions1.append((i, j))
-        if not actions1: actions1 = [(0, 0)]
-        
-        if len(active_team) == 1:
-            return [[a1] for a1 in actions1]
-            
-        actions2 = []
-        for i, move in enumerate(active_team[1].battling_moves):
-            if move.pp <= 0 or move.disabled: continue
-            for j in range(opp_team_size):
-                actions2.append((i, j))
-        if not actions2: actions2 = [(0, 0)]
-        
-        return [[a1, a2] for a1 in actions1 for a2 in actions2]
+        actions1 = self.get_possible_actions(team[0], state)
+        if len(team) > 1:
+            actions2 = self.get_possible_actions(team[1], state)
+            actions = []
+            for a1 in actions1:
+                for a2 in actions2:
+                    actions.append([a1, a2])
+            return actions
+        else:
+            return [[a] for a in actions1]
 
-    def _fast_simulate(self, my_active, opp_active, my_action, opp_action):
-        """
-        Fast heuristic evaluation of a single turn without engine overhead.
-        Returns a score from our perspective (+ is good, - is bad).
-        """
-        score = 0.0
+    def evaluate_state(self, state):
+        own_team = [x for x in state.sides[0].team.active if x.hp > 0]
+        own_reserve = [x for x in state.sides[0].team.reserve if x.hp > 0]
+        enemy_team = [x for x in state.sides[1].team.active if x.hp > 0]
+        enemy_reserve = [x for x in state.sides[1].team.reserve if x.hp > 0]
         
-        my_hp = [p.hp for p in my_active]
-        opp_hp = [p.hp for p in opp_active]
+        enemy_count = len(enemy_team) + len(enemy_reserve)
+        own_count = len(own_team) + len(own_reserve)
         
-        my_protect = [False] * len(my_active)
-        opp_protect = [False] * len(opp_active)
+        own_hps = [x.hp / x.constants.stats[Stat.MAX_HP] for x in own_team]
+        enemy_hps = [x.hp / x.constants.stats[Stat.MAX_HP] for x in enemy_team]
         
-        # 1. Parse Protect
-        for idx, (move_idx, target_idx) in enumerate(my_action):
-            move = my_active[idx].battling_moves[move_idx].constants
-            if move.protect:
-                my_protect[idx] = True
-                score -= 10.0 # Minor penalty to prevent protect spam if unnecessary
-                
-        for idx, (move_idx, target_idx) in enumerate(opp_action):
-            move = opp_active[idx].battling_moves[move_idx].constants
-            if move.protect:
-                opp_protect[idx] = True
-                
-        # 2. Build execution order based on Speed and Priority
-        events = []
-        for idx, (move_idx, target_idx) in enumerate(my_action):
-            move = my_active[idx].battling_moves[move_idx].constants
-            priority = move.priority
-            if move.protect: priority += 4
-            speed = my_active[idx].constants.stats[Stat.SPEED]
-            events.append(('my', idx, target_idx, move, priority, speed))
+        own_score = 0
+        enemy_score = 0
+
+        own_score += 50 * sum(own_hps)
+        enemy_score += 50 * sum(enemy_hps)
+
+        own_score += 400 * (4 - enemy_count)
+        enemy_score += 400 * (4 - own_count)
+
+        own_score += 300 * len(own_team) + 100 * len(own_reserve)
+        enemy_score += 300 * len(enemy_team) + 100 * len(enemy_reserve)
+
+        # Status and speed evaluation
+        for pkm in own_team:
+            if pkm.status != Status.NONE: enemy_score += 1000
+            own_score += pkm.constants.stats[Stat.SPEED]
+            own_score += 20 * sum(pkm.boosts)
+
+        for pkm in enemy_team:
+            if pkm.status != Status.NONE: own_score += 1000
+            enemy_score += pkm.constants.stats[Stat.SPEED]
+            enemy_score += 20 * sum(pkm.boosts)
+
+        if own_count + enemy_count <= 2:
+            own_score *= 0.8
+            enemy_score *= 0.8
+
+        return own_score - enemy_score
+
+    def select_best_child(self, node: MCTNode):
+        for child in node.children:
+            if child.visit_count == 0:
+                return child
+
+        best_child = node
+        best_ucb = float('-inf')
+        for child in node.children:
+            Q = child.total_reward / child.visit_count
+            N = child.visit_count
+            N_parent = max(1, node.visit_count)
+            UCB1 = Q + self.C * math.sqrt(math.log(N_parent) / N)
+            if UCB1 > best_ucb:
+                best_ucb = UCB1
+                best_child = child
+
+        return best_child
+
+    def expand_one_child(self, node: MCTNode):
+        actions = self.get_all_possible_actions(node.state)
+        actions = [tuple(action) for action in actions]
+        untried = set(actions) - node.used_actions
+        
+        if not untried:
+            return node
             
-        for idx, (move_idx, target_idx) in enumerate(opp_action):
-            move = opp_active[idx].battling_moves[move_idx].constants
-            priority = move.priority
-            if move.protect: priority += 4
-            speed = opp_active[idx].constants.stats[Stat.SPEED]
-            events.append(('opp', idx, target_idx, move, priority, speed))
+        if random.random() < 0.2:
+            actions_to_take = random.sample(list(untried), 1)[0]
+        else:
+            best_action = self.action_policy.decision(node.state)
+            actions_to_take = tuple(best_action)
             
-        events.sort(key=lambda x: (x[4], x[5]), reverse=True)
+        # Deduce missing moves for opponent
+        for enemy in node.state.sides[1].team.active:
+            self._deduce_moves(enemy, 4)
+
+        opp_action = self.opp_policy.decision(State((node.state.sides[1], node.state.sides[0])))
         
-        # 3. Execute attacks
-        for team, idx, target_idx, move, priority, speed in events:
-            if team == 'my':
-                if my_hp[idx] <= 0: continue
-                if move.category in (Category.PHYSICAL, Category.SPECIAL):
-                    if target_idx < len(opp_active) and opp_hp[target_idx] > 0:
-                        if opp_protect[target_idx]:
-                            score -= 20.0 # Wasted attack
-                        else:
-                            dmg = _estimate_damage(my_active[idx], opp_active[target_idx], move)
-                            actual_dmg = min(opp_hp[target_idx], dmg)
-                            opp_hp[target_idx] -= actual_dmg
-                            score += actual_dmg * 2.0
-                            if opp_hp[target_idx] <= 0:
-                                score += 800.0 # KO bonus
-                elif move.toggle_tailwind:
-                    score += 150.0 # Setup bonus
+        new_state = copy_state(node.state)
+        forward(new_state, (list(actions_to_take), opp_action), self.params)
+        
+        child_node = self.MCTNode(new_state, parent=node, actions=actions_to_take, depth=node.depth + 1)
+        node.children.append(child_node)
+        node.used_actions.add(actions_to_take)
+        return child_node
+
+    def rollout(self, state, rollout_depth):
+        current_state = copy_state(state)
+        
+        for _ in range(rollout_depth):
+            if current_state.terminal():
+                break
+
+            own_actions = self.get_all_possible_actions(current_state)
+            if not own_actions:
+                break
+                
+            if self.evaluate_state(current_state) < 0:
+                if random.random() < 0.6:
+                    action = random.choice(own_actions)
+                else:
+                    action = self.action_policy.decision(current_state)
             else:
-                if opp_hp[idx] <= 0: continue
-                if move.category in (Category.PHYSICAL, Category.SPECIAL):
-                    if target_idx < len(my_active) and my_hp[target_idx] > 0:
-                        if my_protect[target_idx]:
-                            score += 50.0 # Successfully protected against an attack!
-                        else:
-                            dmg = _estimate_damage(opp_active[idx], my_active[target_idx], move)
-                            actual_dmg = min(my_hp[target_idx], dmg)
-                            my_hp[target_idx] -= actual_dmg
-                            score -= actual_dmg * 2.0
-                            if my_hp[target_idx] <= 0:
-                                score -= 1000.0 # KO penalty
-                                
-        return score
+                if random.random() < 0.2:
+                    action = random.choice(own_actions)
+                else:
+                    action = self.action_policy.decision(current_state)
+                    
+            for enemy in current_state.sides[1].team.active:
+                self._deduce_moves(enemy, 4)
+                
+            enemy_action = self.opp_policy.decision(State((current_state.sides[1], current_state.sides[0])))
+            forward(current_state, (action, enemy_action), self.params)
+
+        return self.evaluate_state(current_state)
+
+    def tree_policy(self, node):
+        while not node.state.terminal():
+            actions = self.get_all_possible_actions(node.state)
+            actions = [tuple(action) for action in actions]
+            untried = set(actions) - node.used_actions
+            if untried:
+                return self.expand_one_child(node)
+            else:
+                node = self.select_best_child(node)
+        return node
+
+    def MCTS(self, root_state, time_limit_ms):
+        root_node = self.MCTNode(root_state)
+        start_time = time.perf_counter()
+        
+        while (time.perf_counter() - start_time) * 1000 < time_limit_ms * 0.9:
+            node = self.tree_policy(root_node)
+            reward = self.rollout(node.state, self.rollout_depth)
+            
+            if reward < -600:
+                self.C = 10.0
+                self.rollout_depth *= 2
+            else:
+                self.C = 1.41
+                self.rollout_depth = 4
+                
+            # Backpropagate
+            curr = node
+            while curr is not None:
+                curr.visit_count += 1
+                curr.total_reward += reward
+                curr = curr.parent
+
+        if not root_node.children:
+            return None
+            
+        best_child = self.select_best_child(root_node)
+        return list(best_child.actions)
 
     def decision(self, state: State, opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
-        my_active = [p for p in state.sides[0].team.active if p is not None]
-        opp_active = [p for p in state.sides[1].team.active if p is not None]
-        
-        if not my_active:
-            return []
-            
-        my_actions = self.get_possible_actions(my_active, len(opp_active))
-        opp_actions = self.get_possible_actions(opp_active, len(my_active))
-        
-        best_action = my_actions[0]
-        best_minimax_score = -float('inf')
-        
-        for my_act in my_actions:
-            min_score_for_this_act = float('inf')
-            
-            for opp_act in opp_actions:
-                score = self._fast_simulate(my_active, opp_active, my_act, opp_act)
-                if score < min_score_for_this_act:
-                    min_score_for_this_act = score
-                    
-            if min_score_for_this_act > best_minimax_score:
-                best_minimax_score = min_score_for_this_act
-                best_action = my_act
-                
-        return best_action
+        actions = self.MCTS(state, self.time_limit_ms)
+        if actions is None:
+            actions = self.action_policy.decision(state)
+        return actions
