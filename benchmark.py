@@ -5,6 +5,11 @@ Benchmark: Daeho_AI vs Greedy/Random/2025 Winners - 100 match 승률 측정.
 import sys
 import time
 import os
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--ppo', action='store_true', help='Use PPOCompetitor')
+args, _ = parser.parse_known_args()
 
 sys.path.insert(0, 'my_submission')
 
@@ -17,7 +22,10 @@ from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition.match import label_teams, run_battle, subteam
 from vgc2.util.generator import gen_team
 
-from competitor import DaehoCompetitor
+if args.ppo:
+    from ppo_submission.competitor import PPOCompetitor as DaehoCompetitor
+else:
+    from competitor import DaehoCompetitor
 
 
 N_MATCHES = 500
@@ -53,7 +61,7 @@ def benchmark(opponent_name, opp_battle_policy, opp_selection_policy, my_comp=No
     params = BattleRuleParam()
 
     if my_comp is None:
-        my_comp = DaehoCompetitor("Daeho_AI")
+        my_comp = DaehoCompetitor("PPO_AI" if args.ppo else "Daeho_AI")
     my_comp.battlepolicy.set_params(params)
     opp_battle_policy.set_params(params)
 
@@ -65,7 +73,7 @@ def benchmark(opponent_name, opp_battle_policy, opp_selection_policy, my_comp=No
     errors = 0
 
     print(f"\n{'='*60}")
-    print(f"  Daeho_AI vs {opponent_name} - {n_matches} matches")
+    print(f"  {my_comp.name} vs {opponent_name} - {n_matches} matches")
     print(f"{'='*60}")
 
     start = time.time()
@@ -91,7 +99,7 @@ def benchmark(opponent_name, opp_battle_policy, opp_selection_policy, my_comp=No
     win_rate = wins / total_valid * 100 if total_valid > 0 else 0
 
     print(f"\n{'='*60}")
-    print(f"  FINAL RESULT: Daeho_AI vs {opponent_name}")
+    print(f"  FINAL RESULT: {my_comp.name} vs {opponent_name}")
     print(f"  Wins: {wins} | Losses: {losses} | Errors: {errors}")
     print(f"  Win Rate: {win_rate:.1f}% ({wins}/{total_valid})")
     print(f"  Total Time: {elapsed:.1f}s ({elapsed/n_matches:.2f}s per match)")
