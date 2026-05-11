@@ -49,6 +49,7 @@ def _get_best_damage_ratio(attacker, defender) -> float:
             
         atk_stat = attacker.base_stats[Stat.ATTACK] if move.category == Category.PHYSICAL else attacker.base_stats[Stat.SPECIAL_ATTACK]
         def_stat = defender.base_stats[Stat.DEFENSE] if move.category == Category.PHYSICAL else defender.base_stats[Stat.SPECIAL_DEFENSE]
+        def_stat = max(def_stat, 1)  # 0으로 나누기 방지
         
         stab = 1.5 if move.pkm_type in attacker.types else 1.0
         eff = 1.0
@@ -62,14 +63,15 @@ def _get_best_damage_ratio(attacker, defender) -> float:
         dmg = int(dmg / 50) + 2
         final = int(dmg * stab * eff)
         
-        ratio = final / defender.base_stats[Stat.MAX_HP]
+        max_hp = max(defender.base_stats[Stat.MAX_HP], 1)  # 0으로 나누기 방지
+        ratio = final / max_hp
         best = max(best, ratio)
     return best
 
 def _score_bulk(species) -> float:
-    hp_ratio = species.base_stats[Stat.MAX_HP] / 150
-    def_ratio = species.base_stats[Stat.DEFENSE] / 150
-    spd_ratio = species.base_stats[Stat.SPECIAL_DEFENSE] / 150
+    hp_ratio = max(species.base_stats[Stat.MAX_HP], 1) / 150
+    def_ratio = max(species.base_stats[Stat.DEFENSE], 1) / 150
+    spd_ratio = max(species.base_stats[Stat.SPECIAL_DEFENSE], 1) / 150
     return hp_ratio * def_ratio * spd_ratio
 
 def _determine_orientation(species):
