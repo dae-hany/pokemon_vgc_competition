@@ -13,8 +13,8 @@ from typing import Optional
 
 from vgc2.agent import BattlePolicy
 from vgc2.agent.battle import GreedyBattlePolicy
-from vgc2.battle_engine import State, BattleCommand, BattleRuleParam, TeamView, BattlingPokemon, BattlingMove
-from vgc2.battle_engine.modifiers import Status, Stat
+from vgc2.battle_engine import State, BattleCommand, BattleRuleParam, TeamView, BattlingPokemon, BattlingMove, calculate_damage
+from vgc2.battle_engine.modifiers import Status, Stat, Type
 from vgc2.util.forward import copy_state, forward
 
 
@@ -53,6 +53,56 @@ class EnhancedBattlePolicy(BattlePolicy):
             if moves:
                 pokemon.battling_moves += [BattlingMove(m) for m in random.sample(moves, min(len(moves), max_moves - n_moves))]
 
+    def _should_switch(self, pkm: BattlingPokemon, state: State, side: int) -> bool:
+        """
+        Heuristic to determine if a switch should be considered as a candidate action.
+        """
+        opp_side = 1 - side
+        hp_max = pkm.constants.stats[Stat.MAX_HP]
+        
+        # 1. OHKO Threat: If any opponent can KO this pokemon this turn
+        for opp_pkm in state.sides[opp_side].team.active:
+            if opp_pkm.hp <= 0:
+                continue
+            for move in opp_pkm.battling_moves:
+                if move.pp <= 0:
+                    continue
+                dmg = calculate_damage(self.params, opp_side, move.constants, state, opp_pkm, pkm)
+                if dmg >= pkm.hp:
+                    return True
+        
+        # 2. Bad Matchup: Low damage dealt vs High damage received
+        max_dmg_to_opp = 0
+        for opp_pkm in state.sides[opp_side].team.active:
+            if opp_pkm.hp <= 0:
+                continue
+            for move in pkm.battling_moves:
+                if move.pp <= 0 or move.disabled:
+                    continue
+                dmg = calculate_damage(self.params, side, move.constants, state, pkm, opp_pkm)
+                max_dmg_to_opp = max(max_dmg_to_opp, dmg)
+        
+        max_dmg_from_opp = 0
+        for opp_pkm in state.sides[opp_side].team.active:
+            if opp_pkm.hp <= 0:
+                continue
+            for move in opp_pkm.battling_moves:
+                if move.pp <= 0:
+                    continue
+                dmg = calculate_damage(self.params, opp_side, move.constants, state, opp_pkm, pkm)
+                max_dmg_from_opp = max(max_dmg_from_opp, dmg)
+                
+        # Heuristic: If we deal < 15% and they deal > 35%, it's a bad matchup
+        if max_dmg_to_opp < hp_max * 0.15 and max_dmg_from_opp > hp_max * 0.35:
+            return True
+            
+        # 3. Status Risks
+        # Burn on physical attacker
+        if pkm.status == Status.BURN and pkm.constants.stats[Stat.ATTACK] > pkm.constants.stats[Stat.SPECIAL_ATTACK]:
+            return True
+            
+        return False
+
     def get_possible_actions(self, pokemon, state):
         actions = []
         n_targets = len(state.sides[1].team.active)
@@ -63,8 +113,10 @@ class EnhancedBattlePolicy(BattlePolicy):
             for enemy_idx in range(n_targets):
                 actions.append((move_idx, enemy_idx))
 
-        switch_targets = [i for i, reserve in enumerate(state.sides[0].team.reserve) if reserve.hp > 0]
-        actions += [(-1, idx) for idx in switch_targets]
+        # Switch Candidate Filtering: Only consider switching if current pokemon is in trouble
+        if self._should_switch(pokemon, state, 0):
+            switch_targets = [i for i, reserve in enumerate(state.sides[0].team.reserve) if reserve.hp > 0]
+            actions += [(-1, idx) for idx in switch_targets]
 
         if not actions:
             actions.append((0, 0))
