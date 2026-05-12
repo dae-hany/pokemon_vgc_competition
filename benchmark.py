@@ -28,7 +28,7 @@ else:
     from competitor import DaehoCompetitor
 
 
-N_MATCHES = 500
+N_MATCHES = 100 
 N_ACTIVE = 2
 TEAM_GEN_SIZE = 6    # Generate 6 pokemon per team
 MAX_TEAM_SIZE = 4    # Select 4 from 6 (selection policy matters!)
