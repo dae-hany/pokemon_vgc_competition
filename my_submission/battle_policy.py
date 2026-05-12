@@ -26,6 +26,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         self.action_policy = GreedyBattlePolicy()
         self.rollout_depth = 4
         self.C = 1.4
+        self.expand_explore_prob = 0.01
 
     def set_params(self, params: BattleRuleParam):
         super().set_params(params)
@@ -54,12 +55,17 @@ class EnhancedBattlePolicy(BattlePolicy):
 
     def get_possible_actions(self, pokemon, state):
         actions = []
+        n_targets = len(state.sides[1].team.active)
         for move_idx in range(len(pokemon.battling_moves)):
             move = pokemon.battling_moves[move_idx]
             if move.pp <= 0 or move.disabled:
                 continue
-            for enemy_idx in range(len(state.sides[1].team.active)):
+            for enemy_idx in range(n_targets):
                 actions.append((move_idx, enemy_idx))
+
+        switch_targets = [i for i, reserve in enumerate(state.sides[0].team.reserve) if reserve.hp > 0]
+        actions += [(-1, idx) for idx in switch_targets]
+
         if not actions:
             actions.append((0, 0))
         return actions
@@ -145,13 +151,20 @@ class EnhancedBattlePolicy(BattlePolicy):
         untried = set(actions) - node.used_actions
         
         if not untried:
-            return node
-            
-        if random.random() < 0.2:
+            return self.select_best_child(node) if node.children else node
+
+        if random.random() < self.expand_explore_prob:
             actions_to_take = random.sample(list(untried), 1)[0]
         else:
             best_action = self.action_policy.decision(node.state)
-            actions_to_take = tuple(best_action)
+            best_action = tuple(best_action)
+            if best_action in untried:
+                actions_to_take = best_action
+            else:
+                existing_child = next((child for child in node.children if child.actions == best_action), None)
+                if existing_child is not None:
+                    return existing_child
+                actions_to_take = random.sample(list(untried), 1)[0]
             
         # Deduce missing moves for opponent
         for enemy in node.state.sides[1].team.active:
@@ -232,8 +245,11 @@ class EnhancedBattlePolicy(BattlePolicy):
 
         if not root_node.children:
             return None
-            
-        best_child = self.select_best_child(root_node)
+
+        best_child = max(
+            root_node.children,
+            key=lambda child: (child.visit_count, child.total_reward / max(1, child.visit_count))
+        )
         return list(best_child.actions)
 
     def decision(self, state: State, opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
