@@ -5,6 +5,7 @@ Selects 4 out of 6 pokemon by mathematically optimizing offensive coverage
 and defensive bulk against the opponent's 6 pokemon roster.
 """
 from typing import List
+# pyrefly: ignore [missing-import]
 import numpy as np
 
 from vgc2.agent import SelectionPolicy, SelectionCommand

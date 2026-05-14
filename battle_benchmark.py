@@ -20,6 +20,7 @@ from vgc2.battle_engine.game_state import get_battle_teams
 from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.competition.match import label_teams, run_battle
 from vgc2.util.generator import gen_team
+# pyrefly: ignore [missing-import]
 from competitor import DaehoCompetitor
 
 # --- 1. Utility Loader ---
