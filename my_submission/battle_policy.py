@@ -326,7 +326,7 @@ class ChampionshipWeatherBattlePolicy(BattlePolicy):
         self.inner = inner if inner is not None else EnhancedBattlePolicy(time_limit_ms=time_limit_ms)
 
         # tuneables
-        self.force_threshold = 85.0   # lower -> set weather more aggressively
+        self.force_threshold = 80.0   # lower -> set weather more aggressively
         self.cooldown_turns = 2       # avoid repeated weather spamming
         self._last_forced_turn = -999
         self._turn = 0
@@ -386,17 +386,8 @@ class ChampionshipWeatherBattlePolicy(BattlePolicy):
                 if getattr(bm, "pp", 0) > 0 and not getattr(bm, "disabled", False):
                     return i
         return None
-        
-    def _maybe_force_weather(self, state: State) -> Optional[tuple[int, list[BattleCommand]]]:
-        """
-        v2:
-        - Decide best weather (RAIN/SUN) if advantage is high enough.
-        - Force weather only on slots that have a setter move available.
-        - Return (best_weather, partial_cmds) where partial_cmds contains
-          forced commands for some slots and None for others.
 
-        Return None if we should not force weather this turn.
-        """
+    def _maybe_force_weather(self, state: State) -> Optional[list[BattleCommand]]:
         cur = getattr(state, "weather", Weather.CLEAR)
 
         # cooldown
@@ -417,32 +408,23 @@ class ChampionshipWeatherBattlePolicy(BattlePolicy):
         if best_w is None or best_adv < self.force_threshold:
             return None
 
+        # Require BOTH active mons to have setter, otherwise don't force (safe v1)
         my_active = state.sides[0].team.active
         if not my_active:
             return None
 
-        partial: list[Optional[BattleCommand]] = []
-        forced_any = False
-
+        cmds: list[BattleCommand] = []
         for p in my_active:
             if p is None or p.hp <= 0:
-                partial.append((-1, 0))
+                cmds.append((-1, 0))
                 continue
-
             mi = self._find_weather_move_index(p, best_w)
             if mi is None:
-                partial.append(None)  # not forced on this slot
-            else:
-                partial.append((int(mi), 0))
-                forced_any = True
-
-        if not forced_any:
-            return None
+                return None
+            cmds.append((int(mi), 0))
 
         self._last_forced_turn = self._turn
-        
-        # return best weather and partial forced actions
-        return (int(best_w), [c for c in partial])  # keep structure simple
+        return cmds
 
     def decision(self, state: State, opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         self._turn += 1
@@ -453,48 +435,21 @@ class ChampionshipWeatherBattlePolicy(BattlePolicy):
         except Exception:
             pass
 
-        # First, get inner (MCTS) decision as baseline
+        # 1) maybe force weather
         try:
-            base_cmds = self.inner.decision(state, opp_view)
+            forced = self._maybe_force_weather(state)
+            if forced is not None:
+                return forced
+        except Exception:
+            pass
+
+        # 2) fallback to MCTS
+        try:
+            return self.inner.decision(state, opp_view)
         except Exception:
             gp = GreedyBattlePolicy()
             gp.set_params(self.params)
-            base_cmds = gp.decision(TeamView(state, 0))
-
-        # Ensure base_cmds length matches number of active slots
-        my_active = state.sides[0].team.active
-        n_slots = len(my_active) if my_active is not None else len(base_cmds)
-        if n_slots <= 0:
-            return base_cmds
-
-        if not isinstance(base_cmds, list):
-            base_cmds = list(base_cmds)
-
-        # pad if needed
-        while len(base_cmds) < n_slots:
-            base_cmds.append((0, 0))
-
-        # Try forcing weather partially (v2)
-        try:
-            forced = self._maybe_force_weather(state)
-        except Exception:
-            forced = None
-
-        if forced is None:
-            return base_cmds
-
-        _best_w_int, partial_forced = forced
-
-        # Overlay forced commands onto base commands
-        out: list[BattleCommand] = []
-        for i in range(n_slots):
-            fc = partial_forced[i] if i < len(partial_forced) else None
-            if fc is None:
-                out.append(base_cmds[i])
-            else:
-                out.append(fc)
-
-        return out
+            return gp.decision(TeamView(state, 0))
 
 
 # This is the class you should import in competitor.py for CHAMPIONSHIP submission.
