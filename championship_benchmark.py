@@ -20,6 +20,7 @@ from vgc2.balance.meta import BasicMeta
 from vgc2.competition import CompetitorManager
 from vgc2.competition.ecosystem import Championship, label_roster
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
+# pyrefly: ignore [missing-import]
 from competitor import DaehoCompetitor
 
 # --- 1. Utility Classes ---
@@ -98,7 +99,7 @@ def load_competitor(name, folder, comp_file, comp_cls, custom_policies=None):
         return None
 
 def save_results_to_csv(results):
-    filename = "benchmark_results.csv"
+    filename = "championship_benchmark_results_weather_aware.csv"
     file_exists = os.path.isfile(filename)
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     

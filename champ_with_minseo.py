@@ -6,7 +6,9 @@ import io
 sys.path.insert(0, os.path.abspath('my_submission'))
 sys.path.insert(0, os.path.abspath('minseo_lee'))
 
+# pyrefly: ignore [missing-import]
 from competitor import DaehoCompetitor
+# pyrefly: ignore [missing-import]
 from luciner_competitor import MyCompetitor
 
 from vgc2.competition.ecosystem import Championship, label_roster
