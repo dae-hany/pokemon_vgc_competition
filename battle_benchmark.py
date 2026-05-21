@@ -96,10 +96,10 @@ def run_match_once(side0_comp, side1_comp, base_team, params):
     base_view = (TeamView(base_team[0]), TeamView(base_team[1]))
 
     idx0 = sanitized_selection_decision(
-        side0_comp.selectionpolicy, (base_team[0], base_view[1]), 4
+        side0_comp.selectionpolicy, (base_team[0], base_view[1]), 6
     )
     idx1 = sanitized_selection_decision(
-        side1_comp.selectionpolicy, (base_team[1], base_view[0]), 4
+        side1_comp.selectionpolicy, (base_team[1], base_view[0]), 6
     )
 
     sub0 = subteam(base_team[0], base_view[0], idx0)
@@ -138,7 +138,7 @@ def benchmark_battle(opponent_name, opp_comp, my_comp, n_matches=100):
           " (" + str(n_matches) + " games = " + str(n_pairs) + " pairs x 2 directions)")
 
     for i in range(n_pairs):
-        base_team = (gen_team(4, 4), gen_team(4, 4))
+        base_team = (gen_team(6, 4), gen_team(6, 4))
         label_teams(base_team)
 
         # Direction 1: 내가 side 0

@@ -169,6 +169,14 @@ if __name__ == '__main__':
             comp = load_competitor(name, folder, c_file, c_cls,
                                    extra if isinstance(extra, dict) else None)
         if comp:
+            # teambuildpolicy가 None인 경쟁자는 RandomTeamBuildPolicy로 대체
+            if getattr(comp, 'teambuildpolicy', None) is None:
+                comp = SimpleCompetitor(
+                    comp.name,
+                    comp.battlepolicy,
+                    comp.selectionpolicy or RandomSelectionPolicy(),
+                    RandomTeamBuildPolicy(),
+                )
             all_comps.append(comp)
             print(f"  Loaded: {comp.name}")
         else:
@@ -190,6 +198,7 @@ if __name__ == '__main__':
         epochs=N_EPOCHS,
         n_active=N_ACTIVE,
         n_battles=N_BATTLES,
+        max_team_size=6,          # 실제 대회 설정: 6마리 빌드, 4마리 선발
         strategy=Strategy.ELO_PAIRING,
     )
     for comp in all_comps:
@@ -227,7 +236,6 @@ if __name__ == '__main__':
     print(f"  {'Rank':<6} {'Name':<22} {'ELO':>8}")
     print(f"  {'-'*40}")
     for rank, cm in enumerate(ranking, 1):
-        marker = " <<" if cm.competitor.name == "Daeho_AI" else ""
         print(f"  {rank:<6} {cm.competitor.name:<22} {cm.elo:>8.1f}{marker}")
     print(f"{'='*65}\n")
 
