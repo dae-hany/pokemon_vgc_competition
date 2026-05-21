@@ -546,8 +546,11 @@ class EnhancedBattlePolicy(BattlePolicy):
         for _ in range(rollout_depth):
             if current_state.terminal():
                 break
-            # Phase 3: coordinated focus-fire rollout
-            our_action = self._focus_fire_rollout_actions(current_state)
+            # Rollout: per-slot smart policy (accurate state estimation).
+            # Focus-fire is handled at the tree level; rollout stays unbiased.
+            team = current_state.sides[0].team.active
+            our_action = [self._smart_rollout_for_slot(current_state, s)
+                          for s in range(len(team))]
             opp_action = self.opp_policy.decision(
                 State((current_state.sides[1], current_state.sides[0])))
             forward(current_state, (our_action, opp_action), self.params)
