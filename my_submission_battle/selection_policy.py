@@ -73,46 +73,53 @@ def _score_attacker(attacker: Pokemon, enemy_team: List[Pokemon]) -> float:
     
     return 1.07 * total_damage + bulk
 
+N_SELECT = 4  # 실제 대회 선발 인원: 6마리 중 4마리
+
+
 class CoverageSelectionPolicy(SelectionPolicy):
     def decision(self, teams: tuple[Team, Team], max_size: int) -> SelectionCommand:
         my_team = teams[0].members
         enemy_team = teams[1].members
-        
+
         m = len(my_team)
         k = len(enemy_team)
-        
-        if max_size >= m:
+
+        # max_size는 팀 빌드 크기(예: 6)이고, 실제 선발 인원은 항상 4
+        # min(N_SELECT, max_size, m)으로 어떤 설정에도 올바르게 동작
+        n_pick = min(N_SELECT, max_size, m)
+
+        if n_pick >= m:
             return list(range(m))
-            
+
         damage_matrix = np.zeros((m, k), dtype=float)
         for i, atk in enumerate(my_team):
             for j, dfn in enumerate(enemy_team):
                 damage_matrix[i, j] = _estimate_damage_ratio(atk, dfn)
-                
+
         score_vec = np.array([_score_attacker(p, enemy_team) for p in my_team], dtype=float)
-        
+
         selected = []
         first_idx = int(np.argmax(score_vec))
         selected.append(first_idx)
         coverage = damage_matrix[first_idx].copy()
         candidates = set(range(m)) - {first_idx}
-        
-        for _ in range(1, min(max_size, m)):
+
+        for _ in range(1, n_pick):
             old_range = coverage.max() - coverage.min()
             best_i, best_val = None, -np.inf
-            
+
             for i in candidates:
                 new_cov = coverage + damage_matrix[i]
                 new_range = new_cov.max() - new_cov.min()
                 delta_range = old_range - new_range
-                
+
                 # Balances damage spread + high overall score
                 val = 1.25 * delta_range + 0.74 * score_vec[i]
                 if val > best_val:
                     best_val, best_i = val, i
-                    
+
             selected.append(best_i)
             coverage += damage_matrix[best_i]
             candidates.remove(best_i)
-            
+
         return selected
