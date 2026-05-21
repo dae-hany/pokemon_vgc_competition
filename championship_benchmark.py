@@ -11,7 +11,8 @@ from typing import Optional
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
-sys.path.insert(0, 'my_submission')
+repo_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(repo_root, 'my_submission_champ'))
 
 from vgc2.agent.battle import GreedyBattlePolicy, RandomBattlePolicy
 from vgc2.agent.selection import RandomSelectionPolicy

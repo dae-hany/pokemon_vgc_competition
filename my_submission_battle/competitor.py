@@ -5,7 +5,7 @@ Combines Enhanced Greedy Battle Policy, Coverage Selection Policy, and Smart Tea
 from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy
 from vgc2.competition import Competitor
 
-from battle_policy import ChampionshipBattlePolicy
+from battle_policy import EnhancedBattlePolicy
 from selection_policy import CoverageSelectionPolicy
 from team_build_policy import SmartTeamBuildPolicy
 
@@ -13,7 +13,7 @@ from team_build_policy import SmartTeamBuildPolicy
 class DaehoCompetitor(Competitor):
     def __init__(self, name: str = "Daeho_AI"):
         self.__name = name
-        self.__battle_policy = ChampionshipBattlePolicy()
+        self.__battle_policy = EnhancedBattlePolicy()
         self.__selection_policy = CoverageSelectionPolicy()
         self.__team_build_policy = SmartTeamBuildPolicy()
 
