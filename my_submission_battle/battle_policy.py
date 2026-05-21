@@ -13,6 +13,15 @@ Phase 2 optimizations (simulation quality):
   (Greedy picks highest raw damage; smart policy adds large bonus for securing a KO)
 - evaluate_state: Trick Room speed correctly INVERTED (was only 0.98x scaling = ~nothing)
 - evaluate_state: Boost weight raised 20 -> 50 (+1 Atk boost = ~50% more damage)
+
+Phase 3 optimizations (focus-fire coordination -- inspired by JJJ analysis):
+- _focus_fire_action: both active slots target the SAME enemy (max combined damage).
+  Doubles battles are won by KO-ing one enemy fast (2v1 snowball), not spreading damage.
+- _focus_fire_rollout_actions: replaces per-slot _smart_rollout_for_slot in rollout,
+  ensuring rollout simulations also play coordinated focus-fire.
+- _node_all_actions: focus-fire joint action prepended as the first candidate so MCTS
+  explores it before any other action in each node.
+- expand_one_child: prefers focus-fire action over generic greedy as the first expansion.
 """
 import random
 import time
@@ -37,32 +46,24 @@ class EnhancedBattlePolicy(BattlePolicy):
     - Root-level determinization cache for opponent hidden moves
     - Greedy decision cached per node (Phase 1)
     - KO-priority rollout policy (Phase 2)
+    - Focus-fire coordination (Phase 3)
     """
 
-    # ----------------------------
-    # Tunables
-    # ----------------------------
     TOPK_PER_ACTIVE = 5
     SWITCH_TOPK_WHEN_BAD = 2
     SWITCH_TOPK_WHEN_OK = 0
     DETERMINIZATION_SCENARIOS = 3
-    SOFT_TIME_FRACTION = 0.82   # ~82% of budget; buffer against last-iter overshoot
+    SOFT_TIME_FRACTION = 0.82
 
     def __init__(self, time_limit_ms: int = 90):
         self.time_limit_ms = time_limit_ms
         self.params = BattleRuleParam()
         self.opp_policy = GreedyBattlePolicy()
         self.action_policy = GreedyBattlePolicy()
-
-        # MCTS params
         self.rollout_depth = 4
         self.C = 1.4
-
-        # root-level caches (per decision)
-        self._root_det_scenarios = None  # type: Optional[List[dict]]
+        self._root_det_scenarios = None
         self._root_det_index = 0
-
-        # diagnostics
         self._last_iter_count = 0
 
     def set_params(self, params: BattleRuleParam):
@@ -80,23 +81,16 @@ class EnhancedBattlePolicy(BattlePolicy):
             self.visit_count = 0
             self.total_reward = 0.0
             self.depth = depth
-            self.all_actions = None       # type: Optional[List[tuple]]
+            self.all_actions = None
             self.used_actions = set()
-            self.damage_cache = {}        # type: Dict[Tuple[int,int,int,int], int]
-            self._greedy_cmds = None      # cached; set by _get_node_greedy()
+            self.damage_cache = {}
+            self._greedy_cmds = None
 
-    # ----------------------------
-    # Greedy cache helper (Phase 1)
-    # ----------------------------
-    def _get_node_greedy(self, node: "EnhancedBattlePolicy.MCTNode") -> list:
-        """Return (and cache) action_policy.decision() for node.state. At most 1 call per node."""
+    def _get_node_greedy(self, node):
         if node._greedy_cmds is None:
             node._greedy_cmds = self.action_policy.decision(node.state)
         return node._greedy_cmds
 
-    # ----------------------------
-    # Determinization for opponent hidden moves
-    # ----------------------------
     def _deduce_moves_inplace(self, pokemon: BattlingPokemon, max_moves: int, rng: random.Random):
         n_moves = len(pokemon.battling_moves)
         if n_moves >= max_moves:
@@ -145,11 +139,7 @@ class EnhancedBattlePolicy(BattlePolicy):
                 continue
             enemy.battling_moves += [BattlingMove(m) for m in sampled_constants[:room]]
 
-    # ----------------------------
-    # Damage cache helpers (state-local)
-    # ----------------------------
-    def _dmg(self, node: "EnhancedBattlePolicy.MCTNode",
-             atk_side: int, atk_slot: int, def_slot: int, move_idx: int) -> int:
+    def _dmg(self, node, atk_side: int, atk_slot: int, def_slot: int, move_idx: int) -> int:
         key = (atk_side, atk_slot, def_slot, move_idx)
         if key in node.damage_cache:
             return node.damage_cache[key]
@@ -161,17 +151,13 @@ class EnhancedBattlePolicy(BattlePolicy):
         node.damage_cache[key] = dmg
         return dmg
 
-    # ----------------------------
-    # Switching heuristic
-    # ----------------------------
-    def _should_switch(self, node: "EnhancedBattlePolicy.MCTNode", own_slot: int) -> bool:
+    def _should_switch(self, node, own_slot: int) -> bool:
         st = node.state
         pkm = st.sides[0].team.active[own_slot]
         if pkm.hp <= 0:
             return False
         hp_max = pkm.constants.stats[Stat.MAX_HP]
 
-        # 1) OHKO threat
         for e_slot, opp in enumerate(st.sides[1].team.active):
             if opp.hp <= 0:
                 continue
@@ -181,7 +167,6 @@ class EnhancedBattlePolicy(BattlePolicy):
                 if self._dmg(node, 1, e_slot, own_slot, m_idx) >= pkm.hp:
                     return True
 
-        # 2) Bad matchup
         max_dmg_to_enemy = 0
         for move_idx, move in enumerate(pkm.battling_moves):
             if move.pp <= 0 or move.disabled:
@@ -207,38 +192,135 @@ class EnhancedBattlePolicy(BattlePolicy):
         if max_dmg_to_enemy < hp_max * 0.15 and max_dmg_from_enemy > hp_max * 0.35:
             return True
 
-        # 3) Burn on physical attacker
         if (pkm.status == Status.BURN and
                 pkm.constants.stats[Stat.ATTACK] > pkm.constants.stats[Stat.SPECIAL_ATTACK]):
             return True
 
         return False
 
-    # ----------------------------
-    # Top-K candidate generation
-    # ----------------------------
-    def _topk_commands_for_active(self, node: "EnhancedBattlePolicy.MCTNode",
-                                   own_slot: int,
-                                   greedy_cmds: list = None) -> List[BattleCommand]:
+    # --- Phase 3: Focus-Fire ---
+
+    def _focus_fire_action(self, node) -> tuple:
         """
-        Return up to TOPK_PER_ACTIVE commands for given own active slot.
-        Pass greedy_cmds to avoid a redundant Greedy call (_get_node_greedy at call site).
+        JJJ-style focus fire: both active slots target the same enemy.
+        Picks the target where combined best-move damage (with KO bonus) is maximised,
+        then picks the best move per slot for that target.
+        Returns a joint-action tuple ready for use in all_actions.
         """
+        st = node.state
+        own_team = st.sides[0].team.active
+        n_own = len(own_team)
+        n_enemies = len(st.sides[1].team.active)
+
+        if n_own == 0:
+            return ((0, 0),)
+
+        best_e_slot, best_total = 0, -1
+        for e_slot in range(n_enemies):
+            opp = st.sides[1].team.active[e_slot]
+            if opp.hp <= 0:
+                continue
+            total = 0
+            for own_slot in range(n_own):
+                pkm = own_team[own_slot]
+                if pkm.hp <= 0:
+                    continue
+                slot_best = max(
+                    (self._dmg(node, 0, own_slot, e_slot, m_idx)
+                     for m_idx, mv in enumerate(pkm.battling_moves)
+                     if mv.pp > 0 and not mv.disabled),
+                    default=0
+                )
+                if slot_best >= opp.hp:
+                    slot_best += 10000
+                total += slot_best
+            if total > best_total:
+                best_total = total
+                best_e_slot = e_slot
+
+        cmds = []
+        for own_slot in range(n_own):
+            pkm = own_team[own_slot]
+            if pkm.hp <= 0:
+                cmds.append((0, 0))
+                continue
+            best_cmd, best_dmg = (0, best_e_slot), -1
+            for m_idx, mv in enumerate(pkm.battling_moves):
+                if mv.pp <= 0 or mv.disabled:
+                    continue
+                dmg = self._dmg(node, 0, own_slot, best_e_slot, m_idx)
+                if dmg > best_dmg:
+                    best_dmg = dmg
+                    best_cmd = (m_idx, best_e_slot)
+            cmds.append(best_cmd)
+        return tuple(cmds)
+
+    def _focus_fire_rollout_actions(self, state: State) -> list:
+        """
+        Phase 3 rollout policy: both slots coordinate to attack the same enemy.
+        Uses calculate_damage directly (no node cache) since rollout states are ephemeral.
+        """
+        own_team = state.sides[0].team.active
+        enemies = state.sides[1].team.active
+
+        if not own_team:
+            return []
+
+        best_e_slot, best_total = 0, -1
+        for e_slot, opp in enumerate(enemies):
+            if opp.hp <= 0:
+                continue
+            total = 0
+            for pkm in own_team:
+                if pkm.hp <= 0:
+                    continue
+                slot_best = max(
+                    (calculate_damage(self.params, 0, mv.constants, state, pkm, opp)
+                     for mv in pkm.battling_moves if mv.pp > 0 and not mv.disabled),
+                    default=0
+                )
+                if slot_best >= opp.hp:
+                    slot_best += 5000
+                total += slot_best
+            if total > best_total:
+                best_total = total
+                best_e_slot = e_slot
+
+        cmds = []
+        opp_focus = enemies[best_e_slot]
+        for pkm in own_team:
+            if pkm.hp <= 0:
+                cmds.append((0, 0))
+                continue
+            best_cmd, best_dmg = (0, best_e_slot), -1
+            for m_idx, mv in enumerate(pkm.battling_moves):
+                if mv.pp <= 0 or mv.disabled:
+                    continue
+                dmg = calculate_damage(self.params, 0, mv.constants, state, pkm, opp_focus)
+                if dmg >= opp_focus.hp:
+                    dmg += 5000
+                if dmg > best_dmg:
+                    best_dmg = dmg
+                    best_cmd = (m_idx, best_e_slot)
+            cmds.append(best_cmd)
+        return cmds
+
+    # --- Top-K candidate generation ---
+
+    def _topk_commands_for_active(self, node, own_slot: int, greedy_cmds: list = None) -> List[BattleCommand]:
         st = node.state
         pkm = st.sides[0].team.active[own_slot]
         if pkm.hp <= 0:
             return [(0, 0)]
 
         n_targets = len(st.sides[1].team.active)
-        candidates = []  # type: List[Tuple[float, BattleCommand]]
+        candidates = []
 
-        # 1) Greedy's chosen command for this slot (cached)
         if greedy_cmds is None:
             greedy_cmds = self._get_node_greedy(node)
         if greedy_cmds and own_slot < len(greedy_cmds):
             candidates.append((1e18, greedy_cmds[own_slot]))
 
-        # 2) Per-target best-damage move
         for e_slot in range(n_targets):
             best = None
             best_dmg = -1
@@ -252,7 +334,6 @@ class EnhancedBattlePolicy(BattlePolicy):
             if best is not None:
                 candidates.append((best_dmg, best))
 
-        # 3) Best KO candidate
         best_ko = None
         best_ko_dmg = -1
         for e_slot, opp in enumerate(st.sides[1].team.active):
@@ -268,7 +349,6 @@ class EnhancedBattlePolicy(BattlePolicy):
         if best_ko is not None:
             candidates.append((best_ko_dmg + 1e9, best_ko))
 
-        # 4) Switch candidates
         bad = self._should_switch(node, own_slot)
         max_sw = self.SWITCH_TOPK_WHEN_BAD if bad else self.SWITCH_TOPK_WHEN_OK
         if max_sw > 0:
@@ -291,7 +371,6 @@ class EnhancedBattlePolicy(BattlePolicy):
                 for _, r_idx in scored[:max_sw]:
                     candidates.append((5e8, (-1, r_idx)))
 
-        # Deduplicate and take top-K
         best_score_by_cmd = {}
         for sc, cmd in candidates:
             if cmd not in best_score_by_cmd or sc > best_score_by_cmd[cmd]:
@@ -300,8 +379,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         result = [cmd for cmd, _ in cmds[:self.TOPK_PER_ACTIVE]]
         return result if result else [(0, 0)]
 
-    def _node_all_actions(self, node: "EnhancedBattlePolicy.MCTNode") -> List[tuple]:
-        """Build and cache all candidate joint-actions for our side (Top-K per active)."""
+    def _node_all_actions(self, node) -> List[tuple]:
         if node.all_actions is not None:
             return node.all_actions
 
@@ -311,7 +389,6 @@ class EnhancedBattlePolicy(BattlePolicy):
             node.all_actions = [((0, 0),)]
             return node.all_actions
 
-        # Call Greedy once; share with both slots (Phase 1 key fix)
         greedy_cmds = self._get_node_greedy(node)
         cmds0 = self._topk_commands_for_active(node, 0, greedy_cmds)
 
@@ -323,21 +400,21 @@ class EnhancedBattlePolicy(BattlePolicy):
                     if c0[0] < 0 and c1[0] < 0 and c0[1] == c1[1]:
                         continue
                     joint.append((c0, c1))
+
+            # Phase 3: prepend focus-fire as the first candidate
+            ff = self._focus_fire_action(node)
+            if ff not in joint:
+                joint = [ff] + joint
+
             node.all_actions = joint if joint else [(cmds0[0], cmds1[0])]
         else:
             node.all_actions = [(c,) for c in cmds0]
 
         return node.all_actions
 
-    # ----------------------------
-    # State evaluation (Phase 2 improved)
-    # ----------------------------
+    # --- State evaluation (Phase 2) ---
+
     def evaluate_state(self, state: State) -> float:
-        """
-        Improvements over original:
-        - Speed correctly INVERTED under Trick Room (original 0.98x did almost nothing)
-        - Boost weight 20 -> 50 (+1 Atk/SpA boost = ~50% more damage next turn)
-        """
         own_team    = [x for x in state.sides[0].team.active  if x.hp > 0]
         own_reserve = [x for x in state.sides[0].team.reserve if x.hp > 0]
         enemy_team    = [x for x in state.sides[1].team.active  if x.hp > 0]
@@ -349,21 +426,17 @@ class EnhancedBattlePolicy(BattlePolicy):
         own_score   = 0.0
         enemy_score = 0.0
 
-        # HP preservation
         for x in own_team:
             own_score   += 50.0 * (x.hp / x.constants.stats[Stat.MAX_HP])
         for x in enemy_team:
             enemy_score += 50.0 * (x.hp / x.constants.stats[Stat.MAX_HP])
 
-        # KO advantage
         own_score   += 400.0 * (4 - enemy_count)
         enemy_score += 400.0 * (4 - own_count)
 
-        # Active / reserve presence
         own_score   += 300.0 * len(own_team)   + 100.0 * len(own_reserve)
         enemy_score += 300.0 * len(enemy_team) + 100.0 * len(enemy_reserve)
 
-        # Speed (inverted under Trick Room), status, boosts
         trickroom = getattr(state, "trickroom", False)
 
         for pkm in own_team:
@@ -371,7 +444,7 @@ class EnhancedBattlePolicy(BattlePolicy):
                 enemy_score += 300.0
             spd = pkm.constants.stats[Stat.SPEED]
             own_score += (200 - spd) if trickroom else spd
-            own_score += 50.0 * sum(pkm.boosts)   # was 20
+            own_score += 50.0 * sum(pkm.boosts)
 
         for pkm in enemy_team:
             if pkm.status != Status.NONE:
@@ -386,10 +459,9 @@ class EnhancedBattlePolicy(BattlePolicy):
 
         return own_score - enemy_score
 
-    # ----------------------------
-    # MCTS mechanics
-    # ----------------------------
-    def select_best_child(self, node: "EnhancedBattlePolicy.MCTNode") -> "EnhancedBattlePolicy.MCTNode":
+    # --- MCTS mechanics ---
+
+    def select_best_child(self, node):
         for child in node.children:
             if child.visit_count == 0:
                 return child
@@ -405,15 +477,21 @@ class EnhancedBattlePolicy(BattlePolicy):
                 best_child = child
         return best_child
 
-    def expand_one_child(self, node: "EnhancedBattlePolicy.MCTNode") -> "EnhancedBattlePolicy.MCTNode":
+    def expand_one_child(self, node):
         actions = self._node_all_actions(node)
         untried = [a for a in actions if a not in node.used_actions]
         if not untried:
             return self.select_best_child(node) if node.children else node
 
-        # Bias toward Greedy joint action if untried; otherwise random
-        greedy_joint = tuple(self._get_node_greedy(node))  # cached — no extra call
-        actions_to_take = greedy_joint if greedy_joint in untried else random.choice(untried)
+        # Phase 3: prefer focus-fire first, then greedy, then random
+        ff_action = self._focus_fire_action(node)
+        greedy_joint = tuple(self._get_node_greedy(node))
+        if ff_action in untried:
+            actions_to_take = ff_action
+        elif greedy_joint in untried:
+            actions_to_take = greedy_joint
+        else:
+            actions_to_take = random.choice(untried)
 
         new_state = copy_state(node.state)
         if self._root_det_scenarios:
@@ -428,7 +506,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         node.used_actions.add(actions_to_take)
         return child_node
 
-    def tree_policy(self, node: "EnhancedBattlePolicy.MCTNode") -> "EnhancedBattlePolicy.MCTNode":
+    def tree_policy(self, node):
         while not node.state.terminal():
             actions = self._node_all_actions(node)
             if any(a not in node.used_actions for a in actions):
@@ -436,29 +514,16 @@ class EnhancedBattlePolicy(BattlePolicy):
             node = self.select_best_child(node)
         return node
 
-    # ----------------------------
-    # Smart rollout (Phase 2)
-    # ----------------------------
+    # --- Rollout ---
+
     def _smart_rollout_for_slot(self, state: State, own_slot: int) -> BattleCommand:
-        """
-        KO-priority action for one active slot, used during rollout.
-
-        Over pure Greedy: if a move can KO an enemy this turn, strongly prefer it —
-        even if raw damage is slightly lower than a non-KO move.
-        KOs immediately reduce the enemy's options and are worth far more than
-        equivalent damage that leaves the target alive.
-
-        Cost: O(moves x active_enemies) calculate_damage calls — similar to Greedy,
-        but no overhead from GreedyBattlePolicy's internal state construction.
-        """
+        """Kept for reference; superseded by _focus_fire_rollout_actions in Phase 3."""
         pkm = state.sides[0].team.active[own_slot]
         if pkm.hp <= 0:
             return (0, 0)
-
         enemies = state.sides[1].team.active
         best_cmd = None
         best_score = -1.0
-
         for m_idx, mv in enumerate(pkm.battling_moves):
             if mv.pp <= 0 or mv.disabled:
                 continue
@@ -466,24 +531,14 @@ class EnhancedBattlePolicy(BattlePolicy):
                 if opp.hp <= 0:
                     continue
                 dmg = calculate_damage(self.params, 0, mv.constants, state, pkm, opp)
-                # KO bonus: securing a KO is immediately worth far more than raw damage
                 score = float(dmg) + (5000.0 if dmg >= opp.hp else 0.0)
                 if score > best_score:
                     best_score = score
                     best_cmd = (m_idx, e_slot)
-
         return best_cmd if best_cmd is not None else (0, 0)
 
     def rollout(self, state: State, rollout_depth: int) -> float:
-        """
-        KO-priority rollout for our side; opponent plays Greedy.
-
-        Phase 2: replaces pure Greedy.decision() with _smart_rollout_for_slot,
-        which lets MCTS find lines Greedy misses (e.g. finishing a low-HP enemy
-        rather than hitting a bulkier target for marginally higher raw damage).
-        """
         current_state = copy_state(state)
-
         if self._root_det_scenarios:
             scenario = self._root_det_scenarios[self._root_det_index % len(self._root_det_scenarios)]
             self._apply_determinization_to_state_inplace(current_state, scenario)
@@ -491,9 +546,8 @@ class EnhancedBattlePolicy(BattlePolicy):
         for _ in range(rollout_depth):
             if current_state.terminal():
                 break
-            team = current_state.sides[0].team.active
-            our_action = [self._smart_rollout_for_slot(current_state, s)
-                          for s in range(len(team))]
+            # Phase 3: coordinated focus-fire rollout
+            our_action = self._focus_fire_rollout_actions(current_state)
             opp_action = self.opp_policy.decision(
                 State((current_state.sides[1], current_state.sides[0])))
             forward(current_state, (our_action, opp_action), self.params)
@@ -502,10 +556,8 @@ class EnhancedBattlePolicy(BattlePolicy):
 
     def MCTS(self, root_state: State, time_limit_ms: int):
         root_node = self.MCTNode(root_state)
-
         self._root_det_scenarios = self._build_root_determinization_scenarios(root_state)
         self._root_det_index = 0
-
         start_time = time.perf_counter()
         soft_budget = time_limit_ms * self.SOFT_TIME_FRACTION
         self._last_iter_count = 0
@@ -513,11 +565,8 @@ class EnhancedBattlePolicy(BattlePolicy):
         while (time.perf_counter() - start_time) * 1000.0 < soft_budget:
             self._root_det_index += 1
             self._last_iter_count += 1
-
             node = self.tree_policy(root_node)
             reward = self.rollout(node.state, self.rollout_depth)
-
-            # backpropagate — C is kept constant for UCB1 consistency
             curr = node
             while curr is not None:
                 curr.visit_count += 1
@@ -535,8 +584,6 @@ class EnhancedBattlePolicy(BattlePolicy):
 
     def decision(self, state: State, opp_view: Optional[TeamView] = None) -> list[BattleCommand]:
         actions = self.MCTS(state, self.time_limit_ms)
-        # Diagnostic: comment out before final submission
-        print(f"[MCTS] iters={self._last_iter_count}", flush=True)
         if actions is None:
             actions = self.action_policy.decision(state)
         return actions
