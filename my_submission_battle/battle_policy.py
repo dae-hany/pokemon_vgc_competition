@@ -49,9 +49,9 @@ class EnhancedBattlePolicy(BattlePolicy):
     - Focus-fire coordination (Phase 3)
     """
 
-    TOPK_PER_ACTIVE = 5
+    TOPK_PER_ACTIVE = 3
     SWITCH_TOPK_WHEN_BAD = 2
-    SWITCH_TOPK_WHEN_OK = 0
+    SWITCH_TOPK_WHEN_OK = 1
     DETERMINIZATION_SCENARIOS = 3
     SOFT_TIME_FRACTION = 0.82
 
@@ -60,7 +60,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         self.params = BattleRuleParam()
         self.opp_policy = GreedyBattlePolicy()
         self.action_policy = GreedyBattlePolicy()
-        self.rollout_depth = 4
+        self.rollout_depth = 3
         self.C = 1.4
         self._root_det_scenarios = None
         self._root_det_index = 0
@@ -401,10 +401,9 @@ class EnhancedBattlePolicy(BattlePolicy):
                         continue
                     joint.append((c0, c1))
 
-            # Phase 3: prepend focus-fire as the first candidate
             ff = self._focus_fire_action(node)
             if ff not in joint:
-                joint = [ff] + joint
+                joint.insert(0, ff)
 
             node.all_actions = joint if joint else [(cmds0[0], cmds1[0])]
         else:
@@ -427,9 +426,9 @@ class EnhancedBattlePolicy(BattlePolicy):
         enemy_score = 0.0
 
         for x in own_team:
-            own_score   += 50.0 * (x.hp / x.constants.stats[Stat.MAX_HP])
+            own_score   += 200.0 * (x.hp / x.constants.stats[Stat.MAX_HP])
         for x in enemy_team:
-            enemy_score += 50.0 * (x.hp / x.constants.stats[Stat.MAX_HP])
+            enemy_score += 200.0 * (x.hp / x.constants.stats[Stat.MAX_HP])
 
         own_score   += 400.0 * (4 - enemy_count)
         enemy_score += 400.0 * (4 - own_count)
@@ -442,22 +441,18 @@ class EnhancedBattlePolicy(BattlePolicy):
         for pkm in own_team:
             if pkm.status != Status.NONE:
                 enemy_score += 300.0
-            spd = pkm.constants.stats[Stat.SPEED]
-            own_score += (200 - spd) if trickroom else spd
             own_score += 50.0 * sum(pkm.boosts)
 
         for pkm in enemy_team:
             if pkm.status != Status.NONE:
                 own_score += 300.0
-            spd = pkm.constants.stats[Stat.SPEED]
-            enemy_score += (200 - spd) if trickroom else spd
             enemy_score += 50.0 * sum(pkm.boosts)
 
         if own_count + enemy_count <= 2:
             own_score   *= 0.8
             enemy_score *= 0.8
 
-        return own_score - enemy_score
+        return (own_score - enemy_score) / 2500.0
 
     # --- MCTS mechanics ---
 
@@ -483,15 +478,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         if not untried:
             return self.select_best_child(node) if node.children else node
 
-        # Phase 3: prefer focus-fire first, then greedy, then random
-        ff_action = self._focus_fire_action(node)
-        greedy_joint = tuple(self._get_node_greedy(node))
-        if ff_action in untried:
-            actions_to_take = ff_action
-        elif greedy_joint in untried:
-            actions_to_take = greedy_joint
-        else:
-            actions_to_take = random.choice(untried)
+        actions_to_take = random.choice(untried)
 
         new_state = copy_state(node.state)
         if self._root_det_scenarios:
@@ -546,11 +533,7 @@ class EnhancedBattlePolicy(BattlePolicy):
         for _ in range(rollout_depth):
             if current_state.terminal():
                 break
-            # Rollout: per-slot smart policy (accurate state estimation).
-            # Focus-fire is handled at the tree level; rollout stays unbiased.
-            team = current_state.sides[0].team.active
-            our_action = [self._smart_rollout_for_slot(current_state, s)
-                          for s in range(len(team))]
+            our_action = self._focus_fire_rollout_actions(current_state)
             opp_action = self.opp_policy.decision(
                 State((current_state.sides[1], current_state.sides[0])))
             forward(current_state, (our_action, opp_action), self.params)
