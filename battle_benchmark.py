@@ -173,7 +173,14 @@ def benchmark_battle(opponent_name, opp_comp, my_comp, n_matches=100):
     return wins, losses, errors
 
 
+FAST_TARGETS = {"Random", "Greedy", "JJJ", "Yamabuki"}
+
 if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--fast', action='store_true', help='Run only Random/Greedy/JJJ/Yamabuki')
+    args = parser.parse_args()
+
     my_comp = DaehoCompetitor("Daeho_AI")
 
     targets = [
@@ -193,6 +200,9 @@ if __name__ == '__main__':
         ("Minimon",      "minimon_02 - Leon Brunke", "minimon",                "minimon",                None),
         ("Caaaden",      "caaaden_competitor",       "caaaden_competitor",     "CaaadenCompetitor",      None),
     ]
+
+    if args.fast:
+        targets = [t for t in targets if t[0] in FAST_TARGETS]
 
     print("Loading Battle Policies...")
     competitors = []
