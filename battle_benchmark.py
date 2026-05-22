@@ -9,8 +9,15 @@ from datetime import datetime
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
+# Parse --submission early so sys.path is set before module-level imports
+import argparse as _argparse
+_pre_parser = _argparse.ArgumentParser(add_help=False)
+_pre_parser.add_argument('--submission', choices=['battle', 'battleV2'], default='battle')
+_pre_args, _ = _pre_parser.parse_known_args()
+_submission_folder = 'my_submission_' + _pre_args.submission
+
 repo_root = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(repo_root, 'my_submission_battle'))
+sys.path.insert(0, os.path.join(repo_root, _submission_folder))
 
 from vgc2.agent.battle import RandomBattlePolicy, GreedyBattlePolicy
 from vgc2.agent.selection import RandomSelectionPolicy
@@ -179,7 +186,10 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--fast', action='store_true', help='Run only Random/Greedy/JJJ/Yamabuki')
+    parser.add_argument('--submission', choices=['battle', 'battleV2'], default='battle',
+                        help='Which submission folder to use (default: battle)')
     args = parser.parse_args()
+    print(f"[INFO] Using submission: my_submission_{args.submission}")
 
     my_comp = DaehoCompetitor("Daeho_AI")
 
