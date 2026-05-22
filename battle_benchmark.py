@@ -27,7 +27,10 @@ from vgc2.battle_engine.view import TeamView, StateView
 from vgc2.battle_engine.security import sanitized_selection_decision
 from vgc2.competition.match import label_teams, run_battle, subteam
 from vgc2.util.generator import gen_team
-from competitor import DaehoCompetitor
+if _pre_args.submission == 'battleV2':
+    from competitor import DaehoV2Competitor as DaehoCompetitor
+else:
+    from competitor import DaehoCompetitor
 
 
 class SimpleCompetitor:
