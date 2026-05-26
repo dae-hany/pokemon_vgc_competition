@@ -130,7 +130,7 @@ def load_friend(folder_path, friend_folder_name) -> Participant:
     """
     comp_files = [
         f for f in os.listdir(folder_path)
-        if f.endswith('Competitor.py') and not f.startswith('__')
+        if f.lower().endswith('competitor.py') and not f.startswith('__')
     ]
     if not comp_files:
         raise FileNotFoundError(f"*Competitor.py not found in {folder_path}")
