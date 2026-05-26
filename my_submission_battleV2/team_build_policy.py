@@ -1,18 +1,18 @@
 """
-Strategy-Aware Team Build Policy for VGC 2026 Championship Track.
+Bulk-First Team Build Policy for VGC 2026 Championship Track.
 
 Builds a team of 6 from a 50-pokemon roster by:
-1. Creating a 50x50 damage matrix (our roster vs meta roster)
-2. Scanning roster for strategy enablers (weather setters, TR setters, type beneficiaries)
-3. Building candidate teams for each viable strategy with greedy coverage fill
-4. Selecting the highest-scoring team (strategy teams receive a +15% coverage bonus)
-5. Applying EV/Nature spreads and move selection per Pokemon
+1. Building a 50x50 damage matrix
+2. Scoring Pokemon by firepower + bulk (equal weight) + HP bonus — no speed
+3. Greedy coverage selection (minimizes damage range across roster)
+4. Local swap improvement: try single-member swaps to raise composite score
+5. Applying EV/Nature/Move assignments per Pokemon
 """
 import numpy as np
 
 from vgc2.agent import TeamBuildPolicy, TeamBuildCommand
 from vgc2.balance.meta import Meta, Roster
-from vgc2.battle_engine.modifiers import Nature, Type, Category, Stat, Weather
+from vgc2.battle_engine.modifiers import Nature, Type, Category, Stat
 
 TYPE_CHART = np.array([
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, .5, 0, 1, 1, .5, 1, 1],
@@ -58,8 +58,7 @@ def _get_best_damage_ratio(attacker, defender) -> float:
         dmg = int(dmg / 50) + 2
         final = int(dmg * stab * eff)
         max_hp = max(defender.base_stats[Stat.MAX_HP], 1)
-        ratio = final / max_hp
-        best = max(best, ratio)
+        best = max(best, final / max_hp)
     return best
 
 
@@ -152,73 +151,43 @@ class SmartTeamBuildPolicy(TeamBuildPolicy):
             for j in range(n):
                 damage_matrix[i, j] = _get_best_damage_ratio(roster[i], roster[j])
 
-        # Base scores: firepower + bulk + speed
+        # Bulk-first base scores: firepower and bulk equally weighted, HP bonus, speed removed.
+        # HP is counted separately from _score_bulk (which is HP*DEF*SpD product) to give
+        # raw survivability extra emphasis — mirrors JJJ's HP-120 filter in a continuous way.
         base_scores = np.zeros(n, dtype=float)
         for i in range(n):
             firepower = np.mean(damage_matrix[i])
             bulk = _score_bulk(roster[i])
-            speed = roster[i].base_stats[Stat.SPEED] / 150.0
-            base_scores[i] = 1.0 * firepower + 0.5 * bulk + 0.3 * speed
+            hp_score = roster[i].base_stats[Stat.MAX_HP] / 150.0
+            base_scores[i] = 1.0 * firepower + 1.0 * bulk + 0.5 * hp_score
 
-        # Scan roster for strategy enablers
-        weather_setters: dict[Weather, list[int]] = {}
-        tr_setters: list[int] = []
-        for i, species in enumerate(roster):
-            for move in species.moves:
-                w = getattr(move, 'weather_start', Weather.CLEAR)
-                if w != Weather.CLEAR:
-                    weather_setters.setdefault(w, []).append(i)
-                if getattr(move, 'toggle_trickroom', False) and i not in tr_setters:
-                    tr_setters.append(i)
-
-        water_idxs = [i for i, s in enumerate(roster) if Type.WATER in s.types]
-        fire_idxs  = [i for i, s in enumerate(roster) if Type.FIRE  in s.types]
-
-        candidates: list[tuple[list[int], float]] = []
-
-        # RAIN: setter + best Water beneficiary
-        if Weather.RAIN in weather_setters and water_idxs:
-            setter = max(weather_setters[Weather.RAIN], key=lambda i: base_scores[i])
-            bens = [i for i in water_idxs if i != setter]
-            if bens:
-                ben = max(bens, key=lambda i: base_scores[i])
-                team = _greedy_fill([setter, ben], damage_matrix, base_scores, max_team_size, n)
-                candidates.append((team, _score_team(team, damage_matrix) * 1.15))
-
-        # SUN: setter + best Fire beneficiary
-        if Weather.SUN in weather_setters and fire_idxs:
-            setter = max(weather_setters[Weather.SUN], key=lambda i: base_scores[i])
-            bens = [i for i in fire_idxs if i != setter]
-            if bens:
-                ben = max(bens, key=lambda i: base_scores[i])
-                team = _greedy_fill([setter, ben], damage_matrix, base_scores, max_team_size, n)
-                candidates.append((team, _score_team(team, damage_matrix) * 1.15))
-
-        # SAND: setter + best overall attacker
-        if Weather.SAND in weather_setters:
-            setter = max(weather_setters[Weather.SAND], key=lambda i: base_scores[i])
-            partners = [i for i in range(n) if i != setter]
-            if partners:
-                partner = max(partners, key=lambda i: base_scores[i])
-                team = _greedy_fill([setter, partner], damage_matrix, base_scores, max_team_size, n)
-                candidates.append((team, _score_team(team, damage_matrix) * 1.15))
-
-        # SNOW: setter + best overall attacker
-        if Weather.SNOW in weather_setters:
-            setter = max(weather_setters[Weather.SNOW], key=lambda i: base_scores[i])
-            partners = [i for i in range(n) if i != setter]
-            if partners:
-                partner = max(partners, key=lambda i: base_scores[i])
-                team = _greedy_fill([setter, partner], damage_matrix, base_scores, max_team_size, n)
-                candidates.append((team, _score_team(team, damage_matrix) * 1.15))
-
-        # BALANCED fallback (always present)
+        # Greedy team selection from best base-score Pokemon
         first_idx = int(np.argmax(base_scores))
-        balanced_team = _greedy_fill([first_idx], damage_matrix, base_scores, max_team_size, n)
-        candidates.append((balanced_team, _score_team(balanced_team, damage_matrix)))
+        selected_ids = _greedy_fill([first_idx], damage_matrix, base_scores, max_team_size, n)
 
-        # Pick best-scoring team
-        selected_ids = max(candidates, key=lambda x: x[1])[0]
+        # Local swap improvement: single-member swap that raises composite score.
+        # composite = coverage mean + 0.5 * team quality mean
+        def composite(ids: list[int]) -> float:
+            return _score_team(ids, damage_matrix) + 0.5 * float(np.mean(base_scores[ids]))
+
+        best_score = composite(selected_ids)
+        improved = True
+        while improved:
+            improved = False
+            for i in range(len(selected_ids)):
+                for j in range(n):
+                    if j in selected_ids:
+                        continue
+                    candidate = selected_ids[:]
+                    candidate[i] = j
+                    s = composite(candidate)
+                    if s > best_score + 1e-9:
+                        selected_ids = candidate
+                        best_score = s
+                        improved = True
+                        break
+                if improved:
+                    break
 
         # Assign EVs, IVs, Nature, Moves
         cmds: TeamBuildCommand = []
