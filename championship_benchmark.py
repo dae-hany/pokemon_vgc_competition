@@ -54,6 +54,19 @@ class BenchmarkChampionship(Championship):
             cm.team = build_team(cmd, self.roster)
 
 
+class SafeBattlePolicy:
+    """외부 출품작의 battle policy 예외를 캐치해 GreedyBattlePolicy로 폴백."""
+    def __init__(self, inner_policy):
+        self._inner = inner_policy
+        self._fallback = GreedyBattlePolicy()
+    def __getattr__(self, name): return getattr(self._inner, name)
+    def decision(self, state, opp_view=None):
+        try:
+            return self._inner.decision(state, opp_view)
+        except Exception:
+            return self._fallback.decision(state, opp_view)
+
+
 class SafeSelectionPolicy:
     def __init__(self, inner_policy):
         self._inner = inner_policy
@@ -98,7 +111,7 @@ def load_competitor(name, folder, comp_file, comp_cls, custom_policies=None):
                 s_mod = importlib.import_module(custom_policies['s_mod'])
                 t_mod_name = custom_policies.get('t_mod')
                 t_mod = importlib.import_module(t_mod_name) if t_mod_name else None
-                bp = getattr(b_mod, custom_policies['b_cls'])()
+                bp = SafeBattlePolicy(getattr(b_mod, custom_policies['b_cls'])())
                 sp = SafeSelectionPolicy(getattr(s_mod, custom_policies['s_cls'])())
                 tp = getattr(t_mod, custom_policies['t_cls'])() if t_mod else None
                 return SimpleCompetitor(name, bp, sp, tp)
@@ -118,6 +131,13 @@ def load_competitor(name, folder, comp_file, comp_cls, custom_policies=None):
         finally:
             os.chdir(old_cwd)
             if path in sys.path: sys.path.remove(path)
+        if getattr(comp, 'battlepolicy', None) is not None:
+            comp = SimpleCompetitor(
+                comp.name,
+                SafeBattlePolicy(comp.battlepolicy),
+                comp.selectionpolicy,
+                comp.teambuildpolicy,
+            )
         return comp
     except Exception as e:
         print(f"  [WARN] Failed to load {name}: {e}")
