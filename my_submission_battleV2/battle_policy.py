@@ -27,6 +27,8 @@ def _best_move(params, state: State, slot: int) -> BattleCommand:
             if bm.pp == 0 or bm.disabled or bm.constants.category not in (Category.PHYSICAL, Category.SPECIAL):
                 continue
             dmg = calculate_damage(params, 0, bm.constants, state, pkm, d)
+            if bm.constants.priority > 0 and dmg >= d.hp:
+                return (mi, di)
             if dmg > best_dmg:
                 best_dmg, best_cmd = dmg, (mi, di)
     return best_cmd if best_dmg >= 0 else (0, 0)
@@ -38,15 +40,16 @@ def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | Non
         return None
 
     opp_active = state.sides[1].team.active
-    max_incoming = 0
+    total_incoming = 0
     for opp in opp_active:
-        for bm in opp.battling_moves:
-            if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL):
-                dmg = calculate_damage(params, 1, bm.constants, state, opp, pkm)
-                if dmg > max_incoming:
-                    max_incoming = dmg
+        total_incoming += max(
+            (calculate_damage(params, 1, bm.constants, state, opp, pkm)
+             for bm in opp.battling_moves
+             if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)),
+            default=0
+        )
 
-    if max_incoming < pkm.hp:
+    if total_incoming < pkm.hp:
         return None
 
     all_reserve = state.sides[0].team.reserve
@@ -91,15 +94,21 @@ def _best_assignment(params, state: State) -> list[BattleCommand]:
     active = state.sides[0].team.active
     opp_active = state.sides[1].team.active
 
-    best_dmg = [[-1] * len(opp_active) for _ in range(2)]
-    best_mi  = [[-1] * len(opp_active) for _ in range(2)]
+    best_dmg    = [[-1]    * len(opp_active) for _ in range(2)]
+    best_mi     = [[-1]    * len(opp_active) for _ in range(2)]
+    best_is_pko = [[False] * len(opp_active) for _ in range(2)]
     for ai in range(2):
         for di, d in enumerate(opp_active):
             for mi, bm in enumerate(active[ai].battling_moves):
                 if bm.pp == 0 or bm.disabled or bm.constants.category not in (Category.PHYSICAL, Category.SPECIAL):
                     continue
                 dmg = calculate_damage(params, 0, bm.constants, state, active[ai], d)
-                if dmg > best_dmg[ai][di]:
+                is_pko = bm.constants.priority > 0 and dmg >= d.hp
+                if is_pko and not best_is_pko[ai][di]:
+                    best_dmg[ai][di], best_mi[ai][di], best_is_pko[ai][di] = dmg, mi, True
+                elif is_pko and dmg > best_dmg[ai][di]:
+                    best_dmg[ai][di], best_mi[ai][di] = dmg, mi
+                elif not best_is_pko[ai][di] and dmg > best_dmg[ai][di]:
                     best_dmg[ai][di], best_mi[ai][di] = dmg, mi
 
     # Solo KO 기반 split: 한 쪽이 solo KO 가능하면 파트너는 다른 타겟 공격
@@ -163,8 +172,10 @@ def _best_assignment(params, state: State) -> list[BattleCommand]:
                 combined = dmg1 + dmg2
                 will_ko = combined >= d.hp
                 ko_bonus = (13000 if speed_clean else 10000) if will_ko else 0
+                pko_bonus = ((20000 if bm1.constants.priority > 0 and dmg1 >= d.hp else 0) +
+                             (20000 if bm2.constants.priority > 0 and dmg2 >= d.hp else 0))
                 danger_bonus = threat_d if will_ko else 0
-                score = (combined + ko_bonus) / max(d.constants.stats[Stat.MAX_HP], 1) + danger_bonus * 0.001
+                score = (combined + ko_bonus + pko_bonus) / max(d.constants.stats[Stat.MAX_HP], 1) + danger_bonus * 0.001
                 if score > best_score:
                     best_score = score
                     best_cmds = [(i1, di), (i2, di)]
@@ -212,6 +223,20 @@ def _partner_can_ko(params, state: State, slot: int) -> bool:
     return False
 
 
+def _partner_can_ko_specific(params, state: State, slot: int, opp_di: int) -> bool:
+    active = state.sides[0].team.active
+    partner_slot = 1 - slot
+    if partner_slot >= len(active):
+        return False
+    partner = active[partner_slot]
+    opp = state.sides[1].team.active[opp_di]
+    for bm in partner.battling_moves:
+        if bm.pp > 0 and not bm.disabled and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL):
+            if calculate_damage(params, 0, bm.constants, state, partner, opp) >= opp.hp:
+                return True
+    return False
+
+
 def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
     pkm = state.sides[0].team.active[slot]
 
@@ -228,8 +253,12 @@ def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
 
     active = state.sides[0].team.active
     opp_active = state.sides[1].team.active
+
+    # incoming[si] = total max damage from all opponents to slot si
+    # incoming_by_opp[di] = max damage from opponent di to our slot
     incoming = [0, 0]
-    for d in opp_active:
+    incoming_by_opp = [0] * len(opp_active)
+    for di, d in enumerate(opp_active):
         for si in range(len(active)):
             best = max(
                 (calculate_damage(params, 1, bm.constants, state, d, active[si])
@@ -238,18 +267,28 @@ def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
                 default=0
             )
             incoming[si] += best
+            if si == slot:
+                incoming_by_opp[di] = best
 
     other = 1 - slot
     if incoming[slot] <= incoming[other]:
         return None
 
-    if incoming[slot] < pkm.hp:
-        return None
+    max_hp = pkm.constants.stats[Stat.MAX_HP]
 
-    if _partner_can_ko(params, state, slot):
-        return None  # 파트너가 위협 제거 가능 → 보호 불필요, 공격
+    # Survival protect: would be KO'd
+    if incoming[slot] >= pkm.hp:
+        # Only skip protect if partner can KO the specific primary threat to us
+        primary_di = max(range(len(opp_active)), key=lambda di: incoming_by_opp[di])
+        if _partner_can_ko_specific(params, state, slot, primary_di):
+            return None  # partner eliminates the exact threat → attack instead
+        return (protect_idx, 0)
 
-    return (protect_idx, 0)
+    # Tactical protect: significant damage + partner can KO something this turn
+    if incoming[slot] >= 0.4 * max_hp and _partner_can_ko(params, state, slot):
+        return (protect_idx, 0)
+
+    return None
 
 
 class StrategyBattlePolicy(BattlePolicy):
