@@ -12,7 +12,7 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 repo_root = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(repo_root, 'my_submission_champ'))
+sys.path.insert(0, os.path.join(repo_root, 'my_submission_battleV2'))
 
 from vgc2.agent.battle import GreedyBattlePolicy
 from vgc2.agent.selection import RandomSelectionPolicy
@@ -22,7 +22,7 @@ from vgc2.competition import CompetitorManager
 from vgc2.competition.ecosystem import Championship, label_roster, Strategy
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
 # pyrefly: ignore [missing-import]
-from competitor import DaehoCompetitor
+from competitor import DaehoV2Competitor
 
 # ──────────────────────────────────────────────
 #  CONFIG
@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     # 2. 참가자 로드
     print("Initializing DaehoAI...")
-    my_comp = DaehoCompetitor("Daeho_AI")
+    my_comp = DaehoV2Competitor("DaehoV2")
 
     targets = [
         ("Greedy",       "Greedy",                     None,                    None,                      "FIXED"),
@@ -221,10 +221,10 @@ if __name__ == '__main__':
             my_rank = next((i + 1 for i, cm in enumerate(ranking_now)
                             if cm.competitor.name == "Daeho_AI"), "?")
             my_elo  = next((f"{cm.elo:.0f}" for cm in ranking_now
-                            if cm.competitor.name == "Daeho_AI"), "?")
+                            if cm.competitor.name == "DaehoV2"), "?")
             print(f"  [Epoch {e:>3}/{N_EPOCHS}]  "
                   f"Elapsed: {elapsed/60:.1f}min  |  "
-                  f"Daeho_AI: #{my_rank} (ELO {my_elo})")
+                  f"DaehoV2: #{my_rank} (ELO {my_elo})")
 
     elapsed_total = time.time() - start_time
 
@@ -236,6 +236,7 @@ if __name__ == '__main__':
     print(f"  {'Rank':<6} {'Name':<22} {'ELO':>8}")
     print(f"  {'-'*40}")
     for rank, cm in enumerate(ranking, 1):
+        marker = " ◀" if cm.competitor.name == "DaehoV2" else ""
         print(f"  {rank:<6} {cm.competitor.name:<22} {cm.elo:>8.1f}{marker}")
     print(f"{'='*65}\n")
 
