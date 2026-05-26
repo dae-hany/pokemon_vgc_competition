@@ -5,6 +5,12 @@ from vgc2.battle_engine.view import TeamView
 from vgc2.battle_engine.modifiers import Category, Stat, Status
 from vgc2.battle_engine.damage_calculator import calculate_damage
 
+try:
+    from strategy import TYPE_CHART
+except ImportError:
+    from my_submission_battleV2.strategy import TYPE_CHART
+
+
 _BOOST_TABLE = {-6: 0.25, -5: 0.286, -4: 0.333, -3: 0.4, -2: 0.5, -1: 0.667,
                 0: 1.0, 1: 1.5, 2: 2.0, 3: 2.5, 4: 3.0, 5: 3.5, 6: 4.0}
 
@@ -36,25 +42,50 @@ def _best_move(params, state: State, slot: int) -> BattleCommand:
 
 def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | None:
     pkm = state.sides[0].team.active[slot]
-    if pkm.hp / max(pkm.constants.stats[Stat.MAX_HP], 1) >= 0.25:
+    
+    # 1. 예외 조건 (solo KO 가능 혹은 연속 보호막 직후인 경우 교체하지 않음)
+    if _can_solo_ko(params, state, slot):
         return None
-
-    opp_active = state.sides[1].team.active
-    total_incoming = 0
-    for opp in opp_active:
-        total_incoming += max(
-            (calculate_damage(params, 1, bm.constants, state, opp, pkm)
-             for bm in opp.battling_moves
-             if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)),
-            default=0
-        )
-
-    if total_incoming < pkm.hp:
+    if pkm._consecutive_protect > 0:
         return None
 
     all_reserve = state.sides[0].team.reserve
     alive = [r for r in all_reserve if r.hp > 0]
     if not alive:
+        return None
+
+    opp_active = [opp for opp in state.sides[1].team.active if opp is not None]
+    
+    # 상대 각 포켓몬의 최강 기술과 총 예상 피해, 그리고 최대 타입 상성 배율(max_eff) 계산
+    total_incoming = 0
+    max_eff = 0.0
+    opp_strongest_moves = []
+    
+    for opp in opp_active:
+        max_dmg = 0
+        strongest_move = None
+        for bm in opp.battling_moves:
+            if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL):
+                dmg = calculate_damage(params, 1, bm.constants, state, opp, pkm)
+                if dmg > max_dmg:
+                    max_dmg = dmg
+                    strongest_move = bm
+        total_incoming += max_dmg
+        if strongest_move is not None:
+            opp_strongest_moves.append(strongest_move)
+            eff = 1.0
+            for t in pkm.constants.species.types:
+                eff *= TYPE_CHART[strongest_move.constants.pkm_type, t]
+            if eff > max_eff:
+                max_eff = eff
+
+    ratio = pkm.hp / max(pkm.constants.stats[Stat.MAX_HP], 1)
+    
+    cond_survival = (ratio < 0.25) and (total_incoming >= pkm.hp)
+    cond_4x = (max_eff >= 4.0) and (ratio <= 0.75)
+    cond_2x = (max_eff >= 2.0) and (ratio <= 0.50)
+    
+    if not (cond_survival or cond_4x or cond_2x):
         return None
 
     best_ri, best_score = None, -1
@@ -76,6 +107,19 @@ def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | Non
             for bm in r.battling_moves
             if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)
         )
+        
+        # 추가: 상대 주요 기술에 저항(0.5x 이하)하는 후보에 score 보너스 +30%
+        resists = False
+        for sm in opp_strongest_moves:
+            eff = 1.0
+            for t in r.constants.species.types:
+                eff *= TYPE_CHART[sm.constants.pkm_type, t]
+            if eff <= 0.5:
+                resists = True
+                break
+        if resists:
+            score *= 1.3
+            
         if score > best_score:
             best_score, best_ri = score, ri
 
