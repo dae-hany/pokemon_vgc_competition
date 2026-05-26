@@ -172,18 +172,18 @@ def benchmark_battle(opponent_name, opp_comp, my_comp, n_matches=100):
         except Exception:
             errors += 1
 
-        if (i + 1) % 5 == 0:
+        if (i + 1) % 50 == 0:
             total = wins + losses
             rate = (wins / total) * 100 if total > 0 else 0
-            print("  Progress: " + str((i+1)*2).rjust(3) + "/" + str(n_matches) +
-                  " | Wins: " + str(wins).rjust(3) +
+            print("  Progress: " + str((i+1)*2).rjust(4) + "/" + str(n_matches) +
+                  " | Wins: " + str(wins).rjust(4) +
                   " | WR: " + str(round(rate, 1)).rjust(5) + "%" +
                   " | Errors: " + str(errors))
 
     return wins, losses, errors
 
 
-FAST_TARGETS = {"Random", "Greedy", "JJJ", "Yamabuki"}
+FAST_TARGETS = {"Greedy", "JJJ", "Yamabuki"}
 
 if __name__ == '__main__':
     import argparse
@@ -196,22 +196,23 @@ if __name__ == '__main__':
 
     my_comp = DaehoCompetitor("Daeho_AI")
 
+    # (name, folder, c_file, c_cls, extra, n_matches)
     targets = [
-        ("Random",       None,                        None,                     None,                     "RANDOM"),
-        ("Greedy",       None,                        None,                     None,                     "GREEDY"),
+        ("Random",       None,                        None,                     None,                     "RANDOM",  1000),
+        ("Greedy",       None,                        None,                     None,                     "GREEDY",  1000),
         ("JJJ",          "JJJ - JunSung - wfd gfd",  None,                     None,
-            {'b_mod': 'JJJ', 'b_cls': 'JJJ_BattlePolicy'}),
+            {'b_mod': 'JJJ', 'b_cls': 'JJJ_BattlePolicy'},                                                          1000),
         ("Yamabuki",     "iceMonteSubmission",        None,                     None,
-            {'b_mod': 'iceMonteBattlePolicy', 'b_cls': 'IceMonteBattlePolicy'}),
+            {'b_mod': 'iceMonteBattlePolicy', 'b_cls': 'IceMonteBattlePolicy'},                                      200),
         ("Jirachi",      "jirachi - DONGMIN KIM",    None,                     None,
-            {'b_mod': 'jirachi_core_policies', 'b_cls': 'AlwaysSmartBeamSearchPolicy'}),
-        ("Botzilla",     "BotzillaSubmission",       "botzillaCompetitor",     "BotzillaCompetitor",     None),
-        ("Laze",         "LazeComp",                 "LazeCompetitor",         "LazeCompetitor",         None),
-        ("Peach",        "PeachSubmission",          "PeachCompetitor",        "PeachCompetitor",        None),
-        ("StocKarpador", "StocKarpadorSubmission",   "StocKarpadorCompetitor", "StocKarpadorCompetitor", None),
-        ("EvoTrainer",   "evoTrainer",               "EvoCompetitor",          "EvoCompetitor",          None),
-        ("Minimon",      "minimon_02 - Leon Brunke", "minimon",                "minimon",                None),
-        ("Caaaden",      "caaaden_competitor",       "caaaden_competitor",     "CaaadenCompetitor",      None),
+            {'b_mod': 'jirachi_core_policies', 'b_cls': 'AlwaysSmartBeamSearchPolicy'},                              200),
+        ("Botzilla",     "BotzillaSubmission",       "botzillaCompetitor",     "BotzillaCompetitor",     None,       1000),
+        ("Laze",         "LazeComp",                 "LazeCompetitor",         "LazeCompetitor",         None,       1000),
+        ("Peach",        "PeachSubmission",          "PeachCompetitor",        "PeachCompetitor",        None,       1000),
+        ("StocKarpador", "StocKarpadorSubmission",   "StocKarpadorCompetitor", "StocKarpadorCompetitor", None,       1000),
+        ("EvoTrainer",   "evoTrainer",               "EvoCompetitor",          "EvoCompetitor",          None,       1000),
+        ("Minimon",      "minimon_02 - Leon Brunke", "minimon",                "minimon",                None,       1000),
+        ("Caaaden",      "caaaden_competitor",       "caaaden_competitor",     "CaaadenCompetitor",      None,       1000),
     ]
 
     if args.fast:
@@ -219,23 +220,23 @@ if __name__ == '__main__':
 
     print("Loading Battle Policies...")
     competitors = []
-    for name, folder, c_file, c_cls, extra in targets:
+    for name, folder, c_file, c_cls, extra, n_matches in targets:
         if name == "Random":
-            competitors.append(SimpleCompetitor("Random", RandomBattlePolicy()))
+            competitors.append((SimpleCompetitor("Random", RandomBattlePolicy()), n_matches))
         elif name == "Greedy":
-            competitors.append(SimpleCompetitor("Greedy", GreedyBattlePolicy()))
+            competitors.append((SimpleCompetitor("Greedy", GreedyBattlePolicy()), n_matches))
         else:
             c = load_competitor_policy(
                 name, folder, c_file, c_cls,
                 extra if isinstance(extra, dict) else None
             )
             if c:
-                competitors.append(c)
+                competitors.append((c, n_matches))
 
     results = {}
     start_time = time.time()
-    for other in competitors:
-        w, l, e = benchmark_battle(other.name, other, my_comp, n_matches=100)
+    for other, n_matches in competitors:
+        w, l, e = benchmark_battle(other.name, other, my_comp, n_matches=n_matches)
         results[other.name] = (w, l, e)
         save_battle_results_to_csv([(other.name, w, l, e)])
 
