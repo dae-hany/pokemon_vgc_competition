@@ -3,6 +3,8 @@ import os
 import io
 import time
 import csv
+import logging
+import contextlib
 import importlib.util
 from datetime import datetime
 from random import shuffle
@@ -54,6 +56,13 @@ class BenchmarkChampionship(Championship):
             cm.team = build_team(cmd, self.roster)
 
 
+@contextlib.contextmanager
+def _quiet_output():
+    with open(os.devnull, 'w', encoding='utf-8') as devnull:
+        with contextlib.redirect_stdout(devnull), contextlib.redirect_stderr(devnull):
+            yield
+
+
 class SafeBattlePolicy:
     """외부 출품작의 battle policy 예외를 캐치해 GreedyBattlePolicy로 폴백."""
     def __init__(self, inner_policy):
@@ -62,7 +71,8 @@ class SafeBattlePolicy:
     def __getattr__(self, name): return getattr(self._inner, name)
     def decision(self, state, opp_view=None):
         try:
-            return self._inner.decision(state, opp_view)
+            with _quiet_output():
+                return self._inner.decision(state, opp_view)
         except Exception:
             return self._fallback.decision(state, opp_view)
 
@@ -73,12 +83,26 @@ class SafeSelectionPolicy:
     def __getattr__(self, name): return getattr(self._inner, name)
     def decision(self, teams, max_size):
         try:
-            result = self._inner.decision(teams, max_size)
+            with _quiet_output():
+                result = self._inner.decision(teams, max_size)
             n_members = len(teams[0].members)
             valid = [i for i in result if 0 <= i < n_members]
             if len(valid) >= min(max_size, n_members): return valid[:max_size]
         except Exception: pass
         return list(range(min(max_size, len(teams[0].members))))
+
+
+class QuietTeamBuildPolicy:
+    """외부 팀빌딩 policy의 stdout/stderr 출력을 억제하고 예외를 캐치."""
+    def __init__(self, inner_policy):
+        self._inner = inner_policy
+    def __getattr__(self, name): return getattr(self._inner, name)
+    def decision(self, roster, meta, max_team_size, max_pkm_moves, n_active):
+        try:
+            with _quiet_output():
+                return self._inner.decision(roster, meta, max_team_size, max_pkm_moves, n_active)
+        except Exception:
+            return []
 
 
 class SimpleCompetitor:
@@ -113,7 +137,8 @@ def load_competitor(name, folder, comp_file, comp_cls, custom_policies=None):
                 t_mod = importlib.import_module(t_mod_name) if t_mod_name else None
                 bp = SafeBattlePolicy(getattr(b_mod, custom_policies['b_cls'])())
                 sp = SafeSelectionPolicy(getattr(s_mod, custom_policies['s_cls'])())
-                tp = getattr(t_mod, custom_policies['t_cls'])() if t_mod else None
+                tp_raw = getattr(t_mod, custom_policies['t_cls'])() if t_mod else None
+                tp = QuietTeamBuildPolicy(tp_raw) if tp_raw else None
                 return SimpleCompetitor(name, bp, sp, tp)
             finally:
                 os.chdir(old_cwd)
@@ -132,11 +157,13 @@ def load_competitor(name, folder, comp_file, comp_cls, custom_policies=None):
             os.chdir(old_cwd)
             if path in sys.path: sys.path.remove(path)
         if getattr(comp, 'battlepolicy', None) is not None:
+            sp_raw = getattr(comp, 'selectionpolicy', None)
+            tp_raw = getattr(comp, 'teambuildpolicy', None)
             comp = SimpleCompetitor(
                 comp.name,
                 SafeBattlePolicy(comp.battlepolicy),
-                comp.selectionpolicy,
-                comp.teambuildpolicy,
+                SafeSelectionPolicy(sp_raw) if sp_raw else sp_raw,
+                QuietTeamBuildPolicy(tp_raw) if tp_raw else tp_raw,
             )
         return comp
     except Exception as e:
@@ -162,6 +189,8 @@ def save_results_to_csv(ranking, elapsed_s):
 
 
 if __name__ == '__main__':
+    logging.disable(logging.INFO)  # 외부 출품작의 INFO 로그 억제
+
     # 1. 로스터 한 번 생성 (실제 대회와 동일)
     print("Generating fixed roster...")
     move_set = gen_move_set(N_MOVES)
