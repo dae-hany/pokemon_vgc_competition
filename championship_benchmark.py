@@ -18,8 +18,9 @@ from vgc2.agent.battle import GreedyBattlePolicy
 from vgc2.agent.selection import RandomSelectionPolicy
 from vgc2.agent.teambuild import RandomTeamBuildPolicy
 from vgc2.balance.meta import BasicMeta
+from vgc2.battle_engine.security import sanitized_team_build_decision
 from vgc2.competition import CompetitorManager
-from vgc2.competition.ecosystem import Championship, label_roster, Strategy
+from vgc2.competition.ecosystem import Championship, label_roster, Strategy, build_team
 from vgc2.util.generator import gen_move_set, gen_pkm_roster
 # pyrefly: ignore [missing-import]
 from competitor import DaehoV2Competitor
@@ -27,12 +28,30 @@ from competitor import DaehoV2Competitor
 # ──────────────────────────────────────────────
 #  CONFIG
 # ──────────────────────────────────────────────
-N_EPOCHS    = 30   # 에포크 수 (실제 대회는 100, 빠른 테스트는 10 권장)
-N_MOVES     = 100  # 무브셋 크기
-ROSTER_SIZE = 50   # 로스터 크기 (실제 대회와 동일)
-N_ACTIVE    = 2    # 동시 출전 포켓몬 수
-N_BATTLES   = 3    # 매치당 배틀 수
+N_EPOCHS      = 30   # 에포크 수 (실제 대회는 100, 빠른 테스트는 10 권장)
+N_MOVES       = 100  # 무브셋 크기
+ROSTER_SIZE   = 50   # 로스터 크기 (실제 대회와 동일)
+N_ACTIVE      = 2    # 동시 출전 포켓몬 수
+N_BATTLES     = 3    # 매치당 배틀 수
+BUILD_SIZE    = 6    # 팀빌딩 사이즈 (50마리 중 6마리 선택)
+SELECT_SIZE   = 4    # 선발 사이즈 (6마리 중 4마리 참가)
+MAX_PKM_MOVES = 4    # 포켓몬 당 최대 기술 수
 # ──────────────────────────────────────────────
+
+
+class BenchmarkChampionship(Championship):
+    """build-6-select-4를 올바르게 구현하기 위해 _build_teams를 오버라이드.
+
+    Championship의 max_team_size는 Match의 selection 상한(SELECT_SIZE=4)으로 쓰이고,
+    팀빌딩은 별도로 BUILD_SIZE=6을 사용한다.
+    """
+    def _build_teams(self):
+        for cm in self.cm:
+            cmd = sanitized_team_build_decision(
+                cm.competitor.teambuildpolicy, self.roster, self.meta,
+                BUILD_SIZE, self.max_pkm_moves, self.n_active
+            )
+            cm.team = build_team(cmd, self.roster)
 
 
 class SafeSelectionPolicy:
@@ -81,7 +100,7 @@ def load_competitor(name, folder, comp_file, comp_cls, custom_policies=None):
                 t_mod = importlib.import_module(t_mod_name) if t_mod_name else None
                 bp = getattr(b_mod, custom_policies['b_cls'])()
                 sp = SafeSelectionPolicy(getattr(s_mod, custom_policies['s_cls'])())
-                tp = getattr(t_mod, custom_policies['t_cls'])() if t_mod else RandomTeamBuildPolicy()
+                tp = getattr(t_mod, custom_policies['t_cls'])() if t_mod else None
                 return SimpleCompetitor(name, bp, sp, tp)
             finally:
                 os.chdir(old_cwd)
@@ -132,29 +151,33 @@ if __name__ == '__main__':
     print(f"  Roster fixed: {ROSTER_SIZE} Pokemon, {N_MOVES} moves\n")
 
     # 2. 참가자 로드
-    print("Initializing DaehoAI...")
+    print("Initializing DaehoV2...")
     my_comp = DaehoV2Competitor("DaehoV2")
 
+    # 팀빌딩 policy가 있는 출품작만 포함.
+    # custom_policies: b_mod/b_cls(배틀), s_mod/s_cls(선발), t_mod/t_cls(팀빌딩) 지정.
     targets = [
         ("Greedy",       "Greedy",                     None,                    None,                      "FIXED"),
         ("JJJ",          "JJJ - JunSung - wfd gfd",    None,                    None,                      {
-            'b_mod': 'JJJ', 'b_cls': 'JJJ_BattlePolicy',
-            's_mod': 'JJJ', 's_cls': 'JJJ_selectionPolicy',
-            't_mod': 'JJJTeamPolicy', 't_cls': 'JJJ_TeamBuildPolicy'
+            'b_mod': 'JJJ',              'b_cls': 'JJJ_BattlePolicy',
+            's_mod': 'JJJ',              's_cls': 'JJJ_selectionPolicy',
+            't_mod': 'JJJTeamPolicy',    't_cls': 'JJJ_TeamBuildPolicy',
         }),
         ("Yamabuki",     "iceMonteSubmission",          None,                    None,                      {
-            'b_mod': 'iceMonteBattlePolicy', 'b_cls': 'IceMonteBattlePolicy',
-            's_mod': 'iceMonteSelectionPolicy', 's_cls': 'IceMonteSelectionPolicy'
+            'b_mod': 'iceMonteBattlePolicy',    'b_cls': 'IceMonteBattlePolicy',
+            's_mod': 'iceMonteSelectionPolicy', 's_cls': 'IceMonteSelectionPolicy',
+            't_mod': 'iceMonteTeamBuildPolicy', 't_cls': 'IceMonteTeamBuildPolicy',
         }),
         ("Jirachi",      "jirachi - DONGMIN KIM",       None,                    None,                      {
             'b_mod': 'jirachi_core_policies', 'b_cls': 'AlwaysSmartBeamSearchPolicy',
-            's_mod': 'jirachi_core_policies', 's_cls': 'MaxFirepowerSelectionPolicy'
+            's_mod': 'jirachi_core_policies', 's_cls': 'MaxFirepowerSelectionPolicy',
+            't_mod': 'jirachi_team_builder',  't_cls': 'EnhancedEnvironmentTeamBuildPolicy',
         }),
         ('Botzilla',     'BotzillaSubmission',          'botzillaCompetitor',    'BotzillaCompetitor',      None),
         ('Laze',         'LazeComp',                    'LazeCompetitor',        'LazeCompetitor',          None),
         ('Peach',        'PeachSubmission',             'PeachCompetitor',       'PeachCompetitor',         None),
         ('StocKarpador', 'StocKarpadorSubmission',      'StocKarpadorCompetitor','StocKarpadorCompetitor',  None),
-        ('EvoTrainer',   'evoTrainer',                  'EvoCompetitor',         'EvoCompetitor',           None),
+        # EvoTrainer: teambuildpolicy 없음 → 제외
         ('Minimon',      'minimon_02 - Leon Brunke',    'minimon',               'minimon',                 None),
         ('Caaaden',      'caaaden_competitor',          'caaaden_competitor',    'CaaadenCompetitor',       None),
     ]
@@ -168,37 +191,36 @@ if __name__ == '__main__':
         else:
             comp = load_competitor(name, folder, c_file, c_cls,
                                    extra if isinstance(extra, dict) else None)
-        if comp:
-            # teambuildpolicy가 None인 경쟁자는 RandomTeamBuildPolicy로 대체
-            if getattr(comp, 'teambuildpolicy', None) is None:
-                comp = SimpleCompetitor(
-                    comp.name,
-                    comp.battlepolicy,
-                    comp.selectionpolicy or RandomSelectionPolicy(),
-                    RandomTeamBuildPolicy(),
-                )
-            all_comps.append(comp)
-            print(f"  Loaded: {comp.name}")
-        else:
+        if comp is None:
             print(f"  Skipped: {name} (not found)")
+            continue
+        if getattr(comp, 'teambuildpolicy', None) is None:
+            print(f"  Skipped: {name} (no teambuildpolicy)")
+            continue
+        all_comps.append(comp)
+        print(f"  Loaded: {comp.name}")
 
     n_participants = len(all_comps)
     print(f"\nTotal participants: {n_participants}")
 
-    # 3. Championship 실행 (고정 로스터, 전원 참가)
+    # 3. Championship 실행
+    # BenchmarkChampionship: _build_teams는 BUILD_SIZE=6으로 호출,
+    # Match의 selection은 max_team_size=SELECT_SIZE=4로 제한.
     print(f"\n{'='*65}")
     print(f"  CHAMPIONSHIP BENCHMARK")
     print(f"  Roster : FIXED {ROSTER_SIZE} Pokemon")
+    print(f"  Build  : {BUILD_SIZE} per team  |  Select: {SELECT_SIZE}  |  Active: {N_ACTIVE}")
     print(f"  Players: {n_participants}")
     print(f"  Epochs : {N_EPOCHS}  |  Battles/match: {N_BATTLES}")
     print(f"{'='*65}\n")
 
-    championship = Championship(
+    championship = BenchmarkChampionship(
         roster, meta,
         epochs=N_EPOCHS,
         n_active=N_ACTIVE,
         n_battles=N_BATTLES,
-        max_team_size=6,          # 실제 대회 설정: 6마리 빌드, 4마리 선발
+        max_team_size=SELECT_SIZE,   # Match의 selection 상한 = 4
+        max_pkm_moves=MAX_PKM_MOVES,
         strategy=Strategy.ELO_PAIRING,
     )
     for comp in all_comps:
@@ -219,7 +241,7 @@ if __name__ == '__main__':
             elapsed = time.time() - start_time
             ranking_now = championship.ranking()
             my_rank = next((i + 1 for i, cm in enumerate(ranking_now)
-                            if cm.competitor.name == "Daeho_AI"), "?")
+                            if cm.competitor.name == "DaehoV2"), "?")
             my_elo  = next((f"{cm.elo:.0f}" for cm in ranking_now
                             if cm.competitor.name == "DaehoV2"), "?")
             print(f"  [Epoch {e:>3}/{N_EPOCHS}]  "
