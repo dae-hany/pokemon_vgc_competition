@@ -1,8 +1,9 @@
-from vgc2.agent import BattlePolicy, SelectionPolicy
+from vgc2.agent import BattlePolicy, SelectionPolicy, TeamBuildPolicy
 from vgc2.competition import Competitor
 
 from battle_policy import StrategyBattlePolicy
 from selection_policy import StrategySelectionPolicy
+from team_build_policy import SmartTeamBuildPolicy
 
 
 class DaehoV2Competitor(Competitor):
@@ -11,6 +12,7 @@ class DaehoV2Competitor(Competitor):
         self._plan_holder = [None]
         self.__battle_policy = StrategyBattlePolicy(self._plan_holder)
         self.__selection_policy = StrategySelectionPolicy(self._plan_holder)
+        self.__team_build_policy = SmartTeamBuildPolicy()
 
     @property
     def battlepolicy(self) -> BattlePolicy | None:
@@ -19,6 +21,10 @@ class DaehoV2Competitor(Competitor):
     @property
     def selectionpolicy(self) -> SelectionPolicy | None:
         return self.__selection_policy
+
+    @property
+    def teambuildpolicy(self) -> TeamBuildPolicy | None:
+        return self.__team_build_policy
 
     @property
     def name(self) -> str:
