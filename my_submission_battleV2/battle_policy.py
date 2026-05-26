@@ -69,7 +69,7 @@ def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | Non
             for opp in opp_active
         )
         if switch_in_threat >= r.hp:
-            continue  # 교체 직후 KO → 스킵
+            continue
         score = sum(
             calculate_damage(params, 0, bm.constants, state, r, opp)
             for opp in opp_active
@@ -254,8 +254,8 @@ def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
     active = state.sides[0].team.active
     opp_active = state.sides[1].team.active
 
-    # incoming[si] = total max damage from all opponents to slot si
-    # incoming_by_opp[di] = max damage from opponent di to our slot
+    # incoming[si]: total max damage from all opponents to slot si
+    # incoming_by_opp[di]: max damage from opponent di specifically to our slot
     incoming = [0, 0]
     incoming_by_opp = [0] * len(opp_active)
     for di, d in enumerate(opp_active):
@@ -275,17 +275,18 @@ def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
         return None
 
     max_hp = pkm.constants.stats[Stat.MAX_HP]
+    primary_di = max(range(len(opp_active)), key=lambda di: incoming_by_opp[di])
 
     # Survival protect: would be KO'd
     if incoming[slot] >= pkm.hp:
-        # Only skip protect if partner can KO the specific primary threat to us
-        primary_di = max(range(len(opp_active)), key=lambda di: incoming_by_opp[di])
+        # Skip protect only if partner can KO the specific primary threat
         if _partner_can_ko_specific(params, state, slot, primary_di):
-            return None  # partner eliminates the exact threat → attack instead
+            return None
         return (protect_idx, 0)
 
-    # Tactical protect: significant damage + partner can KO something this turn
-    if incoming[slot] >= 0.4 * max_hp and _partner_can_ko(params, state, slot):
+    # Tactical protect: primary threat deals ≥50% HP and partner can KO that same threat
+    if (incoming_by_opp[primary_di] >= 0.5 * max_hp and
+            _partner_can_ko_specific(params, state, slot, primary_di)):
         return (protect_idx, 0)
 
     return None
