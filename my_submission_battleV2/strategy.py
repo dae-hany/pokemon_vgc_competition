@@ -93,8 +93,8 @@ def _score_attacker(pkm: Pokemon, enemy_team: list[Pokemon]) -> float:
     total = sum(_estimate_damage_ratio(pkm, e) for e in enemy_team)
     hp_r = pkm.stats[Stat.MAX_HP] / 402
     def_r = pkm.stats[Stat.DEFENSE] / 257
-    spd_r = pkm.stats[Stat.SPECIAL_DEFENSE] / 257
-    return 1.07 * total + hp_r * def_r * spd_r * 0.42
+    spd_r = pkm.stats[Stat.SPEED] / 257
+    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r
 
 
 def _pick_best_n(candidate_idxs: list[int], my_team: list[Pokemon],

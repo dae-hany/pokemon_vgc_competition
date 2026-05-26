@@ -2,8 +2,20 @@ from vgc2.agent import BattlePolicy
 from vgc2.battle_engine import BattleCommand
 from vgc2.battle_engine.game_state import State
 from vgc2.battle_engine.view import TeamView
-from vgc2.battle_engine.modifiers import Category, Stat
+from vgc2.battle_engine.modifiers import Category, Stat, Status
 from vgc2.battle_engine.damage_calculator import calculate_damage
+
+_BOOST_TABLE = {-6: 0.25, -5: 0.286, -4: 0.333, -3: 0.4, -2: 0.5, -1: 0.667,
+                0: 1.0, 1: 1.5, 2: 2.0, 3: 2.5, 4: 3.0, 5: 3.5, 6: 4.0}
+
+
+def _effective_speed(pkm, state: State) -> float:
+    spd = pkm.constants.stats[Stat.SPEED] * _BOOST_TABLE.get(pkm.boosts[Stat.SPEED], 1.0)
+    if pkm.status == Status.PARALYZED:
+        spd *= 0.5
+    if state.trickroom:
+        spd = -spd
+    return spd
 
 
 def _best_move(params, state: State, slot: int) -> BattleCommand:
@@ -42,8 +54,19 @@ def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | Non
     if not alive:
         return None
 
-    best_ri, best_score = 0, -1
+    best_ri, best_score = None, -1
     for ri, r in enumerate(alive):
+        switch_in_threat = sum(
+            max(
+                (calculate_damage(params, 1, bm.constants, state, opp, r)
+                 for bm in opp.battling_moves
+                 if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)),
+                default=0
+            )
+            for opp in opp_active
+        )
+        if switch_in_threat >= r.hp:
+            continue  # 교체 직후 KO → 스킵
         score = sum(
             calculate_damage(params, 0, bm.constants, state, r, opp)
             for opp in opp_active
@@ -52,6 +75,9 @@ def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | Non
         )
         if score > best_score:
             best_score, best_ri = score, ri
+
+    if best_ri is None:
+        return None
 
     actual_idx = all_reserve.index(alive[best_ri])
     return (-1, actual_idx)
@@ -109,10 +135,23 @@ def _best_assignment(params, state: State) -> list[BattleCommand]:
             if best_split_score >= ff_score:
                 return best_split_cmds
 
-    # Fallback: 합산 KO 보너스 focus-fire
+    # Fallback: 위협도 가중 focus-fire
+    my_spd = [_effective_speed(active[ai], state) for ai in range(2)]
+
     best_score = -1.0
     best_cmds = [(0, 0), (0, 0)]
     for di, d in enumerate(opp_active):
+        opp_spd = _effective_speed(d, state)
+        speed_clean = my_spd[0] > opp_spd or my_spd[1] > opp_spd
+
+        threat_d = max(
+            (calculate_damage(params, 1, bm.constants, state, d, active[ai])
+             for ai in range(2)
+             for bm in d.battling_moves
+             if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)),
+            default=0
+        )
+
         for i1, bm1 in enumerate(active[0].battling_moves):
             if bm1.pp == 0 or bm1.disabled or bm1.constants.category not in (Category.PHYSICAL, Category.SPECIAL):
                 continue
@@ -122,8 +161,10 @@ def _best_assignment(params, state: State) -> list[BattleCommand]:
                     continue
                 dmg2 = calculate_damage(params, 0, bm2.constants, state, active[1], d)
                 combined = dmg1 + dmg2
-                ko_bonus = 10000 if combined >= d.hp else 0
-                score = (combined + ko_bonus) / max(d.constants.stats[Stat.MAX_HP], 1)
+                will_ko = combined >= d.hp
+                ko_bonus = (13000 if speed_clean else 10000) if will_ko else 0
+                danger_bonus = threat_d if will_ko else 0
+                score = (combined + ko_bonus) / max(d.constants.stats[Stat.MAX_HP], 1) + danger_bonus * 0.001
                 if score > best_score:
                     best_score = score
                     best_cmds = [(i1, di), (i2, di)]
@@ -154,6 +195,20 @@ def _can_solo_ko(params, state: State, slot: int) -> bool:
                 continue
             if calculate_damage(params, 0, bm.constants, state, pkm, d) >= d.hp:
                 return True
+    return False
+
+
+def _partner_can_ko(params, state: State, slot: int) -> bool:
+    active = state.sides[0].team.active
+    partner_slot = 1 - slot
+    if partner_slot >= len(active):
+        return False
+    partner = active[partner_slot]
+    for opp in state.sides[1].team.active:
+        for bm in partner.battling_moves:
+            if bm.pp > 0 and not bm.disabled and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL):
+                if calculate_damage(params, 0, bm.constants, state, partner, opp) >= opp.hp:
+                    return True
     return False
 
 
@@ -190,6 +245,9 @@ def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
 
     if incoming[slot] < pkm.hp:
         return None
+
+    if _partner_can_ko(params, state, slot):
+        return None  # 파트너가 위협 제거 가능 → 보호 불필요, 공격
 
     return (protect_idx, 0)
 
