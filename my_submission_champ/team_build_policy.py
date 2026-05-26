@@ -13,18 +13,19 @@ Key engine facts (vgc2/battle_engine/damage_calculator.py):
   - SNOW: ICE types get boosted DEF (WEATHER_BOOST)
 - End-of-turn chip: only SAND is implemented in engine.
 
-This policy:
-- Builds weather-aware damage matrices for 5 weather states: CLEAR/RAIN/SUN/SAND/SNOW.
-- Uses a robust objective: 0.7 * min_weather + 0.3 * mean_weather on coverage improvement.
-- Adds soft constraints/bonuses to encourage selecting:
-  - at least one RAIN setter and one SUN setter (dual plan)
-  - 1~2 beneficiaries per weather (avoid over-investing)
-  - avoid too many setters (over-investing)
+이 정책은:
+- 5가지 날씨 상태(CLEAR/RAIN/SUN/SAND/SNOW)에 대한 데미지 매트릭스를 미리 계산.
+- 3분(170초) 예산을 활용하는 다중 재시작 Greedy + 로컬 스왑 개선.
+  1. 모든 가능한 시작점(n개)에서 greedy를 실행해 최선 팀 탐색.
+  2. 시간이 남으면 로컬 스왑(팀 멤버 1명씩 교체 시도)으로 추가 개선.
 """
 from __future__ import annotations
 
+import random
+import time
 from dataclasses import dataclass
 from typing import Optional, Iterable
+
 # pyrefly: ignore [missing-import]
 import numpy as np
 
@@ -35,7 +36,6 @@ from vgc2.battle_engine.modifiers import Nature, Type, Category, Stat, Weather
 
 
 # ----------- Local (fast) type chart for damage effectiveness -----------
-# NOTE: Kept as in your previous implementation to avoid relying on params internals.
 TYPE_CHART = np.array([
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, .5, 0, 1, 1, .5, 1, 1],
     [1, .5, .5, 1, 2, 2, 1, 1, 1, 1, 1, 2, .5, 1, .5, 1, 2, 1, 1],
@@ -85,22 +85,10 @@ def _type_effectiveness(move_type: Type, defender_types: Iterable[Type]) -> floa
 
 
 def _best_damage_ratio_weather(attacker, defender, weather: Weather, params: BattleRuleParam) -> float:
-    """
-    Simplified expected best damage ratio attacker->defender under a given weather.
-    This is *not* engine-exact, but matches the engine's weather multipliers for FIRE/WATER
-    and preserves your previous heuristic style.
-
-    attacker/defender: roster species-like objects (as in your original code).
-      - attacker.moves: list of Move constants-like objects
-      - attacker.base_stats[Stat.*]
-      - attacker.types, defender.types
-    """
     best = 0.0
     atk_types = attacker.types
     def_types = defender.types
 
-    # Defense boosts in SAND/SNOW (engine applies to defender's boosted stats).
-    # We approximate by scaling the relevant defending stat.
     def_stat_sand_snow_mult_spdef = 1.0
     def_stat_sand_snow_mult_def = 1.0
     if weather == Weather.SAND and Type.ROCK in def_types:
@@ -116,7 +104,6 @@ def _best_damage_ratio_weather(attacker, defender, weather: Weather, params: Bat
         if base_power <= 0:
             continue
 
-        # choose stats
         if move.category == Category.PHYSICAL:
             atk_stat = attacker.base_stats[Stat.ATTACK]
             def_stat = defender.base_stats[Stat.DEFENSE]
@@ -132,7 +119,6 @@ def _best_damage_ratio_weather(attacker, defender, weather: Weather, params: Bat
         eff = _type_effectiveness(move.pkm_type, def_types)
         wmult = _weather_move_multiplier(params, move.pkm_type, weather)
 
-        # Simplified level 50 formula (same structure as your old code)
         dmg = int((2 * 50 / 5) + 2)
         dmg = int(dmg * base_power)
         dmg = int(dmg * atk_stat / def_stat)
@@ -147,7 +133,6 @@ def _best_damage_ratio_weather(attacker, defender, weather: Weather, params: Bat
 
 
 def _score_bulk(species) -> float:
-    # unchanged from your original heuristic (kept simple)
     hp_ratio = max(species.base_stats[Stat.MAX_HP], 1) / 150
     def_ratio = max(species.base_stats[Stat.DEFENSE], 1) / 150
     spd_ratio = max(species.base_stats[Stat.SPECIAL_DEFENSE], 1) / 150
@@ -165,7 +150,6 @@ def _determine_orientation(species):
 
 
 def _select_best_moves(species, max_moves: int) -> list[int]:
-    # keep your previous implementation (with small prioritization for weather-setters)
     scores = []
     for i, move in enumerate(species.moves):
         score = 0.0
@@ -185,8 +169,6 @@ def _select_best_moves(species, max_moves: int) -> list[int]:
                 score = 80.0
             if any(b != 0 for b in move.boosts):
                 score = 60.0
-
-            # New: mildly encourage carrying a weather-setting move if present
             if getattr(move, "weather_start", Weather.CLEAR) != Weather.CLEAR:
                 score = max(score, 90.0)
 
@@ -197,7 +179,6 @@ def _select_best_moves(species, max_moves: int) -> list[int]:
     selected = []
     selected_types = set()
 
-    # Pass 1: Prioritize unique types to maximize coverage
     for idx, _sc in scores:
         if len(selected) >= max_moves:
             break
@@ -207,7 +188,6 @@ def _select_best_moves(species, max_moves: int) -> list[int]:
             if move.category in (Category.PHYSICAL, Category.SPECIAL):
                 selected_types.add(move.pkm_type)
 
-    # Pass 2: Fill remaining slots with the best moves regardless of type
     if len(selected) < max_moves:
         for idx, _sc in scores:
             if len(selected) >= max_moves:
@@ -228,11 +208,6 @@ def _species_weather_set(s) -> set[Weather]:
 
 
 def _offense_benefit_score(s, weather: Weather) -> float:
-    """
-    Rough 'beneficiary' score without Pokémon knowledge:
-    - If weather boosts FIRE or WATER, look for strong moves of that type.
-    - Otherwise small/no bonus.
-    """
     if weather not in (Weather.RAIN, Weather.SUN):
         return 0.0
     target_type = Type.WATER if weather == Weather.RAIN else Type.FIRE
@@ -258,11 +233,11 @@ class DualPlanConfig:
     robust_mean_w: float = 0.3
 
     # Dual-plan preference
-    prefer_dual_setters: float = 8.0   # bonus if team has both RAIN and SUN setters
-    prefer_single_setter: float = 2.0 # bonus if team has at least one of them
+    prefer_dual_setters: float = 8.0
+    prefer_single_setter: float = 2.0
     too_many_setters_penalty: float = 2.0
 
-    # Beneficiaries caps (avoid over-investing)
+    # Beneficiaries caps
     beneficiary_cap: int = 2
     beneficiary_bonus: float = 1.2
     beneficiary_overcap_penalty: float = 1.5
@@ -272,15 +247,95 @@ class DualPlanConfig:
     base_score_weight: float = 1.0
     shared_weakness_penalty: float = 0.18
 
+    # 시간 예산 (초): 3분 제한에서 10초 버퍼
+    time_budget_s: float = 170.0
+
 
 class SmartTeamBuildPolicy(TeamBuildPolicy):
     """
-    Drop-in replacement for your SmartTeamBuildPolicy with weather-aware dual-plan.
+    3분 예산을 최대한 활용하는 팀 빌드 정책.
+
+    1단계: 모든 시작 포켓몬에서 Greedy를 실행해 최선 팀 탐색.
+    2단계: 시간이 남으면 로컬 스왑(멤버 1명 교체)으로 추가 개선.
     """
 
     def __init__(self, cfg: DualPlanConfig | None = None):
         self.cfg = cfg or DualPlanConfig()
         self.params = BattleRuleParam()
+
+    def _eval_team_score(
+        self,
+        selected: list[int],
+        n: int,
+        dmg: np.ndarray,
+        base_scores: np.ndarray,
+        species_weather: list[set],
+        rain_benef: np.ndarray,
+        sun_benef: np.ndarray,
+        roster,
+    ) -> float:
+        """
+        팀의 절대적 품질 점수. 서로 다른 greedy 실행 결과를 비교하는 데 사용.
+        """
+        cfg = self.cfg
+        q = max(1, int(0.2 * n))
+
+        # 날씨별 robust coverage (하위 20% 평균 기준)
+        tail_scores = []
+        for wi in range(len(WEATHER_STATES)):
+            cov = np.zeros(n)
+            for i in selected:
+                np.maximum(cov, dmg[wi, i, :], out=cov)
+            tail_scores.append(float(np.mean(np.partition(cov, q - 1)[:q])))
+        tail_arr = np.array(tail_scores)
+        cov_score = cfg.robust_min_w * tail_arr.min() + cfg.robust_mean_w * tail_arr.mean()
+
+        # 팀 평균 개체 점수
+        base_avg = float(np.mean([base_scores[i] for i in selected]))
+
+        # 날씨 세터 보너스
+        has_rain = any(Weather.RAIN in species_weather[i] for i in selected)
+        has_sun = any(Weather.SUN in species_weather[i] for i in selected)
+        if has_rain and has_sun:
+            setter_bonus = cfg.prefer_dual_setters
+        elif has_rain or has_sun:
+            setter_bonus = cfg.prefer_single_setter
+        else:
+            setter_bonus = 0.0
+
+        n_setters = sum(1 for i in selected if len(species_weather[i]) > 0)
+        if n_setters >= 3:
+            setter_bonus -= cfg.too_many_setters_penalty * (n_setters - 2)
+
+        # 수혜자 보너스
+        rain_b = sum(1 for i in selected if rain_benef[i] > 0)
+        sun_b = sum(1 for i in selected if sun_benef[i] > 0)
+        benef_bonus = 0.0
+        for b in (rain_b, sun_b):
+            if b <= cfg.beneficiary_cap:
+                benef_bonus += cfg.beneficiary_bonus * b
+            else:
+                benef_bonus += cfg.beneficiary_bonus * cfg.beneficiary_cap
+                benef_bonus -= cfg.beneficiary_overcap_penalty * (b - cfg.beneficiary_cap)
+
+        # 방어 약점 공유 패널티 (팀 내 모든 쌍 기준)
+        sw = 0
+        sel_list = list(selected)
+        for a in range(len(sel_list)):
+            for b_idx in range(a + 1, len(sel_list)):
+                for atk_type in range(18):
+                    eff1, eff2 = 1.0, 1.0
+                    for dt in roster[sel_list[a]].types:
+                        eff1 *= TYPE_CHART[atk_type, int(dt)]
+                    for dt in roster[sel_list[b_idx]].types:
+                        eff2 *= TYPE_CHART[atk_type, int(dt)]
+                    if eff1 > 1.0 and eff2 > 1.0:
+                        sw += 1
+
+        return (cfg.coverage_weight * cov_score +
+                cfg.base_score_weight * base_avg +
+                setter_bonus + benef_bonus -
+                cfg.shared_weakness_penalty * float(sw))
 
     def decision(
         self,
@@ -294,159 +349,180 @@ class SmartTeamBuildPolicy(TeamBuildPolicy):
         if n == 0:
             return []
 
-        # Precompute weather-set capabilities and offense beneficiary scores
-        species_weather = [ _species_weather_set(roster[i]) for i in range(n) ]
+        cfg = self.cfg
+        start_time = time.perf_counter()
+
+        # ── 1. 한 번만 수행하는 사전 계산 ──────────────────────────────────
+        species_weather = [_species_weather_set(roster[i]) for i in range(n)]
         rain_benef = np.array([_offense_benefit_score(roster[i], Weather.RAIN) for i in range(n)], dtype=float)
         sun_benef = np.array([_offense_benefit_score(roster[i], Weather.SUN) for i in range(n)], dtype=float)
 
-        # Build weather-specific damage matrices
-        # dmg[w_idx][i][j] = best ratio i->j in weather w
+        # 5(날씨) × n × n 데미지 비율 매트릭스
         dmg = np.zeros((len(WEATHER_STATES), n, n), dtype=float)
         for wi, w in enumerate(WEATHER_STATES):
             for i in range(n):
-                ai = roster[i]
                 for j in range(n):
-                    dj = roster[j]
-                    dmg[wi, i, j] = _best_damage_ratio_weather(ai, dj, w, self.params)
+                    dmg[wi, i, j] = _best_damage_ratio_weather(roster[i], roster[j], w, self.params)
 
-        # Base scores (use CLEAR to remain "reasonable" without weather)
-        base_scores = np.zeros(n, dtype=float)
         clear_idx = WEATHER_STATES.index(Weather.CLEAR)
+        base_scores = np.zeros(n, dtype=float)
         for i in range(n):
-            firepower = float(np.mean(dmg[clear_idx, i]))  # average vs roster under CLEAR
+            firepower = float(np.mean(dmg[clear_idx, i]))
             bulk = _score_bulk(roster[i])
             speed = roster[i].base_stats[Stat.SPEED] / 150.0
             base_scores[i] = 1.0 * firepower + 0.5 * bulk + 0.3 * speed
 
-        # Pick first by base_scores (as before)
-        selected: list[int] = []
+        # ── 2. Greedy 한 번 실행하는 내부 함수 ────────────────────────────
+        def run_greedy(start_idx: int) -> list[int]:
+            """주어진 시작 포켓몬에서 Greedy로 팀 구성."""
+            selected = [start_idx]
+            coverage = dmg[:, start_idx, :].copy()  # shape (W, n)
+            candidates = set(range(n)) - {start_idx}
+
+            def team_has_setter(weather: Weather, ids: list[int]) -> bool:
+                return any(weather in species_weather[i] for i in ids)
+
+            def count_setters(ids: list[int]) -> int:
+                return sum(1 for i in ids if len(species_weather[i]) > 0)
+
+            def count_beneficiaries(ids: list[int], weather: Weather) -> int:
+                scores = rain_benef if weather == Weather.RAIN else sun_benef
+                return sum(1 for i in ids if scores[i] > 0)
+
+            def shared_def_weakness(team_ids: list[int], cand: int) -> int:
+                shared = 0
+                for sel in team_ids:
+                    for atk_type in range(18):
+                        eff1, eff2 = 1.0, 1.0
+                        for dt in roster[sel].types:
+                            eff1 *= TYPE_CHART[atk_type, int(dt)]
+                        for dt in roster[cand].types:
+                            eff2 *= TYPE_CHART[atk_type, int(dt)]
+                        if eff1 > 1.0 and eff2 > 1.0:
+                            shared += 1
+                return shared
+
+            def robust_improvement(old_cov_w: np.ndarray, new_cov_w: np.ndarray) -> float:
+                q = max(1, int(0.2 * n))
+                old_tail, new_tail, old_range, new_range = [], [], [], []
+                for wi in range(len(WEATHER_STATES)):
+                    oc, nc = old_cov_w[wi], new_cov_w[wi]
+                    old_tail.append(float(np.mean(np.partition(oc, q - 1)[:q])))
+                    new_tail.append(float(np.mean(np.partition(nc, q - 1)[:q])))
+                    old_range.append(float(oc.max() - oc.min()))
+                    new_range.append(float(nc.max() - nc.min()))
+                old_tail_a = np.array(old_tail)
+                new_tail_a = np.array(new_tail)
+                old_range_a = np.array(old_range)
+                new_range_a = np.array(new_range)
+                per_w = 1.0 * (new_tail_a - old_tail_a) + 0.35 * (old_range_a - new_range_a)
+                return cfg.robust_min_w * float(per_w.min()) + cfg.robust_mean_w * float(per_w.mean())
+
+            for _ in range(1, min(max_team_size, n)):
+                best_i, best_val = None, -1e18
+
+                for i in candidates:
+                    new_cov = coverage + dmg[:, i, :]
+                    cov_val = robust_improvement(coverage, new_cov)
+
+                    before_rain = team_has_setter(Weather.RAIN, selected)
+                    before_sun = team_has_setter(Weather.SUN, selected)
+                    after_rain = before_rain or (Weather.RAIN in species_weather[i])
+                    after_sun = before_sun or (Weather.SUN in species_weather[i])
+
+                    setter_bonus = 0.0
+                    if after_rain and after_sun:
+                        setter_bonus += cfg.prefer_dual_setters
+                    elif after_rain or after_sun:
+                        setter_bonus += cfg.prefer_single_setter
+
+                    setters_after = count_setters(selected + [i])
+                    if setters_after >= 3:
+                        setter_bonus -= cfg.too_many_setters_penalty * (setters_after - 2)
+
+                    rain_b = count_beneficiaries(selected + [i], Weather.RAIN)
+                    sun_b = count_beneficiaries(selected + [i], Weather.SUN)
+                    benef_bonus = 0.0
+                    for b in (rain_b, sun_b):
+                        if b <= cfg.beneficiary_cap:
+                            benef_bonus += cfg.beneficiary_bonus * b
+                        else:
+                            benef_bonus += cfg.beneficiary_bonus * cfg.beneficiary_cap
+                            benef_bonus -= cfg.beneficiary_overcap_penalty * (b - cfg.beneficiary_cap)
+
+                    sw = shared_def_weakness(selected, i)
+                    val = (cfg.coverage_weight * cov_val +
+                           cfg.base_score_weight * float(base_scores[i]) +
+                           setter_bonus + benef_bonus -
+                           cfg.shared_weakness_penalty * float(sw))
+
+                    if val > best_val:
+                        best_val = val
+                        best_i = i
+
+                if best_i is None:
+                    break
+                selected.append(best_i)
+                coverage += dmg[:, best_i, :]
+                candidates.remove(best_i)
+
+            return selected
+
+        def eval_team(team: list[int]) -> float:
+            return self._eval_team_score(
+                team, n, dmg, base_scores, species_weather, rain_benef, sun_benef, roster
+            )
+
+        # ── 3. 단계 1: 모든 시작점에서 Greedy 실행 ────────────────────────
         first = int(np.argmax(base_scores))
-        selected.append(first)
+        best_team = run_greedy(first)
+        best_score = eval_team(best_team)
 
-        # coverage per weather: sum of selected attackers' row vectors
-        coverage = dmg[:, first, :].copy()  # shape (W, n)
-        candidates = set(range(n)) - {first}
+        # 나머지 시작점들을 무작위 순서로 시도
+        all_starts = list(range(n))
+        random.shuffle(all_starts)
 
-        def team_has_setter(weather: Weather, team_ids: list[int]) -> bool:
-            return any(weather in species_weather[i] for i in team_ids)
+        for start_idx in all_starts:
+            if time.perf_counter() - start_time >= cfg.time_budget_s:
+                break
+            if start_idx == first:
+                continue
+            team = run_greedy(start_idx)
+            score = eval_team(team)
+            if score > best_score:
+                best_score = score
+                best_team = team
 
-        def count_setters(team_ids: list[int]) -> int:
-            return sum(1 for i in team_ids if len(species_weather[i]) > 0)
+        # ── 4. 단계 2: 로컬 스왑 개선 (남은 시간 활용) ────────────────────
+        # 팀 멤버 1명을 로스터의 다른 포켓몬으로 교체했을 때 점수가 오르면 수락.
+        # 개선이 없을 때까지 또는 시간 초과까지 반복.
+        non_members = set(range(n)) - set(best_team)
+        improved = True
+        while improved and time.perf_counter() - start_time < cfg.time_budget_s:
+            improved = False
+            for slot_idx in range(len(best_team)):
+                if time.perf_counter() - start_time >= cfg.time_budget_s:
+                    break
+                old_member = best_team[slot_idx]
+                for new_member in list(non_members):
+                    if time.perf_counter() - start_time >= cfg.time_budget_s:
+                        break
+                    trial = list(best_team)
+                    trial[slot_idx] = new_member
+                    trial_score = eval_team(trial)
+                    if trial_score > best_score:
+                        best_score = trial_score
+                        best_team = trial
+                        non_members.remove(new_member)
+                        non_members.add(old_member)
+                        improved = True
+                        break  # 이 슬롯 개선 완료, 다음 슬롯으로
+                if improved:
+                    break  # 전체 팀 재평가를 위해 외부 루프 재시작
 
-        def count_beneficiaries(team_ids: list[int], weather: Weather) -> int:
-            if weather == Weather.RAIN:
-                scores = rain_benef
-            elif weather == Weather.SUN:
-                scores = sun_benef
-            else:
-                return 0
-            # beneficiary = has non-trivial score
-            return sum(1 for i in team_ids if scores[i] > 0)
-
-        def shared_def_weakness(team_ids: list[int], cand: int) -> int:
-            # reuse your previous style, just slightly simplified and bounded
-            shared = 0
-            for sel in team_ids:
-                for atk_type in range(18):
-                    eff1 = 1.0
-                    for dt in roster[sel].types:
-                        eff1 *= TYPE_CHART[atk_type, dt]
-                    eff2 = 1.0
-                    for dt in roster[cand].types:
-                        eff2 *= TYPE_CHART[atk_type, dt]
-                    if eff1 > 1.0 and eff2 > 1.0:
-                        shared += 1
-            return shared
-
-        def robust_improvement(old_cov_w: np.ndarray, new_cov_w: np.ndarray) -> float:
-            """
-            old_cov_w/new_cov_w: shape (W, n)
-            We'll measure improvement as:
-              + (weak_tail_mean increase) - (range increase penalty)
-            using robust aggregation across weathers.
-            """
-            # weak-tail: mean of bottom 20% coverage values (per weather)
-            q = max(1, int(0.2 * n))
-            old_tail = []
-            new_tail = []
-            old_range = []
-            new_range = []
-            for wi in range(len(WEATHER_STATES)):
-                oc = old_cov_w[wi]
-                nc = new_cov_w[wi]
-                old_tail.append(float(np.mean(np.partition(oc, q - 1)[:q])))
-                new_tail.append(float(np.mean(np.partition(nc, q - 1)[:q])))
-                old_range.append(float(oc.max() - oc.min()))
-                new_range.append(float(nc.max() - nc.min()))
-
-            old_tail = np.array(old_tail)
-            new_tail = np.array(new_tail)
-            old_range = np.array(old_range)
-            new_range = np.array(new_range)
-
-            tail_gain = new_tail - old_tail
-            range_gain = old_range - new_range  # prefer decreasing range
-
-            # aggregate per weather into a single value
-            per_w = 1.0 * tail_gain + 0.35 * range_gain
-            return (self.cfg.robust_min_w * float(per_w.min()) +
-                    self.cfg.robust_mean_w * float(per_w.mean()))
-
-        for _ in range(1, min(max_team_size, n)):
-            best_i = None
-            best_val = -1e18
-
-            for i in candidates:
-                new_cov = coverage + dmg[:, i, :]
-                cov_val = robust_improvement(coverage, new_cov)
-
-                # dual-plan setter shaping
-                before_rain = team_has_setter(Weather.RAIN, selected)
-                before_sun = team_has_setter(Weather.SUN, selected)
-                after_rain = before_rain or (Weather.RAIN in species_weather[i])
-                after_sun = before_sun or (Weather.SUN in species_weather[i])
-
-                setter_bonus = 0.0
-                if after_rain and after_sun:
-                    setter_bonus += self.cfg.prefer_dual_setters
-                elif after_rain or after_sun:
-                    setter_bonus += self.cfg.prefer_single_setter
-
-                # penalize too many setters (over-invest)
-                setters_after = count_setters(selected + [i])
-                if setters_after >= 3:
-                    setter_bonus -= self.cfg.too_many_setters_penalty * (setters_after - 2)
-
-                # beneficiary shaping (soft, capped)
-                rain_b = count_beneficiaries(selected + [i], Weather.RAIN)
-                sun_b = count_beneficiaries(selected + [i], Weather.SUN)
-                benef_bonus = 0.0
-                for b in (rain_b, sun_b):
-                    if b <= self.cfg.beneficiary_cap:
-                        benef_bonus += self.cfg.beneficiary_bonus * b
-                    else:
-                        benef_bonus += self.cfg.beneficiary_bonus * self.cfg.beneficiary_cap
-                        benef_bonus -= self.cfg.beneficiary_overcap_penalty * (b - self.cfg.beneficiary_cap)
-
-                # defensive weakness penalty (as before)
-                sw = shared_def_weakness(selected, i)
-
-                val = (self.cfg.coverage_weight * cov_val +
-                       self.cfg.base_score_weight * float(base_scores[i]) +
-                       setter_bonus + benef_bonus -
-                       self.cfg.shared_weakness_penalty * float(sw))
-
-                if val > best_val:
-                    best_val = val
-                    best_i = i
-
-            selected.append(best_i)
-            coverage += dmg[:, best_i, :]
-            candidates.remove(best_i)
-
-        # Build commands with EV/nature + move selection (same as before)
+        # ── 5. 커맨드 생성 (EV/IV/Nature/기술 배정) ───────────────────────
         cmds: TeamBuildCommand = []
-        for idx in selected:
+        for idx in best_team:
             species = roster[idx]
             orientation = _determine_orientation(species)
 

@@ -282,12 +282,16 @@ def _safe_fallback_indices(n: int, max_size: int) -> List[int]:
     return list(range(min(max_size, n)))
 
 
+N_SELECT = 4  # 실제 대회 선발 인원: 6마리 중 4마리
+
+
 class CoverageSelectionPolicy(SelectionPolicy):
     """
     Drop-in replacement selection policy.
 
     - Never returns invalid indices
-    - Exhaustive search over all 4-combinations
+    - Exhaustive search over all C(6,4)=15 combinations
+    - max_size는 팀 빌드 크기(예: 6)이고, 실제 선발 인원은 항상 4
     """
 
     def __init__(self):
@@ -302,18 +306,22 @@ class CoverageSelectionPolicy(SelectionPolicy):
             if m == 0:
                 return []
 
-            if max_size >= m:
+            # max_size는 팀 빌드 크기(6)이고, 실제 선발 인원은 4
+            # min(N_SELECT, max_size, m)으로 어떤 설정에도 올바르게 동작
+            n_pick = min(N_SELECT, max_size, m)
+
+            if n_pick >= m:
                 return list(range(m))
 
             # If opponent team is empty for some reason, just pick top-4 by bulk-ish heuristic
             if not opp_team:
-                return _safe_fallback_indices(m, max_size)
+                return _safe_fallback_indices(m, n_pick)
 
             # Evaluate all combinations (C(6,4)=15 typical)
             best_combo = None
             best_score = -1e18
 
-            for combo in combinations(range(m), max_size):
+            for combo in combinations(range(m), n_pick):
                 my4 = [my_team[i] for i in combo]
 
                 cov_score = _robust_coverage_score(my4, opp_team, self.params)
@@ -331,18 +339,30 @@ class CoverageSelectionPolicy(SelectionPolicy):
                         bulk += (hp * df * sd)
                 bulk *= 0.08
 
-                score = 1.6 * cov_score + plan_bonus + bulk
+                # 절대 공격력 + 스피드 보너스
+                # 타입 커버리지를 위해 스탯이 낮은 포켓몬을 선발하는 것을 방지
+                power = 0.0
+                for p in my4:
+                    st = getattr(p, "stats", None)
+                    if st:
+                        atk = float(st[Stat.ATTACK]) / 300.0
+                        spa = float(st[Stat.SPECIAL_ATTACK]) / 300.0
+                        spd_val = float(st[Stat.SPEED]) / 250.0
+                        power += max(atk, spa) + 0.2 * spd_val
+                power *= 0.2
+
+                score = 1.6 * cov_score + plan_bonus + bulk + power
 
                 if score > best_score:
                     best_score = score
                     best_combo = combo
 
             if best_combo is None:
-                return _safe_fallback_indices(m, max_size)
+                return _safe_fallback_indices(m, n_pick)
 
             return list(best_combo)
 
         except Exception:
             # hard safety: never crash benchmark
             n = len(getattr(teams[0], "members", []))
-            return _safe_fallback_indices(n, max_size)
+            return _safe_fallback_indices(n, min(N_SELECT, max_size, n))

@@ -13,7 +13,8 @@ from team_build_policy import SmartTeamBuildPolicy
 class DaehoCompetitor(Competitor):
     def __init__(self, name: str = "Daeho_AI"):
         self.__name = name
-        self.__battle_policy = ChampionshipBattlePolicy()
+        # Championship battle은 시간 제한 없음 → MCTS를 충분히 돌림
+        self.__battle_policy = ChampionshipBattlePolicy(time_limit_ms=5000)
         self.__selection_policy = CoverageSelectionPolicy()
         self.__team_build_policy = SmartTeamBuildPolicy()
 
