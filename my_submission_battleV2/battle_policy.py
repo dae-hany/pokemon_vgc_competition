@@ -27,17 +27,47 @@ def _effective_speed(pkm, state: State) -> float:
 def _best_move(params, state: State, slot: int) -> BattleCommand:
     pkm = state.sides[0].team.active[slot]
     opp_active = state.sides[1].team.active
-    best_dmg, best_cmd = -1, (0, 0)
+    best_score, best_cmd = -1.0, (0, 0)
     for di, d in enumerate(opp_active):
+        if d is None:
+            continue
+            
+        # 1. 모든 PHYSICAL/SPECIAL 기술의 최고 데미지 계산
+        max_phys_spec_dmg = 0.0
+        for bm in pkm.battling_moves:
+            if bm.pp > 0 and not bm.disabled and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL):
+                dmg = calculate_damage(params, 0, bm.constants, state, pkm, d)
+                if dmg > max_phys_spec_dmg:
+                    max_phys_spec_dmg = float(dmg)
+                    
+        max_hp = d.constants.stats[Stat.MAX_HP]
+        allow_status = (max_phys_spec_dmg < max_hp * 0.20)
+        
         for mi, bm in enumerate(pkm.battling_moves):
-            if bm.pp == 0 or bm.disabled or bm.constants.category not in (Category.PHYSICAL, Category.SPECIAL):
+            if bm.pp == 0 or bm.disabled:
                 continue
-            dmg = calculate_damage(params, 0, bm.constants, state, pkm, d)
-            if bm.constants.priority > 0 and dmg >= d.hp:
-                return (mi, di)
-            if dmg > best_dmg:
-                best_dmg, best_cmd = dmg, (mi, di)
-    return best_cmd if best_dmg >= 0 else (0, 0)
+            
+            score = 0.0
+            if bm.constants.category in (Category.PHYSICAL, Category.SPECIAL):
+                dmg = calculate_damage(params, 0, bm.constants, state, pkm, d)
+                if bm.constants.priority > 0 and dmg >= d.hp:
+                    return (mi, di)
+                score = float(dmg)
+            elif bm.constants.category == Category.OTHER and allow_status:
+                if d.status == Status.NONE:
+                    if bm.constants.status == Status.SLEEP:
+                        score = max_hp * 0.5
+                    elif bm.constants.status == Status.PARALYZED:
+                        score = max_hp * 0.4
+                    elif bm.constants.status == Status.BURN:
+                        score = max_hp * 0.2
+                    elif bm.constants.status in (Status.POISON, Status.TOXIC):
+                        score = max_hp * 0.15
+            
+            if score > best_score:
+                best_score, best_cmd = score, (mi, di)
+    return best_cmd if best_score >= 0.0 else (0, 0)
+
 
 
 def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | None:
@@ -194,6 +224,8 @@ def _best_assignment(params, state: State) -> list[BattleCommand]:
     best_score = -1.0
     best_cmds = [(0, 0), (0, 0)]
     for di, d in enumerate(opp_active):
+        if d is None:
+            continue
         opp_spd = _effective_speed(d, state)
         speed_clean = my_spd[0] > opp_spd or my_spd[1] > opp_spd
 
