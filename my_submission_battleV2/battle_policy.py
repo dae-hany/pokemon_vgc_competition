@@ -237,24 +237,6 @@ def _partner_can_ko_specific(params, state: State, slot: int, opp_di: int) -> bo
     return False
 
 
-def _will_be_koed_first(params, state: State, slot: int) -> bool:
-    pkm = state.sides[0].team.active[slot]
-    my_spd = _effective_speed(pkm, state)
-    for opp in state.sides[1].team.active:
-        opp_spd = _effective_speed(opp, state)
-        if opp_spd <= my_spd:
-            continue
-        incoming = max(
-            (calculate_damage(params, 1, bm.constants, state, opp, pkm)
-             for bm in opp.battling_moves
-             if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)),
-            default=0
-        )
-        if incoming >= pkm.hp:
-            return True
-    return False
-
-
 def _try_protect(params, state: State, slot: int) -> BattleCommand | None:
     pkm = state.sides[0].team.active[slot]
 
@@ -323,7 +305,7 @@ class StrategyBattlePolicy(BattlePolicy):
 
         # 1. 위협 슬롯 처리: solo KO 가능하면 공격 위임, 아니면 Protect → switch 순
         for slot in range(2):
-            if _can_solo_ko(self.params, state, slot) and not _will_be_koed_first(self.params, state, slot):
+            if _can_solo_ko(self.params, state, slot):
                 continue
             pt = _try_protect(self.params, state, slot)
             if pt is not None:
