@@ -11,3 +11,6 @@
 *.zip
 *.csv
 minseo_lee/
+
+.vscode/
+*claude/

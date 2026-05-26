@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\daeho\\\\pokemon-vgc-engine\\\\edition\\\\vgc2025\\\\submissions\\\\\" -Directory | Select-Object Name)",
-      "Bash(Get-ChildItem -Path 'C:\\\\Users\\\\daeho\\\\pokemon-vgc-engine\\\\edition\\\\vgc2025\\\\submissions\\\\' -Directory)",
-      "Bash(Select-Object -ExpandProperty Name)"
-    ]
-  }
-}
