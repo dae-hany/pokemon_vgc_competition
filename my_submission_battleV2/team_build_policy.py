@@ -115,7 +115,7 @@ def _select_best_moves(species, max_moves: int) -> list[int]:
 
 
 def _greedy_fill(core_idxs: list[int], damage_matrix: np.ndarray,
-                 base_scores: np.ndarray, max_team_size: int, n: int) -> list[int]:
+                 base_scores: np.ndarray, max_team_size: int, n: int, roster: Roster) -> list[int]:
     team = list(core_idxs)
     coverage = np.sum(damage_matrix[team], axis=0) if team else np.zeros(n)
     candidates = set(range(n)) - set(team)
@@ -126,7 +126,21 @@ def _greedy_fill(core_idxs: list[int], damage_matrix: np.ndarray,
             new_cov = coverage + damage_matrix[i]
             new_range = new_cov.max() - new_cov.min()
             delta = old_range - new_range
-            val = 1.5 * delta + 1.0 * base_scores[i]
+            
+            # Check for shared defensive weaknesses
+            shared_weakness = 0
+            for sel in team:
+                for atk_type in range(18):
+                    eff1 = 1.0
+                    for dt in roster[sel].types:
+                        eff1 *= TYPE_CHART[atk_type, dt]
+                    eff2 = 1.0
+                    for dt in roster[i].types:
+                        eff2 *= TYPE_CHART[atk_type, dt]
+                    if eff1 > 1.0 and eff2 > 1.0:
+                        shared_weakness += 1
+                        
+            val = 1.5 * delta + 1.0 * base_scores[i] - 0.2 * shared_weakness
             if val > best_val:
                 best_val, best_i = val, i
         team.append(best_i)
@@ -163,7 +177,7 @@ class SmartTeamBuildPolicy(TeamBuildPolicy):
 
         # Greedy team selection from best base-score Pokemon
         first_idx = int(np.argmax(base_scores))
-        selected_ids = _greedy_fill([first_idx], damage_matrix, base_scores, max_team_size, n)
+        selected_ids = _greedy_fill([first_idx], damage_matrix, base_scores, max_team_size, n, roster)
 
         # Local swap improvement: single-member swap that raises composite score.
         # composite = coverage mean + 0.5 * team quality mean
