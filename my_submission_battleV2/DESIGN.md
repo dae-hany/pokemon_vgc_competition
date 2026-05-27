@@ -294,11 +294,16 @@ score = (dmg1 + dmg2 + KO보너스 + priority보너스) / max_hp + 위협도 보
 | P2-v2 | `battle_policy.py` | STATUS 기술 데미지 플랜B (데미지 <20% 시만) | Greedy +3.7%, Championship -4% — net 부정적 | ❌ 롤백 |
 | P3 | `battle_policy.py` | 스크린 incoming 데미지 수동 보정 | 엔진 버그로 오히려 AI 오판 유발 (-3.3%) | ❌ 롤백 |
 | **P4** | `team_build_policy.py` | 공유 약점 패널티 복구 (-0.2 × shared_weakness) | Championship +23 ELO | ✅ 적용 |
+| P5 | `selection_policy.py` | 선발 카운터피킹 — 적 전략 감지 후 속도/내구 기준 리드 재정렬 | Championship friends -23.6% — 적 팀 전체로 전략 추정 시 오판 多 | ❌ 롤백 |
+| P6 | `battle_policy.py` | 위협도 상시 반영 (`danger_bonus` 조건 제거) | Greedy +4.4%, JJJ -4.1%, Yamabuki -1.0% — net 부정적 | ❌ 롤백 |
+| **P7** | `battle_policy.py` | 교체 후보 즉시 KO 가능 시 score +15000 보너스 | Friends Battle +0%, Championship -4% (Yamabuki -6%) — friends 기준 채택 | ✅ 적용 |
 
 ### 교훈
 
 - **P2**: STATUS 기술은 "공격력이 아예 없을 때 최후 수단"으로만 쓸 때도 championship에서 턴 낭비 패널티 발생. VGC 환경에서 상태이상 기술의 가치는 상대방의 적응 수준에 크게 좌우됨.
 - **P3**: 엔진의 `calculate_modifier()`가 스크린을 공격 측 조건으로 잘못 읽음 → 배틀 중 실제 피해는 스크린 적용 안 됨. AI가 "스크린 있으니 안전"으로 오판하면 오히려 손해.
+- **P5**: `identify_strategy(enemy_team, my_team)` 역호출로 적 전략을 추정했으나, 상대 6마리 전체를 보고 판단하면 실제 선발 4마리와 괴리가 커 오히려 아군 시너지를 파괴.
+- **P6/P7**: 공격 타겟팅·교체 후보 변경은 Greedy/JJJ엔 유효하지만 Yamabuki처럼 강한 상대는 행동 변화를 역이용. 단순 스코어 튜닝의 한계.
 
 ---
 
@@ -323,15 +328,14 @@ modifier *= reflect_modifier(params, move, state.sides[attacking_side].condition
 
 | 우선순위 | 개선 내용 | 예상 효과 |
 |---|---|---|
-| 🔴 High | `_best_assignment` 위협도 가중치 정밀화 — KO 불가 상황에서도 threat_d 반영 | Yamabuki 승률 개선 |
-| 🔴 High | P5: 선발 카운터피킹 — `opp_view` 활용해 상대 TR/날씨 감지 후 리드 조정 | Championship +α |
-| 🟡 Medium | 교체 후 공격 우선순위 — switch-in 첫 턴에 priority 기술 우선 탐색 | 교체 이득 극대화 |
-| 🟡 Medium | HP 잔량 기반 공격 강도 조절 — HP 우위 시 보존, 열세 시 공격적으로 | 전반적 승률 |
+| 🔴 High (미시도) | 교체 후 공격 우선순위 — switch-in 첫 턴에 priority 기술 우선 탐색 | 교체 이득 극대화 |
+| 🔴 High (미시도) | HP 잔량 기반 공격 강도 조절 — HP 우위 시 보존, 열세 시 공격적으로 | 전반적 승률 |
+| ~~🔴 High~~ | ~~`_best_assignment` 위협도 가중치 정밀화~~ | ~~P6로 시도 → 역효과~~ |
+| ~~🔴 High~~ | ~~P5: 선발 카운터피킹~~ | ~~시도 → Championship 대폭 하락~~ |
 | 🟢 Low | 상태이상 기술 재설계 — "타입 면역 또는 moves exhausted" 상황에서만 사용 | Greedy 회복 |
 
 ### Championship Track
 
 | 우선순위 | 개선 내용 | 예상 효과 |
 |---|---|---|
-| 🔴 High | P5: 선발 카운터피킹 (`selection_policy.py`) | ELO +α |
 | 🟡 Medium | `_score_attacker` 가중치 재조정 (현재 SPD_r 0.55가 과도할 수 있음) | 팀 밸런스 개선 |

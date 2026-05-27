@@ -119,7 +119,14 @@ def _try_survival_switch(params, state: State, slot: int) -> BattleCommand | Non
                 break
         if resists:
             score *= 1.3
-            
+        can_ko = any(
+            calculate_damage(params, 0, bm.constants, state, r, opp) >= opp.hp
+            for opp in opp_active
+            for bm in r.battling_moves
+            if bm.pp > 0 and bm.constants.category in (Category.PHYSICAL, Category.SPECIAL)
+        )
+        if can_ko:
+            score += 15000
         if score > best_score:
             best_score, best_ri = score, ri
 
