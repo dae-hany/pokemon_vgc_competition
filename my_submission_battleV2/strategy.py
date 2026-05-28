@@ -94,7 +94,10 @@ def _score_attacker(pkm: Pokemon, enemy_team: list[Pokemon]) -> float:
     hp_r = pkm.stats[Stat.MAX_HP] / 402
     def_r = pkm.stats[Stat.DEFENSE] / 257
     spd_r = pkm.stats[Stat.SPEED] / 257
-    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r
+    # Defensive penalty: prefer Pokémon that take less damage from the opponent
+    def_penalty = (sum(_estimate_damage_ratio(e, pkm) for e in enemy_team)
+                   / max(len(enemy_team), 1))
+    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r - 0.50 * def_penalty
 
 
 def _pick_best_n(candidate_idxs: list[int], my_team: list[Pokemon],
