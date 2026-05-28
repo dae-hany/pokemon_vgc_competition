@@ -1,0 +1,13 @@
+{
+  "iteration": 0,
+  "phase": "baseline",
+  "baseline": {
+    "greedy": null,
+    "jjj": null,
+    "yamabuki": null,
+    "git_hash": "33b5188"
+  },
+  "current_experiment": null,
+  "history": [],
+  "queue": ["P8", "P9", "P10", "P11", "P12"]
+}

@@ -12,7 +12,7 @@ if sys.stdout.encoding != 'utf-8':
 # Parse --submission early so sys.path is set before module-level imports
 import argparse as _argparse
 _pre_parser = _argparse.ArgumentParser(add_help=False)
-_pre_parser.add_argument('--submission', choices=['battle', 'battleV2'], default='battle')
+_pre_parser.add_argument('--submission', choices=['battle', 'battleV2'], default='battleV2')
 _pre_args, _ = _pre_parser.parse_known_args()
 _submission_folder = 'my_submission_' + _pre_args.submission
 
@@ -185,10 +185,13 @@ def benchmark_battle(opponent_name, opp_comp, my_comp, n_matches=100):
 
 FAST_TARGETS = {"Greedy", "JJJ", "Yamabuki"}
 
+LOOP_COUNTS = {"Greedy": 400, "JJJ": 400, "Yamabuki": 100}
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--fast', action='store_true', help='Run only Random/Greedy/JJJ/Yamabuki')
+    parser.add_argument('--loop', action='store_true', help='Fast iteration mode: Greedy/JJJ 400, Yamabuki 100')
     parser.add_argument('--submission', choices=['battle', 'battleV2'], default='battle',
                         help='Which submission folder to use (default: battle)')
     args = parser.parse_args()
@@ -215,7 +218,11 @@ if __name__ == '__main__':
         ("Caaaden",      "caaaden_competitor",       "caaaden_competitor",     "CaaadenCompetitor",      None,       1000),
     ]
 
-    if args.fast:
+    if args.loop:
+        targets = [(name, folder, c_file, c_cls, extra, LOOP_COUNTS[name])
+                   for (name, folder, c_file, c_cls, extra, _) in targets
+                   if name in LOOP_COUNTS]
+    elif args.fast:
         targets = [t for t in targets if t[0] in FAST_TARGETS]
 
     print("Loading Battle Policies...")
