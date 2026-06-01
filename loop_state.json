@@ -1,13 +1,167 @@
 {
-  "iteration": 0,
-  "phase": "baseline",
+  "iteration": 15,
+  "phase": "pending",
   "baseline": {
-    "greedy": null,
-    "jjj": null,
-    "yamabuki": null,
-    "git_hash": "33b5188"
+    "greedy": 61.8,
+    "jjj": 64.0,
+    "yamabuki": 62.0,
+    "git_hash": "5fc2ca0",
+    "note": "P21 baseline. battle_benchmark 고분산(단일측정 ±2.5~5%, Yamabuki ±5%) — 절대수치 신뢰도 낮음. 한 측정에서 57/57/46 관측됨. P23a/b/E3는 노이즈로 미채택."
   },
   "current_experiment": null,
-  "history": [],
-  "queue": ["P8", "P9", "P10", "P11", "P12"]
+  "history": [
+    {
+      "id": "P8",
+      "status": "revert",
+      "results": {
+        "Greedy": 58.8,
+        "JJJ": 51.5,
+        "Yamabuki": 57.0
+      }
+    },
+    {
+      "id": "P9",
+      "status": "revert",
+      "results": {
+        "Greedy": 56.6,
+        "JJJ": 56.0,
+        "Yamabuki": 60.0
+      }
+    },
+    {
+      "id": "P10",
+      "status": "revert",
+      "results": {
+        "Greedy": 60.5,
+        "JJJ": 54.5,
+        "Yamabuki": 45.0
+      }
+    },
+    {
+      "id": "P11",
+      "status": "revert",
+      "results": {
+        "Greedy": 56.7,
+        "JJJ": 55.0,
+        "Yamabuki": 51.0
+      }
+    },
+    {
+      "id": "P12",
+      "status": "revert",
+      "results": {
+        "Greedy": 58.8,
+        "JJJ": 58.8,
+        "Yamabuki": 45.0
+      }
+    },
+    {
+      "id": "P13",
+      "status": "revert",
+      "results": {
+        "Greedy": 53.0,
+        "JJJ": 62.3,
+        "Yamabuki": 42.0
+      }
+    },
+    {
+      "id": "P14",
+      "status": "revert",
+      "results": {
+        "Greedy": 58.2,
+        "JJJ": 57.8,
+        "Yamabuki": 46.0
+      }
+    },
+    {
+      "id": "P15",
+      "status": "revert",
+      "results": {
+        "Greedy": 54.0,
+        "JJJ": 56.5,
+        "Yamabuki": 57.0
+      }
+    },
+    {
+      "id": "P16",
+      "status": "revert",
+      "results": {
+        "Greedy": 55.5,
+        "JJJ": 54.0,
+        "Yamabuki": 42.0
+      }
+    },
+    {
+      "id": "P17",
+      "status": "revert",
+      "results": {
+        "Greedy": 58.0,
+        "JJJ": 56.5,
+        "Yamabuki": 54.0
+      }
+    },
+    {
+      "id": "P18",
+      "status": "revert",
+      "results": {
+        "Greedy": 63.2,
+        "JJJ": 53.8,
+        "Yamabuki": 51.0
+      }
+    },
+    {
+      "id": "P19",
+      "status": "revert",
+      "results": {
+        "Greedy": 57.0,
+        "JJJ": 57.5,
+        "Yamabuki": 44.0
+      }
+    },
+    {
+      "id": "P20",
+      "status": "revert",
+      "results": {
+        "Greedy": 58.1,
+        "JJJ": 55.8,
+        "Yamabuki": 51.5
+      }
+    },
+    {
+      "id": "P21",
+      "description": "_score_attacker: -0.50*def_penalty (opponent incoming)",
+      "status": "keep",
+      "results": {
+        "Greedy": 61.8,
+        "JJJ": 64.0,
+        "Yamabuki": 62.0
+      },
+      "weighted_delta": "+4.49%"
+    },
+    {
+      "id": "P23a",
+      "description": "_score_attacker: def_penalty 0.50 -> 0.35",
+      "status": "revert",
+      "results": {
+        "Yamabuki": 52.0,
+        "JJJ": 53.8,
+        "Greedy": 62.3
+      },
+      "note": "loop가 노이즈 단일런 비교(baseline 57/57/46 vs 62.3/53.8/52.0)로 keep 판정했으나 위양성 — 스윙이 변동범위 내. 검증된 0.50 유지 위해 수동 revert."
+    },
+    {
+      "id": "P23b",
+      "description": "_score_attacker: def_penalty 0.50 -> 0.70",
+      "status": "skip",
+      "note": "battle_benchmark 노이즈(±2.5~5%) > 계수 미세조정 효과크기. 미실행, 0.50 유지."
+    },
+    {
+      "id": "E3",
+      "description": "team_build base_score 방어 패널티 -lambda*incoming (paired A/B, lambda=0.5)",
+      "status": "revert",
+      "results": {"ab_winrate_seed0": 53.8, "ab_winrate_seed1": 48.5, "ab_winrate_combined": 51.1},
+      "note": "동일 로스터 head-to-head 800매치 합산 51.1% (409-391) — 중립(노이즈, 두 시드 방향 엇갈림). baseline 유지."
+    }
+  ],
+  "queue": []
 }

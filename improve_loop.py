@@ -106,6 +106,72 @@ EXPERIMENTS = {
             "        return (protect_idx, 0)"
         ),
     },
+    # ── 2라운드 실험 ──────────────────────────────────────────────────────────
+    "P13": {
+        "description": "team_build: speed EV investment (4HP/252Atk/252Spe JOLLY)",
+        "file": _TEAM_BUILD,
+        "old": (
+            "            if orientation == 'physical':\n"
+            "                evs, nature = (252, 252, 0, 0, 0, 4), Nature.ADAMANT\n"
+            "            elif orientation == 'special':\n"
+            "                evs, nature = (252, 0, 0, 252, 0, 4), Nature.MODEST\n"
+            "            else:\n"
+            "                evs, nature = (252, 126, 0, 126, 0, 4), Nature.HASTY"
+        ),
+        "new": (
+            "            if orientation == 'physical':\n"
+            "                evs, nature = (4, 252, 0, 0, 0, 252), Nature.JOLLY\n"
+            "            elif orientation == 'special':\n"
+            "                evs, nature = (4, 0, 0, 252, 0, 252), Nature.TIMID\n"
+            "            else:\n"
+            "                evs, nature = (4, 126, 0, 126, 0, 252), Nature.HASTY"
+        ),
+    },
+    "P14": {
+        "description": "_try_protect: raise tactical protect threshold 0.5->0.7 max_hp",
+        "file": _BATTLE_POLICY,
+        "old": (
+            "    # Tactical protect: primary threat deals ≥50% HP and partner can KO that same threat\n"
+            "    if (incoming_by_opp[primary_di] >= 0.5 * max_hp and\n"
+            "            _partner_can_ko_specific(params, state, slot, primary_di)):\n"
+            "        return (protect_idx, 0)"
+        ),
+        "new": (
+            "    # Tactical protect: primary threat deals >=70% max_hp and partner can KO that threat\n"
+            "    if (incoming_by_opp[primary_di] >= 0.7 * max_hp and\n"
+            "            _partner_can_ko_specific(params, state, slot, primary_di)):\n"
+            "        return (protect_idx, 0)"
+        ),
+    },
+    "P15": {
+        "description": "_best_assignment: higher KO bonus (10k/13k -> 12k/16k)",
+        "file": _BATTLE_POLICY,
+        "old": (
+            "                ko_bonus = (13000 if speed_clean else 10000) if will_ko else 0"
+        ),
+        "new": (
+            "                ko_bonus = (16000 if speed_clean else 12000) if will_ko else 0"
+        ),
+    },
+    "P16": {
+        "description": "_score_attacker: raise damage coefficient 1.07->1.20",
+        "file": _STRATEGY,
+        "old": "    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r",
+        "new": "    return 1.20 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r",
+    },
+    # ── 3라운드 실험 (E1: selection def_penalty 계수 스윕) ──────────────────────
+    "P23a": {
+        "description": "_score_attacker: def_penalty 0.50 -> 0.35",
+        "file": _STRATEGY,
+        "old": "    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r - 0.50 * def_penalty",
+        "new": "    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r - 0.35 * def_penalty",
+    },
+    "P23b": {
+        "description": "_score_attacker: def_penalty 0.50 -> 0.70",
+        "file": _STRATEGY,
+        "old": "    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r - 0.50 * def_penalty",
+        "new": "    return 1.07 * total + 0.30 * (hp_r * def_r) + 0.55 * spd_r - 0.70 * def_penalty",
+    },
 }
 
 # ── 유틸 ───────────────────────────────────────────────────────────────────────
@@ -174,7 +240,11 @@ def run_benchmark():
     return result.returncode
 
 
+_LOOP_OPPONENTS = {"Greedy", "JJJ", "Yamabuki"}
+
 def parse_latest_results():
+    """loop 모드는 Greedy/JJJ/Yamabuki 3개를 순서대로 저장하므로 마지막 3행을 읽는다.
+    각 상대가 별도 타임스탬프를 가져도 올바르게 동작한다."""
     if not os.path.exists(BATTLE_RESULTS):
         return None
     rows = []
@@ -184,15 +254,19 @@ def parse_latest_results():
             rows.append(row)
     if not rows:
         return None
-    latest_ts = rows[-1]["Timestamp"]
     results = {}
-    for r in rows:
-        if r["Timestamp"] == latest_ts:
-            wr_str = r["WinRate"].replace("%", "").strip()
-            try:
-                results[r["Opponent"]] = float(wr_str)
-            except ValueError:
-                pass
+    for r in reversed(rows):
+        if r["Opponent"] not in _LOOP_OPPONENTS:
+            continue
+        if r["Opponent"] in results:
+            continue
+        wr_str = r["WinRate"].replace("%", "").strip()
+        try:
+            results[r["Opponent"]] = float(wr_str)
+        except ValueError:
+            pass
+        if len(results) == len(_LOOP_OPPONENTS):
+            break
     return results if results else None
 
 
@@ -207,7 +281,7 @@ def compute_weighted_delta(current, baseline):
 
 def decide(current, baseline, run_count):
     weighted, dg, dj, dy, min_drop = compute_weighted_delta(current, baseline)
-    print(f"\n  Δgreedy={dg:+.1f}%  ΔJJJ={dj:+.1f}%  ΔYamabuki={dy:+.1f}%")
+    print(f"\n  d_greedy={dg:+.1f}%  d_jjj={dj:+.1f}%  d_yamabuki={dy:+.1f}%")
     print(f"  weighted_delta={weighted:+.2f}%  min_single_drop={min_drop:+.1f}%")
 
     if weighted < -1.0 or min_drop < -6.0:
@@ -224,7 +298,7 @@ def decide(current, baseline, run_count):
 def print_summary(state):
     sep = "=" * 65
     print(f"\n{sep}")
-    print(" IMPROVEMENT LOOP — FINAL SUMMARY")
+    print(" IMPROVEMENT LOOP - FINAL SUMMARY")
     print(sep)
     print(f" Baseline: Greedy={state['baseline']['greedy']}%  JJJ={state['baseline']['jjj']}%  Yamabuki={state['baseline']['yamabuki']}%")
     print()
@@ -234,7 +308,7 @@ def print_summary(state):
         g = r.get("Greedy", "?")
         j = r.get("JJJ", "?")
         y = r.get("Yamabuki", "?")
-        print(f" [{status:6}] {h['id']}: {h['description']}")
+        print(f" [{status:6}] {h['id']}: {h.get('description', '')}")
         print(f"          Greedy={g}%  JJJ={j}%  Yamabuki={y}%")
     print(sep)
     remaining = state.get("queue", [])
@@ -379,7 +453,7 @@ def run_next_experiment():
         print("\n[DONE] All experiments completed!")
         print_summary(state)
     else:
-        print(f"  Next: {state['queue'][0]} — {EXPERIMENTS[state['queue'][0]]['description']}")
+        print(f"  Next: {state['queue'][0]} - {EXPERIMENTS[state['queue'][0]]['description']}")
 
 
 if __name__ == "__main__":
