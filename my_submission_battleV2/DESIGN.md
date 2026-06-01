@@ -127,10 +127,13 @@ ordered = plan.lead_idxs + plan.reserve_idxs   # 전략이 정한 선발 2 + 후
 
 ```
 score = 1.07 × total_damage_ratio + 0.30 × (HP_r × DEF_r) + 0.55 × SPD_r
+        - 0.50 × def_penalty
 ```
 
 - `total_damage_ratio`: 내 포켓몬이 상대 팀 전체에 입히는 데미지 비율 합
+- `HP_r = HP/402`, `DEF_r = DEF/257`, `SPD_r = SPEED/257` (정규화 상수)
 - 속도(SPD_r)를 독립 항으로 포함 — 선발 단계에서는 속도가 선공 우위에 직결되므로 반영
+- `def_penalty`(P21): 상대 팀이 이 포켓몬에게 입히는 **평균 입사 데미지 비율**. 잘 버티는(맞는 피해가 적은) 포켓몬을 선발에서 우대하기 위해 −0.50 가중으로 차감
 
 ### `_pick_best_n` (커버리지 greedy)
 
@@ -146,6 +149,8 @@ score = 1.07 × total_damage_ratio + 0.30 × (HP_r × DEF_r) + 0.55 × SPD_r
 ### 턴 처리 순서
 
 ```
+active가 1마리뿐이면 → _greedy_single() (단일 최대 데미지 기술)
+
 for slot in [0, 1]:
     if 이 슬롯이 solo KO 가능:   → 그냥 공격 (자유 슬롯으로 남김)
     elif Protect 조건 충족:       → Protect
@@ -194,6 +199,7 @@ for slot in [0, 1]:
 1. 교체 직후 즉시 KO당할 후보 제외 (switch-in 예상 피해 ≥ HP이면 스킵)
 2. 남은 후보 중 공격력 합산 최대 포켓몬 선택
 3. 상대 최강 기술에 저항(×0.5 이하)하는 후보에 score ×1.3 보너스
+4. 교체 후보가 상대를 즉시 KO 가능하면 score +15,000 보너스 (P7)
 
 > 타입 불리 상황에서 무작정 버티지 않고 저항 가능한 포켓몬으로 포지션을 교체해 전선을 유리하게 재편.
 
@@ -297,6 +303,7 @@ score = (dmg1 + dmg2 + KO보너스 + priority보너스) / max_hp + 위협도 보
 | P5 | `selection_policy.py` | 선발 카운터피킹 — 적 전략 감지 후 속도/내구 기준 리드 재정렬 | Championship friends -23.6% — 적 팀 전체로 전략 추정 시 오판 多 | ❌ 롤백 |
 | P6 | `battle_policy.py` | 위협도 상시 반영 (`danger_bonus` 조건 제거) | Greedy +4.4%, JJJ -4.1%, Yamabuki -1.0% — net 부정적 | ❌ 롤백 |
 | **P7** | `battle_policy.py` | 교체 후보 즉시 KO 가능 시 score +15000 보너스 | Friends Battle +0%, Championship -4% (Yamabuki -6%) — friends 기준 채택 | ✅ 적용 |
+| **P21** | `strategy.py` | 선발 `_score_attacker`에 방어 패널티 추가 (−0.50 × 상대 평균 입사 데미지) | baseline(5fc2ca0) 유지 — KEEP 채택 | ✅ 적용 |
 
 ### 교훈
 
